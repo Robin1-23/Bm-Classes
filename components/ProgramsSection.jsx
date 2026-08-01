@@ -106,7 +106,8 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                       </div>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-slate-800 relative z-10">
+                    <div className="pt-6 border-t border-slate-800 relative z-10 space-y-4">
+                      {/* Tags List */}
                       <div className="flex flex-wrap gap-2">
                         {prog.tags.map((tag, tIdx) => (
                           <span key={tIdx} className="text-[10px] font-bold bg-white/10 text-indigo-300 border border-white/10 px-3 py-1 rounded-lg">
@@ -115,15 +116,16 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                         ))}
                       </div>
 
-                      <div className="flex items-center gap-2 w-full sm:w-auto">
+                      {/* Action Buttons */}
+                      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-3 w-full">
                         <button
                           onClick={onOpenSeatLock}
-                          className="flex-1 sm:flex-initial bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs px-4 py-3 rounded-2xl transition-all shadow-md flex items-center justify-center gap-1.5 cursor-pointer border border-emerald-400/40"
+                          className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs sm:text-sm px-5 py-3.5 rounded-2xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer border border-emerald-400/40 whitespace-nowrap"
                         >
-                          <Lock className="w-3.5 h-3.5 text-amber-300 shrink-0" />
-                          <span>Lock Seat ({prog.seatsLeft})</span>
+                          <Lock className="w-4 h-4 text-amber-300 shrink-0" />
+                          <span>Lock Seat ({prog.seatsLeft || '2 Left'})</span>
                         </button>
-                        <Button variant="accent" showArrow onClick={onOpenRegister}>
+                        <Button variant="accent" showArrow onClick={onOpenRegister} className="w-full sm:w-auto text-center justify-center">
                           {prog.linkText}
                         </Button>
                       </div>
@@ -175,7 +177,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                       className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs py-3 rounded-xl transition-all shadow-sm flex items-center justify-center gap-1.5 cursor-pointer border border-emerald-400/40"
                     >
                       <Lock className="w-3.5 h-3.5 text-amber-300 shrink-0" />
-                      <span>Lock Micro-Batch Seat ({prog.seatsLeft})</span>
+                      <span>Lock Micro-Batch Seat ({prog.seatsLeft || '2 Left'})</span>
                     </button>
                     <Button variant="dark" showArrow onClick={onOpenRegister} className="w-full">
                       {prog.linkText}
