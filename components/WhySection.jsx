@@ -280,13 +280,15 @@ export default function WhySection() {
             <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 relative z-10">
               
               {/* CHAMBER A: MASS FACTORY (MUTED ELEGANT NEUTRAL) */}
-              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-7 text-white flex flex-col justify-between shadow-md hover:border-slate-700 transition-all">
+              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-7 text-white flex flex-col justify-between shadow-md hover:border-slate-700 transition-all">
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] font-black uppercase tracking-wider bg-slate-800 text-slate-300 border border-slate-700 px-3 py-1 rounded-full">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+                    <span className="text-[10px] font-black uppercase tracking-wider bg-slate-800 text-slate-300 border border-slate-700 px-3 py-1 rounded-full shrink-0">
                       {currentDim.factory.badge}
                     </span>
-                    <span className="text-xs font-extrabold text-slate-400">MASS FACTORY</span>
+                    <span className="text-[11px] font-extrabold tracking-wider text-slate-400 uppercase bg-slate-800/60 border border-slate-700/80 px-2.5 py-0.5 rounded-md shrink-0">
+                      MASS FACTORY
+                    </span>
                   </div>
 
                   <h4 className="font-heading font-black text-lg sm:text-xl text-slate-100 mb-2">
@@ -313,7 +315,7 @@ export default function WhySection() {
                     </div>
                   </div>
 
-                  <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-3 flex items-center justify-between text-xs">
+                  <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2 text-xs">
                     <span className="text-slate-400 font-semibold">Doubt Delay Window:</span>
                     <span className="font-extrabold text-slate-300">{currentDim.factory.doubtSpeed}</span>
                   </div>
@@ -322,17 +324,19 @@ export default function WhySection() {
               </div>
 
               {/* CHAMBER B: BMCLASSES STANDARD (BRAND INDIGO & GOLD) */}
-              <div className="bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-950 border-2 border-indigo-500/60 rounded-2xl p-6 sm:p-7 text-white flex flex-col justify-between shadow-xl relative overflow-hidden group hover:border-indigo-400 transition-all">
+              <div className="bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-950 border-2 border-indigo-500/60 rounded-2xl p-5 sm:p-7 text-white flex flex-col justify-between shadow-xl relative overflow-hidden group hover:border-indigo-400 transition-all">
                 
                 <div className="absolute -right-12 -top-12 w-48 h-48 bg-indigo-500/20 rounded-full blur-2xl pointer-events-none"></div>
 
                 <div>
-                  <div className="flex items-center justify-between mb-4 relative z-10">
-                    <span className="text-[10px] font-black uppercase tracking-wider bg-amber-400 text-slate-950 px-3 py-1 rounded-full shadow-xs flex items-center gap-1.5">
-                      <ShieldCheck className="w-3.5 h-3.5 text-slate-950" />
-                      {currentDim.bmclasses.badge}
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-4 relative z-10">
+                    <span className="text-[10px] font-black uppercase tracking-wider bg-amber-400 text-slate-950 px-3 py-1 rounded-full shadow-xs flex items-center gap-1.5 shrink-0 max-w-full truncate">
+                      <ShieldCheck className="w-3.5 h-3.5 text-slate-950 shrink-0" />
+                      <span className="truncate">{currentDim.bmclasses.badge}</span>
                     </span>
-                    <span className="text-xs font-black text-amber-400">BMCLASSES STANDARD</span>
+                    <span className="text-[11px] font-black tracking-wider text-amber-300 uppercase bg-amber-400/10 border border-amber-400/30 px-2.5 py-0.5 rounded-md shrink-0">
+                      BMCLASSES STANDARD
+                    </span>
                   </div>
 
                   <h4 className="font-heading font-black text-lg sm:text-xl text-white mb-2 group-hover:text-amber-300 transition-colors relative z-10">
@@ -359,11 +363,11 @@ export default function WhySection() {
                     </div>
                   </div>
 
-                  <div className="bg-indigo-900/40 border border-indigo-700/50 rounded-xl p-3 flex items-center justify-between text-xs">
+                  <div className="bg-indigo-900/40 border border-indigo-700/50 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2 text-xs">
                     <span className="text-slate-200 font-semibold">Doubt Clearing Speed:</span>
-                    <span className="font-black text-amber-400 flex items-center gap-1">
-                      <Zap className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                      {currentDim.bmclasses.doubtSpeed}
+                    <span className="font-black text-amber-400 flex items-center gap-1 shrink-0">
+                      <Zap className="w-3.5 h-3.5 fill-amber-400 text-amber-400 shrink-0" />
+                      <span>{currentDim.bmclasses.doubtSpeed}</span>
                     </span>
                   </div>
                 </div>
