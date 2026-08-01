@@ -282,13 +282,16 @@ export default function WhySection() {
               {/* CHAMBER A: MASS FACTORY (MUTED ELEGANT NEUTRAL) */}
               <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-7 text-white flex flex-col justify-between shadow-md hover:border-slate-700 transition-all">
                 <div>
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
-                    <span className="text-[10px] font-black uppercase tracking-wider bg-slate-800 text-slate-300 border border-slate-700 px-3 py-1 rounded-full shrink-0">
-                      {currentDim.factory.badge}
-                    </span>
-                    <span className="text-[11px] font-extrabold tracking-wider text-slate-400 uppercase bg-slate-800/60 border border-slate-700/80 px-2.5 py-0.5 rounded-md shrink-0">
-                      MASS FACTORY
-                    </span>
+                  <div className="space-y-2 mb-5">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[11px] font-black tracking-widest text-slate-400 uppercase">
+                        MASS FACTORY
+                      </span>
+                      <span className="text-[10px] font-semibold text-slate-500">Traditional Setup</span>
+                    </div>
+                    <div className="inline-flex items-center gap-1.5 bg-slate-800 text-slate-300 border border-slate-700/80 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider">
+                      <span>{currentDim.factory.badge}</span>
+                    </div>
                   </div>
 
                   <h4 className="font-heading font-black text-lg sm:text-xl text-slate-100 mb-2">
@@ -329,14 +332,22 @@ export default function WhySection() {
                 <div className="absolute -right-12 -top-12 w-48 h-48 bg-indigo-500/20 rounded-full blur-2xl pointer-events-none"></div>
 
                 <div>
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-4 relative z-10">
-                    <span className="text-[10px] font-black uppercase tracking-wider bg-amber-400 text-slate-950 px-3 py-1 rounded-full shadow-xs flex items-center gap-1.5 shrink-0 max-w-full truncate">
-                      <ShieldCheck className="w-3.5 h-3.5 text-slate-950 shrink-0" />
-                      <span className="truncate">{currentDim.bmclasses.badge}</span>
-                    </span>
-                    <span className="text-[11px] font-black tracking-wider text-amber-300 uppercase bg-amber-400/10 border border-amber-400/30 px-2.5 py-0.5 rounded-md shrink-0">
-                      BMCLASSES STANDARD
-                    </span>
+                  <div className="space-y-2 mb-5 relative z-10">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[11px] font-black tracking-widest text-amber-400 uppercase">
+                        BMCLASSES STANDARD
+                      </span>
+                      <span className="flex items-center gap-1.5 text-[10px] font-extrabold text-emerald-400">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Verified Metric
+                      </span>
+                    </div>
+                    <div>
+                      <span className="inline-flex items-center gap-1.5 bg-amber-400 text-slate-950 px-3.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider shadow-sm">
+                        <ShieldCheck className="w-3.5 h-3.5 text-slate-950 shrink-0" />
+                        <span>{currentDim.bmclasses.badge}</span>
+                      </span>
+                    </div>
                   </div>
 
                   <h4 className="font-heading font-black text-lg sm:text-xl text-white mb-2 group-hover:text-amber-300 transition-colors relative z-10">
