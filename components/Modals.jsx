@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { X, CheckCircle2 } from 'lucide-react';
+import { PROGRAMS_DATA } from '@/data/contentData';
 
 export default function Modals({
   registerOpen,
@@ -51,13 +52,13 @@ export default function Modals({
               </div>
 
               <div>
-                <label className="block text-xs font-extrabold text-slate-900 mb-1">Target Exam & Class</label>
-                <select className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-600 font-extrabold">
-                  <option value="jee-11">Class 11 - JEE Main & Advanced</option>
-                  <option value="jee-12">Class 12 - JEE Main & Advanced</option>
-                  <option value="dropper">XII Pass / Dropper Intensive Batch</option>
-                  <option value="neet">NEET UG Medical Excellence</option>
-                  <option value="oneonone">1-on-1 Dedicated Tuition</option>
+                <label className="block text-xs font-extrabold text-slate-900 mb-1">Target Program & Exam</label>
+                <select className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-600 font-extrabold text-slate-900 bg-white">
+                  {PROGRAMS_DATA.map((prog, pIdx) => (
+                    <option key={pIdx} value={prog.id}>
+                      {prog.title} ({prog.category})
+                    </option>
+                  ))}
                 </select>
               </div>
 
