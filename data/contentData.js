@@ -69,6 +69,7 @@ export const PROGRAMS_DATA = [
     icon: BookOpen,
     desc: 'School foundation to JEE Advanced level application. 100% taught directly by Ex-HODs of FIITJEE & VMC.',
     badgeText: 'FLAGSHIP PROGRAM',
+    seatsLeft: '2 Seats Left',
     tags: ['Capped 10-15 Batch', 'Ex-FIITJEE & VMC HODs'],
     bullets: [
       '15 High-yield Qs per topic',
@@ -85,6 +86,7 @@ export const PROGRAMS_DATA = [
     icon: Stethoscope,
     desc: 'NCERT line-by-line mastery combined with high-yield Physics & Organic Chemistry mechanisms.',
     badgeText: 'TOP MEDICAL SELECTION',
+    seatsLeft: '3 Seats Left',
     tags: ['NCERT Line-by-Line', 'High-Yield Numericals'],
     bullets: [
       'NCERT Biology line-by-line drills',
@@ -101,6 +103,7 @@ export const PROGRAMS_DATA = [
     icon: UserCheck,
     desc: 'Dedicated 1-on-1 coaching with senior Ex-HOD faculty, calibrated 100% to your pace and target weak areas.',
     badgeText: '1-ON-1 DEDICATED',
+    seatsLeft: '1 Seat Left',
     tags: ['Custom Pace', 'Ex-HOD Faculty'],
     bullets: [
       'Personalised study schedule',
@@ -111,11 +114,12 @@ export const PROGRAMS_DATA = [
     featured: false,
   },
   {
-    id: 'jee',
+    id: 'bitsat',
     category: 'BITS PILANI ASPIRANTS',
     title: 'BITSAT Speed & Accuracy Crash',
     icon: Flame,
     badgeText: 'TARGET CRASH',
+    seatsLeft: '2 Seats Left',
     desc: 'Intensive practice on BITSAT-pattern speed questions, logical reasoning, and English proficiency drills.',
     tags: ['Speed Drills', '10 Full BITSAT Mocks'],
     bullets: [
@@ -131,6 +135,7 @@ export const PROGRAMS_DATA = [
     title: 'Adaptive Mock Test Series',
     icon: BarChart3,
     badgeText: 'AI RANK TELEMETRY',
+    seatsLeft: '4 Seats Left',
     desc: 'Chapter tests and full mocks graded with real-time percentile analysis and error reports.',
     tags: ['AI Weak Area Tracker', 'Percentile Analytics'],
     bullets: [
@@ -141,18 +146,19 @@ export const PROGRAMS_DATA = [
     featured: false,
   },
   {
-    id: 'oneonone',
+    id: 'doubts',
     category: 'ANY MATERIAL WELCOME',
     title: 'Board-Solving Doubt Sessions',
     icon: HelpCircle,
     badgeText: 'DAILY BOARD SLOTS',
+    seatsLeft: '2 Seats Left',
     desc: 'Bring doubts from FIITJEE, VMC, Allen, Resonance, or books. Instant board clarity with Ex-HODs.',
     tags: ['Daily Doubt Slot', 'All Books Welcome'],
     bullets: [
       'Same-day doubt resolution',
       'Zero queue waiting time',
     ],
-    linkText: 'Reserve Doubt Slot',
+    linkText: 'Book Doubt Slot',
     featured: false,
   },
 ];

@@ -138,7 +138,7 @@ export default function SeatLockModal({ isOpen, onClose }) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {PROGRAMS_DATA.map((prog, pIdx) => {
                     const isSelected = selectedBatch === prog.id;
-                    const seatsLeftText = prog.seatsLeft || (pIdx === 0 ? '2 Seats Left' : pIdx === 1 ? '1 Seat Left' : '3 Seats Left');
+                    const seatsLeftText = prog.seatsLeft || '2 Seats Left';
                     const batchCap = prog.badgeText?.includes('15') ? '15' : '12';
 
                     return (

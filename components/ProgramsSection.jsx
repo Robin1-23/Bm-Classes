@@ -127,7 +127,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                           className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs sm:text-sm px-5 py-3.5 rounded-2xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer border border-emerald-400/40 whitespace-nowrap"
                         >
                           <Lock className="w-4 h-4 text-amber-300 shrink-0" />
-                          <span>Lock Seat ({prog.seatsLeft || '2 Left'})</span>
+                          <span>Lock Seat ({prog.seatsLeft || '2 Seats Left'})</span>
                         </button>
                         <Button variant="accent" showArrow onClick={handleRegister} className="w-full sm:w-auto text-center justify-center">
                           {prog.linkText}
@@ -181,7 +181,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                       className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs py-3 rounded-xl transition-all shadow-sm flex items-center justify-center gap-1.5 cursor-pointer border border-emerald-400/40"
                     >
                       <Lock className="w-3.5 h-3.5 text-amber-300 shrink-0" />
-                      <span>Lock Micro-Batch Seat ({prog.seatsLeft || '2 Left'})</span>
+                      <span>Lock Micro-Batch Seat ({prog.seatsLeft || '2 Seats Left'})</span>
                     </button>
                     <Button variant="dark" showArrow onClick={handleRegister} className="w-full">
                       {prog.linkText}
