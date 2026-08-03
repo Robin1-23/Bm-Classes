@@ -1,8 +1,9 @@
 'use client';
 
-import React from 'react';
-import { X, CheckCircle2 } from 'lucide-react';
-import { PROGRAMS_DATA } from '@/data/contentData';
+import React, { useState } from 'react';
+import { X, CheckCircle2, ArrowRight, ShieldCheck, Phone } from 'lucide-react';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+import { PROGRAMS_DATA, CENTER_INFO } from '@/data/contentData';
 
 export default function Modals({
   registerOpen,
@@ -10,6 +11,53 @@ export default function Modals({
   videoTitle,
   onClose,
 }) {
+  const [studentName, setStudentName] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [selectedProgram, setSelectedProgram] = useState(PROGRAMS_DATA[0]?.title || 'JEE Main & Advanced Mastery');
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!studentName || !phoneNumber) return;
+
+    // 1. Save Lead to localStorage for persistent local retrieval
+    const newLead = {
+      id: `REG-${Date.now()}`,
+      studentName,
+      phoneNumber,
+      selectedProgram,
+      submittedAt: new Date().toLocaleString(),
+    };
+
+    try {
+      const existing = JSON.parse(localStorage.getItem('bmclasses_registrations') || '[]');
+      existing.unshift(newLead);
+      localStorage.setItem('bmclasses_registrations', JSON.stringify(existing));
+    } catch (err) {
+      console.error('Failed to save lead locally:', err);
+    }
+
+    // 2. Format WhatsApp Instant Message
+    const textMessage = `*📋 NEW BMCLASSES ADMISSION REGISTRATION*\n\n` +
+      `*Student Name:* ${studentName}\n` +
+      `*Phone Number:* ${phoneNumber}\n` +
+      `*Target Program:* ${selectedProgram}\n` +
+      `*Center:* Ardee City, Sector 52, Gurgaon\n\n` +
+      `Hi BmClasses, I have submitted my admission registration on the website. Please contact me for my diagnostic session and counseling call.`;
+
+    const encoded = encodeURIComponent(textMessage);
+    window.open(`https://wa.me/919899818241?text=${encoded}`, '_blank');
+
+    setSubmitted(true);
+  };
+
+  const handleReset = () => {
+    setSubmitted(false);
+    setStudentName('');
+    setPhoneNumber('');
+    onClose();
+  };
+
   return (
     <>
       {/* REGISTER MODAL */}
@@ -17,58 +65,104 @@ export default function Modals({
         <div className="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-md flex items-center justify-center p-4">
           <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-[92%] max-h-[90vh] overflow-y-auto relative shadow-2xl animate-float border border-slate-100">
             <button 
-              onClick={onClose}
+              onClick={handleReset}
               className="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-slate-200 transition-colors cursor-pointer"
+              aria-label="Close Registration Modal"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <h3 className="font-heading text-xl sm:text-2xl font-black text-slate-950 mb-1">Register for BmClasses</h3>
-            <p className="text-xs text-slate-500 mb-6 font-medium">Fill in your details for a free diagnostic session & counseling call.</p>
+            {!submitted ? (
+              <>
+                <h3 className="font-heading text-xl sm:text-2xl font-black text-slate-950 mb-1">Register for BmClasses</h3>
+                <p className="text-xs text-slate-500 mb-6 font-medium">Fill in your details for a free diagnostic session & counseling call.</p>
 
-            <form onSubmit={(e) => {
-              e.preventDefault();
-              alert('Thank you for registering with BmClasses! Our academic counselor will contact you at +91 98998 18241 shortly.');
-              onClose();
-            }} className="space-y-4">
-              <div>
-                <label className="block text-xs font-extrabold text-slate-900 mb-1">Student Name</label>
-                <input 
-                  type="text" 
-                  required 
-                  placeholder="Enter student's full name"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-600 font-medium"
-                />
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-xs font-extrabold text-slate-900 mb-1">Student Full Name *</label>
+                    <input 
+                      type="text" 
+                      required 
+                      value={studentName}
+                      onChange={(e) => setStudentName(e.target.value)}
+                      placeholder="e.g. Rahul Sharma"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-600 font-extrabold bg-slate-50 focus:bg-white"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-extrabold text-slate-900 mb-1">Parent Phone Number *</label>
+                    <input 
+                      type="tel" 
+                      required 
+                      value={phoneNumber}
+                      onChange={(e) => setPhoneNumber(e.target.value)}
+                      placeholder="e.g. 9899818241"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-600 font-extrabold bg-slate-50 focus:bg-white"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-extrabold text-slate-900 mb-1">Target Program & Exam</label>
+                    <select 
+                      value={selectedProgram}
+                      onChange={(e) => setSelectedProgram(e.target.value)}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-600 font-extrabold text-slate-900 bg-white"
+                    >
+                      {PROGRAMS_DATA.map((prog, pIdx) => (
+                        <option key={pIdx} value={`${prog.title} (${prog.category})`}>
+                          {prog.title} ({prog.category})
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <button 
+                    type="submit" 
+                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-3.5 rounded-xl transition-all text-sm shadow-md mt-2 cursor-pointer flex items-center justify-center gap-2"
+                  >
+                    <span>Submit & Forward to Counselor</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </form>
+              </>
+            ) : (
+              <div className="py-4 text-center space-y-4">
+                <div className="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-sm">
+                  <CheckCircle2 className="w-8 h-8" />
+                </div>
+
+                <h3 className="font-heading text-xl font-black text-slate-950">Registration Submitted!</h3>
+                
+                <p className="text-xs text-slate-600 font-medium leading-relaxed">
+                  Thank you, <strong className="text-slate-900">{studentName}</strong>. Your registration details have been collected and sent directly to our academic counselor at Ardee City Center.
+                </p>
+
+                <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs font-bold text-slate-800 space-y-1">
+                  <div>Program: {selectedProgram}</div>
+                  <div>Phone: {phoneNumber}</div>
+                  <div className="text-[10px] text-emerald-600 font-black">Status: Verified & Forwarded via WhatsApp</div>
+                </div>
+
+                <div className="space-y-2 pt-2">
+                  <a 
+                    href={CENTER_INFO.whatsappUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-full bg-[#25D366] hover:bg-emerald-600 text-white font-bold text-xs py-3 rounded-xl flex items-center justify-center gap-2 shadow-sm"
+                  >
+                    <WhatsAppIcon className="w-4 h-4 text-white" /> Connect Directly on WhatsApp
+                  </a>
+
+                  <button 
+                    onClick={handleReset}
+                    className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-extrabold text-xs py-2.5 rounded-xl transition-colors cursor-pointer"
+                  >
+                    Done
+                  </button>
+                </div>
               </div>
-
-              <div>
-                <label className="block text-xs font-extrabold text-slate-900 mb-1">Phone Number</label>
-                <input 
-                  type="tel" 
-                  required 
-                  placeholder="Enter 10-digit mobile number"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-600 font-medium"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-extrabold text-slate-900 mb-1">Target Program & Exam</label>
-                <select className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-600 font-extrabold text-slate-900 bg-white">
-                  {PROGRAMS_DATA.map((prog, pIdx) => (
-                    <option key={pIdx} value={prog.id}>
-                      {prog.title} ({prog.category})
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <button 
-                type="submit" 
-                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-3.5 rounded-xl transition-all text-sm shadow-md mt-2 cursor-pointer"
-              >
-                Submit Application
-              </button>
-            </form>
+            )}
           </div>
         </div>
       )}
