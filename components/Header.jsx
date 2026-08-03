@@ -141,15 +141,30 @@ export default function Header({ onOpenRegister, onOpenLogin, onOpenSeatLock }) 
       {mobileMenuOpen && (
         <div className="lg:hidden">
           <div 
-            className="fixed inset-0 top-[90px] bg-slate-950/60 backdrop-blur-sm z-40 transition-opacity"
+            className="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-40 transition-opacity"
             onClick={() => setMobileMenuOpen(false)}
           ></div>
 
-          <div className="fixed inset-x-0 top-[90px] z-50 bg-white border-b border-slate-200 shadow-2xl p-6 flex flex-col gap-4 text-slate-900 max-h-[80vh] overflow-y-auto">
+          <div className="fixed inset-x-0 top-0 sm:top-2 z-50 bg-white border-b border-slate-200 shadow-2xl p-5 sm:p-6 flex flex-col gap-4 text-slate-900 max-h-[90vh] overflow-y-auto rounded-b-3xl">
             
-            <div className="text-[10px] font-black uppercase tracking-widest text-indigo-600 pb-1 border-b border-slate-100 flex items-center justify-between">
-              <span>Navigation Pages</span>
-              <span className="text-[9px] bg-amber-400 text-slate-950 px-2 py-0.5 rounded font-black">Gurgaon Center</span>
+            {/* Drawer Header with Explicit Close X Button */}
+            <div className="pb-3 border-b border-slate-100 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="text-xs font-black uppercase tracking-widest text-indigo-600">
+                  Navigation Pages
+                </span>
+                <span className="text-[9px] bg-amber-400 text-slate-950 px-2 py-0.5 rounded font-black">
+                  Gurgaon Center
+                </span>
+              </div>
+
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 flex items-center justify-center transition-colors cursor-pointer border border-slate-200"
+                aria-label="Close navigation menu"
+              >
+                <X className="w-5 h-5 text-slate-950" />
+              </button>
             </div>
 
             <nav className="flex flex-col gap-1.5 font-extrabold text-sm">
