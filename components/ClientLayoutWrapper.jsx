@@ -11,7 +11,7 @@ import FloatingWhatsAppButton from '@/components/FloatingWhatsAppButton';
 import MobileStickyActionBar from '@/components/MobileStickyActionBar';
 
 function Shell({ children }) {
-  const { registerOpen, loginOpen, seatLockOpen, videoTitle, closeModals } = useModal();
+  const { registerOpen, loginOpen, seatLockOpen, videoTitle, preselectedProgram, closeModals } = useModal();
 
   return (
     <div className="min-h-screen flex flex-col pb-16 lg:pb-0 overflow-x-hidden max-w-full w-full">
@@ -25,6 +25,7 @@ function Shell({ children }) {
         registerOpen={registerOpen}
         loginOpen={loginOpen}
         videoTitle={videoTitle}
+        preselectedProgram={preselectedProgram}
         onClose={closeModals}
       />
       <SeatLockModal

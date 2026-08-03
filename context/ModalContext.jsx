@@ -9,10 +9,14 @@ export function ModalProvider({ children }) {
   const [loginOpen, setLoginOpen] = useState(false);
   const [seatLockOpen, setSeatLockOpen] = useState(false);
   const [videoTitle, setVideoTitle] = useState(null);
+  const [preselectedProgram, setPreselectedProgram] = useState('');
 
-  const openRegister = () => {
+  const openRegister = (programName) => {
     setLoginOpen(false);
     setSeatLockOpen(false);
+    if (programName && typeof programName === 'string') {
+      setPreselectedProgram(programName);
+    }
     setRegisterOpen(true);
   };
 
@@ -46,6 +50,7 @@ export function ModalProvider({ children }) {
         loginOpen,
         seatLockOpen,
         videoTitle,
+        preselectedProgram,
         openRegister,
         openLogin,
         openSeatLock,

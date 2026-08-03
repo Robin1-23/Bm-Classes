@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X, CheckCircle2, ArrowRight, ShieldCheck, Phone } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { PROGRAMS_DATA, CENTER_INFO } from '@/data/contentData';
@@ -9,12 +9,29 @@ export default function Modals({
   registerOpen,
   loginOpen,
   videoTitle,
+  preselectedProgram,
   onClose,
 }) {
   const [studentName, setStudentName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
-  const [selectedProgram, setSelectedProgram] = useState(PROGRAMS_DATA[0]?.title || 'JEE Main & Advanced Mastery');
+  const [selectedProgram, setSelectedProgram] = useState(`${PROGRAMS_DATA[0]?.title} (${PROGRAMS_DATA[0]?.category})`);
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (preselectedProgram && registerOpen) {
+      const match = PROGRAMS_DATA.find(
+        (p) =>
+          p.id === preselectedProgram ||
+          p.title.toLowerCase().includes(preselectedProgram.toLowerCase()) ||
+          preselectedProgram.toLowerCase().includes(p.title.toLowerCase())
+      );
+      if (match) {
+        setSelectedProgram(`${match.title} (${match.category})`);
+      } else {
+        setSelectedProgram(preselectedProgram);
+      }
+    }
+  }, [preselectedProgram, registerOpen]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

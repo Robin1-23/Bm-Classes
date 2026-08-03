@@ -129,7 +129,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                           <Lock className="w-4 h-4 text-amber-300 shrink-0" />
                           <span>Lock Seat ({prog.seatsLeft || '2 Seats Left'})</span>
                         </button>
-                        <Button variant="accent" showArrow onClick={handleRegister} className="w-full sm:w-auto text-center justify-center">
+                        <Button variant="accent" showArrow onClick={() => handleRegister(prog.title)} className="w-full sm:w-auto text-center justify-center">
                           {prog.linkText}
                         </Button>
                       </div>
@@ -183,7 +183,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                       <Lock className="w-3.5 h-3.5 text-amber-300 shrink-0" />
                       <span>Lock Micro-Batch Seat ({prog.seatsLeft || '2 Seats Left'})</span>
                     </button>
-                    <Button variant="dark" showArrow onClick={handleRegister} className="w-full">
+                    <Button variant="dark" showArrow onClick={() => handleRegister(prog.title)} className="w-full">
                       {prog.linkText}
                     </Button>
                   </div>
