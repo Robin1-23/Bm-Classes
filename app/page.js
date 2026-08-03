@@ -8,7 +8,6 @@ import FacultySection from '@/components/FacultySection';
 import CalculatorSection from '@/components/CalculatorSection';
 import PlatformSection from '@/components/PlatformSection';
 import ResultsSection from '@/components/ResultsSection';
-import BlogSection from '@/components/BlogSection';
 import CenterLocationSection from '@/components/CenterLocationSection';
 import { useModal } from '@/context/ModalContext';
 
@@ -37,7 +36,6 @@ export default function Home() {
       <ResultsSection 
         onOpenVideo={openVideo} 
       />
-      <BlogSection />
       <CenterLocationSection 
         onOpenRegister={openRegister}
       />

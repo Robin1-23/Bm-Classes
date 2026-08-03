@@ -140,12 +140,6 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="hover:text-amber-400 transition-colors flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-                  <span>JEE & NEET Strategy Articles</span>
-                </Link>
-              </li>
-              <li>
                 <Link href="/contact" className="hover:text-amber-400 transition-colors flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                   <span>Gurgaon Center Location</span>

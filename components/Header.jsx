@@ -31,7 +31,6 @@ export default function Header({ onOpenRegister, onOpenLogin, onOpenSeatLock }) 
     { label: 'Ex-HOD Mentors', href: '/faculty' },
     { label: 'Fee Estimator', href: '/calculator' },
     { label: 'AIR Ranks', href: '/results' },
-    { label: 'Articles', href: '/blog' },
     { label: 'Contact', href: '/contact' },
   ];
 
