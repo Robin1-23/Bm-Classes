@@ -1,4 +1,5 @@
 import './globals.css';
+import ClientLayoutWrapper from '@/components/ClientLayoutWrapper';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bmclasses.in';
 
@@ -167,7 +168,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body className="font-body bg-[#faf8f5] text-slate-900 antialiased selection:bg-indigo-600 selection:text-white">
-        {children}
+        <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
       </body>
     </html>
   );

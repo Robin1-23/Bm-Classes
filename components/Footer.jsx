@@ -1,12 +1,18 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Phone, Mail, MapPin, ArrowRight, Clock, Star, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import { useModal } from '@/context/ModalContext';
 
 export default function Footer({ onOpenRegister, onOpenLogin }) {
   const [callbackPhone, setCallbackPhone] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const modal = useModal();
+
+  const handleRegister = onOpenRegister || modal.openRegister;
+  const handleLogin = onOpenLogin || modal.openLogin;
 
   const whatsappUrl = "https://wa.me/919899818241?text=Hi%20BmClasses%2C%20I%20would%20like%20to%20know%20more%20about%20your%20coaching%20programs.";
 
@@ -50,7 +56,7 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
 
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
             <button
-              onClick={onOpenRegister}
+              onClick={handleRegister}
               className="w-full sm:w-auto bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm px-6 py-3.5 rounded-2xl transition-all shadow-lg cursor-pointer flex items-center justify-center gap-2"
             >
               <span>Apply for Admissions</span>
@@ -74,12 +80,12 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
           
           {/* Col 1: Institute Identity (4 cols) */}
           <div className="lg:col-span-4">
-            <a href="#" className="flex items-center gap-2.5 font-heading text-2xl font-black tracking-tight text-white mb-4">
+            <Link href="/" className="flex items-center gap-2.5 font-heading text-2xl font-black tracking-tight text-white mb-4">
               <span className="w-9 h-9 rounded-2xl bg-gradient-to-br from-amber-400 to-yellow-500 text-slate-950 font-black flex items-center justify-center text-base shadow-md">
                 Bm
               </span>
               <span>Classes</span>
-            </a>
+            </Link>
 
             <p className="text-xs sm:text-sm leading-relaxed text-slate-300 max-w-sm mb-6 font-medium">
               100% Ex-HOD taught. Capped 10-15 batches. Premier JEE & NEET ranks in Gurgaon.
@@ -100,38 +106,50 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
           {/* Col 2: Navigation Links (3 cols) */}
           <div className="lg:col-span-3">
             <h4 className="font-heading font-black text-white text-xs uppercase tracking-widest mb-5">
-              Coaching Programs
+              Quick Pages
             </h4>
             <ul className="space-y-3 text-xs font-extrabold text-slate-300">
               <li>
-                <a href="#programs" className="hover:text-amber-400 transition-colors flex items-center gap-2">
+                <Link href="/why-us" className="hover:text-amber-400 transition-colors flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-                  <span>JEE Main & Advanced Flagship</span>
-                </a>
+                  <span>Why Small Batch Coaching</span>
+                </Link>
               </li>
               <li>
-                <a href="#programs" className="hover:text-amber-400 transition-colors flex items-center gap-2">
+                <Link href="/programs" className="hover:text-amber-400 transition-colors flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-                  <span>NEET-UG Medical Excellence</span>
-                </a>
+                  <span>Academic Programs (JEE & NEET)</span>
+                </Link>
               </li>
               <li>
-                <a href="#programs" className="hover:text-amber-400 transition-colors flex items-center gap-2">
+                <Link href="/faculty" className="hover:text-amber-400 transition-colors flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-                  <span>XII Pass / Droppers Intensive</span>
-                </a>
+                  <span>Ex-HOD Faculty Mentors</span>
+                </Link>
               </li>
               <li>
-                <a href="#programs" className="hover:text-amber-400 transition-colors flex items-center gap-2">
+                <Link href="/calculator" className="hover:text-amber-400 transition-colors flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-                  <span>1-on-1 Personal Mentorship</span>
-                </a>
+                  <span>Fee & Scholarship Estimator</span>
+                </Link>
               </li>
               <li>
-                <a href="#calculator" className="hover:text-amber-400 transition-colors flex items-center gap-2">
+                <Link href="/results" className="hover:text-amber-400 transition-colors flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-                  <span>Fee & Seat Estimator</span>
-                </a>
+                  <span>Top AIR Ranks & Reviews</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog" className="hover:text-amber-400 transition-colors flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                  <span>JEE & NEET Strategy Articles</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-amber-400 transition-colors flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                  <span>Gurgaon Center Location</span>
+                </Link>
               </li>
             </ul>
           </div>
@@ -213,11 +231,11 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
           </div>
 
           <div className="flex items-center gap-4 text-[11px]">
-            <button onClick={onOpenRegister} className="hover:text-amber-400 transition-colors cursor-pointer">Admissions</button>
+            <button onClick={handleRegister} className="hover:text-amber-400 transition-colors cursor-pointer">Admissions</button>
             <span>·</span>
-            <button onClick={onOpenLogin} className="hover:text-amber-400 transition-colors cursor-pointer">Student Portal</button>
+            <button onClick={handleLogin} className="hover:text-amber-400 transition-colors cursor-pointer">Student Portal</button>
             <span>·</span>
-            <a href="#contact" className="hover:text-amber-400 transition-colors">Ardee City Sector 52 Gurgaon</a>
+            <Link href="/contact" className="hover:text-amber-400 transition-colors">Ardee City Sector 52 Gurgaon</Link>
           </div>
         </div>
 
