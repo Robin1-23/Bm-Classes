@@ -2,6 +2,7 @@
 
 import React from 'react';
 import PageHeader from '@/components/ui/PageHeader';
+import BespokeHallOfFame from '@/components/results/BespokeHallOfFame';
 import ResultsSection from '@/components/ResultsSection';
 import FacultySection from '@/components/FacultySection';
 import { useModal } from '@/context/ModalContext';
@@ -17,6 +18,7 @@ export default function ResultsPage() {
         subtitle="15+ years of verified JEE Advanced and NEET top ranks. Real video reviews from Gurgaon parents and IITian alumni."
         breadcrumb="Top AIR Ranks"
       />
+      <BespokeHallOfFame />
       <ResultsSection 
         onOpenVideo={openVideo}
       />

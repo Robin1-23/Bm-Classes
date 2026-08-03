@@ -2,6 +2,7 @@
 
 import React from 'react';
 import PageHeader from '@/components/ui/PageHeader';
+import BespokeWhyUsDetails from '@/components/why-us/BespokeWhyUsDetails';
 import WhySection from '@/components/WhySection';
 import PlatformSection from '@/components/PlatformSection';
 
@@ -14,6 +15,7 @@ export default function WhyUsPage() {
         subtitle="Premier institute rigor combined with the individual attention and same-day board doubt resolution only a capped 10-15 student batch provides."
         breadcrumb="Why Us"
       />
+      <BespokeWhyUsDetails />
       <WhySection />
       <PlatformSection />
     </>

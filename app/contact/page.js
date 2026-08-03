@@ -2,6 +2,7 @@
 
 import React from 'react';
 import PageHeader from '@/components/ui/PageHeader';
+import BespokeCenterGuide from '@/components/contact/BespokeCenterGuide';
 import CenterLocationSection from '@/components/CenterLocationSection';
 import CalculatorSection from '@/components/CalculatorSection';
 import { useModal } from '@/context/ModalContext';
@@ -17,6 +18,7 @@ export default function ContactPage() {
         subtitle="Book a direct 1-on-1 diagnostic counseling session with Senior HODs at our Ardee City, Sector 52 center."
         breadcrumb="Contact Us"
       />
+      <BespokeCenterGuide />
       <CenterLocationSection 
         onOpenRegister={openRegister}
       />
