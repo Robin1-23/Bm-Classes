@@ -46,7 +46,7 @@ export default function Modals({
       `Hi BmClasses, I have submitted my admission registration on the website. Please contact me for my diagnostic session and counseling call.`;
 
     const encoded = encodeURIComponent(textMessage);
-    window.open(`https://wa.me/919899818241?text=${encoded}`, '_blank');
+    window.open(`https://wa.me/919991239374?text=${encoded}`, '_blank');
 
     setSubmitted(true);
   };
@@ -146,12 +146,12 @@ export default function Modals({
 
                 <div className="space-y-2 pt-2">
                   <a 
-                    href={CENTER_INFO.whatsappUrl} 
+                    href="https://wa.me/919991239374?text=Hi%20BmClasses%2C%20I%20have%20submitted%20my%20registration%20form%20on%20the%20website." 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="w-full bg-[#25D366] hover:bg-emerald-600 text-white font-bold text-xs py-3 rounded-xl flex items-center justify-center gap-2 shadow-sm"
                   >
-                    <WhatsAppIcon className="w-4 h-4 text-white" /> Connect Directly on WhatsApp
+                    <WhatsAppIcon className="w-4 h-4 text-white" /> Connect Directly on WhatsApp (+91 99912 39374)
                   </a>
 
                   <button 
