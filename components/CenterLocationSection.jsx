@@ -4,8 +4,11 @@ import React, { useState } from 'react';
 import { MapPin, Navigation, Phone, Clock, Share2, Sparkles, CheckCircle2, ShieldCheck, ExternalLink } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import ScrollReveal from '@/components/ScrollReveal';
+import { useModal } from '@/context/ModalContext';
 
 export default function CenterLocationSection({ onOpenRegister }) {
+  const modal = useModal();
+  const handleRegister = onOpenRegister || modal.openRegister;
   const [copied, setCopied] = useState(false);
 
   const centerAddress = "B 38, Ground Floor, Ardee City, Sector 52, Gurgaon, Haryana 122003";
@@ -126,7 +129,7 @@ export default function CenterLocationSection({ onOpenRegister }) {
                 </div>
 
                 <button
-                  onClick={onOpenRegister}
+                  onClick={handleRegister}
                   className="w-full py-3.5 px-4 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs rounded-2xl transition-all shadow-sm cursor-pointer"
                 >
                   Schedule Personal Center Tour & Counseling

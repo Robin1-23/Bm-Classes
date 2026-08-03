@@ -3,8 +3,12 @@
 import React from 'react';
 import { Award, ShieldCheck, Trophy, Sparkles, GraduationCap, Flame, ArrowRight, CheckCircle2, Star, Lock } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
+import { useModal } from '@/context/ModalContext';
 
 export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
+  const modal = useModal();
+  const handleRegister = onOpenRegister || modal.openRegister;
+  const handleSeatLock = onOpenSeatLock || modal.openSeatLock;
   const badges = [
     {
       metric: '15+ Yrs Exp',
@@ -78,7 +82,7 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
           <ScrollReveal delay={400} direction="up">
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full sm:w-auto">
               <button 
-                onClick={onOpenSeatLock}
+                onClick={handleSeatLock}
                 className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white font-black text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl transition-all shadow-lg shadow-emerald-200 hover:shadow-xl hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2 border-2 border-emerald-300/40"
               >
                 <Lock className="w-4 h-4 sm:w-5 sm:h-5 text-amber-300 shrink-0" />
@@ -86,7 +90,7 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
               </button>
 
               <button 
-                onClick={onOpenRegister}
+                onClick={handleRegister}
                 className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl transition-all shadow-lg shadow-indigo-200 hover:shadow-xl hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2"
               >
                 <span>Apply for Admissions</span>

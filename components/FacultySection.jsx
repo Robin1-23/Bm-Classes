@@ -6,8 +6,11 @@ import ScrollReveal from '@/components/ScrollReveal';
 import SectionHeader from '@/components/ui/SectionHeader';
 import Button from '@/components/ui/Button';
 import { MENTORS_DATA } from '@/data/contentData';
+import { useModal } from '@/context/ModalContext';
 
 export default function FacultySection({ onOpenRegister }) {
+  const modal = useModal();
+  const handleRegister = onOpenRegister || modal.openRegister;
   return (
     <section className="bg-[#faf8f5] py-20 sm:py-28 border-b border-slate-200/80 relative overflow-hidden" id="faculty">
       
@@ -84,7 +87,7 @@ export default function FacultySection({ onOpenRegister }) {
 
                 {/* Action CTA */}
                 <div className="p-6 pt-0">
-                  <Button variant="dark" icon={MessageCircle} onClick={onOpenRegister} className="w-full">
+                  <Button variant="dark" icon={MessageCircle} onClick={handleRegister} className="w-full">
                     Book Counseling with Mentor
                   </Button>
                 </div>

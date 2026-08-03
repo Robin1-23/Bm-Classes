@@ -3,8 +3,11 @@
 import React from 'react';
 import { Play, Sparkles, Trophy, Star } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
+import { useModal } from '@/context/ModalContext';
 
 export default function ResultsSection({ onOpenVideo }) {
+  const modal = useModal();
+  const handleVideo = onOpenVideo || modal.openVideo;
   const ranks = [
     'AIR 18', 'AIR 22', 'AIR 52', 'AIR 102', 'AIR 350', 'AIR 1146', 'AIR 2043'
   ];
@@ -124,7 +127,7 @@ export default function ResultsSection({ onOpenVideo }) {
           {videoCards.map((v, idx) => (
             <ScrollReveal key={idx} delay={150 * (idx + 1)} direction="up">
               <div
-                onClick={() => onOpenVideo(v.title + ' — ' + v.rank)}
+                onClick={() => handleVideo(v.title + ' — ' + v.rank)}
                 className="relative bg-slate-950 rounded-3xl overflow-hidden aspect-video cursor-pointer group flex items-center justify-center border border-slate-800 shadow-xl hover:border-indigo-500/50 transition-all"
               >
                 <div className="w-14 h-14 rounded-2xl bg-amber-400 text-slate-950 flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl z-10 border-2 border-white/20">

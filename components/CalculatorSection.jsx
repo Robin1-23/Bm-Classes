@@ -1,12 +1,16 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Calculator, CheckCircle2, Zap, ArrowRight, ShieldCheck, Award, Users } from 'lucide-react';
+import { Calculator, CheckCircle2, Zap, ArrowRight, ShieldCheck, Award, Users, Lock } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 import SectionHeader from '@/components/ui/SectionHeader';
 import Button from '@/components/ui/Button';
+import { useModal } from '@/context/ModalContext';
 
-export default function CalculatorSection({ onOpenRegister }) {
+export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
+  const modal = useModal();
+  const handleRegister = onOpenRegister || modal.openRegister;
+  const handleSeatLock = onOpenSeatLock || modal.openSeatLock;
   const [cls, setCls] = useState('dropper');
   const [exam, setExam] = useState('advanced');
   const [mode, setMode] = useState('smallbatch');
@@ -224,7 +228,7 @@ export default function CalculatorSection({ onOpenRegister }) {
 
                 {/* Main Action CTA */}
                 <div>
-                  <Button variant="accent" showArrow onClick={onOpenRegister} className="w-full">
+                  <Button variant="accent" showArrow onClick={handleRegister} className="w-full">
                     Reserve Seat & Claim Scholarship
                   </Button>
                 </div>
