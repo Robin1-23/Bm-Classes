@@ -58,7 +58,7 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
           <ScrollReveal delay={100} direction="down">
             <div className="inline-flex items-center gap-1.5 xs:gap-2 px-3 xs:px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-[10px] xs:text-xs font-black uppercase tracking-wider mb-4 sm:mb-6 shadow-xs">
               <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-indigo-600 shrink-0" />
-              <span>JEE ADVANCED · JEE MAIN · NEET UG</span>
+              <span>BM CLASSES — LEARN TODAY, LEAD TOMORROW</span>
             </div>
           </ScrollReveal>
 
@@ -73,9 +73,9 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
 
           <ScrollReveal delay={300} direction="up">
             <p className="text-base sm:text-lg lg:text-xl font-extrabold max-w-xl leading-snug mx-auto lg:mx-0 mb-6 sm:mb-8 tracking-tight">
-              <span className="text-slate-950 font-black">100% Ex-HOD Taught.</span>{' '}
-              <span className="text-indigo-600 font-black">Capped 10-15 Batches.</span>{' '}
-              <span className="text-cyan-600 font-black">Top Ranks Delivered.</span>
+              <span className="text-slate-950 font-black">20+ Yrs Teaching Faculty.</span>{' '}
+              <span className="text-indigo-600 font-black">Annual IITian Interaction.</span>{' '}
+              <span className="text-cyan-600 font-black">Offline & Online Classes.</span>
             </p>
           </ScrollReveal>
 
@@ -104,11 +104,15 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
             <div className="mt-8 sm:mt-10 pt-4 sm:pt-6 border-t border-slate-200/80 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-[11px] sm:text-xs text-slate-600 font-bold">
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 shrink-0" />
-                <span>40+ Yrs Experience</span>
+                <span>20+ Yrs Exp Faculty</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 shrink-0" />
-                <span>Same-Day Doubt Clearing</span>
+                <span>Interactive Digital Boards</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 shrink-0" />
+                <span>4 Gurgaon Centers</span>
               </div>
               <div className="flex items-center gap-1 text-cyan-600">
                 <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-cyan-400 text-cyan-400 shrink-0" />

@@ -53,32 +53,39 @@ export default function BespokeProgramRoadmap() {
 
   const batchSchedules = [
     {
-      batchName: 'Class XI 2-Yr JEE Advanced',
-      timing: '4:00 PM - 7:30 PM (Mon, Wed, Fri)',
+      batchName: 'Class 12th JEE & NEET (Starts 12th March)',
+      timing: 'Dedicated JEE Advanced · Annual IITian Interaction',
       seatsLeft: '2 Seats Left of 12',
-      status: 'High Demand',
+      status: 'Starts 12th March',
       badgeBg: 'bg-emerald-500/10 text-emerald-700 border-emerald-300',
     },
     {
-      batchName: 'Class XII 1-Yr JEE Pinnacle',
-      timing: '4:00 PM - 7:30 PM (Tue, Thu, Sat)',
-      seatsLeft: '1 Seat Left of 12',
-      status: 'Almost Capped',
+      batchName: 'Class 11th JEE & NEET (Starts 6th April)',
+      timing: 'Personalised Small Batches · Ex-HOD Taught',
+      seatsLeft: '3 Seats Left of 12',
+      status: 'Starts 6th April',
       badgeBg: 'bg-cyan-500/10 text-cyan-900 border-cyan-300',
     },
     {
-      batchName: 'XII Pass / Dropper Ranker',
-      timing: '09:30 AM - 01:30 PM (Daily Mon-Sat)',
+      batchName: 'Class 10th Maths & Science (Starts 12th March)',
+      timing: 'Competency-Based Learning · Updated NCERT',
       seatsLeft: '3 Seats Left of 15',
-      status: 'Morning Batch',
+      status: 'Starts 12th March',
       badgeBg: 'bg-indigo-500/10 text-indigo-700 border-indigo-300',
     },
     {
-      batchName: 'NEET-UG Medical Excellence',
-      timing: '10:00 AM - 01:30 PM (Tue, Thu, Sat)',
-      seatsLeft: '2 Seats Left of 12',
-      status: 'NCERT Focus',
+      batchName: 'Class 9th Maths & Science (Starts 14th March)',
+      timing: 'Updated NCERT Syllabus · Small Capped Batch',
+      seatsLeft: '4 Seats Left of 15',
+      status: 'Starts 14th March',
       badgeBg: 'bg-purple-500/10 text-purple-700 border-purple-300',
+    },
+    {
+      batchName: 'Biology Special — Konika Ma\'am (20 Yrs Exp)',
+      timing: 'NEET Botany & CBSE/ICSE/IB · Interactive Digital Board',
+      seatsLeft: '2 Seats Left of 12',
+      status: '20 Yrs Exp',
+      badgeBg: 'bg-emerald-500/10 text-emerald-700 border-emerald-300',
     },
   ];
 

@@ -80,15 +80,19 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
           
           {/* Col 1: Institute Identity (4 cols) */}
           <div className="lg:col-span-4">
-            <Link href="/" className="flex items-center gap-2.5 font-heading text-2xl font-black tracking-tight text-white mb-4">
+            <Link href="/" className="flex items-center gap-2.5 font-heading text-2xl font-black tracking-tight text-white mb-2">
               <span className="w-9 h-9 rounded-2xl bg-gradient-to-br from-cyan-400 to-teal-400 text-slate-950 font-black flex items-center justify-center text-base shadow-md">
-                Bm
+                BM
               </span>
-              <span>Classes</span>
+              <span>CLASSES</span>
             </Link>
 
-            <p className="text-xs sm:text-sm leading-relaxed text-slate-300 max-w-sm mb-6 font-medium">
-              100% Ex-HOD taught. Capped 10-15 batches. Premier JEE & NEET ranks in Gurgaon.
+            <span className="inline-block text-[11px] font-black text-cyan-300 uppercase tracking-widest mb-3">
+              Learn Today, Lead Tomorrow
+            </span>
+
+            <p className="text-xs sm:text-sm leading-relaxed text-slate-300 max-w-sm mb-5 font-medium">
+              100% Ex-HOD taught. Small capped batches. Dedicated JEE Advanced & NEET preparation in Gurgaon.
             </p>
 
             {/* Rating Badge */}
@@ -151,18 +155,20 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
           {/* Col 3: Center Address & Contact (3 cols) */}
           <div className="lg:col-span-3">
             <h4 className="font-heading font-black text-white text-xs uppercase tracking-widest mb-5">
-              Gurgaon Center
+              Gurgaon Centers
             </h4>
             
             <div className="space-y-3 text-xs font-semibold text-slate-300">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-cyan-300 shrink-0 mt-0.5" />
-                <span className="leading-snug">B 38, Ground Floor, Ardee City, Sector 52, Gurgaon, Haryana 122003</span>
+                <span className="leading-snug">
+                  Sec 45 (Near DPS) · Sec 47 (Malibu Towne) · Sec 46 · Sec 52 (Ardee City)
+                </span>
               </div>
 
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-cyan-300 shrink-0" />
-                <a href="tel:+919899818241" className="text-white font-extrabold hover:text-cyan-300 transition-colors">+91 98998 18241</a>
+                <a href="tel:+919899818241" className="text-white font-extrabold hover:text-cyan-300 transition-colors">+91 98998 18241 / 99994 95938</a>
               </div>
 
               <div className="flex items-center gap-2.5">
@@ -172,9 +178,8 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
                 </a>
               </div>
 
-              <div className="flex items-center gap-2.5">
-                <Clock className="w-4 h-4 text-cyan-300 shrink-0" />
-                <span>Mon - Sun: 8:00 AM - 8:00 PM</span>
+              <div className="flex items-center gap-2.5 text-[11px] text-cyan-300 font-bold">
+                <span>Insta: @chemistrybybighnarajsir</span>
               </div>
             </div>
           </div>

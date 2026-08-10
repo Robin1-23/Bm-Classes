@@ -24,7 +24,7 @@ export default function FacultySection({ onOpenRegister }) {
         />
 
         {/* SENIOR MENTOR CREDENTIAL DOSSIER CARDS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-lg sm:max-w-none mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6 max-w-lg sm:max-w-none mx-auto">
           {MENTORS_DATA.map((mentor, idx) => (
             <ScrollReveal key={idx} delay={150 * (idx + 1)} direction="up">
               <div className="bg-white border-2 border-slate-200/90 rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-1.5 hover:border-indigo-400 transition-all duration-300 flex flex-col justify-between group h-full">

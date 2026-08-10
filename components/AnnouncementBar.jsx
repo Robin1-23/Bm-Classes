@@ -12,10 +12,10 @@ export default function AnnouncementBar() {
         <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 max-w-full">
           <span className="inline-flex items-center gap-1.5 bg-slate-950 text-cyan-300 px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs font-black uppercase tracking-wider shadow-xs shrink-0">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
-            Admissions Open 2026-27
+            Learn Today, Lead Tomorrow
           </span>
           <span className="text-slate-950 text-xs sm:text-sm font-extrabold tracking-tight">
-            Small-Batch JEE Advanced, Main & NEET Coaching · Max 10-15 Seats per Intake
+            New Batches: Class 12th & 10th (12th Mar) • Class 11th (6th Apr) • Class 9th (14th Mar)
           </span>
         </div>
 

@@ -71,36 +71,46 @@ export default function CenterLocationSection({ onOpenRegister }) {
                 </div>
 
                 <h3 className="font-heading text-2xl font-black text-slate-950 mb-3">
-                  BmClasses Gurgaon Studio
+                  BM CLASSES Gurgaon Hubs
                 </h3>
 
-                <div className="space-y-4 mb-6 text-xs sm:text-sm font-semibold text-slate-700">
-                  <div className="flex items-start gap-3 bg-slate-50 border border-slate-200/80 p-3.5 rounded-2xl">
-                    <MapPin className="w-5 h-5 text-indigo-600 shrink-0 mt-0.5" />
-                    <span className="leading-relaxed text-slate-900 font-extrabold">{centerAddress}</span>
+                <div className="space-y-2.5 mb-6 text-xs font-semibold text-slate-700">
+                  <div className="bg-slate-50 border border-slate-200/80 p-3 rounded-2xl">
+                    <span className="text-[10px] font-black text-indigo-700 uppercase block">CENTRE 1 (MAIN hub)</span>
+                    <span className="leading-snug text-slate-900 font-extrabold block">303, Ayyachi Apartment, Sector 45, Gurgaon (Near DPS)</span>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2 text-xs">
-                    <div className="bg-indigo-50/70 border border-indigo-100 p-3 rounded-xl">
-                      <div className="text-[10px] font-black text-indigo-700 uppercase">NEAREST METRO</div>
-                      <div className="font-extrabold text-slate-900 mt-0.5">Millennium City Centre</div>
+                  <div className="bg-slate-50 border border-slate-200/80 p-3 rounded-2xl">
+                    <span className="text-[10px] font-black text-cyan-800 uppercase block">CENTRE 2 (MALIBU TOWNE)</span>
+                    <span className="leading-snug text-slate-900 font-extrabold block">OD-55, Malibu Towne, Sector 47, Gurgaon</span>
+                  </div>
+
+                  <div className="bg-slate-50 border border-slate-200/80 p-3 rounded-2xl">
+                    <span className="text-[10px] font-black text-purple-700 uppercase block">CENTRE 3 & 4</span>
+                    <span className="leading-snug text-slate-900 font-extrabold block">2423, Sector 46 & B 38 Ground Floor, Ardee City, Sector 52</span>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-2 text-xs pt-1">
+                    <div className="bg-indigo-50/70 border border-indigo-100 p-2.5 rounded-xl">
+                      <div className="text-[9px] font-black text-indigo-700 uppercase">CONTACT DESK</div>
+                      <div className="font-extrabold text-slate-900 text-[11px]">9899818241 / 9999495938</div>
                     </div>
-                    <div className="bg-cyan-50/70 border border-cyan-200/80 p-3 rounded-xl">
-                      <div className="text-[10px] font-black text-cyan-900 uppercase">LANDMARK</div>
-                      <div className="font-extrabold text-slate-900 mt-0.5">Opp. Ardee Mall / Sec 52</div>
+                    <div className="bg-cyan-50/70 border border-cyan-200/80 p-2.5 rounded-xl">
+                      <div className="text-[9px] font-black text-cyan-900 uppercase">INSTAGRAM</div>
+                      <div className="font-extrabold text-slate-900 text-[11px]">@chemistrybybighnarajsir</div>
                     </div>
                   </div>
                 </div>
 
                 {/* Key Access Perks */}
-                <div className="space-y-2 mb-8 text-xs font-bold text-slate-800">
+                <div className="space-y-2 mb-6 text-xs font-bold text-slate-800">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Dedicated doubt resolution rooms & study library</span>
+                    <span>Interactive Digital Boards & PYQ Drill Library</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Ample student parking & secure gated entry</span>
+                    <span>Ample parent parking near DPS Gurgaon</span>
                   </div>
                 </div>
               </div>
@@ -124,7 +134,7 @@ export default function CenterLocationSection({ onOpenRegister }) {
                     className="py-3 px-4 bg-slate-950 hover:bg-slate-800 text-white font-extrabold text-xs rounded-2xl flex items-center justify-center gap-2 transition-all shadow-sm cursor-pointer"
                   >
                     <Phone className="w-4 h-4 text-cyan-400" />
-                    <span>Call Center</span>
+                    <span>Call 9899818241</span>
                   </a>
                 </div>
 
