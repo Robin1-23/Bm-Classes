@@ -191,7 +191,7 @@ export default function CenterLocationSection({ onOpenRegister }) {
 
         {/* FEATURE 5: ONE-CLICK PARENT WHATSAPP BROCHURE SHARE CARD */}
         <ScrollReveal delay={300} direction="up">
-          <div className="max-w-4xl mx-auto bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-950 border-2 border-indigo-500/50 text-white rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
+          <div className="max-w-4xl mx-auto bg-black border-2 border-zinc-800 text-white rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
             
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 rounded-2xl bg-[#25D366] text-white flex items-center justify-center shrink-0 shadow-lg">
@@ -205,7 +205,7 @@ export default function CenterLocationSection({ onOpenRegister }) {
                 <h4 className="font-heading font-black text-lg sm:text-xl text-white">
                   Forward program details to family on WhatsApp
                 </h4>
-                <p className="text-slate-300 text-xs mt-0.5 font-medium max-w-md">
+                <p className="text-zinc-200 text-xs mt-0.5 font-medium max-w-md">
                   One-click share link for parents to forward Ex-HOD micro-batch details and center address directly to spouse or relatives.
                 </p>
               </div>
