@@ -79,8 +79,8 @@ export default function Header({ onOpenRegister }) {
             </span>
           </Link>
 
-          {/* Center: Desktop Nav Capsule with Pure White Text */}
-          <nav className="hidden xl:flex items-center gap-5 bg-[#0a0a0a] border border-zinc-800 rounded-full px-5 py-1.5 text-xs font-bold text-white shadow-inner">
+          {/* Center: Desktop Nav Capsule with Pure White Text (Increased Font Size) */}
+          <nav className="hidden xl:flex items-center gap-6 bg-[#0a0a0a] border border-zinc-800 rounded-full px-6 py-2 text-sm font-extrabold text-white shadow-inner">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               return (
@@ -89,7 +89,7 @@ export default function Header({ onOpenRegister }) {
                   href={item.href}
                   className={`transition-all duration-200 relative ${
                     isActive
-                      ? 'text-white font-black bg-white/15 border border-white/30 px-3 py-1 rounded-full shadow-xs'
+                      ? 'text-white font-black bg-white/15 border border-white/30 px-3.5 py-1 rounded-full shadow-xs'
                       : 'text-white hover:text-cyan-300 hover:scale-105'
                   }`}
                 >
@@ -154,7 +154,7 @@ export default function Header({ onOpenRegister }) {
               </button>
             </div>
 
-            <nav className="flex flex-col gap-1.5 font-extrabold text-sm">
+            <nav className="flex flex-col gap-2 font-black text-base">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;
                 return (
