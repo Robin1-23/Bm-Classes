@@ -104,6 +104,7 @@ export const PROGRAMS_DATA = [
   {
     id: 'class-12',
     category: 'STARTS 12TH MARCH · CLASS 12TH',
+    categoryTypes: ['jee', 'neet'],
     title: 'Class 12th JEE Advanced & NEET Pinnacle',
     startDate: 'Starts 12th March',
     icon: BookOpen,
@@ -122,6 +123,7 @@ export const PROGRAMS_DATA = [
   {
     id: 'class-11',
     category: 'STARTS 6TH APRIL · CLASS 11TH',
+    categoryTypes: ['jee', 'neet'],
     title: 'Class 11th JEE & NEET Foundation',
     startDate: 'Starts 6th April',
     icon: Target,
@@ -140,6 +142,7 @@ export const PROGRAMS_DATA = [
   {
     id: 'biology-konika',
     category: 'KONIKA MA\'AM · 20 YRS EXP',
+    categoryTypes: ['neet'],
     title: 'Biology Excellence (Class 9th–12th & NEET)',
     startDate: 'NEET Botany & Boards',
     icon: Stethoscope,
@@ -158,6 +161,7 @@ export const PROGRAMS_DATA = [
   {
     id: 'class-10',
     category: 'STARTS 12TH MARCH · CLASS 10TH',
+    categoryTypes: ['foundation'],
     title: 'Class 10th Maths & Science',
     startDate: 'Starts 12th March',
     icon: TrendingUp,
@@ -176,6 +180,7 @@ export const PROGRAMS_DATA = [
   {
     id: 'class-9',
     category: 'STARTS 14TH MARCH · CLASS 9TH',
+    categoryTypes: ['foundation'],
     title: 'Class 9th Maths & Science',
     startDate: 'Starts 14th March',
     icon: Users,
@@ -194,6 +199,7 @@ export const PROGRAMS_DATA = [
   {
     id: 'doubts-mentorship',
     category: '1-ON-1 DOUBTS & PYQS',
+    categoryTypes: ['oneonone'],
     title: '1-on-1 Doubt & PYQ Drills',
     startDate: 'Daily Slots Available',
     icon: HelpCircle,

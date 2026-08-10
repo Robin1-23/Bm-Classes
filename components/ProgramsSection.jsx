@@ -16,7 +16,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
 
   const filteredPrograms = activeTab === 'all' 
     ? PROGRAMS_DATA 
-    : PROGRAMS_DATA.filter(p => p.id === activeTab);
+    : PROGRAMS_DATA.filter(p => p.categoryTypes && p.categoryTypes.includes(activeTab));
 
   return (
     <section className="bg-[#faf8f5] py-20 sm:py-28 relative overflow-hidden border-b border-slate-200/80" id="programs">
@@ -29,27 +29,27 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
         {/* Reusable Section Header */}
         <SectionHeader 
           badgeText="ACADEMIC PROGRAMS"
-          title="Programs built for top ranks"
+          title="Courses built for top ranks"
           subtitle="Classroom coaching, 1-on-1 mentoring, adaptive testing, and same-day doubt clearing."
         />
 
-        {/* Filter Tabs */}
+        {/* Filter Tabs by Course Category (JEE, NEET, Foundation, 1-on-1) */}
         <ScrollReveal delay={150} direction="up">
           <div className="flex items-center gap-2 mb-12 overflow-x-auto no-scrollbar pb-2 sm:pb-0 sm:flex-wrap justify-start sm:justify-center px-1">
             {[
-              { id: 'all', label: 'All Programs' },
-              { id: 'jee', label: 'JEE Main & Advanced' },
+              { id: 'all', label: 'All Courses' },
+              { id: 'jee', label: 'JEE (Main & Advanced)' },
               { id: 'neet', label: 'NEET UG Medical' },
-              { id: 'oneonone', label: '1-on-1 Personal Tuition' },
-              { id: 'tests', label: 'Mock Test Series' },
+              { id: 'foundation', label: 'Class 9th & 10th Foundation' },
+              { id: 'oneonone', label: '1-on-1 Mentorship' },
             ].map(tab => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-5 py-2.5 rounded-2xl text-xs font-extrabold transition-all duration-300 shrink-0 cursor-pointer ${
+                className={`px-5 py-2.5 rounded-2xl text-xs font-black transition-all duration-300 shrink-0 cursor-pointer ${
                   activeTab === tab.id
-                    ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 border border-indigo-500'
-                    : 'bg-white text-slate-700 border border-slate-200 hover:border-indigo-300 hover:bg-indigo-50/50'
+                    ? 'bg-slate-950 text-white shadow-lg border border-slate-800'
+                    : 'bg-white text-slate-800 border border-slate-200 hover:border-slate-400 hover:bg-slate-50'
                 }`}
               >
                 {tab.label}
