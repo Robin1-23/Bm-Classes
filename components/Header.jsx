@@ -139,26 +139,6 @@ export default function Header({ onOpenRegister }) {
 
         </div>
 
-        {/* Mobile & Tablet Horizontal Jump Bar */}
-        <div className="xl:hidden bg-slate-950/90 border-t border-slate-800/60 overflow-x-auto no-scrollbar py-1.5 px-3 flex items-center gap-2 text-[11px] font-extrabold text-slate-300">
-          {navItems.map((item) => {
-            const isActive = pathname === item.href;
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`shrink-0 px-3 py-1 rounded-full border transition-all ${
-                  isActive
-                    ? 'bg-indigo-600 text-white border-indigo-500 shadow-xs font-black'
-                    : 'bg-slate-900 text-slate-300 border-slate-800 hover:bg-slate-800 hover:text-white'
-                }`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </div>
-
       </header>
 
       {/* Mobile & Tablet Drawer Overlay */}
