@@ -25,8 +25,10 @@ module.exports = {
         },
       },
       fontFamily: {
-        heading: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        body: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        heading: ['Geist', '"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        body: ['Geist', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['Geist', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
       },
       boxShadow: {
         'glow-purple': '0 0 50px rgba(99, 102, 241, 0.25)',

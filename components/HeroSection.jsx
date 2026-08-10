@@ -65,8 +65,11 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
           <ScrollReveal delay={200} direction="up">
             <h1 className="font-heading text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black text-slate-950 leading-[1.15] sm:leading-[1.1] tracking-tight mb-4 sm:mb-6">
               Small batches.<br className="hidden sm:inline" />
+              <span className="font-serif italic font-normal text-indigo-600 pr-1">
+                Exceptional
+              </span>{' '}
               <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-800 bg-clip-text text-transparent">
-                Exceptional ranks.
+                ranks.
               </span>
             </h1>
           </ScrollReveal>
