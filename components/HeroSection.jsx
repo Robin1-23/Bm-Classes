@@ -75,11 +75,20 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
           </ScrollReveal>
 
           <ScrollReveal delay={300} direction="up">
-            <p className="text-base sm:text-lg lg:text-xl font-extrabold max-w-xl leading-snug mx-auto lg:mx-0 mb-6 sm:mb-8 tracking-tight">
-              <span className="text-slate-950 font-black">20+ Yrs Teaching Faculty.</span>{' '}
-              <span className="text-indigo-600 font-black">Annual IITian Interaction.</span>{' '}
-              <span className="text-cyan-600 font-black">Offline & Online Classes.</span>
-            </p>
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3 mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0">
+              <div className="flex items-center gap-2 bg-slate-950 text-white font-extrabold text-xs sm:text-sm px-3.5 sm:px-4 py-2 rounded-xl border border-slate-800 shadow-md">
+                <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-xs shadow-cyan-300"></span>
+                <span>20+ Yrs Teaching Faculty</span>
+              </div>
+              <div className="flex items-center gap-2 bg-indigo-950/90 text-indigo-200 font-extrabold text-xs sm:text-sm px-3.5 sm:px-4 py-2 rounded-xl border border-indigo-800/80 shadow-md">
+                <span className="w-2 h-2 rounded-full bg-indigo-400 shadow-xs shadow-indigo-300"></span>
+                <span>Annual IITian Interaction</span>
+              </div>
+              <div className="flex items-center gap-2 bg-emerald-950/90 text-emerald-200 font-extrabold text-xs sm:text-sm px-3.5 sm:px-4 py-2 rounded-xl border border-emerald-800/80 shadow-md">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-xs shadow-emerald-300"></span>
+                <span>Offline & Online Classes</span>
+              </div>
+            </div>
           </ScrollReveal>
 
           <ScrollReveal delay={400} direction="up">
