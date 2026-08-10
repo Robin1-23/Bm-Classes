@@ -76,7 +76,7 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
 
           <ScrollReveal delay={250} direction="up">
             <p className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-800 max-w-xl mx-auto lg:mx-0 mb-5 tracking-tight leading-snug">
-              Small Batches. <span className="font-serif italic font-normal text-indigo-600 text-xl sm:text-2xl lg:text-3xl">Personal Focus.</span> Unmatched Results.
+              Gurgaon’s Premier <span className="font-serif italic font-normal text-indigo-600 text-xl sm:text-2xl lg:text-3xl">Micro-Batch Coaching</span> for JEE & NEET.
             </p>
           </ScrollReveal>
 
