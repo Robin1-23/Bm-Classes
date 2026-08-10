@@ -58,32 +58,7 @@ export default function Header({ onOpenRegister }) {
             : 'bg-[#070a13]/85 backdrop-blur-xl border-slate-800/90 shadow-xl'
         }`}>
 
-          {/* Left Action Box (WhatsApp Desk with Pulsating Status Dot) */}
-          <div className="flex items-center gap-2 shrink-0">
-            <button 
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 hover:text-white transition-colors cursor-pointer"
-              aria-label="Toggle navigation menu"
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5 text-cyan-400" /> : <Menu className="w-5 h-5 text-white" />}
-            </button>
-
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden xl:flex items-center gap-2 bg-[#0d1424] border border-slate-800/90 hover:border-emerald-400/50 hover:bg-[#111a2e] px-3.5 py-1.5 rounded-2xl text-xs font-extrabold text-slate-200 transition-all cursor-pointer shadow-xs group"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
-              </span>
-              <WhatsAppIcon className="w-3.5 h-3.5 text-emerald-400 group-hover:scale-110 transition-transform" />
-              <span>WhatsApp Desk</span>
-            </a>
-          </div>
-
-          {/* Center Brand Logo & Name (Flared Rounded Vintage Display Font matching "FRIDAY" screenshot) */}
+          {/* Left Side: Brand Logo & Name */}
           <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
             <div className="relative p-[2px] rounded-2xl bg-gradient-to-tr from-cyan-400 via-indigo-500 to-emerald-400 shadow-xl shadow-cyan-500/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
               <div className="w-10 h-10 rounded-[14px] bg-gradient-to-b from-[#111c35] via-[#090d16] to-[#04070d] flex items-center justify-center relative overflow-hidden border border-white/20 shadow-inner">
@@ -105,7 +80,7 @@ export default function Header({ onOpenRegister }) {
             </span>
           </Link>
 
-          {/* Centered-Right Nav Capsule (Hidden on Mobile & Tablet < 1280px, visible on Desktop xl+) */}
+          {/* Center: Desktop Nav Capsule (Hidden on Mobile & Tablet < 1280px) */}
           <nav className="hidden xl:flex items-center gap-5 bg-[#0b1120]/90 border border-slate-800/90 rounded-full px-5 py-1.5 text-xs font-bold text-slate-300 shadow-inner">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
@@ -125,15 +100,40 @@ export default function Header({ onOpenRegister }) {
             })}
           </nav>
 
-          {/* Right Action Button (Hidden on Mobile & Tablet < 1280px, visible on Desktop xl+) */}
-          <div className="hidden xl:flex items-center gap-2 shrink-0">
+          {/* Right Side: Desktop Action Buttons & Mobile/Tablet Hamburger Icon */}
+          <div className="flex items-center gap-2 shrink-0">
+            {/* Desktop WhatsApp Desk */}
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden xl:flex items-center gap-2 bg-[#0d1424] border border-slate-800/90 hover:border-emerald-400/50 hover:bg-[#111a2e] px-3.5 py-1.5 rounded-2xl text-xs font-extrabold text-slate-200 transition-all cursor-pointer shadow-xs group"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+              </span>
+              <WhatsAppIcon className="w-3.5 h-3.5 text-emerald-400 group-hover:scale-110 transition-transform" />
+              <span>WhatsApp Desk</span>
+            </a>
+
+            {/* Desktop Apply Now Button */}
             <button 
               onClick={() => handleRegister()}
-              className="bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400 hover:from-cyan-300 hover:to-indigo-300 text-slate-950 font-black text-xs px-3.5 sm:px-4.5 py-2 rounded-2xl flex items-center gap-1.5 shadow-lg shadow-cyan-950/60 hover:scale-[1.03] transition-all cursor-pointer"
+              className="hidden xl:flex bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400 hover:from-cyan-300 hover:to-indigo-300 text-slate-950 font-black text-xs px-3.5 sm:px-4.5 py-2 rounded-2xl items-center gap-1.5 shadow-lg shadow-cyan-950/60 hover:scale-[1.03] transition-all cursor-pointer"
             >
               <Sparkles className="w-3.5 h-3.5 text-slate-950" />
               <span>Apply Now</span>
               <ArrowRight className="w-3.5 h-3.5 text-slate-950" />
+            </button>
+
+            {/* Mobile & Tablet Hamburger Toggle Icon (Right Side) */}
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="xl:hidden p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 hover:text-white transition-colors cursor-pointer shadow-sm"
+              aria-label="Toggle navigation menu"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5 text-cyan-400" /> : <Menu className="w-5 h-5 text-white" />}
             </button>
           </div>
 
