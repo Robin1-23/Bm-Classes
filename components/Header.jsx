@@ -125,8 +125,8 @@ export default function Header({ onOpenRegister }) {
             })}
           </nav>
 
-          {/* Right Action Button (Electric Gradient Pill) */}
-          <div className="flex items-center gap-2 shrink-0">
+          {/* Right Action Button (Hidden on Mobile & Tablet, visible on Desktop lg+) */}
+          <div className="hidden lg:flex items-center gap-2 shrink-0">
             <button 
               onClick={() => handleRegister()}
               className="bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400 hover:from-cyan-300 hover:to-indigo-300 text-slate-950 font-black text-xs px-3.5 sm:px-4.5 py-2 rounded-2xl flex items-center gap-1.5 shadow-lg shadow-cyan-950/60 hover:scale-[1.03] transition-all cursor-pointer"
