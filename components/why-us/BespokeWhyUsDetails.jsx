@@ -103,43 +103,55 @@ export default function BespokeWhyUsDetails() {
 
         {/* 2. 24-HOUR DAY IN THE LIFE TIMELINE */}
         <div>
-          <ScrollReveal delay={150} direction="up" className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-xs font-black tracking-widest uppercase text-indigo-700 bg-indigo-50 border border-indigo-100 px-3.5 py-1.5 rounded-full">
+          <ScrollReveal delay={150} direction="up" className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs font-black tracking-widest uppercase text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-4 py-1.5 rounded-full shadow-xs">
               DAILY ACADEMIC TIMELINE
             </span>
-            <h2 className="font-heading text-2xl sm:text-3xl font-black text-slate-950 mt-3">
+            <h2 className="font-heading text-3xl sm:text-4xl font-black text-slate-950 tracking-tight mt-3">
               Daily Ranker Routine at BmClasses
             </h2>
+            <p className="text-slate-600 text-xs sm:text-sm font-medium mt-2">
+              A structured, high-yield day designed for maximum retention and same-day doubt resolution.
+            </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {dayTimeline.map((item, idx) => (
-              <ScrollReveal key={idx} delay={150 * (idx + 1)} direction="up">
-                <div className="bg-[#faf8f5] border border-slate-200 rounded-3xl p-5 h-full flex flex-col justify-between hover:border-indigo-500 hover:shadow-md transition-all">
+              <ScrollReveal key={idx} delay={120 * (idx + 1)} direction="up">
+                <div className="group relative bg-gradient-to-b from-white via-indigo-50/20 to-slate-50/80 border border-slate-200/90 hover:border-indigo-400 rounded-3xl p-6 h-full flex flex-col justify-between shadow-[0_10px_25px_-5px_rgba(0,0,0,0.05)] hover:shadow-[0_25px_50px_-12px_rgba(99,102,241,0.25)] hover:-translate-y-2.5 transition-all duration-300 transform-gpu overflow-hidden">
+                  
+                  {/* Subtle Top Ambient Glow Accent */}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-500/5 rounded-full blur-xl pointer-events-none group-hover:bg-indigo-500/15 transition-colors"></div>
+
                   <div>
-                    <div className="flex items-center justify-between pb-3 border-b border-slate-200/80 mb-3">
-                      <span className="font-mono text-xs font-black text-indigo-700 flex items-center gap-1">
+                    {/* Time & Tag Row */}
+                    <div className="flex items-center justify-between pb-3.5 border-b border-slate-200/80 mb-4">
+                      <span className="font-mono text-xs font-black text-indigo-700 flex items-center gap-1.5 bg-indigo-50/80 px-2.5 py-1 rounded-xl border border-indigo-100 shadow-xs">
                         <Clock className="w-3.5 h-3.5 text-indigo-600" />
                         {item.time}
                       </span>
-                      <span className={`text-[9px] font-extrabold px-2 py-0.5 rounded-full border ${item.badgeBg}`}>
+                      <span className={`text-[10px] font-black px-2.5 py-1 rounded-xl border shadow-2xs ${item.badgeBg}`}>
                         {item.tag}
                       </span>
                     </div>
 
-                    <h3 className="font-heading font-black text-slate-950 text-base mb-1.5">
+                    {/* Title */}
+                    <h3 className="font-heading font-black text-slate-950 text-base sm:text-lg mb-2 group-hover:text-indigo-600 transition-colors leading-snug">
                       {item.title}
                     </h3>
 
-                    <p className="text-slate-600 text-xs font-medium leading-relaxed">
+                    {/* Description */}
+                    <p className="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed">
                       {item.desc}
                     </p>
                   </div>
 
-                  <div className="pt-3 mt-3 border-t border-slate-200/60 text-[11px] font-extrabold text-indigo-600 flex items-center gap-1">
-                    <span>Micro-Batch Focus</span>
-                    <ArrowRight className="w-3 h-3" />
+                  {/* 3D Interactive Footer Accent */}
+                  <div className="pt-4 mt-4 border-t border-slate-200/70 text-xs font-black text-indigo-600 flex items-center justify-between group-hover:text-indigo-700">
+                    <span>Micro-Batch Rigor</span>
+                    <ArrowRight className="w-4 h-4 text-indigo-600 group-hover:translate-x-1.5 transition-transform" />
                   </div>
+
                 </div>
               </ScrollReveal>
             ))}
