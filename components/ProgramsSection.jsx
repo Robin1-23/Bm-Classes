@@ -66,21 +66,21 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
             if (prog.featured) {
               return (
                 <ScrollReveal key={idx} delay={200} direction="up" className="lg:col-span-2">
-                  <div className="bg-[#0b101d] text-white border-2 border-indigo-500/40 shadow-2xl rounded-3xl p-7 sm:p-8 lg:p-9 relative overflow-hidden flex flex-col justify-between group hover:border-indigo-400 transition-all duration-300 h-full">
+                  <div className="bg-black text-white border-2 border-zinc-800 shadow-2xl rounded-3xl p-7 sm:p-8 lg:p-9 relative overflow-hidden flex flex-col justify-between group hover:border-cyan-400 transition-all duration-300 h-full">
                     
-                    <div className="absolute -right-20 -top-20 w-72 h-72 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none"></div>
+                    <div className="absolute -right-20 -top-20 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
                     <div>
-                      <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-800 mb-6 relative z-10">
+                      <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-zinc-800 mb-6 relative z-10">
                         <div className="flex items-center gap-3">
-                          <div className="w-12 h-12 rounded-2xl bg-indigo-600 text-white font-black flex items-center justify-center shadow-md">
-                            <IconComponent className="w-6 h-6" />
+                          <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-zinc-700 text-cyan-400 font-black flex items-center justify-center shadow-md">
+                            <IconComponent className="w-6 h-6 text-cyan-400" />
                           </div>
                           <div>
-                            <span className="text-[10px] font-black tracking-widest text-indigo-400 uppercase block">
+                            <span className="text-[10px] font-black tracking-widest text-cyan-400 uppercase block">
                               {prog.category}
                             </span>
-                            <span className="text-xs font-extrabold text-slate-200">
+                            <span className="text-xs font-extrabold text-white">
                               Class 11, 12 & Droppers
                             </span>
                           </div>
@@ -96,25 +96,25 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                         {prog.title}
                       </h3>
 
-                      <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-medium max-w-xl relative z-10">
+                      <p className="text-white/90 text-xs sm:text-sm leading-relaxed mb-6 font-bold max-w-xl relative z-10">
                         {prog.desc}
                       </p>
 
                       <div className="grid sm:grid-cols-2 gap-3 mb-6 relative z-10">
                         {prog.bullets.map((b, bIdx) => (
-                          <div key={bIdx} className="bg-white/5 border border-white/10 rounded-2xl p-3.5 flex items-center gap-2.5 text-xs font-extrabold text-white shadow-xs">
-                            <span className="w-2 h-2 rounded-full bg-cyan-400 shrink-0"></span>
-                            <span>{b}</span>
+                          <div key={bIdx} className="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-3.5 flex items-center gap-2.5 text-xs font-extrabold text-white shadow-xs">
+                            <span className="w-2 h-2 rounded-full bg-cyan-400 shrink-0 shadow-xs shadow-cyan-300"></span>
+                            <span className="text-white">{b}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    <div className="pt-6 border-t border-slate-800 relative z-10 space-y-4">
+                    <div className="pt-6 border-t border-zinc-800 relative z-10 space-y-4">
                       {/* Tags List */}
                       <div className="flex flex-wrap gap-2">
                         {prog.tags.map((tag, tIdx) => (
-                          <span key={tIdx} className="text-[10px] font-bold bg-white/10 text-indigo-300 border border-white/10 px-3 py-1 rounded-lg">
+                          <span key={tIdx} className="text-[10px] font-extrabold bg-zinc-900 text-white border border-zinc-800 px-3 py-1 rounded-lg">
                             {tag}
                           </span>
                         ))}
