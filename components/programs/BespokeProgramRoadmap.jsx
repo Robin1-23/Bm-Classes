@@ -172,7 +172,7 @@ export default function BespokeProgramRoadmap() {
         </div>
 
         {/* 2. BATCH TIMETABLE & SEAT ALLOCATION STATUS */}
-        <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden border border-indigo-900/60">
+        <div className="bg-black rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden border border-zinc-800">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-800 mb-6">
             <div>
               <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-cyan-400/20 border border-cyan-400/30 text-cyan-300 text-xs font-black uppercase tracking-wider mb-2">

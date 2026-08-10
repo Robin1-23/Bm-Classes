@@ -83,7 +83,7 @@ export default function Modals({
           <div className="bg-white rounded-3xl max-w-lg w-full max-h-[92vh] overflow-y-auto relative shadow-2xl border border-slate-200 text-slate-900 animate-float my-auto">
             
             {/* Modal Header Banner */}
-            <div className="bg-gradient-to-r from-slate-950 via-indigo-950 to-slate-900 text-white p-6 sm:p-8 rounded-t-3xl relative overflow-hidden">
+            <div className="bg-black text-white p-6 sm:p-8 rounded-t-3xl relative overflow-hidden border-b border-zinc-800">
               {/* Glow Accent */}
               <div className="absolute top-0 right-0 w-48 h-48 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
 

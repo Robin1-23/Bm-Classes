@@ -73,7 +73,7 @@ export default function BespokeFeeBreakdown() {
             </p>
           </ScrollReveal>
 
-          <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 rounded-3xl p-6 sm:p-10 text-white shadow-2xl border border-indigo-900/60 overflow-hidden">
+          <div className="bg-black rounded-3xl p-6 sm:p-10 text-white shadow-2xl border border-zinc-800 overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
@@ -152,7 +152,7 @@ export default function BespokeFeeBreakdown() {
           </div>
 
           {/* Zero Hidden Costs Guarantee */}
-          <div className="bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-950 text-white rounded-3xl p-8 border border-indigo-900/60 shadow-xl flex flex-col justify-between">
+          <div className="bg-black text-white rounded-3xl p-8 border border-zinc-800 shadow-xl flex flex-col justify-between">
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-400/20 border border-cyan-400/30 text-cyan-300 text-xs font-black uppercase tracking-wider mb-4">
                 <ShieldCheck className="w-4 h-4 text-cyan-300" />

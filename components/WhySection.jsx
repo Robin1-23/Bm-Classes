@@ -327,8 +327,8 @@ export default function WhySection({ hidePedagogy = false }) {
 
               </div>
 
-              {/* CHAMBER B: BMCLASSES STANDARD (BRAND INDIGO & CYAN) */}
-              <div className="bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-950 border-2 border-indigo-500/60 rounded-2xl p-5 sm:p-7 text-white flex flex-col justify-between shadow-xl relative overflow-hidden group hover:border-indigo-400 transition-all">
+              {/* CHAMBER B: BMCLASSES STANDARD (PITCH DARKBLACK) */}
+              <div className="bg-black border-2 border-zinc-800 rounded-2xl p-5 sm:p-7 text-white flex flex-col justify-between shadow-xl relative overflow-hidden group hover:border-cyan-400 transition-all">
                 
                 <div className="absolute -right-12 -top-12 w-48 h-48 bg-indigo-500/20 rounded-full blur-2xl pointer-events-none"></div>
 

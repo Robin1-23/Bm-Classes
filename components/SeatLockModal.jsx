@@ -88,7 +88,7 @@ export default function SeatLockModal({ isOpen, onClose }) {
         </button>
 
         {/* Modal Header Banner */}
-        <div className="bg-gradient-to-r from-slate-950 via-indigo-950 to-slate-900 text-white p-6 sm:p-8 rounded-t-3xl relative overflow-hidden">
+        <div className="bg-black text-white p-6 sm:p-8 rounded-t-3xl relative overflow-hidden border-b border-zinc-800">
           {/* Decorative Glow */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
           
@@ -106,7 +106,7 @@ export default function SeatLockModal({ isOpen, onClose }) {
 
           {/* Live Timer Status if Locked */}
           {isLocked && (
-            <div className="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between gap-4 bg-indigo-950/60 p-3 rounded-2xl border border-indigo-500/30">
+            <div className="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between gap-4 bg-zinc-950 p-3 rounded-2xl border border-zinc-800">
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-emerald-400 animate-ping shrink-0"></div>
                 <span className="text-xs font-extrabold text-emerald-300">Seat Temporarily Locked & Reserved</span>
@@ -250,7 +250,7 @@ export default function SeatLockModal({ isOpen, onClose }) {
             <div className="space-y-6 animate-fade-in">
               
               {/* Pass Card Container */}
-              <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-white p-6 sm:p-7 rounded-3xl border-2 border-cyan-400/40 shadow-2xl relative">
+              <div className="bg-black text-white p-6 sm:p-7 rounded-3xl border-2 border-cyan-400/40 shadow-2xl relative">
                 
                 <div className="flex items-center justify-between pb-4 border-b border-slate-800">
                   <div className="flex items-center gap-2">
@@ -263,7 +263,7 @@ export default function SeatLockModal({ isOpen, onClose }) {
                     </div>
                   </div>
 
-                  <span className="font-mono text-xs font-black text-indigo-300 bg-indigo-900/60 px-3 py-1 rounded-xl border border-indigo-400/30">
+                  <span className="font-mono text-xs font-black text-cyan-300 bg-zinc-900 px-3 py-1 rounded-xl border border-zinc-800">
                     #{lockPassId}
                   </span>
                 </div>

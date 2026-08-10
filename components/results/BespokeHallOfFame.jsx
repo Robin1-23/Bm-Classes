@@ -164,7 +164,7 @@ export default function BespokeHallOfFame() {
         </div>
 
         {/* GURGAON PARENT REVIEWS */}
-        <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-indigo-900/60">
+        <div className="bg-black text-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-zinc-800">
           <ScrollReveal delay={100} direction="up" className="max-w-2xl mb-10">
             <span className="text-xs font-black tracking-widest uppercase text-cyan-300 bg-cyan-400/20 border border-cyan-400/30 px-3.5 py-1.5 rounded-full">
               PARENT TESTIMONIALS

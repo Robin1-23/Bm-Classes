@@ -63,8 +63,8 @@ export default function BespokeWhyUsDetails() {
         
         {/* 1. THE MICRO-BATCH MANIFESTO */}
         <ScrollReveal delay={100} direction="up">
-          <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 rounded-3xl p-6 sm:p-10 text-white border border-indigo-900/60 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="bg-black rounded-3xl p-6 sm:p-10 text-white border border-zinc-800 shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-400/20 border border-cyan-400/30 text-cyan-300 text-xs font-black uppercase tracking-wider mb-3">
               <ShieldCheck className="w-4 h-4 text-cyan-300" />

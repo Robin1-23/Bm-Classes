@@ -104,7 +104,7 @@ export default function BespokeCenterGuide() {
         </div>
 
         {/* DIRECTIONS & LANDMARKS CARD */}
-        <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-indigo-900/60">
+        <div className="bg-black text-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-zinc-800">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-6 space-y-4">

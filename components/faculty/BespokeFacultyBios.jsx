@@ -143,7 +143,7 @@ export default function BespokeFacultyBios() {
                     </div>
 
                     {/* Quote Box */}
-                    <div className="bg-indigo-950 text-white rounded-xl p-4 border border-indigo-800/80">
+                    <div className="bg-black text-white rounded-xl p-4 border border-zinc-800">
                       <p className="text-xs font-semibold italic text-cyan-300">
                         {m.quote}
                       </p>
