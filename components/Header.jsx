@@ -89,26 +89,21 @@ export default function Header({ onOpenRegister, onOpenLogin, onOpenSeatLock }) 
 
           {/* Action Buttons */}
           <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-            <button
-              onClick={handleSeatLock}
-              className="bg-emerald-500 hover:bg-emerald-600 text-white px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl font-black text-[11px] sm:text-xs transition-all shadow-sm cursor-pointer flex items-center gap-1 border border-emerald-400/40 animate-pulse"
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-emerald-700 hover:bg-emerald-800 text-white px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl font-extrabold text-[11px] sm:text-xs transition-all shadow-xs cursor-pointer flex items-center gap-1.5 hidden xs:inline-flex"
             >
-              <Lock className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-white shrink-0" />
-              <span>Lock Seat (2 Left)</span>
-            </button>
-
-            <button 
-              onClick={handleLogin}
-              className="bg-cyan-400 text-slate-950 hover:bg-cyan-300 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl font-extrabold text-[11px] sm:text-xs transition-all shadow-xs cursor-pointer hidden xs:inline-block"
-            >
-              Login
-            </button>
+              <WhatsAppIcon className="w-3.5 h-3.5 text-emerald-200 shrink-0" />
+              <span>WhatsApp Us</span>
+            </a>
 
             <button 
               onClick={handleRegister}
               className="bg-indigo-600 hover:bg-indigo-700 text-white px-3 sm:px-5 py-1.5 sm:py-2 rounded-xl font-extrabold text-[11px] sm:text-xs transition-all shadow-md shadow-indigo-200 cursor-pointer flex items-center gap-1 sm:gap-1.5"
             >
-              <span>Apply</span>
+              <span>Apply Now</span>
               <ArrowRight className="w-3.5 sm:w-4 h-3.5 sm:h-4" />
             </button>
           </div>
