@@ -20,21 +20,33 @@ export default function ResultsSection({ onOpenVideo }) {
 
   const writtenReviews = [
     {
-      quote: "What you taught was something I was looking for — a personal touch which is simply not possible at big branded coaching factories.",
-      author: "Mrigank Shekhar",
-      sub: "Student · BmClasses",
-      featured: false,
-    },
-    {
-      quote: "Thanks to his guidance, I got admission into NSUT Main Campus (ITNS branch). Strong conceptual clarity and motivation throughout my preparation.",
-      author: "Piya Saha",
-      sub: "Student · NSUT Main Campus",
+      quote: "We enrolled our son in BM Sir's Chemistry classes towards the end of Class XI, and it has been a wonderful decision. We have seen a significant improvement not only in his academic performance but, more importantly, in his enthusiasm to learn, practice, and continuously improve. Thank you, Sir, for your invaluable guidance and support.",
+      author: "Rajshree Mohanty",
+      sub: "Parent · NEET Chemistry Batch",
       featured: true,
     },
     {
-      quote: "Pays personal attention to all students and clears all doubts. Focus on concept clarity and quality of questions results in stress-free preparation.",
-      author: "Vansh Dua",
-      sub: "Student · BmClasses",
+      quote: "Bighnaraj Sir is an excellent teacher who explains every concept with great clarity. His one-on-one doubt sessions were incredibly helpful and made a huge difference in my preparation. Thanks to his guidance and teaching, I was able to secure a good rank in JEE.",
+      author: "Shaurya Sisaudia",
+      sub: "Student · JEE Ranker",
+      featured: false,
+    },
+    {
+      quote: "I was a student of Konika Ma'am for a year. She taught Biology. Had a great depth of knowledge and always cleared my concepts. It helped me to focus on competitive and boards exam and I was able to score amazing. Thank you for your support.",
+      author: "Tanishka Patil",
+      sub: "Student · Biology NEET & Boards",
+      featured: true,
+    },
+    {
+      quote: "Bighnaraj Sir is a great teacher and mentor. My daughter started taking chemistry classes from sir a few months back. Her interest & understanding in the subject improved remarkably after attending classes. Sir gives personal attention to each child during classes and helps them in improving.",
+      author: "Sunaina K",
+      sub: "Parent · Chemistry Mentorship",
+      featured: false,
+    },
+    {
+      quote: "Bighnaraj Sir is incredibly hardworking and dedicated, ensuring every student understands the subject thoroughly. His vast knowledge and clear explanations help build strong fundamentals, making complex concepts easy to grasp. These classes have significantly boosted my confidence.",
+      author: "Aaryan Jain",
+      sub: "Student · Concept Mastery",
       featured: false,
     },
   ];
@@ -51,7 +63,7 @@ export default function ResultsSection({ onOpenVideo }) {
         <ScrollReveal delay={100} direction="up" className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
-            <span>PROVEN TRACK RECORD</span>
+            <span>REAL GOOGLE REVIEWS</span>
           </div>
           
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-slate-950 tracking-tight leading-[1.15]">
@@ -59,7 +71,7 @@ export default function ResultsSection({ onOpenVideo }) {
           </h2>
           
           <p className="text-slate-600 text-base sm:text-lg mt-3 font-medium leading-relaxed max-w-2xl mx-auto">
-            Top ranks and admissions achieved by students under our Ex-HOD faculty mentorship.
+            Authentic Google reviews from Gurgaon parents and top JEE & NEET rankers.
           </p>
         </ScrollReveal>
 
@@ -79,10 +91,10 @@ export default function ResultsSection({ onOpenVideo }) {
           </div>
         </ScrollReveal>
 
-        {/* Reviews Cards */}
+        {/* Real Reviews Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-lg sm:max-w-none mx-auto mb-14 sm:mb-18">
           {writtenReviews.map((rev, idx) => (
-            <ScrollReveal key={idx} delay={150 * (idx + 1)} direction="up">
+            <ScrollReveal key={idx} delay={120 * (idx + 1)} direction="up">
               <div 
                 className={`rounded-3xl p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 border shadow-md hover:-translate-y-1.5 h-full ${
                   rev.featured 
@@ -91,12 +103,18 @@ export default function ResultsSection({ onOpenVideo }) {
                 }`}
               >
                 <div>
-                  <div className="flex items-center gap-1 mb-4 text-cyan-400">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-cyan-400" />
-                    ))}
+                  <div className="flex items-center justify-between gap-2 mb-4">
+                    <div className="flex items-center gap-1 text-amber-400">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-amber-400" />
+                      ))}
+                    </div>
+                    <span className="text-[9px] font-black bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 px-2 py-0.5 rounded-full uppercase tracking-wider">
+                      Google Review
+                    </span>
                   </div>
-                  <p className={`text-xs sm:text-sm leading-relaxed mb-6 font-normal ${
+
+                  <p className={`text-xs sm:text-sm leading-relaxed mb-6 font-medium italic ${
                     rev.featured ? 'text-slate-200' : 'text-slate-700'
                   }`}>
                     "{rev.quote}"
@@ -105,12 +123,12 @@ export default function ResultsSection({ onOpenVideo }) {
 
                 <div className="pt-4 border-t border-slate-200/20 flex items-center justify-between">
                   <div>
-                    <div className={`font-heading font-extrabold text-sm ${
+                    <div className={`font-heading font-black text-sm ${
                       rev.featured ? 'text-cyan-300' : 'text-slate-950'
                     }`}>
                       {rev.author}
                     </div>
-                    <div className={`text-[11px] font-semibold ${
+                    <div className={`text-[11px] font-bold ${
                       rev.featured ? 'text-indigo-300' : 'text-indigo-600'
                     }`}>
                       {rev.sub}

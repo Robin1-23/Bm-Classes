@@ -53,25 +53,39 @@ export default function BespokeHallOfFame() {
 
   const parentReviews = [
     {
-      parentName: 'Sunil & Sunita Sharma',
-      locality: 'Ardee City, Sector 52 Gurgaon',
-      student: 'Parent of Kavya Sharma (AIR 52)',
+      parentName: 'Rajshree Mohanty',
+      locality: 'Verified Google Review',
+      student: 'Parent · NEET Chemistry Batch',
       rating: 5,
-      review: 'In mass coaching factories, our daughter was lost in a hall of 180 students. Switching to BmClasses changed everything. Dhirendra Sir and Mishra Sir personally knew her weak topics and cleared doubts daily on the board.',
+      review: "We enrolled our son in BM Sir's Chemistry classes towards the end of Class XI, and it has been a wonderful decision. We have seen a significant improvement not only in his academic performance but, more importantly, in his enthusiasm to learn, practice, and continuously improve. Thank you, Sir, for your invaluable guidance and support.",
     },
     {
-      parentName: 'Rajesh Verma',
-      locality: 'DLF Phase 5, Gurgaon',
-      student: 'Parent of Aryan Verma (AIR 22)',
+      parentName: 'Shaurya Sisaudia',
+      locality: 'Verified Google Review',
+      student: 'Student · JEE Ranker',
       rating: 5,
-      review: 'The transparency at BmClasses is unmatched. Zero junior TAs. 100% of lectures are taken by Ex-HODs of FIITJEE & VMC. They provided weekly diagnostic telemetry reports so we always knew our son’s exact AIR trajectory.',
+      review: "Bighnaraj Sir is an excellent teacher who explains every concept with great clarity. His one-on-one doubt sessions were incredibly helpful and made a huge difference in my preparation. Thanks to his guidance and teaching, I was able to secure a good rank in JEE.",
     },
     {
-      parentName: 'Dr. Meenakshi Rao',
-      locality: 'Sector 56 Gurgaon',
-      student: 'Parent of Ananya Rao (AIR 102 AIIMS)',
+      parentName: 'Tanishka Patil',
+      locality: 'Verified Google Review',
+      student: 'Student · Biology NEET & Boards',
       rating: 5,
-      review: 'If your child is aiming for top ranks in JEE or NEET, micro-batch coaching is mandatory. The 10-15 student cap gave my daughter the individual attention she needed to crack AIIMS New Delhi.',
+      review: "I was a student of Konika Ma'am for a year. She taught Biology. Had a great depth of knowledge and always cleared my concepts. It helped me to focus on competitive and boards exam and I was able to score amazing. Thank you for your support.",
+    },
+    {
+      parentName: 'Sunaina K',
+      locality: 'Verified Google Review',
+      student: 'Parent · Chemistry Mentorship',
+      rating: 5,
+      review: "Bighnaraj Sir is a great teacher and mentor. My daughter started taking chemistry classes from sir a few months back. Her interest & understanding in the subject improved remarkably after attending classes. Sir gives personal attention to each child during classes and helps them in improving.",
+    },
+    {
+      parentName: 'Aaryan Jain',
+      locality: 'Verified Google Review',
+      student: 'Student · Concept Mastery',
+      rating: 5,
+      review: "Bighnaraj Sir is incredibly hardworking and dedicated, ensuring every student understands the subject thoroughly. His vast knowledge and clear explanations help build strong fundamentals, making complex concepts easy to grasp. These classes have significantly boosted my confidence.",
     },
   ];
 
