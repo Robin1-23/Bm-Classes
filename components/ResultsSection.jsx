@@ -13,9 +13,34 @@ export default function ResultsSection({ onOpenVideo }) {
   ];
 
   const videoCards = [
-    { title: 'Agrim Gupta — IIT Delhi', rank: 'JEE Advanced AIR 350' },
-    { title: 'Chinmay Tuteja — IIT Delhi', rank: 'JEE Advanced AIR 1146' },
-    { title: 'Ditya Goel — IIT Delhi', rank: 'JEE Advanced AIR 2043' },
+    {
+      file: '/videos/review1.mp4',
+      name: 'Aaryan Jain',
+      exam: 'JEE Main',
+      result: '99.48 Percentile',
+      quote: '"BM Sir\'s teaching helped me build a strong foundation and conceptual clarity of the subject."',
+    },
+    {
+      file: '/videos/review2.mp4',
+      name: 'Shaoni Mukherjee',
+      exam: 'JEE Main & Advanced',
+      result: 'JEE Qualifier',
+      quote: '"Cleared all conceptual doubts and made Chemistry easy to understand."',
+    },
+    {
+      file: '/videos/review3.mp4',
+      name: 'Shaurya Sisodia',
+      exam: 'JEE Main',
+      result: '99%+ Percentile',
+      quote: '"Daily DPPs, regular mock tests and timely doubt clarity helped me a lot."',
+    },
+    {
+      file: '/videos/review4.mp4',
+      name: 'Abhay Rajvanshi',
+      exam: 'JEE Main',
+      result: 'JEE Qualifier',
+      quote: '"One-on-one doubt solving sessions helped me a lot."',
+    },
   ];
 
   const writtenReviews = [
@@ -141,25 +166,43 @@ export default function ResultsSection({ onOpenVideo }) {
       </ScrollReveal>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        {/* Video Testimonial Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-lg sm:max-w-none mx-auto">
+        {/* Real Student Video Testimonials */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-lg sm:max-w-none mx-auto">
           {videoCards.map((v, idx) => (
-            <ScrollReveal key={idx} delay={150 * (idx + 1)} direction="up">
-              <div
-                onClick={() => handleVideo(v.title + ' — ' + v.rank)}
-                className="relative bg-slate-950 rounded-3xl overflow-hidden aspect-video cursor-pointer group flex items-center justify-center border border-slate-800 shadow-xl hover:border-indigo-500/50 transition-all"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-cyan-400 text-slate-950 flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl z-10 border-2 border-white/20">
-                  <Play className="w-6 h-6 fill-slate-950 ml-1" />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent p-6 flex flex-col justify-end">
-                  <div className="font-heading font-black text-white text-base group-hover:text-cyan-300 transition-colors">
-                    {v.title}
+            <ScrollReveal key={idx} delay={120 * (idx + 1)} direction="up">
+              <div className="group relative bg-black rounded-3xl overflow-hidden border-2 border-zinc-800 hover:border-cyan-400 shadow-[0_15px_35px_-5px_rgba(0,0,0,0.5)] hover:shadow-[0_25px_50px_-10px_rgba(34,211,238,0.2)] transition-all duration-300">
+
+                {/* Native Video Player */}
+                <video
+                  src={v.file}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="w-full aspect-video object-cover bg-zinc-950"
+                />
+
+                {/* Info Footer */}
+                <div className="p-5 border-t border-zinc-800">
+                  <div className="flex items-start justify-between gap-3 mb-2">
+                    <div>
+                      <div className="font-heading font-black text-white text-base group-hover:text-cyan-300 transition-colors">
+                        {v.name}
+                      </div>
+                      <div className="text-[11px] font-bold text-cyan-400 mt-0.5">
+                        {v.exam} · <span className="text-emerald-400">{v.result}</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1 shrink-0">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                      ))}
+                    </div>
                   </div>
-                  <div className="text-xs text-cyan-300 font-bold mt-0.5">
-                    {v.rank}
-                  </div>
+                  <p className="text-white/70 text-xs leading-relaxed font-medium italic">
+                    {v.quote}
+                  </p>
                 </div>
+
               </div>
             </ScrollReveal>
           ))}
