@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Phone, Mail, MapPin, ArrowRight, Clock, Star, ShieldCheck, CheckCircle2, Facebook, Youtube, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowRight, Clock, Star, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { useModal } from '@/context/ModalContext';
 
@@ -26,30 +26,30 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
   };
 
   return (
-    <footer className="bg-[#070a11] text-slate-400 py-16 sm:py-24 border-t border-slate-800/90 relative overflow-hidden" id="contact">
+    <footer className="bg-black text-white py-16 sm:py-24 border-t border-zinc-900 relative overflow-hidden" id="contact">
       
       {/* Subtle Background Watermark Typography */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 text-[90px] xs:text-[140px] sm:text-[180px] lg:text-[220px] font-heading font-black text-white/[0.02] tracking-tighter pointer-events-none select-none whitespace-nowrap">
+      <div className="absolute top-10 left-1/2 -translate-x-1/2 text-[90px] xs:text-[140px] sm:text-[180px] lg:text-[220px] font-heading font-black text-white/[0.03] tracking-tighter pointer-events-none select-none whitespace-nowrap">
         BMCLASSES
       </div>
 
-      {/* Subtle Glow Accents */}
-      <div className="absolute -left-20 top-1/3 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute -right-20 bottom-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      {/* Subtle Ambient Glow Accents */}
+      <div className="absolute -left-20 top-1/3 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute -right-20 bottom-10 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* TOP CTA BANNER CARD */}
-        <div className="bg-gradient-to-r from-slate-900 via-indigo-950/80 to-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 mb-16 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div className="bg-zinc-950 border border-zinc-800 rounded-3xl p-6 sm:p-10 mb-16 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
           <div>
-            <div className="flex items-center gap-2 text-cyan-300 text-xs font-black uppercase tracking-widest mb-1.5">
-              <ShieldCheck className="w-4 h-4 text-cyan-300" />
+            <div className="flex items-center gap-2 text-cyan-400 text-xs font-black uppercase tracking-widest mb-1.5">
+              <ShieldCheck className="w-4 h-4 text-cyan-400" />
               <span>DIRECT EX-HOD COUNSELING</span>
             </div>
             <h3 className="font-heading text-2xl sm:text-3xl font-black text-white tracking-tight">
               Ready to secure your micro-batch seat?
             </h3>
-            <p className="text-slate-300 text-xs sm:text-sm mt-1 font-medium max-w-xl">
+            <p className="text-zinc-300 text-xs sm:text-sm mt-1 font-medium max-w-xl">
               Book a direct 1-on-1 counseling session with Ex-HOD faculty or visit our Gurgaon center today.
             </p>
           </div>
@@ -57,7 +57,7 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
             <button
               onClick={handleRegister}
-              className="w-full sm:w-auto bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black text-xs sm:text-sm px-6 py-3.5 rounded-2xl transition-all shadow-lg cursor-pointer flex items-center justify-center gap-2"
+              className="w-full sm:w-auto bg-cyan-400 hover:bg-cyan-300 text-black font-black text-xs sm:text-sm px-6 py-3.5 rounded-2xl transition-all shadow-lg cursor-pointer flex items-center justify-center gap-2"
             >
               <span>Apply for Admissions</span>
               <ArrowRight className="w-4 h-4" />
@@ -76,34 +76,34 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
         </div>
 
         {/* 4-COLUMN ARCHITECTURAL GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-16 border-b border-slate-800/80">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-16 border-b border-zinc-900">
           
           {/* Col 1: Institute Identity (4 cols) */}
           <div className="lg:col-span-4">
             <Link href="/" className="flex items-center gap-2.5 font-heading text-2xl font-black tracking-tight text-white mb-2">
-              <span className="w-9 h-9 rounded-2xl bg-gradient-to-br from-cyan-400 to-teal-400 text-slate-950 font-black flex items-center justify-center text-base shadow-md">
+              <span className="w-9 h-9 rounded-2xl bg-gradient-to-br from-cyan-400 to-teal-400 text-black font-black flex items-center justify-center text-base shadow-md">
                 BM
               </span>
               <span>CLASSES</span>
             </Link>
 
-            <span className="inline-block text-[11px] font-black text-cyan-300 uppercase tracking-widest mb-3">
+            <span className="inline-block text-[11px] font-black text-cyan-400 uppercase tracking-widest mb-3">
               Learn Today, Lead Tomorrow
             </span>
 
-            <p className="text-xs sm:text-sm leading-relaxed text-slate-300 max-w-sm mb-5 font-medium">
+            <p className="text-xs sm:text-sm leading-relaxed text-zinc-300 max-w-sm mb-5 font-medium">
               100% Ex-HOD taught. Small capped batches. Dedicated JEE Advanced & NEET preparation in Gurgaon.
             </p>
 
             {/* Rating Badge */}
-            <div className="inline-flex items-center gap-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-2xl text-xs font-bold text-slate-200">
+            <div className="inline-flex items-center gap-2 bg-zinc-950 border border-zinc-800 px-4 py-2 rounded-2xl text-xs font-bold text-white">
               <div className="flex items-center text-cyan-400">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-3.5 h-3.5 fill-cyan-400" />
                 ))}
               </div>
               <span className="text-white font-black">4.9/5 Rating</span>
-              <span className="text-slate-400 text-[10px] font-semibold">(120+ Parent Reviews)</span>
+              <span className="text-zinc-400 text-[10px] font-semibold">(120+ Parent Reviews)</span>
             </div>
           </div>
 
@@ -112,63 +112,63 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
             <h4 className="font-heading font-black text-white text-xs uppercase tracking-widest mb-5">
               Quick Pages
             </h4>
-            <ul className="space-y-3 text-xs font-extrabold text-slate-300">
+            <ul className="space-y-3 text-xs font-extrabold text-zinc-200">
               <li>
-                <Link href="/why-us" className="hover:text-cyan-300 transition-colors flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                <Link href="/why-us" className="hover:text-cyan-400 transition-colors flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
                   <span>Why Small Batch Coaching</span>
                 </Link>
               </li>
               <li>
-                <Link href="/programs" className="hover:text-cyan-300 transition-colors flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                <Link href="/programs" className="hover:text-cyan-400 transition-colors flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
                   <span>Academic Programs (JEE & NEET)</span>
                 </Link>
               </li>
               <li>
-                <Link href="/faculty" className="hover:text-cyan-300 transition-colors flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                <Link href="/faculty" className="hover:text-cyan-400 transition-colors flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
                   <span>Ex-HOD Faculty Mentors</span>
                 </Link>
               </li>
               <li>
-                <Link href="/calculator" className="hover:text-cyan-300 transition-colors flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                <Link href="/calculator" className="hover:text-cyan-400 transition-colors flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
                   <span>Fee & Scholarship Estimator</span>
                 </Link>
               </li>
               <li>
-                <Link href="/results" className="hover:text-cyan-300 transition-colors flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                <Link href="/results" className="hover:text-cyan-400 transition-colors flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
                   <span>Top AIR Ranks & Reviews</span>
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-cyan-300 transition-colors flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                <Link href="/contact" className="hover:text-cyan-400 transition-colors flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
                   <span>Gurgaon Center Location</span>
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Center Address & Contact (3 cols) */}
+          {/* Col 3: Center Address & Contact & Socials (3 cols) */}
           <div className="lg:col-span-3">
             <h4 className="font-heading font-black text-white text-xs uppercase tracking-widest mb-5">
               Gurgaon Centers
             </h4>
             
-            <div className="space-y-3 text-xs font-semibold text-slate-300">
+            <div className="space-y-3.5 text-xs font-semibold text-zinc-200">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-cyan-300 shrink-0 mt-0.5" />
-                <span className="leading-snug">
+                <MapPin className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                <span className="leading-snug text-zinc-300">
                   Sec 45 (Near DPS) · Sec 47 (Malibu Towne) · Sec 46 · Sec 52 (Ardee City)
                 </span>
               </div>
 
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-cyan-300 shrink-0" />
-                <a href="tel:+919899818241" className="text-white font-extrabold hover:text-cyan-300 transition-colors">+91 98998 18241 / 99994 95938</a>
+                <Phone className="w-4 h-4 text-cyan-400 shrink-0" />
+                <a href="tel:+919899818241" className="text-white font-extrabold hover:text-cyan-400 transition-colors">+91 98998 18241 / 99994 95938</a>
               </div>
 
               <div className="flex items-center gap-2.5">
@@ -178,17 +178,51 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
                 </a>
               </div>
 
-              <div className="flex items-center gap-4 mt-2">
-                <a href="https://www.facebook.com/share/1PFmnYsfRK/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors" aria-label="Facebook">
-                  <Facebook className="w-5 h-5" />
-                </a>
-                <a href="https://youtube.com/watch?v=XDQq1L-ldP8&feature=shared" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors" aria-label="YouTube">
-                  <Youtube className="w-5 h-5" />
-                </a>
-                <a href="https://www.instagram.com/bm__classes?igsh=MTB3cjRtZHdwYTBocA==" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors" aria-label="Instagram">
-                  <Instagram className="w-5 h-5" />
-                </a>
+              {/* REAL BRAND SOCIAL MEDIA ICONS */}
+              <div className="pt-2">
+                <div className="text-[10px] font-black text-zinc-400 uppercase tracking-wider mb-2">Connect With Us</div>
+                <div className="flex items-center gap-3">
+                  {/* Facebook Real Icon */}
+                  <a
+                    href="https://www.facebook.com/share/1PFmnYsfRK/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-md"
+                    aria-label="Facebook"
+                  >
+                    <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                  </a>
+
+                  {/* YouTube Real Icon */}
+                  <a
+                    href="https://youtube.com/watch?v=XDQq1L-ldP8&feature=shared"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 rounded-full bg-[#FF0000] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-md"
+                    aria-label="YouTube"
+                  >
+                    <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
+                      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 0 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                  </a>
+
+                  {/* Instagram Real Icon */}
+                  <a
+                    href="https://www.instagram.com/bm__classes?igsh=MTB3cjRtZHdwYTBocA=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#f89b29] via-[#ff0069] to-[#7638fa] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-md"
+                    aria-label="Instagram"
+                  >
+                    <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
+
             </div>
           </div>
 
@@ -198,8 +232,8 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
               Quick Callback
             </h4>
 
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4">
-              <p className="text-[11px] text-slate-300 mb-3 font-medium">
+            <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-4">
+              <p className="text-[11px] text-zinc-300 mb-3 font-medium">
                 Enter mobile number for an immediate Ex-HOD callback.
               </p>
 
@@ -216,11 +250,11 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
                     value={callbackPhone}
                     onChange={(e) => setCallbackPhone(e.target.value)}
                     required
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 font-extrabold"
+                    className="w-full bg-black border border-zinc-800 rounded-xl px-3 py-2 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-cyan-400 font-extrabold"
                   />
                   <button
                     type="submit"
-                    className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-extrabold text-xs py-2 rounded-xl transition-all cursor-pointer shadow-xs"
+                    className="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-extrabold text-xs py-2 rounded-xl transition-all cursor-pointer shadow-xs"
                   >
                     Request Call
                   </button>
@@ -232,17 +266,17 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
         </div>
 
         {/* BOTTOM COPYRIGHT BAR */}
-        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500 font-medium">
+        <div className="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-zinc-400 font-medium">
           <div>
             © 2026 BmClasses Coaching Institute. All rights reserved.
           </div>
 
           <div className="flex items-center gap-4 text-[11px]">
-            <button onClick={handleRegister} className="hover:text-cyan-300 transition-colors cursor-pointer">Admissions</button>
+            <button onClick={handleRegister} className="hover:text-cyan-400 transition-colors cursor-pointer">Admissions</button>
             <span>·</span>
-            <button onClick={handleLogin} className="hover:text-cyan-300 transition-colors cursor-pointer">Student Portal</button>
+            <button onClick={handleLogin} className="hover:text-cyan-400 transition-colors cursor-pointer">Student Portal</button>
             <span>·</span>
-            <Link href="/contact" className="hover:text-cyan-300 transition-colors">Ardee City Sector 52 Gurgaon</Link>
+            <Link href="/contact" className="hover:text-cyan-400 transition-colors">Ardee City Sector 52 Gurgaon</Link>
           </div>
         </div>
 
