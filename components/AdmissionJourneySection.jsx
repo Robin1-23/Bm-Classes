@@ -64,7 +64,7 @@ export default function AdmissionJourneySection({ onOpenRegister }) {
             const IconComponent = item.icon;
             return (
               <ScrollReveal key={idx} delay={100 * (idx + 1)} direction="up">
-                <div className="bg-white/80 backdrop-blur-xl border-2 border-slate-200/90 rounded-3xl p-5 flex flex-col justify-between hover:border-indigo-500 hover:shadow-xl hover:bg-white/95 transition-all h-full group">
+                <div className="bg-white/80 backdrop-blur-xl border-2 border-slate-200/90 rounded-3xl p-5 flex flex-col justify-between shadow-lg shadow-indigo-950/5 hover:shadow-xl hover:shadow-indigo-500/10 hover:-translate-y-1 hover:border-indigo-500 hover:bg-white/95 transition-all h-full group">
                   <div>
                     <div className="flex items-center justify-between mb-4">
                       <div className={`w-10 h-10 rounded-2xl border flex items-center justify-center font-black shadow-xs ${item.color}`}>

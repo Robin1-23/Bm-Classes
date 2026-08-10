@@ -33,7 +33,7 @@ export default function FacultySection({ onOpenRegister }) {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-lg sm:max-w-none mx-auto">
           {MENTORS_DATA.map((mentor, idx) => (
             <ScrollReveal key={idx} delay={120 * (idx + 1)} direction="up">
-              <div className="bg-gradient-to-b from-[#0e1626] via-[#090d16] to-[#090d16] border-2 border-slate-800/90 hover:border-cyan-400/60 rounded-3xl p-6 shadow-2xl transition-all duration-300 flex flex-col justify-between group h-full relative overflow-hidden">
+              <div className="bg-gradient-to-b from-[#0e1626] via-[#090d16] to-[#090d16] border-2 border-slate-800/90 hover:border-cyan-400/60 rounded-3xl p-6 shadow-2xl shadow-cyan-950/40 hover:shadow-cyan-400/20 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group h-full relative overflow-hidden">
                 
                 {/* Top Subtle Ambient Glow */}
                 <div className="absolute -top-16 -right-16 w-36 h-36 bg-cyan-400/10 rounded-full blur-2xl pointer-events-none group-hover:bg-cyan-400/20 transition-all"></div>

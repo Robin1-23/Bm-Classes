@@ -135,7 +135,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
 
             return (
               <ScrollReveal key={idx} delay={150 * (idx + 1)} direction="up">
-                <div className="bg-white border-2 border-slate-200/90 rounded-3xl p-7 shadow-sm hover:shadow-xl hover:-translate-y-1.5 hover:border-indigo-400 transition-all duration-300 relative group flex flex-col justify-between h-full">
+                <div className="bg-white/90 backdrop-blur-xl border-2 border-slate-200/90 rounded-3xl p-7 shadow-lg shadow-indigo-950/5 hover:shadow-2xl hover:shadow-indigo-500/15 hover:-translate-y-1.5 hover:border-indigo-400 transition-all duration-300 relative group flex flex-col justify-between h-full">
                   <div>
                     <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
                       <div className="w-10 h-10 rounded-2xl bg-indigo-50 text-indigo-700 border border-indigo-200/80 flex items-center justify-center shadow-xs">
