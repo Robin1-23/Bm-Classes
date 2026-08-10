@@ -36,7 +36,7 @@ export default function Home() {
       <FacultySection 
         onOpenRegister={openRegister}
       />
-      <WhySection />
+      <WhySection hidePedagogy />
       <PlatformSection />
       <ResultsSection 
         onOpenVideo={openVideo} 

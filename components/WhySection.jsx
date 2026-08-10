@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Target, TrendingUp, Users, CheckCircle2, Sparkles, Zap, ShieldCheck, Gauge, ArrowRight, Layers } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 
-export default function WhySection() {
+export default function WhySection({ hidePedagogy = false }) {
   const [selectedDimension, setSelectedDimension] = useState(0);
 
   const pillars = [
@@ -234,6 +234,7 @@ export default function WhySection() {
         </div>
 
         {/* ELEGANT & NATURALLY INTEGRATED PEDAGOGY COMPARISON DECK */}
+        {!hidePedagogy && (
         <ScrollReveal delay={200} direction="up">
           <div className="bg-gradient-to-br from-indigo-50/80 via-white to-cyan-50/40 border border-slate-200/90 rounded-3xl p-5 xs:p-7 sm:p-10 lg:p-12 shadow-lg relative overflow-hidden text-slate-950">
             
@@ -405,6 +406,7 @@ export default function WhySection() {
 
           </div>
         </ScrollReveal>
+        )}
 
       </div>
     </section>
