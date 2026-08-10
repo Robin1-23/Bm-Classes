@@ -1,9 +1,10 @@
 'use client';
 
 import React from 'react';
-import { Play, Sparkles, Trophy, Star } from 'lucide-react';
+import { Sparkles, Trophy, Star } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 import { useModal } from '@/context/ModalContext';
+import VideoReelCard from '@/components/VideoReelCard';
 
 export default function ResultsSection({ onOpenVideo }) {
   const modal = useModal();
@@ -166,47 +167,21 @@ export default function ResultsSection({ onOpenVideo }) {
       </ScrollReveal>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        {/* Real Student Video Testimonials */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-lg sm:max-w-none mx-auto">
-          {videoCards.map((v, idx) => (
-            <ScrollReveal key={idx} delay={120 * (idx + 1)} direction="up">
-              <div className="group relative bg-black rounded-3xl overflow-hidden border-2 border-zinc-800 hover:border-cyan-400 shadow-[0_15px_35px_-5px_rgba(0,0,0,0.5)] hover:shadow-[0_25px_50px_-10px_rgba(34,211,238,0.2)] transition-all duration-300">
-
-                {/* Native Video Player */}
-                <video
-                  src={v.file}
-                  controls
-                  playsInline
-                  preload="metadata"
-                  className="w-full aspect-video object-cover bg-zinc-950"
-                />
-
-                {/* Info Footer */}
-                <div className="p-5 border-t border-zinc-800">
-                  <div className="flex items-start justify-between gap-3 mb-2">
-                    <div>
-                      <div className="font-heading font-black text-white text-base group-hover:text-cyan-300 transition-colors">
-                        {v.name}
-                      </div>
-                      <div className="text-[11px] font-bold text-cyan-400 mt-0.5">
-                        {v.exam} · <span className="text-emerald-400">{v.result}</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-1 shrink-0">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-                      ))}
-                    </div>
-                  </div>
-                  <p className="text-white/70 text-xs leading-relaxed font-medium italic">
-                    {v.quote}
-                  </p>
-                </div>
-
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
+        {/* Real Student Video Testimonials — Reel Format */}
+        <ScrollReveal delay={150} direction="up">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {videoCards.map((v, idx) => (
+              <VideoReelCard
+                key={idx}
+                file={v.file}
+                name={v.name}
+                exam={v.exam}
+                result={v.result}
+                quote={v.quote}
+              />
+            ))}
+          </div>
+        </ScrollReveal>
 
       </div>
     </section>
