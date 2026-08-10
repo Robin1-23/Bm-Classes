@@ -92,11 +92,7 @@ export default function ResultsSection({ onOpenVideo }) {
         </ScrollReveal>
 
         {/* Real Google Reviews Infinite Moving Deck (Pitch Dark Black Cards & 3D Shadows) */}
-        <ScrollReveal delay={200} direction="up" className="mb-14 sm:mb-18 relative">
-          
-          {/* Left & Right Gradient Fades */}
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#faf8f5] to-transparent z-20"></div>
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#faf8f5] to-transparent z-20"></div>
+        <ScrollReveal delay={200} direction="up" className="mb-14 sm:mb-18">
 
           <div className="overflow-hidden py-4">
             <div className="animate-marquee flex items-stretch gap-6">
