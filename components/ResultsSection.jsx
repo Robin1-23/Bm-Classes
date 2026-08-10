@@ -91,54 +91,57 @@ export default function ResultsSection({ onOpenVideo }) {
           </div>
         </ScrollReveal>
 
-        {/* Real Reviews Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-lg sm:max-w-none mx-auto mb-14 sm:mb-18">
-          {writtenReviews.map((rev, idx) => (
-            <ScrollReveal key={idx} delay={120 * (idx + 1)} direction="up">
-              <div 
-                className={`rounded-3xl p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 border shadow-md hover:-translate-y-1.5 h-full ${
-                  rev.featured 
-                    ? 'bg-slate-950 text-white border-indigo-500/40 shadow-2xl' 
-                    : 'bg-white border-slate-200/90 text-slate-950 hover:shadow-xl'
-                }`}
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-4">
-                    <div className="flex items-center gap-1 text-amber-400">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-amber-400" />
-                      ))}
-                    </div>
-                    <span className="text-[9px] font-black bg-emerald-500/10 text-emerald-600 border border-emerald-500/20 px-2 py-0.5 rounded-full uppercase tracking-wider">
-                      Google Review
-                    </span>
-                  </div>
+        {/* Real Google Reviews Infinite Moving Deck (Pitch Dark Black Cards & 3D Shadows) */}
+        <ScrollReveal delay={200} direction="up" className="mb-14 sm:mb-18 relative">
+          
+          {/* Left & Right Gradient Fades */}
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#faf8f5] to-transparent z-20"></div>
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#faf8f5] to-transparent z-20"></div>
 
-                  <p className={`text-xs sm:text-sm leading-relaxed mb-6 font-medium italic ${
-                    rev.featured ? 'text-slate-200' : 'text-slate-700'
-                  }`}>
-                    "{rev.quote}"
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-slate-200/20 flex items-center justify-between">
+          <div className="overflow-hidden py-4">
+            <div className="animate-marquee flex items-stretch gap-6">
+              {[...writtenReviews, ...writtenReviews].map((rev, idx) => (
+                <div 
+                  key={idx}
+                  className="w-[310px] sm:w-[380px] lg:w-[410px] bg-black text-white border-2 border-zinc-800 hover:border-cyan-400 rounded-3xl p-6 sm:p-7 shadow-[0_15px_35px_-5px_rgba(0,0,0,0.5)] hover:shadow-[0_25px_50px_-10px_rgba(34,211,238,0.25)] hover:-translate-y-2.5 transition-all duration-300 flex flex-col justify-between shrink-0 group cursor-pointer relative"
+                >
                   <div>
-                    <div className={`font-heading font-black text-sm ${
-                      rev.featured ? 'text-cyan-300' : 'text-slate-950'
-                    }`}>
-                      {rev.author}
+                    {/* Header Row: Stars & Google Badge */}
+                    <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-zinc-800/80">
+                      <div className="flex items-center gap-1 text-amber-400">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-4 h-4 fill-amber-400" />
+                        ))}
+                      </div>
+                      <span className="text-[10px] font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                        Google Review
+                      </span>
                     </div>
-                    <div className={`text-[11px] font-bold ${
-                      rev.featured ? 'text-indigo-300' : 'text-indigo-600'
-                    }`}>
-                      {rev.sub}
-                    </div>
+
+                    {/* Quote Text in Pure White */}
+                    <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-medium italic mb-6">
+                      "{rev.quote}"
+                    </p>
                   </div>
+
+                  {/* Author Footer */}
+                  <div className="pt-4 border-t border-zinc-800/80 flex items-center justify-between">
+                    <div>
+                      <div className="font-heading font-black text-white text-sm group-hover:text-cyan-300 transition-colors">
+                        {rev.author}
+                      </div>
+                      <div className="text-[11px] font-bold text-cyan-400 mt-0.5">
+                        {rev.sub}
+                      </div>
+                    </div>
+                    <span className="text-slate-400 text-xs font-mono font-bold">5.0 ★</span>
+                  </div>
+
                 </div>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
 
         {/* Video Testimonial Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-lg sm:max-w-none mx-auto">
