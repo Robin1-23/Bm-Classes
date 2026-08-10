@@ -3,17 +3,29 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Phone, ArrowRight, Sparkles, ChevronDown } from 'lucide-react';
+import { Menu, X, Phone, ArrowRight, Sparkles } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { useModal } from '@/context/ModalContext';
 
-export default function Header({ onOpenRegister, onOpenLogin }) {
+export default function Header({ onOpenRegister }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const modal = useModal();
 
   const handleRegister = onOpenRegister || modal.openRegister;
-  const handleLogin = onOpenLogin || modal.openLogin;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     if (mobileMenuOpen) {
@@ -36,52 +48,71 @@ export default function Header({ onOpenRegister, onOpenLogin }) {
 
   return (
     <>
-      <header className="sticky top-0 z-40 bg-[#070a11]/95 backdrop-blur-xl border-b border-slate-800/80 transition-all duration-300 w-full max-w-full overflow-x-hidden text-white">
+      {/* Sticky Outer Container */}
+      <header className="sticky top-0 z-50 w-full px-2 sm:px-4 py-2 sm:py-3 transition-all duration-300">
         
-        {/* Main Navbar */}
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between gap-3">
-          
-          {/* Left Action Box (Matching ReferRush Left Action Button) */}
+        {/* Floating Glassmorphism Island Container */}
+        <div className={`max-w-7xl mx-auto rounded-2xl sm:rounded-3xl border transition-all duration-300 px-3 sm:px-5 py-2 sm:py-2.5 flex items-center justify-between gap-3 relative ${
+          scrolled 
+            ? 'bg-[#060911]/90 backdrop-blur-2xl border-cyan-500/30 shadow-2xl shadow-cyan-950/50' 
+            : 'bg-[#070a13]/85 backdrop-blur-xl border-slate-800/90 shadow-xl'
+        }`}>
+
+          {/* Left Action Box (WhatsApp Desk with Pulsating Status Dot) */}
           <div className="flex items-center gap-2 shrink-0">
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl text-slate-300 hover:bg-slate-900 transition-colors cursor-pointer"
+              className="lg:hidden p-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 hover:text-white transition-colors cursor-pointer"
               aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5 text-white" /> : <Menu className="w-5 h-5 text-white" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 text-cyan-400" /> : <Menu className="w-5 h-5 text-white" />}
             </button>
 
             <a
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden xl:flex items-center gap-2 bg-slate-900/90 border border-slate-800 hover:border-emerald-500/50 hover:bg-slate-800 px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-200 transition-all cursor-pointer shadow-xs"
+              className="hidden xl:flex items-center gap-2 bg-[#0d1424] border border-slate-800/90 hover:border-emerald-400/50 hover:bg-[#111a2e] px-3.5 py-1.5 rounded-2xl text-xs font-extrabold text-slate-200 transition-all cursor-pointer shadow-xs group"
             >
-              <WhatsAppIcon className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+              </span>
+              <WhatsAppIcon className="w-3.5 h-3.5 text-emerald-400 group-hover:scale-110 transition-transform" />
               <span>WhatsApp Desk</span>
             </a>
           </div>
 
-          {/* Center Brand Logo & Name (Matching ReferRush Logo Block) */}
+          {/* Center Brand Logo & Name (Glowing Gradient Border Box) */}
           <Link href="/" className="flex items-center gap-2.5 font-heading text-base sm:text-lg font-black tracking-tight text-white group shrink-0">
-            <span className="w-7 h-7 rounded-lg bg-slate-900 border border-slate-800 group-hover:border-cyan-400/60 text-cyan-400 font-heading font-black flex items-center justify-center text-xs shadow-md transition-colors">
-              BM
-            </span>
-            <span className="font-extrabold tracking-tight text-white">BM CLASSES</span>
+            <div className="p-0.5 rounded-xl bg-gradient-to-tr from-cyan-400 via-indigo-500 to-emerald-400 shadow-md group-hover:shadow-cyan-400/30 transition-shadow">
+              <div className="w-7 h-7 rounded-[10px] bg-[#070b14] flex items-center justify-center text-cyan-300 font-heading font-black text-xs">
+                BM
+              </div>
+            </div>
+
+            <div className="flex flex-col">
+              <span className="font-extrabold tracking-tight text-white group-hover:text-cyan-300 transition-colors leading-none">
+                BM CLASSES
+              </span>
+              <span className="text-[8px] font-black uppercase tracking-widest text-cyan-400/90 mt-0.5">
+                EX-HOD ACADEMY
+              </span>
+            </div>
           </Link>
 
-          {/* Centered-Right Rounded Nav Pill Container (Matching ReferRush Rounded Pill Nav) */}
-          <nav className="hidden lg:flex items-center gap-4 bg-slate-900/80 border border-slate-800/90 rounded-full px-5 py-1.5 text-xs font-medium text-slate-300 shadow-inner">
+          {/* Centered-Right Nav Capsule */}
+          <nav className="hidden lg:flex items-center gap-5 bg-[#0b1120]/90 border border-slate-800/90 rounded-full px-5 py-1.5 text-xs font-bold text-slate-300 shadow-inner">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`transition-colors duration-200 ${
+                  className={`transition-all duration-200 relative ${
                     isActive
-                      ? 'text-cyan-400 font-extrabold'
-                      : 'hover:text-white text-slate-300'
+                      ? 'text-cyan-300 font-black bg-cyan-400/10 border border-cyan-400/30 px-3 py-1 rounded-full'
+                      : 'hover:text-white text-slate-300 hover:scale-105'
                   }`}
                 >
                   {item.label}
@@ -90,37 +121,18 @@ export default function Header({ onOpenRegister, onOpenLogin }) {
             })}
           </nav>
 
-          {/* Right Action Button (Matching ReferRush Right Action Button) */}
+          {/* Right Action Button (Electric Gradient Pill) */}
           <div className="flex items-center gap-2 shrink-0">
             <button 
               onClick={() => handleRegister()}
-              className="bg-slate-900 border border-slate-800 hover:border-cyan-400/50 hover:bg-slate-800 text-white px-3.5 sm:px-4.5 py-1.5 rounded-xl font-extrabold text-xs transition-all shadow-sm cursor-pointer flex items-center gap-1.5"
+              className="bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400 hover:from-cyan-300 hover:to-indigo-300 text-slate-950 font-black text-xs px-3.5 sm:px-4.5 py-2 rounded-2xl flex items-center gap-1.5 shadow-lg shadow-cyan-950/60 hover:scale-[1.03] transition-all cursor-pointer"
             >
+              <Sparkles className="w-3.5 h-3.5 text-slate-950" />
               <span>Apply Now</span>
-              <ArrowRight className="w-3.5 h-3.5 text-cyan-400" />
+              <ArrowRight className="w-3.5 h-3.5 text-slate-950" />
             </button>
           </div>
 
-        </div>
-
-        {/* Mobile Horizontal Jump Bar */}
-        <div className="lg:hidden bg-slate-950/90 border-t border-slate-800/60 overflow-x-auto no-scrollbar py-1.5 px-3 flex items-center gap-2 text-[11px] font-extrabold text-slate-300">
-          {navItems.map((item) => {
-            const isActive = pathname === item.href;
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`shrink-0 px-3 py-1 rounded-full border transition-all ${
-                  isActive
-                    ? 'bg-indigo-600 text-white border-indigo-500 shadow-xs font-black'
-                    : 'bg-slate-900 text-slate-300 border-slate-800 hover:bg-slate-800 hover:text-white'
-                }`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
         </div>
 
       </header>
@@ -129,17 +141,17 @@ export default function Header({ onOpenRegister, onOpenLogin }) {
       {mobileMenuOpen && (
         <div className="lg:hidden">
           <div 
-            className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-40 transition-opacity"
+            className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 transition-opacity"
             onClick={() => setMobileMenuOpen(false)}
           ></div>
 
-          <div className="fixed inset-x-0 top-0 z-50 bg-[#090d16] border-b border-slate-800 shadow-2xl p-5 flex flex-col gap-4 text-white max-h-[90vh] overflow-y-auto rounded-b-3xl">
+          <div className="fixed inset-x-2 top-2 z-50 bg-[#090d16] border border-slate-800 shadow-2xl p-5 flex flex-col gap-4 text-white max-h-[90vh] overflow-y-auto rounded-3xl">
             
             <div className="pb-3 border-b border-slate-800 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <span className="w-6 h-6 rounded-md bg-slate-900 border border-slate-800 text-cyan-400 font-black flex items-center justify-center text-[10px]">
+                <div className="w-7 h-7 rounded-lg bg-slate-900 border border-slate-800 text-cyan-400 font-black flex items-center justify-center text-xs">
                   BM
-                </span>
+                </div>
                 <span className="text-xs font-black uppercase tracking-widest text-cyan-400">
                   BM CLASSES Navigation
                 </span>
@@ -162,9 +174,9 @@ export default function Header({ onOpenRegister, onOpenLogin }) {
                     key={item.href}
                     href={item.href} 
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`py-2.5 px-3 rounded-xl transition-colors flex items-center justify-between ${
+                    className={`py-2.5 px-3.5 rounded-xl transition-colors flex items-center justify-between ${
                       isActive
-                        ? 'bg-indigo-600 text-white font-black'
+                        ? 'bg-gradient-to-r from-cyan-500 to-indigo-600 text-white font-black shadow-md'
                         : 'hover:bg-slate-900 hover:text-cyan-300 text-slate-200'
                     }`}
                   >
