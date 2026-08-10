@@ -125,38 +125,70 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
 
         </div>
 
-        {/* Right Graphic / Student Visual */}
-        <div className="lg:col-span-5 relative w-full h-[260px] xs:h-[320px] sm:h-[400px] lg:h-[480px] flex items-end justify-center mt-2 lg:mt-0 overflow-hidden max-w-full">
+        {/* Right Graphic / Student Visual (Bigger, Filled & Ultra-Premium) */}
+        <div className="lg:col-span-5 relative w-full min-h-[340px] xs:min-h-[420px] sm:min-h-[500px] lg:min-h-[560px] flex items-center justify-center mt-6 lg:mt-0">
           
-          <ScrollReveal delay={300} direction="left" className="w-full flex items-end justify-center">
-            {/* Vertical Purple Accent Card */}
-            <div className="absolute top-0 right-2 xs:right-4 sm:right-8 w-[180px] xs:w-[240px] sm:w-[300px] lg:w-[330px] h-[105%] bg-gradient-to-b from-indigo-600 via-purple-600 to-slate-900 rounded-t-[100px] xs:rounded-t-[140px] z-0 shadow-2xl"></div>
+          <ScrollReveal delay={300} direction="left" className="w-full relative flex items-center justify-center">
+            {/* Ambient Background Blur Sphere */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/25 via-purple-500/20 to-cyan-400/25 rounded-3xl sm:rounded-[40px] blur-2xl pointer-events-none"></div>
 
-            {/* Glowing Cyan Circle */}
-            <div className="absolute top-6 xs:top-10 sm:top-14 right-0 sm:right-4 w-[160px] xs:w-[210px] sm:w-[270px] lg:w-[300px] h-[160px] xs:h-[210px] sm:h-[270px] lg:h-[300px] bg-cyan-400 rounded-full z-10 shadow-[0_0_80px_rgba(34,211,238,0.4)] border-4 border-cyan-300/40"></div>
+            {/* Glowing Accent Arch Card */}
+            <div className="absolute inset-0 bg-gradient-to-b from-indigo-600 via-purple-700 to-[#070a13] rounded-3xl sm:rounded-[36px] p-2 xs:p-3 sm:p-4 shadow-2xl shadow-indigo-950/50 border border-indigo-400/30"></div>
 
-            {/* Main Visual Image Cutout */}
-            <div className="relative z-20 w-full max-w-[270px] xs:max-w-[340px] sm:max-w-[420px] filter drop-shadow-[0_25px_35px_rgba(15,23,42,0.25)] hover:scale-[1.02] transition-transform duration-500 animate-float-slow">
-              <img 
-                src="/hero_student_laptop.jpg" 
-                alt="BmClasses Student Learning Visual" 
-                loading="eager"
-                decoding="async"
-                className="w-full h-auto rounded-2xl xs:rounded-3xl block border-2 xs:border-4 border-white shadow-2xl gpu-accelerate"
-              />
-              
-              {/* Floating Glassmorphism Live Badge */}
-              <div className="absolute bottom-2 xs:bottom-4 left-2 xs:left-4 bg-slate-950/80 backdrop-blur-xl text-white border border-slate-700/80 px-3 xs:px-4 py-2 xs:py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 xs:gap-3">
-                <div className="w-8 xs:w-10 h-8 xs:h-10 rounded-xl bg-gradient-to-tr from-cyan-400 to-teal-300 text-slate-950 font-black flex items-center justify-center text-xs xs:text-sm shrink-0 shadow-md">
-                  AIR 18
+            {/* Main Visual Image (Full-Width, High Resolution) */}
+            <div className="relative z-10 w-full p-2 xs:p-3 sm:p-4">
+              <div className="relative overflow-hidden rounded-2xl sm:rounded-[28px] shadow-2xl border-2 border-white/20 group">
+                <img 
+                  src="/hero_student_premium.jpg" 
+                  alt="BM CLASSES Top-Rank Student" 
+                  loading="eager"
+                  decoding="async"
+                  className="w-full h-[300px] xs:h-[380px] sm:h-[460px] lg:h-[500px] object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                  onError={(e) => {
+                    e.target.src = '/hero_student_laptop.jpg';
+                  }}
+                />
+
+                {/* Dark Vignette Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none"></div>
+
+                {/* Floating Top-Right Badge: Ex-HOD Mentorship */}
+                <div className="absolute top-3 right-3 bg-[#070a13]/90 backdrop-blur-xl border border-cyan-400/50 text-white px-3 sm:px-4 py-2 rounded-2xl shadow-xl flex items-center gap-2.5">
+                  <div className="w-7 sm:w-8 h-7 sm:h-8 rounded-xl bg-gradient-to-tr from-cyan-400 to-teal-300 text-slate-950 font-black flex items-center justify-center text-xs shrink-0 shadow-md">
+                    <Award className="w-4 h-4 text-slate-950" />
+                  </div>
+                  <div>
+                    <div className="text-[10px] sm:text-xs font-black text-white leading-tight">100% Ex-HOD Faculty</div>
+                    <div className="text-[9px] sm:text-[10px] text-cyan-300 font-extrabold leading-tight">FIITJEE & VMC Masters</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-xs xs:text-sm font-black text-white leading-tight">Top Rank Proven</div>
-                  <div className="text-[9px] xs:text-[11px] text-cyan-300 font-extrabold leading-tight">100% Ex-FIITJEE HOD Direct Mentorship</div>
+
+                {/* Floating Bottom Live Rank Badge */}
+                <div className="absolute bottom-3 left-3 right-3 bg-[#060911]/95 backdrop-blur-2xl text-white border border-slate-700/90 p-3 sm:p-4 rounded-2xl shadow-2xl flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 sm:w-11 h-10 sm:h-11 rounded-xl bg-gradient-to-tr from-amber-400 via-amber-500 to-yellow-300 text-slate-950 font-black flex items-center justify-center text-xs sm:text-sm shrink-0 shadow-md border border-yellow-200">
+                      AIR 18
+                    </div>
+                    <div>
+                      <div className="text-xs sm:text-sm font-black text-white leading-tight flex items-center gap-1.5">
+                        <span>Top Ranks Proven</span>
+                        <Trophy className="w-3.5 h-3.5 text-amber-400 inline shrink-0" />
+                      </div>
+                      <div className="text-[10px] sm:text-[11px] text-cyan-300 font-extrabold leading-tight mt-0.5">
+                        AIR 18, AIR 22, AIR 52 & AIR 102 Ranks
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="hidden xs:flex flex-col items-end shrink-0 border-l border-slate-800 pl-3">
+                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Student Cap</span>
+                    <span className="text-xs font-black text-emerald-400">10-15 Max</span>
+                  </div>
                 </div>
+
               </div>
-
             </div>
+
           </ScrollReveal>
 
         </div>
