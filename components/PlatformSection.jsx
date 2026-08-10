@@ -5,15 +5,15 @@ import { Sparkles, Zap } from 'lucide-react';
 
 export default function PlatformSection() {
   return (
-    <section className="bg-[#faf8f5] py-20 sm:py-28 border-b border-slate-200/80 relative overflow-hidden">
+    <section className="bg-[#faf8f5] pt-10 pb-20 sm:pt-12 sm:pb-28 border-b border-slate-200/80 relative overflow-hidden">
       
       {/* Background Subtle Radial Accent */}
       <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:32px_32px] opacity-35 pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
-        
-        {/* Left Explanation Column */}
-        <div className="lg:col-span-7">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+
+        {/* Centered Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
             <span>HYBRID LEARNING</span>
@@ -26,8 +26,14 @@ export default function PlatformSection() {
           <p className="text-slate-600 text-base sm:text-lg mt-4 font-medium leading-relaxed">
             Classrooms build fundamental clarity. The platform tracks concept gaps, drills weak areas, and automates revision.
           </p>
+        </div>
 
-          <div className="space-y-4 sm:space-y-5 mt-8">
+        {/* Grid: Feature Cards + Dashboard */}
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        
+        {/* Left Feature Cards Column */}
+        <div className="lg:col-span-7">
+          <div className="space-y-4 sm:space-y-5">
             <div className="flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-indigo-300 transition-colors">
               <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white font-black text-xs flex items-center justify-center shrink-0 shadow-md">
                 01
@@ -127,6 +133,8 @@ export default function PlatformSection() {
           </div>
 
         </div>
+
+        </div>{/* end grid */}
 
       </div>
     </section>
