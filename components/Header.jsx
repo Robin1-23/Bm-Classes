@@ -83,24 +83,24 @@ export default function Header({ onOpenRegister }) {
             </a>
           </div>
 
-          {/* Center Brand Logo & Name (Ultra-Cool 3D Metallic Monogram Badge) */}
-          <Link href="/" className="flex items-center gap-2.5 font-heading text-base sm:text-lg font-black tracking-tight text-white group shrink-0">
-            <div className="relative p-[1.5px] rounded-2xl bg-gradient-to-br from-cyan-400 via-indigo-500 to-emerald-400 shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-400/50 group-hover:scale-105 transition-all duration-300">
-              <div className="w-9 h-9 rounded-[14px] bg-gradient-to-b from-[#0f172a] via-[#090d16] to-[#04070d] flex items-center justify-center relative overflow-hidden">
-                {/* Inner Metallic Radial Glow */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 via-indigo-500/10 to-transparent pointer-events-none"></div>
+          {/* Center Brand Logo & Name (Ultra-Fancy 3D Prism Gem Badge & Syne Display Font) */}
+          <Link href="/" className="flex items-center gap-3 group shrink-0">
+            <div className="relative p-[2px] rounded-2xl bg-gradient-to-tr from-cyan-400 via-indigo-500 to-emerald-400 shadow-xl shadow-cyan-500/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+              <div className="w-10 h-10 rounded-[14px] bg-gradient-to-b from-[#111c35] via-[#090d16] to-[#04070d] flex items-center justify-center relative overflow-hidden border border-white/20 shadow-inner">
+                {/* Inner Metallic Diagonal Glow */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/30 via-indigo-500/15 to-transparent pointer-events-none"></div>
                 
                 {/* Monogram Icon */}
-                <span className="font-heading font-black text-xs sm:text-sm text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-white to-teal-300 tracking-wider relative z-10">
+                <span className="font-logo font-black text-sm sm:text-base text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-white to-teal-300 tracking-wider relative z-10">
                   BM
                 </span>
                 
                 {/* Micro Sparkle Beacon */}
-                <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-xs shadow-cyan-300"></span>
+                <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-cyan-400 shadow-sm shadow-cyan-300 border border-white/40"></span>
               </div>
             </div>
 
-            <span className="font-heading font-black text-lg tracking-tight text-white group-hover:text-cyan-300 transition-colors">
+            <span className="font-logo font-black text-xl sm:text-2xl tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-teal-200 group-hover:from-cyan-300 group-hover:to-white transition-all">
               BM CLASSES
             </span>
           </Link>

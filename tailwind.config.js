@@ -29,6 +29,7 @@ module.exports = {
         body: ['Geist', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         sans: ['Geist', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+        logo: ['Syne', '"Space Grotesk"', 'Geist', 'sans-serif'],
       },
       boxShadow: {
         'glow-purple': '0 0 50px rgba(99, 102, 241, 0.25)',
