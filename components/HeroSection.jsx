@@ -211,11 +211,12 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
 
       </div>
 
-      {/* Marquee Credential Belt */}
-      <div className="bg-slate-950 py-4 sm:py-5 relative z-30 shadow-2xl border-t border-indigo-500/20 overflow-hidden mt-8 sm:mt-16">
+      {/* Marquee Credential Belt (Pitch Dark Black Background & Pure White Bold Text) */}
+      <div className="bg-black py-4 sm:py-5 relative z-30 shadow-2xl border-t border-zinc-800 overflow-hidden mt-8 sm:mt-16">
         
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 xs:w-24 sm:w-36 bg-gradient-to-r from-slate-950 to-transparent z-20"></div>
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 xs:w-24 sm:w-36 bg-gradient-to-l from-slate-950 to-transparent z-20"></div>
+        {/* Left & Right Pure Black Fades */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 xs:w-24 sm:w-36 bg-gradient-to-r from-black to-transparent z-20"></div>
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 xs:w-24 sm:w-36 bg-gradient-to-l from-black to-transparent z-20"></div>
 
         <div className="animate-marquee flex items-center gap-4 sm:gap-8 px-4">
           {marqueeItems.map((item, idx) => {
@@ -223,7 +224,7 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
             return (
               <div 
                 key={idx}
-                className="flex items-center gap-2.5 sm:gap-3.5 bg-white/5 border border-white/10 hover:border-cyan-400/50 px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl text-white shrink-0 hover:bg-white/10 transition-all duration-300 group cursor-pointer"
+                className="flex items-center gap-2.5 sm:gap-3.5 bg-[#0a0a0a] border border-zinc-800 hover:border-cyan-400/60 px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl text-white shrink-0 hover:bg-zinc-900 transition-all duration-300 group cursor-pointer shadow-md"
               >
                 <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-cyan-400 to-teal-400 text-slate-950 font-black flex items-center justify-center shrink-0 shadow-md">
                   <IconComp className="w-4 sm:w-5 h-4 sm:h-5 text-slate-950" />
@@ -234,11 +235,11 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
                     <span className="font-heading font-black text-xs sm:text-sm tracking-wide text-white group-hover:text-cyan-300 transition-colors whitespace-nowrap">
                       {item.title}
                     </span>
-                    <span className="text-[9px] sm:text-[10px] bg-cyan-400/20 text-cyan-300 font-extrabold px-1.5 sm:px-2 py-0.5 rounded border border-cyan-400/30 whitespace-nowrap">
+                    <span className="text-[9px] sm:text-[10px] bg-white/15 text-white font-black px-1.5 sm:px-2 py-0.5 rounded border border-white/30 whitespace-nowrap">
                       {item.metric}
                     </span>
                   </div>
-                  <div className="text-[9px] sm:text-xs text-indigo-200/70 font-medium mt-0.5 whitespace-nowrap">
+                  <div className="text-[9px] sm:text-xs text-white/90 font-bold mt-0.5 whitespace-nowrap">
                     {item.sub}
                   </div>
                 </div>
