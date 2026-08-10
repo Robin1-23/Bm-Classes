@@ -48,11 +48,11 @@ export default function Header({ onOpenRegister }) {
 
   return (
     <>
-      {/* Sticky Outer Container */}
-      <header className="sticky top-0 z-50 w-full px-2 sm:px-4 py-2 sm:py-3 transition-all duration-300">
+      {/* Fixed Sticky Outer Container */}
+      <header className="fixed top-0 inset-x-0 z-50 w-full px-2 sm:px-4 py-2 sm:py-3 transition-all duration-300 pointer-events-none">
         
         {/* Floating Glassmorphism Island Container */}
-        <div className={`max-w-7xl mx-auto rounded-2xl sm:rounded-3xl border transition-all duration-300 px-3 sm:px-5 py-2 sm:py-2.5 flex items-center justify-between gap-3 relative ${
+        <div className={`max-w-7xl mx-auto rounded-2xl sm:rounded-3xl border transition-all duration-300 px-3 sm:px-5 py-2 sm:py-2.5 flex items-center justify-between gap-3 relative pointer-events-auto ${
           scrolled 
             ? 'bg-[#060911]/90 backdrop-blur-2xl border-cyan-500/30 shadow-2xl shadow-cyan-950/50' 
             : 'bg-[#070a13]/85 backdrop-blur-xl border-slate-800/90 shadow-xl'
