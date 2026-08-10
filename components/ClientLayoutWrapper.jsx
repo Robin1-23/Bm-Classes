@@ -15,7 +15,7 @@ function Shell({ children }) {
 
   return (
     <div className="min-h-screen flex flex-col pb-16 lg:pb-0 overflow-x-hidden max-w-full w-full">
-      <AnnouncementBar />
+      {/* <AnnouncementBar /> */}
       <Header />
       <main className="flex-1 w-full max-w-full overflow-x-hidden">
         {children}
