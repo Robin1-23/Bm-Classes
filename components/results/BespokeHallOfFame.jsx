@@ -15,7 +15,7 @@ export default function BespokeHallOfFame() {
       exam: 'JEE Advanced',
       college: 'IIT Bombay (Computer Science)',
       score: 'Math: 114/120 • Phys: 108/120',
-      badgeBg: 'bg-amber-400 text-slate-950',
+      badgeBg: 'bg-cyan-400 text-slate-950',
       story: 'Shreyas joined BmClasses in Class 11. Under Director Dhirendra Pratap Singh’s direct 1-on-1 guidance, he mastered problem symmetry recognition, scoring top marks in Advanced Math.',
       school: 'DPS Gurgaon Sector 45',
     },
@@ -82,7 +82,7 @@ export default function BespokeHallOfFame() {
         {/* HALL OF FAME CARDS */}
         <div>
           <ScrollReveal delay={100} direction="up" className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-black tracking-widest uppercase text-amber-800 bg-amber-100 border border-amber-200 px-3.5 py-1.5 rounded-full">
+            <span className="text-xs font-black tracking-widest uppercase text-cyan-900 bg-cyan-100 border border-cyan-200 px-3.5 py-1.5 rounded-full">
               HALL OF FAME 2020-2026
             </span>
             <h2 className="font-heading text-2xl sm:text-4xl font-black text-slate-950 mt-3">
@@ -123,7 +123,7 @@ export default function BespokeHallOfFame() {
                           {ranker.college}
                         </span>
                       </div>
-                      <p className="font-mono text-xs font-bold text-amber-700 mt-1">
+                      <p className="font-mono text-xs font-bold text-cyan-400 mt-1">
                         {ranker.score}
                       </p>
                     </div>
@@ -152,7 +152,7 @@ export default function BespokeHallOfFame() {
         {/* GURGAON PARENT REVIEWS */}
         <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-indigo-900/60">
           <ScrollReveal delay={100} direction="up" className="max-w-2xl mb-10">
-            <span className="text-xs font-black tracking-widest uppercase text-amber-400 bg-amber-400/20 border border-amber-400/30 px-3.5 py-1.5 rounded-full">
+            <span className="text-xs font-black tracking-widest uppercase text-cyan-300 bg-cyan-400/20 border border-cyan-400/30 px-3.5 py-1.5 rounded-full">
               PARENT TESTIMONIALS
             </span>
             <h2 className="font-heading text-2xl sm:text-3xl font-black text-white mt-3">
@@ -168,9 +168,9 @@ export default function BespokeHallOfFame() {
               <ScrollReveal key={pIdx} delay={150 * (pIdx + 1)} direction="up">
                 <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:bg-white/10 transition-all">
                   <div>
-                    <div className="flex items-center gap-1 text-amber-400 mb-3">
+                    <div className="flex items-center gap-1 text-cyan-400 mb-3">
                       {[...Array(rev.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-amber-400" />
+                        <Star key={i} className="w-4 h-4 fill-cyan-400" />
                       ))}
                     </div>
 
@@ -181,7 +181,7 @@ export default function BespokeHallOfFame() {
 
                   <div className="pt-4 border-t border-white/10">
                     <h4 className="font-heading font-black text-white text-sm">{rev.parentName}</h4>
-                    <p className="text-xs font-bold text-amber-400 mt-0.5">{rev.student}</p>
+                    <p className="text-xs font-bold text-cyan-300 mt-0.5">{rev.student}</p>
                     <span className="text-[10px] text-slate-400 font-semibold">{rev.locality}</span>
                   </div>
                 </div>

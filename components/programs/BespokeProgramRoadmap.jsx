@@ -64,7 +64,7 @@ export default function BespokeProgramRoadmap() {
       timing: '4:00 PM - 7:30 PM (Tue, Thu, Sat)',
       seatsLeft: '1 Seat Left of 12',
       status: 'Almost Capped',
-      badgeBg: 'bg-amber-500/10 text-amber-800 border-amber-300',
+      badgeBg: 'bg-cyan-500/10 text-cyan-900 border-cyan-300',
     },
     {
       batchName: 'XII Pass / Dropper Ranker',
@@ -111,7 +111,7 @@ export default function BespokeProgramRoadmap() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className={`font-mono text-xs font-black ${activePhase === idx ? 'text-amber-400' : 'text-indigo-600'}`}>
+                    <span className={`font-mono text-xs font-black ${activePhase === idx ? 'text-cyan-300' : 'text-indigo-600'}`}>
                       {p.num}
                     </span>
                     <span className={`text-[10px] font-black px-2 py-0.5 rounded-full border ${activePhase === idx ? 'bg-white/10 text-slate-200 border-white/10' : 'bg-slate-100 text-slate-700 border-slate-200'}`}>
@@ -142,7 +142,7 @@ export default function BespokeProgramRoadmap() {
                   {phases[activePhase].title}
                 </h3>
               </div>
-              <span className="font-mono text-xs font-black bg-amber-400 text-slate-950 px-3 py-1 rounded-xl self-start sm:self-auto shadow-xs">
+              <span className="font-mono text-xs font-black bg-cyan-400 text-slate-950 px-3 py-1 rounded-xl self-start sm:self-auto shadow-xs">
                 {phases[activePhase].months}
               </span>
             </div>
@@ -168,8 +168,8 @@ export default function BespokeProgramRoadmap() {
         <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden border border-indigo-900/60">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-800 mb-6">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-400/20 border border-amber-400/30 text-amber-300 text-xs font-black uppercase tracking-wider mb-2">
-                <Users className="w-3.5 h-3.5 text-amber-400" />
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-cyan-400/20 border border-cyan-400/30 text-cyan-300 text-xs font-black uppercase tracking-wider mb-2">
+                <Users className="w-3.5 h-3.5 text-cyan-300" />
                 <span>MICRO-BATCH CAP: 10-15 STUDENTS</span>
               </div>
               <h3 className="font-heading text-xl sm:text-2xl font-black text-white tracking-tight">
@@ -181,7 +181,7 @@ export default function BespokeProgramRoadmap() {
               onClick={openSeatLock}
               className="bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs px-5 py-3 rounded-2xl transition-all shadow-md flex items-center justify-center gap-1.5 cursor-pointer border border-emerald-400/40 shrink-0"
             >
-              <Lock className="w-4 h-4 text-amber-300" />
+              <Lock className="w-4 h-4 text-cyan-300" />
               <span>Lock Seat in Active Batch</span>
             </button>
           </div>
@@ -197,15 +197,15 @@ export default function BespokeProgramRoadmap() {
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-1.5 text-xs text-amber-300 font-mono font-bold mt-1">
-                    <Calendar className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                  <div className="flex items-center gap-1.5 text-xs text-cyan-300 font-mono font-bold mt-1">
+                    <Calendar className="w-3.5 h-3.5 text-cyan-300 shrink-0" />
                     <span>{batch.timing}</span>
                   </div>
                 </div>
 
                 <div className="pt-3 mt-3 border-t border-white/10 flex items-center justify-between text-xs font-extrabold">
                   <span className="text-emerald-400">{batch.seatsLeft}</span>
-                  <button onClick={openSeatLock} className="text-amber-400 hover:underline cursor-pointer flex items-center gap-1">
+                  <button onClick={openSeatLock} className="text-cyan-300 hover:underline cursor-pointer flex items-center gap-1">
                     <span>Reserve Seat</span>
                     <ArrowRight className="w-3 h-3" />
                   </button>

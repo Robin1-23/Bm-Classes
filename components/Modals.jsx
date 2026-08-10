@@ -96,13 +96,13 @@ export default function Modals({
                 <X className="w-4 h-4" />
               </button>
 
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 border border-amber-400/30 text-amber-300 text-[10px] sm:text-xs font-black uppercase tracking-wider mb-3">
-                <ShieldCheck className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-400/20 border border-cyan-400/30 text-cyan-300 text-[10px] sm:text-xs font-black uppercase tracking-wider mb-3">
+                <ShieldCheck className="w-3.5 h-3.5 text-cyan-300 shrink-0" />
                 <span>Ex-HOD Diagnostic & Counseling Call</span>
               </div>
 
               <h3 className="font-heading text-2xl sm:text-3xl font-black leading-tight tracking-tight text-white">
-                Register for <span className="text-amber-400">BmClasses</span>
+                Register for <span className="text-cyan-300">BmClasses</span>
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 font-medium mt-1">
                 Book your 1-on-1 diagnostic session directly with Senior Ex-HODs of FIITJEE & VMC.
@@ -118,7 +118,7 @@ export default function Modals({
                   <div>
                     <label className="block text-xs font-black text-slate-900 uppercase tracking-wider mb-1.5 flex items-center justify-between">
                       <span>Student Full Name</span>
-                      <span className="text-amber-600 font-black text-[10px]">* Required</span>
+                      <span className="text-cyan-600 font-black text-[10px]">* Required</span>
                     </label>
                     <div className="relative">
                       <input 
@@ -136,7 +136,7 @@ export default function Modals({
                   <div>
                     <label className="block text-xs font-black text-slate-900 uppercase tracking-wider mb-1.5 flex items-center justify-between">
                       <span>Parent Mobile Number</span>
-                      <span className="text-amber-600 font-black text-[10px]">* Required</span>
+                      <span className="text-cyan-600 font-black text-[10px]">* Required</span>
                     </label>
                     <div className="relative">
                       <input 
@@ -175,7 +175,7 @@ export default function Modals({
                     className="w-full bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-black py-4 rounded-2xl transition-all text-sm sm:text-base shadow-xl shadow-indigo-200 hover:-translate-y-0.5 active:scale-95 cursor-pointer flex items-center justify-center gap-2 border border-indigo-400/30"
                   >
                     <span>Submit & Forward to Ex-HOD Counselor</span>
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-amber-300" />
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-300" />
                   </button>
 
                   {/* Trust Micro Footer */}
@@ -282,7 +282,7 @@ export default function Modals({
 
               <button 
                 type="submit" 
-                className="w-full bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold py-3.5 rounded-xl transition-all text-sm shadow-md mt-2 cursor-pointer"
+                className="w-full bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-extrabold py-3.5 rounded-xl transition-all text-sm shadow-md mt-2 cursor-pointer"
               >
                 Login to Dashboard
               </button>
@@ -305,7 +305,7 @@ export default function Modals({
             <h3 className="font-heading text-base sm:text-lg font-black mb-4 pr-8">{videoTitle}</h3>
 
             <div className="bg-black/80 rounded-2xl h-64 sm:h-80 flex flex-col items-center justify-center border border-white/10 p-4">
-              <div className="text-4xl mb-3 text-amber-400">🎬</div>
+              <div className="text-4xl mb-3 text-cyan-300">🎬</div>
               <p className="font-black text-sm sm:text-base text-center">Playing Student Interview</p>
               <p className="text-xs text-slate-400 mt-1 text-center font-medium">IIT Delhi JEE Advanced Top Ranker Journey</p>
             </div>

@@ -15,10 +15,10 @@ export default function SectionHeader({
       {badgeText && (
         <div className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wider mb-4 shadow-xs ${
           dark 
-            ? 'bg-white/10 border border-white/10 text-amber-400'
+            ? 'bg-white/10 border border-white/10 text-cyan-300'
             : 'bg-indigo-50 border border-indigo-200/80 text-indigo-700'
         }`}>
-          <BadgeIcon className={`w-3.5 h-3.5 ${dark ? 'text-amber-400' : 'text-indigo-600'}`} />
+          <BadgeIcon className={`w-3.5 h-3.5 ${dark ? 'text-cyan-300' : 'text-indigo-600'}`} />
           <span>{badgeText}</span>
         </div>
       )}
@@ -28,7 +28,7 @@ export default function SectionHeader({
           dark ? 'text-white' : 'text-slate-950'
         }`}>
           {title}
-          <span className={dark ? 'text-amber-400' : 'text-indigo-600'}>.</span>
+          <span className={dark ? 'text-cyan-300' : 'text-indigo-600'}>.</span>
         </h2>
       )}
       

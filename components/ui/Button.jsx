@@ -17,7 +17,7 @@ export default function Button({
   const variantStyles = {
     primary: 'bg-indigo-600 hover:bg-indigo-700 text-white shadow-md shadow-indigo-500/25 border border-indigo-500',
     secondary: 'bg-white hover:bg-indigo-50/50 text-slate-800 border border-slate-200 hover:border-indigo-300',
-    accent: 'bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-slate-950 shadow-xl shadow-amber-500/10 hover:shadow-amber-500/25',
+    accent: 'bg-gradient-to-r from-cyan-400 to-teal-400 hover:from-cyan-300 hover:to-teal-300 text-slate-950 shadow-xl shadow-cyan-500/10 hover:shadow-cyan-500/25',
     dark: 'bg-slate-950 hover:bg-indigo-600 text-white shadow-sm',
     whatsapp: 'bg-[#25D366] hover:bg-emerald-500 text-white shadow-md',
   };

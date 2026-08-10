@@ -35,15 +35,15 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
 
       {/* Subtle Glow Accents */}
       <div className="absolute -left-20 top-1/3 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute -right-20 bottom-10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute -right-20 bottom-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* TOP CTA BANNER CARD */}
         <div className="bg-gradient-to-r from-slate-900 via-indigo-950/80 to-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-10 mb-16 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
           <div>
-            <div className="flex items-center gap-2 text-amber-400 text-xs font-black uppercase tracking-widest mb-1.5">
-              <ShieldCheck className="w-4 h-4 text-amber-400" />
+            <div className="flex items-center gap-2 text-cyan-300 text-xs font-black uppercase tracking-widest mb-1.5">
+              <ShieldCheck className="w-4 h-4 text-cyan-300" />
               <span>DIRECT EX-HOD COUNSELING</span>
             </div>
             <h3 className="font-heading text-2xl sm:text-3xl font-black text-white tracking-tight">
@@ -57,7 +57,7 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
             <button
               onClick={handleRegister}
-              className="w-full sm:w-auto bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm px-6 py-3.5 rounded-2xl transition-all shadow-lg cursor-pointer flex items-center justify-center gap-2"
+              className="w-full sm:w-auto bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black text-xs sm:text-sm px-6 py-3.5 rounded-2xl transition-all shadow-lg cursor-pointer flex items-center justify-center gap-2"
             >
               <span>Apply for Admissions</span>
               <ArrowRight className="w-4 h-4" />
@@ -81,7 +81,7 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
           {/* Col 1: Institute Identity (4 cols) */}
           <div className="lg:col-span-4">
             <Link href="/" className="flex items-center gap-2.5 font-heading text-2xl font-black tracking-tight text-white mb-4">
-              <span className="w-9 h-9 rounded-2xl bg-gradient-to-br from-amber-400 to-yellow-500 text-slate-950 font-black flex items-center justify-center text-base shadow-md">
+              <span className="w-9 h-9 rounded-2xl bg-gradient-to-br from-cyan-400 to-teal-400 text-slate-950 font-black flex items-center justify-center text-base shadow-md">
                 Bm
               </span>
               <span>Classes</span>
@@ -93,9 +93,9 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
 
             {/* Rating Badge */}
             <div className="inline-flex items-center gap-2 bg-slate-900 border border-slate-800 px-4 py-2 rounded-2xl text-xs font-bold text-slate-200">
-              <div className="flex items-center text-amber-400">
+              <div className="flex items-center text-cyan-400">
                 {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
+                  <Star key={i} className="w-3.5 h-3.5 fill-cyan-400" />
                 ))}
               </div>
               <span className="text-white font-black">4.9/5 Rating</span>
@@ -110,37 +110,37 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
             </h4>
             <ul className="space-y-3 text-xs font-extrabold text-slate-300">
               <li>
-                <Link href="/why-us" className="hover:text-amber-400 transition-colors flex items-center gap-2">
+                <Link href="/why-us" className="hover:text-cyan-300 transition-colors flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                   <span>Why Small Batch Coaching</span>
                 </Link>
               </li>
               <li>
-                <Link href="/programs" className="hover:text-amber-400 transition-colors flex items-center gap-2">
+                <Link href="/programs" className="hover:text-cyan-300 transition-colors flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                   <span>Academic Programs (JEE & NEET)</span>
                 </Link>
               </li>
               <li>
-                <Link href="/faculty" className="hover:text-amber-400 transition-colors flex items-center gap-2">
+                <Link href="/faculty" className="hover:text-cyan-300 transition-colors flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                   <span>Ex-HOD Faculty Mentors</span>
                 </Link>
               </li>
               <li>
-                <Link href="/calculator" className="hover:text-amber-400 transition-colors flex items-center gap-2">
+                <Link href="/calculator" className="hover:text-cyan-300 transition-colors flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                   <span>Fee & Scholarship Estimator</span>
                 </Link>
               </li>
               <li>
-                <Link href="/results" className="hover:text-amber-400 transition-colors flex items-center gap-2">
+                <Link href="/results" className="hover:text-cyan-300 transition-colors flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                   <span>Top AIR Ranks & Reviews</span>
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-amber-400 transition-colors flex items-center gap-2">
+                <Link href="/contact" className="hover:text-cyan-300 transition-colors flex items-center gap-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
                   <span>Gurgaon Center Location</span>
                 </Link>
@@ -156,13 +156,13 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
             
             <div className="space-y-3 text-xs font-semibold text-slate-300">
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-cyan-300 shrink-0 mt-0.5" />
                 <span className="leading-snug">B 38, Ground Floor, Ardee City, Sector 52, Gurgaon, Haryana 122003</span>
               </div>
 
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-amber-400 shrink-0" />
-                <a href="tel:+919899818241" className="text-white font-extrabold hover:text-amber-400 transition-colors">+91 98998 18241</a>
+                <Phone className="w-4 h-4 text-cyan-300 shrink-0" />
+                <a href="tel:+919899818241" className="text-white font-extrabold hover:text-cyan-300 transition-colors">+91 98998 18241</a>
               </div>
 
               <div className="flex items-center gap-2.5">
@@ -173,7 +173,7 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
               </div>
 
               <div className="flex items-center gap-2.5">
-                <Clock className="w-4 h-4 text-amber-400 shrink-0" />
+                <Clock className="w-4 h-4 text-cyan-300 shrink-0" />
                 <span>Mon - Sun: 8:00 AM - 8:00 PM</span>
               </div>
             </div>
@@ -203,7 +203,7 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
                     value={callbackPhone}
                     onChange={(e) => setCallbackPhone(e.target.value)}
                     required
-                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 font-extrabold"
+                    className="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 font-extrabold"
                   />
                   <button
                     type="submit"
@@ -225,11 +225,11 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
           </div>
 
           <div className="flex items-center gap-4 text-[11px]">
-            <button onClick={handleRegister} className="hover:text-amber-400 transition-colors cursor-pointer">Admissions</button>
+            <button onClick={handleRegister} className="hover:text-cyan-300 transition-colors cursor-pointer">Admissions</button>
             <span>·</span>
-            <button onClick={handleLogin} className="hover:text-amber-400 transition-colors cursor-pointer">Student Portal</button>
+            <button onClick={handleLogin} className="hover:text-cyan-300 transition-colors cursor-pointer">Student Portal</button>
             <span>·</span>
-            <Link href="/contact" className="hover:text-amber-400 transition-colors">Ardee City Sector 52 Gurgaon</Link>
+            <Link href="/contact" className="hover:text-cyan-300 transition-colors">Ardee City Sector 52 Gurgaon</Link>
           </div>
         </div>
 

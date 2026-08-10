@@ -20,7 +20,7 @@ export default function MobileStickyActionBar({ onOpenRegister, onOpenSeatLock }
           href={`tel:${CENTER_INFO.phoneRaw}`}
           className="flex-1 py-2.5 px-2.5 bg-slate-900 border border-slate-700/80 hover:bg-slate-800 text-white rounded-xl font-extrabold text-[11px] xs:text-xs flex items-center justify-center gap-1 transition-all active:scale-95 shadow-sm"
         >
-          <Phone className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+          <Phone className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
           <span className="truncate">Call</span>
         </a>
 
@@ -29,7 +29,7 @@ export default function MobileStickyActionBar({ onOpenRegister, onOpenSeatLock }
           onClick={handleSeatLock}
           className="flex-[1.2] py-2.5 px-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl font-black text-[11px] xs:text-xs flex items-center justify-center gap-1 transition-all active:scale-95 shadow-md border border-emerald-400/40 cursor-pointer animate-pulse"
         >
-          <Lock className="w-3.5 h-3.5 text-amber-300 shrink-0" />
+          <Lock className="w-3.5 h-3.5 text-cyan-300 shrink-0" />
           <span className="truncate">Lock Seat</span>
         </button>
 

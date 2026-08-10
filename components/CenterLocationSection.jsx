@@ -85,8 +85,8 @@ export default function CenterLocationSection({ onOpenRegister }) {
                       <div className="text-[10px] font-black text-indigo-700 uppercase">NEAREST METRO</div>
                       <div className="font-extrabold text-slate-900 mt-0.5">Millennium City Centre</div>
                     </div>
-                    <div className="bg-amber-50/70 border border-amber-200/80 p-3 rounded-xl">
-                      <div className="text-[10px] font-black text-amber-800 uppercase">LANDMARK</div>
+                    <div className="bg-cyan-50/70 border border-cyan-200/80 p-3 rounded-xl">
+                      <div className="text-[10px] font-black text-cyan-900 uppercase">LANDMARK</div>
                       <div className="font-extrabold text-slate-900 mt-0.5">Opp. Ardee Mall / Sec 52</div>
                     </div>
                   </div>
@@ -123,14 +123,14 @@ export default function CenterLocationSection({ onOpenRegister }) {
                     href={phoneUrl}
                     className="py-3 px-4 bg-slate-950 hover:bg-slate-800 text-white font-extrabold text-xs rounded-2xl flex items-center justify-center gap-2 transition-all shadow-sm cursor-pointer"
                   >
-                    <Phone className="w-4 h-4 text-amber-400" />
+                    <Phone className="w-4 h-4 text-cyan-400" />
                     <span>Call Center</span>
                   </a>
                 </div>
 
                 <button
                   onClick={handleRegister}
-                  className="w-full py-3.5 px-4 bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs rounded-2xl transition-all shadow-sm cursor-pointer"
+                  className="w-full py-3.5 px-4 bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black text-xs rounded-2xl transition-all shadow-sm cursor-pointer"
                 >
                   Schedule Personal Center Tour & Counseling
                 </button>
@@ -155,12 +155,12 @@ export default function CenterLocationSection({ onOpenRegister }) {
 
               {/* Floating Live Center Pin Badge */}
               <div className="absolute top-4 left-4 bg-slate-950/95 border border-slate-700 backdrop-blur-md text-white p-3 rounded-2xl shadow-xl flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-amber-400 text-slate-950 font-black flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-xl bg-cyan-400 text-slate-950 font-black flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5 text-slate-950" />
                 </div>
                 <div>
                   <div className="font-heading font-black text-xs text-white">Ardee City Sector 52</div>
-                  <div className="text-[10px] text-amber-300 font-semibold">Gurgaon Academic Center</div>
+                  <div className="text-[10px] text-cyan-300 font-semibold">Gurgaon Academic Center</div>
                 </div>
               </div>
 

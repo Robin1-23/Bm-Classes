@@ -157,7 +157,7 @@ export default function WhySection() {
       
       {/* Background Glow Orbs */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-10 right-0 w-96 h-96 bg-amber-200/30 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-10 right-0 w-96 h-96 bg-cyan-200/30 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
@@ -209,7 +209,7 @@ export default function WhySection() {
                     {/* Outcome Metric Ribbon */}
                     <div className="bg-indigo-50/80 rounded-2xl p-4 border border-indigo-100 mb-6 group-hover:bg-indigo-100/80 transition-colors">
                       <div className="font-heading font-black text-xs sm:text-sm text-indigo-950 flex items-center gap-2">
-                        <Zap className="w-4 h-4 text-amber-500 fill-amber-400 shrink-0" />
+                        <Zap className="w-4 h-4 text-cyan-500 fill-cyan-400 shrink-0" />
                         <span>{pillar.stats}</span>
                       </div>
                       <div className="text-[11px] text-indigo-700/80 font-semibold mt-1">
@@ -235,11 +235,11 @@ export default function WhySection() {
 
         {/* ELEGANT & NATURALLY INTEGRATED PEDAGOGY COMPARISON DECK */}
         <ScrollReveal delay={200} direction="up">
-          <div className="bg-gradient-to-br from-indigo-50/80 via-white to-amber-50/40 border border-slate-200/90 rounded-3xl p-5 xs:p-7 sm:p-10 lg:p-12 shadow-lg relative overflow-hidden text-slate-950">
+          <div className="bg-gradient-to-br from-indigo-50/80 via-white to-cyan-50/40 border border-slate-200/90 rounded-3xl p-5 xs:p-7 sm:p-10 lg:p-12 shadow-lg relative overflow-hidden text-slate-950">
             
             {/* Soft Ambient Light Orbs */}
             <div className="absolute -right-24 -top-24 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl pointer-events-none"></div>
-            <div className="absolute -left-24 -bottom-24 w-96 h-96 bg-amber-200/25 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute -left-24 -bottom-24 w-96 h-96 bg-cyan-200/25 rounded-full blur-3xl pointer-events-none"></div>
 
             {/* Flight Deck Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-indigo-100 mb-8 relative z-10">
@@ -270,7 +270,7 @@ export default function WhySection() {
                       : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-100/80'
                   }`}
                 >
-                  <span className={`w-2 h-2 rounded-full ${selectedDimension === dIdx ? 'bg-amber-400' : 'bg-slate-400'}`}></span>
+                  <span className={`w-2 h-2 rounded-full ${selectedDimension === dIdx ? 'bg-cyan-400' : 'bg-slate-400'}`}></span>
                   <span>{dim.title}</span>
                 </button>
               ))}
@@ -326,7 +326,7 @@ export default function WhySection() {
 
               </div>
 
-              {/* CHAMBER B: BMCLASSES STANDARD (BRAND INDIGO & GOLD) */}
+              {/* CHAMBER B: BMCLASSES STANDARD (BRAND INDIGO & CYAN) */}
               <div className="bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-950 border-2 border-indigo-500/60 rounded-2xl p-5 sm:p-7 text-white flex flex-col justify-between shadow-xl relative overflow-hidden group hover:border-indigo-400 transition-all">
                 
                 <div className="absolute -right-12 -top-12 w-48 h-48 bg-indigo-500/20 rounded-full blur-2xl pointer-events-none"></div>
@@ -334,7 +334,7 @@ export default function WhySection() {
                 <div>
                   <div className="space-y-2 mb-5 relative z-10">
                     <div className="flex items-center justify-between">
-                      <span className="text-[11px] font-black tracking-widest text-amber-400 uppercase">
+                      <span className="text-[11px] font-black tracking-widest text-cyan-300 uppercase">
                         BMCLASSES STANDARD
                       </span>
                       <span className="flex items-center gap-1.5 text-[10px] font-extrabold text-emerald-400">
@@ -343,14 +343,14 @@ export default function WhySection() {
                       </span>
                     </div>
                     <div>
-                      <span className="inline-flex items-center gap-1.5 bg-amber-400 text-slate-950 px-3.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider shadow-sm">
+                      <span className="inline-flex items-center gap-1.5 bg-cyan-400 text-slate-950 px-3.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider shadow-sm">
                         <ShieldCheck className="w-3.5 h-3.5 text-slate-950 shrink-0" />
                         <span>{currentDim.bmclasses.badge}</span>
                       </span>
                     </div>
                   </div>
 
-                  <h4 className="font-heading font-black text-lg sm:text-xl text-white mb-2 group-hover:text-amber-300 transition-colors relative z-10">
+                  <h4 className="font-heading font-black text-lg sm:text-xl text-white mb-2 group-hover:text-cyan-300 transition-colors relative z-10">
                     {currentDim.bmclasses.headline}
                   </h4>
 
@@ -364,11 +364,11 @@ export default function WhySection() {
                   <div>
                     <div className="flex justify-between text-xs font-extrabold mb-1">
                       <span className="text-slate-300">Individual Attention Score</span>
-                      <span className="text-amber-400">{currentDim.bmclasses.attentionScore}%</span>
+                      <span className="text-cyan-300">{currentDim.bmclasses.attentionScore}%</span>
                     </div>
                     <div className="h-2 bg-slate-950 rounded-full overflow-hidden">
                       <div 
-                        className="h-full bg-gradient-to-r from-indigo-500 to-amber-400 rounded-full transition-all duration-700" 
+                        className="h-full bg-gradient-to-r from-indigo-500 to-cyan-400 rounded-full transition-all duration-700" 
                         style={{ width: `${currentDim.bmclasses.attentionScore}%` }}
                       ></div>
                     </div>
@@ -376,8 +376,8 @@ export default function WhySection() {
 
                   <div className="bg-indigo-900/40 border border-indigo-700/50 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2 text-xs">
                     <span className="text-slate-200 font-semibold">Doubt Clearing Speed:</span>
-                    <span className="font-black text-amber-400 flex items-center gap-1 shrink-0">
-                      <Zap className="w-3.5 h-3.5 fill-amber-400 text-amber-400 shrink-0" />
+                    <span className="font-black text-cyan-300 flex items-center gap-1 shrink-0">
+                      <Zap className="w-3.5 h-3.5 fill-cyan-400 text-cyan-400 shrink-0" />
                       <span>{currentDim.bmclasses.doubtSpeed}</span>
                     </span>
                   </div>

@@ -11,26 +11,26 @@ export default function PageHeader({ badgeText, title, subtitle, breadcrumb }) {
       
       {/* Ambient Lighting Orbs */}
       <div className="absolute top-0 right-10 w-96 h-96 bg-indigo-500/15 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 left-10 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-0 left-10 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Breadcrumb Navigation */}
         <ScrollReveal delay={100} direction="down">
           <div className="flex items-center gap-2 text-xs font-extrabold text-slate-400 mb-4">
-            <Link href="/" className="hover:text-amber-300 transition-colors">
+            <Link href="/" className="hover:text-cyan-300 transition-colors">
               Home
             </Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
-            <span className="text-amber-400">{breadcrumb || title}</span>
+            <span className="text-cyan-300">{breadcrumb || title}</span>
           </div>
         </ScrollReveal>
 
         {/* Badge & Title */}
         <ScrollReveal delay={150} direction="up">
           {badgeText && (
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/20 border border-amber-400/30 text-amber-300 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
-              <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-400/20 border border-cyan-400/30 text-cyan-300 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
+              <ShieldCheck className="w-3.5 h-3.5 text-cyan-300" />
               <span>{badgeText}</span>
             </div>
           )}

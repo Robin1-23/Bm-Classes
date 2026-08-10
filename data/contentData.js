@@ -34,7 +34,7 @@ export const MENTORS_DATA = [
     name: 'Bighnaraj Mishra',
     role: 'Senior HOD Chemistry',
     subject: 'Physical, Organic & Inorganic',
-    badgeBg: 'bg-amber-400/20 text-amber-300 border-amber-400/40',
+    badgeBg: 'bg-cyan-400/20 text-cyan-300 border-cyan-400/40',
     credentials: [
       { icon: Award, text: 'Ex-HOD VMC Gurgaon' },
       { icon: GraduationCap, text: 'NIT Rourkela Alumni' },

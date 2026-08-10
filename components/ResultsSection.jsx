@@ -71,9 +71,9 @@ export default function ResultsSection({ onOpenVideo }) {
                 key={idx}
                 className="bg-slate-950 text-white px-5 sm:px-6 py-3 rounded-2xl font-heading font-black text-xs sm:text-sm tracking-wide flex items-center gap-2.5 border border-slate-800 shadow-md hover:scale-105 transition-transform"
               >
-                <Trophy className="w-4 h-4 text-amber-400" />
+                <Trophy className="w-4 h-4 text-cyan-300" />
                 <span>JEE ADVANCED</span>
-                <span className="text-amber-400">{rank}</span>
+                <span className="text-cyan-300">{rank}</span>
               </div>
             ))}
           </div>
@@ -91,9 +91,9 @@ export default function ResultsSection({ onOpenVideo }) {
                 }`}
               >
                 <div>
-                  <div className="flex items-center gap-1 mb-4 text-amber-400">
+                  <div className="flex items-center gap-1 mb-4 text-cyan-400">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400" />
+                      <Star key={i} className="w-4 h-4 fill-cyan-400" />
                     ))}
                   </div>
                   <p className={`text-xs sm:text-sm leading-relaxed mb-6 font-normal ${
@@ -106,7 +106,7 @@ export default function ResultsSection({ onOpenVideo }) {
                 <div className="pt-4 border-t border-slate-200/20 flex items-center justify-between">
                   <div>
                     <div className={`font-heading font-extrabold text-sm ${
-                      rev.featured ? 'text-amber-400' : 'text-slate-950'
+                      rev.featured ? 'text-cyan-300' : 'text-slate-950'
                     }`}>
                       {rev.author}
                     </div>
@@ -130,14 +130,14 @@ export default function ResultsSection({ onOpenVideo }) {
                 onClick={() => handleVideo(v.title + ' — ' + v.rank)}
                 className="relative bg-slate-950 rounded-3xl overflow-hidden aspect-video cursor-pointer group flex items-center justify-center border border-slate-800 shadow-xl hover:border-indigo-500/50 transition-all"
               >
-                <div className="w-14 h-14 rounded-2xl bg-amber-400 text-slate-950 flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl z-10 border-2 border-white/20">
+                <div className="w-14 h-14 rounded-2xl bg-cyan-400 text-slate-950 flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl z-10 border-2 border-white/20">
                   <Play className="w-6 h-6 fill-slate-950 ml-1" />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent p-6 flex flex-col justify-end">
-                  <div className="font-heading font-black text-white text-base group-hover:text-amber-400 transition-colors">
+                  <div className="font-heading font-black text-white text-base group-hover:text-cyan-300 transition-colors">
                     {v.title}
                   </div>
-                  <div className="text-xs text-amber-400 font-bold mt-0.5">
+                  <div className="text-xs text-cyan-300 font-bold mt-0.5">
                     {v.rank}
                   </div>
                 </div>

@@ -108,8 +108,8 @@ export default function BespokeCenterGuide() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-6 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 border border-amber-400/30 text-amber-300 text-xs font-black uppercase tracking-wider">
-                <Navigation className="w-3.5 h-3.5 text-amber-400" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-400/20 border border-cyan-400/30 text-cyan-300 text-xs font-black uppercase tracking-wider">
+                <Navigation className="w-3.5 h-3.5 text-cyan-300" />
                 <span>GURGAON STUDIO DIRECTIONS</span>
               </div>
 
@@ -126,7 +126,7 @@ export default function BespokeCenterGuide() {
                   href={CENTER_INFO.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm px-6 py-3.5 rounded-2xl transition-all shadow-lg inline-flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full sm:w-auto bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black text-xs sm:text-sm px-6 py-3.5 rounded-2xl transition-all shadow-lg inline-flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <MapPin className="w-4 h-4 text-slate-950" />
                   <span>Open 1-Tap Google Maps Navigation</span>
@@ -137,7 +137,7 @@ export default function BespokeCenterGuide() {
             <div className="lg:col-span-6 space-y-3">
               {landmarks.map((lm, lIdx) => (
                 <div key={lIdx} className="bg-white/5 border border-white/10 rounded-2xl p-4 space-y-1">
-                  <div className="flex items-center justify-between text-xs font-black text-amber-400">
+                  <div className="flex items-center justify-between text-xs font-black text-cyan-300">
                     <span>{lm.from}</span>
                     <span className="font-mono text-[10px] text-emerald-400 bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800/80">
                       {lm.dist}

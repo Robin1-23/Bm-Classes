@@ -86,13 +86,13 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                           </div>
                         </div>
 
-                        <span className="bg-amber-400 text-slate-950 text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1.5">
+                        <span className="bg-cyan-400 text-slate-950 text-[10px] font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-sm flex items-center gap-1.5">
                           <ShieldCheck className="w-3.5 h-3.5 text-slate-950" />
                           {prog.badgeText}
                         </span>
                       </div>
 
-                      <h3 className="font-heading text-2xl sm:text-3xl font-black text-white mb-3 group-hover:text-amber-300 transition-colors relative z-10">
+                      <h3 className="font-heading text-2xl sm:text-3xl font-black text-white mb-3 group-hover:text-cyan-300 transition-colors relative z-10">
                         {prog.title}
                       </h3>
 
@@ -103,7 +103,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                       <div className="grid sm:grid-cols-2 gap-3 mb-6 relative z-10">
                         {prog.bullets.map((b, bIdx) => (
                           <div key={bIdx} className="bg-white/5 border border-white/10 rounded-2xl p-3.5 flex items-center gap-2.5 text-xs font-extrabold text-white shadow-xs">
-                            <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0"></span>
+                            <span className="w-2 h-2 rounded-full bg-cyan-400 shrink-0"></span>
                             <span>{b}</span>
                           </div>
                         ))}
@@ -126,7 +126,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                           onClick={handleSeatLock}
                           className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs sm:text-sm px-5 py-3.5 rounded-2xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer border border-emerald-400/40 whitespace-nowrap"
                         >
-                          <Lock className="w-4 h-4 text-amber-300 shrink-0" />
+                          <Lock className="w-4 h-4 text-cyan-300 shrink-0" />
                           <span>Lock Seat ({prog.seatsLeft || '2 Seats Left'})</span>
                         </button>
                         <Button variant="accent" showArrow onClick={() => handleRegister(prog.title)} className="w-full sm:w-auto text-center justify-center">
@@ -180,7 +180,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                       onClick={handleSeatLock}
                       className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs py-3 rounded-xl transition-all shadow-sm flex items-center justify-center gap-1.5 cursor-pointer border border-emerald-400/40"
                     >
-                      <Lock className="w-3.5 h-3.5 text-amber-300 shrink-0" />
+                      <Lock className="w-3.5 h-3.5 text-cyan-300 shrink-0" />
                       <span>Lock Micro-Batch Seat ({prog.seatsLeft || '2 Seats Left'})</span>
                     </button>
                     <Button variant="dark" showArrow onClick={() => handleRegister(prog.title)} className="w-full">

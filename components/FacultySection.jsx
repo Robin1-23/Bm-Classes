@@ -32,7 +32,7 @@ export default function FacultySection({ onOpenRegister }) {
                   {/* Dark Banner Header */}
                   <div className="bg-[#090d16] text-white p-6 relative overflow-hidden">
                     <div className="flex items-center gap-4 relative z-10">
-                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-yellow-500 text-slate-950 font-heading font-black text-xl flex items-center justify-center shrink-0 shadow-md">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-400 to-teal-400 text-slate-950 font-heading font-black text-xl flex items-center justify-center shrink-0 shadow-md">
                         {mentor.initials}
                       </div>
 
@@ -40,7 +40,7 @@ export default function FacultySection({ onOpenRegister }) {
                         <span className={`inline-block text-[9px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-md border mb-1 ${mentor.badgeBg}`}>
                           {mentor.role}
                         </span>
-                        <h3 className="font-heading font-black text-lg text-white group-hover:text-amber-400 transition-colors leading-tight">
+                        <h3 className="font-heading font-black text-lg text-white group-hover:text-cyan-300 transition-colors leading-tight">
                           {mentor.name}
                         </h3>
                         <p className="text-[11px] font-medium text-slate-300 mt-0.5">
@@ -73,9 +73,9 @@ export default function FacultySection({ onOpenRegister }) {
                     </p>
 
                     {/* Ex-HOD Pedagogy Quote Block */}
-                    <div className="bg-[#fefce8] border border-amber-200/90 rounded-2xl p-4">
-                      <div className="flex items-center gap-1.5 text-amber-800 text-[10px] font-black uppercase tracking-wider mb-1">
-                        <ShieldCheck className="w-3.5 h-3.5 text-amber-600" />
+                    <div className="bg-[#ecfeff] border border-cyan-200/90 rounded-2xl p-4">
+                      <div className="flex items-center gap-1.5 text-cyan-900 text-[10px] font-black uppercase tracking-wider mb-1">
+                        <ShieldCheck className="w-3.5 h-3.5 text-cyan-600" />
                         <span>HOD Pedagogy Insight</span>
                       </div>
                       <p className="text-slate-800 text-xs italic font-medium leading-relaxed">

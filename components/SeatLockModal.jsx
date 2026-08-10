@@ -92,13 +92,13 @@ export default function SeatLockModal({ isOpen, onClose }) {
           {/* Decorative Glow */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
           
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 border border-amber-400/30 text-amber-300 text-xs font-black uppercase tracking-wider mb-3">
-            <Lock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-400/20 border border-cyan-400/30 text-cyan-300 text-xs font-black uppercase tracking-wider mb-3">
+            <Lock className="w-3.5 h-3.5 text-cyan-300 shrink-0" />
             <span>Ex-HOD 10-15 Micro-Batch Lock Studio</span>
           </div>
 
           <h2 className="font-heading text-2xl sm:text-3xl font-black leading-tight tracking-tight">
-            Reserve & Lock Your <span className="text-amber-400">Ex-HOD Batch Seat</span>
+            Reserve & Lock Your <span className="text-cyan-300">Ex-HOD Batch Seat</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-300 font-medium mt-1 max-w-lg">
             Strictly capped at 10–15 students per batch for maximum individual attention directly under Ex-HODs of FIITJEE & VMC.
@@ -111,8 +111,8 @@ export default function SeatLockModal({ isOpen, onClose }) {
                 <div className="w-3 h-3 rounded-full bg-emerald-400 animate-ping shrink-0"></div>
                 <span className="text-xs font-extrabold text-emerald-300">Seat Temporarily Locked & Reserved</span>
               </div>
-              <div className="flex items-center gap-1.5 font-mono text-sm font-black bg-slate-900 px-3 py-1 rounded-xl text-amber-400 border border-amber-400/30">
-                <Clock className="w-4 h-4 text-amber-400" />
+              <div className="flex items-center gap-1.5 font-mono text-sm font-black bg-slate-900 px-3 py-1 rounded-xl text-cyan-300 border border-cyan-400/30">
+                <Clock className="w-4 h-4 text-cyan-300" />
                 <span>{formatTime(timeLeft)}</span>
               </div>
             </div>
@@ -130,7 +130,7 @@ export default function SeatLockModal({ isOpen, onClose }) {
               <div>
                 <label className="block text-xs font-black text-slate-900 uppercase tracking-wider mb-3 flex items-center justify-between">
                   <span>Select Target Program & Batch</span>
-                  <span className="text-[10px] text-amber-600 font-extrabold bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">
+                  <span className="text-[10px] text-cyan-900 font-extrabold bg-cyan-50 px-2 py-0.5 rounded-full border border-cyan-200">
                     Micro-Batch Limit: 10-15
                   </span>
                 </label>
@@ -163,11 +163,11 @@ export default function SeatLockModal({ isOpen, onClose }) {
                         {/* Seat Availability Counter Bar */}
                         <div className="pt-2 border-t border-slate-200/80">
                           <div className="flex items-center justify-between text-[10px] font-extrabold text-slate-700 mb-1">
-                            <span className="text-amber-700 font-black">{seatsLeftText}</span>
+                            <span className="text-cyan-800 font-black">{seatsLeftText}</span>
                             <span>Cap: {batchCap}</span>
                           </div>
                           <div className="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden">
-                            <div className="h-full bg-gradient-to-r from-amber-500 to-indigo-600 rounded-full" style={{ width: '83%' }}></div>
+                            <div className="h-full bg-gradient-to-r from-cyan-400 to-indigo-600 rounded-full" style={{ width: '83%' }}></div>
                           </div>
                         </div>
                       </button>
@@ -204,10 +204,10 @@ export default function SeatLockModal({ isOpen, onClose }) {
               </div>
 
               {/* Merit Scholarship Calculator Slider */}
-              <div className="bg-amber-500/10 border border-amber-500/20 p-4 sm:p-5 rounded-2xl space-y-3">
+              <div className="bg-cyan-500/10 border border-cyan-500/20 p-4 sm:p-5 rounded-2xl space-y-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
-                    <Award className="w-5 h-5 text-amber-600 shrink-0" />
+                    <Award className="w-5 h-5 text-cyan-600 shrink-0" />
                     <div>
                       <span className="text-xs font-black text-slate-950 block">Ex-HOD Merit Scholarship Waiver</span>
                       <span className="text-[10px] text-slate-600 font-medium">Based on Class X/XI Board Marks</span>
@@ -240,7 +240,7 @@ export default function SeatLockModal({ isOpen, onClose }) {
                 type="submit"
                 className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-black py-4 rounded-2xl transition-all shadow-xl shadow-indigo-200 cursor-pointer flex items-center justify-center gap-2 text-base"
               >
-                <Lock className="w-5 h-5 text-amber-300" />
+                <Lock className="w-5 h-5 text-cyan-300" />
                 <span>Lock Seat for 15 Minutes & Reserve</span>
               </button>
 
@@ -250,16 +250,16 @@ export default function SeatLockModal({ isOpen, onClose }) {
             <div className="space-y-6 animate-fade-in">
               
               {/* Pass Card Container */}
-              <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-white p-6 sm:p-7 rounded-3xl border-2 border-amber-400/40 shadow-2xl relative">
+              <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 text-white p-6 sm:p-7 rounded-3xl border-2 border-cyan-400/40 shadow-2xl relative">
                 
                 <div className="flex items-center justify-between pb-4 border-b border-slate-800">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-xl bg-amber-400 text-slate-950 font-black flex items-center justify-center text-xs">
+                    <div className="w-8 h-8 rounded-xl bg-cyan-400 text-slate-950 font-black flex items-center justify-center text-xs">
                       Bm
                     </div>
                     <div>
                       <h4 className="font-heading text-sm font-black text-white">OFFICIAL EX-HOD SEAT LOCK PASS</h4>
-                      <p className="text-[10px] text-amber-300 font-bold">BmClasses Gurgaon Center • Sector 52</p>
+                      <p className="text-[10px] text-cyan-300 font-bold">BmClasses Gurgaon Center • Sector 52</p>
                     </div>
                   </div>
 
@@ -287,7 +287,7 @@ export default function SeatLockModal({ isOpen, onClose }) {
 
                   <div>
                     <span className="text-[10px] text-slate-400 font-semibold block">MERIT SCHOLARSHIP</span>
-                    <span className="font-black text-amber-400 text-sm">{scholarshipPercent}% Fee Waiver Applied</span>
+                    <span className="font-black text-cyan-300 text-sm">{scholarshipPercent}% Fee Waiver Applied</span>
                   </div>
                 </div>
 
@@ -297,7 +297,7 @@ export default function SeatLockModal({ isOpen, onClose }) {
                     <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
                     <span>Direct Ex-HOD Mentorship Guaranteed</span>
                   </div>
-                  <span className="text-[10px] font-mono text-amber-400 font-bold">Ardee City Ground Floor</span>
+                  <span className="text-[10px] font-mono text-cyan-300 font-bold">Ardee City Ground Floor</span>
                 </div>
 
               </div>

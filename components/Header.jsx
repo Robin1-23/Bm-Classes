@@ -58,7 +58,7 @@ export default function Header({ onOpenRegister, onOpenLogin, onOpenSeatLock }) 
                 Bm
               </span>
               <span className="tracking-tight">Classes</span>
-              <span className="hidden xs:inline-block text-[9px] sm:text-[10px] bg-amber-400 text-slate-950 px-1.5 sm:px-2 py-0.5 rounded-md font-extrabold ml-0.5 border border-black/10 shadow-xs">
+              <span className="hidden xs:inline-block text-[9px] sm:text-[10px] bg-cyan-400 text-slate-950 px-1.5 sm:px-2 py-0.5 rounded-md font-extrabold ml-0.5 border border-black/10 shadow-xs">
                 EX-FIITJEE & VMC HODs
               </span>
             </Link>
@@ -99,7 +99,7 @@ export default function Header({ onOpenRegister, onOpenLogin, onOpenSeatLock }) 
 
             <button 
               onClick={handleLogin}
-              className="bg-amber-400 text-slate-950 hover:bg-amber-300 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl font-extrabold text-[11px] sm:text-xs transition-all shadow-xs cursor-pointer hidden xs:inline-block"
+              className="bg-cyan-400 text-slate-950 hover:bg-cyan-300 px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl font-extrabold text-[11px] sm:text-xs transition-all shadow-xs cursor-pointer hidden xs:inline-block"
             >
               Login
             </button>
@@ -153,7 +153,7 @@ export default function Header({ onOpenRegister, onOpenLogin, onOpenSeatLock }) 
                 <span className="text-xs font-black uppercase tracking-widest text-indigo-600">
                   Navigation Pages
                 </span>
-                <span className="text-[9px] bg-amber-400 text-slate-950 px-2 py-0.5 rounded font-black">
+                <span className="text-[9px] bg-cyan-400 text-slate-950 px-2 py-0.5 rounded font-black">
                   Gurgaon Center
                 </span>
               </div>
@@ -183,7 +183,7 @@ export default function Header({ onOpenRegister, onOpenLogin, onOpenSeatLock }) 
                   >
                     <span>{item.label}</span>
                     {isActive && (
-                      <span className="text-[9px] bg-amber-400 text-slate-950 px-2 py-0.5 rounded font-black">
+                      <span className="text-[9px] bg-cyan-400 text-slate-950 px-2 py-0.5 rounded font-black">
                         Active Page
                       </span>
                     )}
@@ -197,7 +197,7 @@ export default function Header({ onOpenRegister, onOpenLogin, onOpenSeatLock }) 
                 href="tel:+919899818241" 
                 className="w-full bg-slate-950 text-white text-center font-bold py-3 rounded-xl flex items-center justify-center gap-2 text-sm shadow-md"
               >
-                <Phone className="w-4 h-4 text-amber-400" /> Call +91 98998 18241
+                <Phone className="w-4 h-4 text-cyan-400" /> Call +91 98998 18241
               </a>
 
               <a 

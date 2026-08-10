@@ -56,7 +56,7 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
       
       {/* Background Ambient Glow Orbs */}
       <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-indigo-600/15 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-10 -right-32 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-10 -right-32 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
@@ -144,7 +144,7 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
                           onClick={() => setMode(opt.id)}
                           className={`p-3.5 rounded-2xl transition-all duration-300 border cursor-pointer flex items-center gap-3 ${
                             mode === opt.id
-                              ? 'bg-gradient-to-br from-amber-400 to-yellow-500 text-slate-950 font-black border-amber-300 shadow-md shadow-amber-500/20'
+                              ? 'bg-gradient-to-br from-cyan-400 to-teal-400 text-slate-950 font-black border-cyan-300 shadow-md shadow-cyan-500/20'
                               : 'bg-slate-950/80 text-slate-400 hover:text-white border-slate-800 hover:bg-slate-800/60'
                           }`}
                         >
@@ -161,13 +161,13 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
               {/* Right Output Telemetry Vault */}
               <div className="lg:col-span-5 bg-gradient-to-br from-slate-950 via-indigo-950/60 to-slate-950 border-2 border-indigo-500/50 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden">
                 
-                <div className="absolute -right-16 -top-16 w-48 h-48 bg-amber-400/10 rounded-full blur-2xl pointer-events-none"></div>
+                <div className="absolute -right-16 -top-16 w-48 h-48 bg-cyan-400/10 rounded-full blur-2xl pointer-events-none"></div>
 
                 <div>
                   {/* Top Badge */}
                   <div className="flex items-center justify-between pb-4 border-b border-slate-800 mb-6">
-                    <span className="text-[10px] font-black text-amber-400 uppercase tracking-widest flex items-center gap-1.5">
-                      <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
+                    <span className="text-[10px] font-black text-cyan-300 uppercase tracking-widest flex items-center gap-1.5">
+                      <ShieldCheck className="w-3.5 h-3.5 text-cyan-300" />
                       ESTIMATED TUITION
                     </span>
                     <span className="text-[10px] font-black bg-indigo-500/20 text-indigo-300 border border-indigo-400/30 px-2.5 py-0.5 rounded-md uppercase">
@@ -180,7 +180,7 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
                     <span className="text-xs text-slate-400 font-extrabold uppercase tracking-wider block mb-1">
                       Annual All-Inclusive Fee
                     </span>
-                    <div className="font-heading font-black text-4xl sm:text-5xl text-amber-400 tracking-tight">
+                    <div className="font-heading font-black text-4xl sm:text-5xl text-cyan-300 tracking-tight">
                       ₹{fee.toLocaleString('en-IN')}
                     </div>
                     <span className="text-[11px] text-slate-400 font-medium block mt-1">
@@ -192,14 +192,14 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
                   <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 mb-6">
                     <div className="flex justify-between items-center text-xs font-extrabold mb-2">
                       <span className="text-slate-300 flex items-center gap-1.5">
-                        <Zap className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+                        <Zap className="w-3.5 h-3.5 text-cyan-300 fill-cyan-400" />
                         Micro-Batch Seat Status
                       </span>
-                      <span className="text-amber-400">{seats} Seats Left</span>
+                      <span className="text-cyan-300">{seats} Seats Left</span>
                     </div>
                     <div className="h-2 bg-slate-950 rounded-full overflow-hidden mb-2">
                       <div 
-                        className="h-full bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full transition-all duration-500"
+                        className="h-full bg-gradient-to-r from-cyan-400 to-teal-400 rounded-full transition-all duration-500"
                         style={{ width: `${(seats / 12) * 100}%` }}
                       ></div>
                     </div>
@@ -220,7 +220,7 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
                       <span>Same-day board doubt clearing slots</span>
                     </div>
                     <div className="flex items-center gap-2 text-indigo-300">
-                      <Award className="w-4 h-4 text-amber-400 shrink-0" />
+                      <Award className="w-4 h-4 text-cyan-300 shrink-0" />
                       <span>Eligible for up to {scholarship}% Ex-HOD Merit Scholarship</span>
                     </div>
                   </div>

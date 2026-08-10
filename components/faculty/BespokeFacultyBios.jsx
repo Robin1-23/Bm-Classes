@@ -34,7 +34,7 @@ export default function BespokeFacultyBios() {
       exRole: 'Ex-HOD VMC Gurgaon',
       education: 'NIT Rourkela Alumni',
       topRanks: 'AIR 18, AIR 102, AIR 350',
-      badgeBg: 'bg-amber-400 text-slate-950',
+      badgeBg: 'bg-cyan-400 text-slate-950',
       bio: '20+ years mastering Chemistry. Eliminates rote memorization through first-principles electron push mechanisms & inorganic shortcuts.',
       methods: [
         'First-principles Organic reaction mechanisms',
@@ -68,7 +68,7 @@ export default function BespokeFacultyBios() {
         
         {/* SECTION HEADER */}
         <ScrollReveal delay={100} direction="up" className="text-center max-w-2xl mx-auto">
-          <span className="text-xs font-black tracking-widest uppercase text-amber-800 bg-amber-100 border border-amber-200 px-3.5 py-1.5 rounded-full">
+          <span className="text-xs font-black tracking-widest uppercase text-cyan-900 bg-cyan-100 border border-cyan-200 px-3.5 py-1.5 rounded-full">
             FACULTY PEDAGOGY BREAKDOWN
           </span>
           <h2 className="font-heading text-2xl sm:text-3xl font-black text-slate-950 mt-3">
@@ -90,7 +90,7 @@ export default function BespokeFacultyBios() {
                   {/* Left Column: Avatar & Credentials (4 cols) */}
                   <div className="lg:col-span-4 space-y-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-2xl bg-slate-950 text-amber-400 font-heading font-black text-lg flex items-center justify-center shadow-xs">
+                      <div className="w-12 h-12 rounded-2xl bg-slate-950 text-cyan-300 font-heading font-black text-lg flex items-center justify-center shadow-xs">
                         {m.name.split(' ').map(n => n[0]).join('')}
                       </div>
                       <div>
@@ -106,7 +106,7 @@ export default function BespokeFacultyBios() {
 
                     <div className="bg-white border border-slate-200 rounded-xl p-3 space-y-2 text-xs font-bold text-slate-700 shadow-xs">
                       <div className="flex items-center gap-2 text-slate-900">
-                        <Award className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                        <Award className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                         <span>{m.experience}</span>
                       </div>
                       <div className="flex items-center gap-2 text-slate-900">
@@ -144,7 +144,7 @@ export default function BespokeFacultyBios() {
 
                     {/* Quote Box */}
                     <div className="bg-indigo-950 text-white rounded-xl p-4 border border-indigo-800/80">
-                      <p className="text-xs font-semibold italic text-amber-300">
+                      <p className="text-xs font-semibold italic text-cyan-300">
                         {m.quote}
                       </p>
                     </div>

@@ -43,7 +43,7 @@ export default function PlatformSection() {
             </div>
 
             <div className="flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-indigo-300 transition-colors">
-              <div className="w-10 h-10 rounded-xl bg-amber-400 text-slate-950 font-black text-xs flex items-center justify-center shrink-0 shadow-md">
+              <div className="w-10 h-10 rounded-xl bg-cyan-400 text-slate-950 font-black text-xs flex items-center justify-center shrink-0 shadow-md">
                 02
               </div>
               <div>
@@ -82,7 +82,7 @@ export default function PlatformSection() {
               <div className="font-heading font-extrabold text-white text-base">Student Telemetry Dashboard</div>
               <div className="text-[10px] text-indigo-300 font-semibold">Real-Time Performance Analytics</div>
             </div>
-            <span className="text-[10px] font-black bg-amber-400 text-slate-950 px-2.5 py-1 rounded-md uppercase tracking-wider shadow-xs">
+            <span className="text-[10px] font-black bg-cyan-400 text-slate-950 px-2.5 py-1 rounded-md uppercase tracking-wider shadow-xs">
               LIVE TELEMETRY
             </span>
           </div>
@@ -91,7 +91,7 @@ export default function PlatformSection() {
             <div>
               <div className="flex justify-between text-xs font-extrabold mb-1">
                 <span className="text-slate-200">Rotational Dynamics Mastery</span>
-                <span className="text-amber-400">78%</span>
+                <span className="text-cyan-300">78%</span>
               </div>
               <div className="h-2.5 bg-slate-800 rounded-full overflow-hidden">
                 <div className="h-full bg-indigo-600 rounded-full w-[78%]"></div>
@@ -101,17 +101,17 @@ export default function PlatformSection() {
             <div>
               <div className="flex justify-between text-xs font-extrabold mb-1">
                 <span className="text-slate-200">Organic Reaction Mechanisms</span>
-                <span className="text-amber-400">92%</span>
+                <span className="text-cyan-300">92%</span>
               </div>
               <div className="h-2.5 bg-slate-800 rounded-full overflow-hidden">
-                <div className="h-full bg-amber-400 rounded-full w-[92%]"></div>
+                <div className="h-full bg-cyan-400 rounded-full w-[92%]"></div>
               </div>
             </div>
 
             <div>
               <div className="flex justify-between text-xs font-extrabold mb-1">
                 <span className="text-slate-200">Integral Calculus Practice</span>
-                <span className="text-amber-400">85%</span>
+                <span className="text-cyan-300">85%</span>
               </div>
               <div className="h-2.5 bg-slate-800 rounded-full overflow-hidden">
                 <div className="h-full bg-emerald-500 rounded-full w-[85%]"></div>
@@ -120,9 +120,9 @@ export default function PlatformSection() {
           </div>
 
           <div className="bg-white/10 rounded-2xl p-4 text-xs text-slate-200 border border-white/10 relative z-10 flex items-start gap-2.5">
-            <Zap className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+            <Zap className="w-4 h-4 text-cyan-300 shrink-0 mt-0.5" />
             <div>
-              <strong className="text-amber-400">AI Weak Area Trigger:</strong> 15 targeted practice problems generated for tomorrow's review on "Moment of Inertia of Composite Bodies".
+              <strong className="text-cyan-300">AI Weak Area Trigger:</strong> 15 targeted practice problems generated for tomorrow's review on "Moment of Inertia of Composite Bodies".
             </div>
           </div>
 

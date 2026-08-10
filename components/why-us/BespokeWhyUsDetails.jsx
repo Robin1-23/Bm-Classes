@@ -18,7 +18,7 @@ export default function BespokeWhyUsDetails() {
       title: '15 High-Yield Advanced Twists',
       desc: 'Master 15 curated Advanced problems per chapter instead of solving 200+ duplicate template drills.',
       tag: 'Zero Rote Drills',
-      badgeBg: 'bg-amber-50 text-amber-800 border-amber-200',
+      badgeBg: 'bg-cyan-50 text-cyan-900 border-cyan-200',
     },
     {
       time: '02:30 PM - 04:30 PM',
@@ -66,8 +66,8 @@ export default function BespokeWhyUsDetails() {
           <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-indigo-950 rounded-3xl p-6 sm:p-10 text-white border border-indigo-900/60 shadow-2xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400/20 border border-amber-400/30 text-amber-300 text-xs font-black uppercase tracking-wider mb-3">
-              <ShieldCheck className="w-4 h-4 text-amber-400" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-400/20 border border-cyan-400/30 text-cyan-300 text-xs font-black uppercase tracking-wider mb-3">
+              <ShieldCheck className="w-4 h-4 text-cyan-300" />
               <span>THE 10-15 MICRO-BATCH MANIFESTO</span>
             </div>
 
@@ -81,7 +81,7 @@ export default function BespokeWhyUsDetails() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 pt-6 border-t border-slate-800">
               <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
-                <span className="text-amber-400 font-mono text-lg font-black block">10-15 Students</span>
+                <span className="text-cyan-300 font-mono text-lg font-black block">10-15 Students</span>
                 <h4 className="text-white font-extrabold text-xs mt-1">Known By Name & Specific Gaps</h4>
                 <p className="text-slate-400 text-[11px] mt-1 font-medium">Personal speed & weak chapter tracking every single day.</p>
               </div>
@@ -149,7 +149,7 @@ export default function BespokeWhyUsDetails() {
         {/* 3. EX-HOD 15-QUESTION CURATION METHODOLOGY */}
         <div className="bg-indigo-50/70 border border-indigo-100 rounded-3xl p-6 sm:p-10">
           <ScrollReveal delay={150} direction="up" className="max-w-2xl mb-8">
-            <span className="text-xs font-black tracking-widest uppercase text-amber-800 bg-amber-100 border border-amber-200 px-3 py-1 rounded-full">
+            <span className="text-xs font-black tracking-widest uppercase text-cyan-900 bg-cyan-100 border border-cyan-200 px-3 py-1 rounded-full">
               CURATION METHODOLOGY
             </span>
             <h2 className="font-heading text-2xl sm:text-3xl font-black text-slate-950 mt-3">

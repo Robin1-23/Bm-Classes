@@ -75,7 +75,7 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
             <p className="text-base sm:text-lg lg:text-xl font-extrabold max-w-xl leading-snug mx-auto lg:mx-0 mb-6 sm:mb-8 tracking-tight">
               <span className="text-slate-950 font-black">100% Ex-HOD Taught.</span>{' '}
               <span className="text-indigo-600 font-black">Capped 10-15 Batches.</span>{' '}
-              <span className="text-amber-600 font-black">Top Ranks Delivered.</span>
+              <span className="text-cyan-600 font-black">Top Ranks Delivered.</span>
             </p>
           </ScrollReveal>
 
@@ -85,7 +85,7 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
                 onClick={handleSeatLock}
                 className="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white font-black text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl transition-all shadow-lg shadow-emerald-200 hover:shadow-xl hover:-translate-y-0.5 cursor-pointer flex items-center justify-center gap-2 border-2 border-emerald-300/40"
               >
-                <Lock className="w-4 h-4 sm:w-5 sm:h-5 text-amber-300 shrink-0" />
+                <Lock className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-300 shrink-0" />
                 <span>Lock Seat for 15 Min</span>
               </button>
 
@@ -110,8 +110,8 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
                 <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 shrink-0" />
                 <span>Same-Day Doubt Clearing</span>
               </div>
-              <div className="flex items-center gap-1 text-amber-500">
-                <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400 text-amber-400 shrink-0" />
+              <div className="flex items-center gap-1 text-cyan-600">
+                <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-cyan-400 text-cyan-400 shrink-0" />
                 <span className="text-slate-950 font-black">4.9/5</span> (120+ Parent Reviews)
               </div>
             </div>
@@ -126,8 +126,8 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
             {/* Vertical Purple Accent Card */}
             <div className="absolute top-0 right-2 xs:right-4 sm:right-8 w-[180px] xs:w-[240px] sm:w-[300px] lg:w-[330px] h-[105%] bg-gradient-to-b from-indigo-600 via-purple-600 to-slate-900 rounded-t-[100px] xs:rounded-t-[140px] z-0 shadow-2xl"></div>
 
-            {/* Glowing Gold Circle */}
-            <div className="absolute top-6 xs:top-10 sm:top-14 right-0 sm:right-4 w-[160px] xs:w-[210px] sm:w-[270px] lg:w-[300px] h-[160px] xs:h-[210px] sm:h-[270px] lg:h-[300px] bg-amber-400 rounded-full z-10 shadow-[0_0_80px_rgba(245,158,11,0.35)] border-4 border-amber-300/40"></div>
+            {/* Glowing Cyan Circle */}
+            <div className="absolute top-6 xs:top-10 sm:top-14 right-0 sm:right-4 w-[160px] xs:w-[210px] sm:w-[270px] lg:w-[300px] h-[160px] xs:h-[210px] sm:h-[270px] lg:h-[300px] bg-cyan-400 rounded-full z-10 shadow-[0_0_80px_rgba(34,211,238,0.4)] border-4 border-cyan-300/40"></div>
 
             {/* Main Visual Image Cutout */}
             <div className="relative z-20 w-full max-w-[270px] xs:max-w-[340px] sm:max-w-[420px] filter drop-shadow-[0_25px_35px_rgba(15,23,42,0.25)] hover:scale-[1.02] transition-transform duration-500 animate-float-slow">
@@ -141,12 +141,12 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
               
               {/* Floating Live Badge */}
               <div className="absolute bottom-2 xs:bottom-4 left-2 xs:left-4 bg-slate-950/95 backdrop-blur-md text-white border border-slate-700/80 px-2.5 xs:px-4 py-1.5 xs:py-2.5 rounded-xl xs:rounded-2xl shadow-xl flex items-center gap-2 xs:gap-3">
-                <div className="w-7 xs:w-9 h-7 xs:h-9 rounded-lg xs:rounded-xl bg-amber-400 text-slate-950 font-black flex items-center justify-center text-[10px] xs:text-xs shrink-0">
+                <div className="w-7 xs:w-9 h-7 xs:h-9 rounded-lg xs:rounded-xl bg-cyan-400 text-slate-950 font-black flex items-center justify-center text-[10px] xs:text-xs shrink-0">
                   AIR 18
                 </div>
                 <div>
                   <div className="text-[10px] xs:text-xs font-black text-white leading-tight">Top Rank Proven</div>
-                  <div className="text-[8px] xs:text-[10px] text-amber-300 font-semibold leading-tight">Ex-FIITJEE HOD Guidance</div>
+                  <div className="text-[8px] xs:text-[10px] text-cyan-300 font-semibold leading-tight">Ex-FIITJEE HOD Guidance</div>
                 </div>
               </div>
 
@@ -169,18 +169,18 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
             return (
               <div 
                 key={idx}
-                className="flex items-center gap-2.5 sm:gap-3.5 bg-white/5 border border-white/10 hover:border-amber-400/50 px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl text-white shrink-0 hover:bg-white/10 transition-all duration-300 group cursor-pointer"
+                className="flex items-center gap-2.5 sm:gap-3.5 bg-white/5 border border-white/10 hover:border-cyan-400/50 px-4 sm:px-6 py-2 sm:py-2.5 rounded-xl text-white shrink-0 hover:bg-white/10 transition-all duration-300 group cursor-pointer"
               >
-                <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-amber-400 to-yellow-500 text-slate-950 font-black flex items-center justify-center shrink-0 shadow-md">
+                <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-br from-cyan-400 to-teal-400 text-slate-950 font-black flex items-center justify-center shrink-0 shadow-md">
                   <IconComp className="w-4 sm:w-5 h-4 sm:h-5 text-slate-950" />
                 </div>
 
                 <div>
                   <div className="flex items-center gap-1.5 sm:gap-2">
-                    <span className="font-heading font-black text-xs sm:text-sm tracking-wide text-white group-hover:text-amber-400 transition-colors whitespace-nowrap">
+                    <span className="font-heading font-black text-xs sm:text-sm tracking-wide text-white group-hover:text-cyan-300 transition-colors whitespace-nowrap">
                       {item.title}
                     </span>
-                    <span className="text-[9px] sm:text-[10px] bg-amber-400/20 text-amber-300 font-extrabold px-1.5 sm:px-2 py-0.5 rounded border border-amber-400/30 whitespace-nowrap">
+                    <span className="text-[9px] sm:text-[10px] bg-cyan-400/20 text-cyan-300 font-extrabold px-1.5 sm:px-2 py-0.5 rounded border border-cyan-400/30 whitespace-nowrap">
                       {item.metric}
                     </span>
                   </div>
