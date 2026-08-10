@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Phone, Mail, MapPin, ArrowRight, Clock, Star, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowRight, Clock, Star, ShieldCheck, CheckCircle2, Facebook, Youtube, Instagram } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { useModal } from '@/context/ModalContext';
 
@@ -178,8 +178,16 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
                 </a>
               </div>
 
-              <div className="flex items-center gap-2.5 text-[11px] text-cyan-300 font-bold">
-                <span>Insta: @chemistrybybighnarajsir</span>
+              <div className="flex items-center gap-4 mt-2">
+                <a href="https://www.facebook.com/share/1PFmnYsfRK/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors" aria-label="Facebook">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href="https://youtube.com/watch?v=XDQq1L-ldP8&feature=shared" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors" aria-label="YouTube">
+                  <Youtube className="w-5 h-5" />
+                </a>
+                <a href="https://www.instagram.com/bm__classes?igsh=MTB3cjRtZHdwYTBocA==" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors" aria-label="Instagram">
+                  <Instagram className="w-5 h-5" />
+                </a>
               </div>
             </div>
           </div>

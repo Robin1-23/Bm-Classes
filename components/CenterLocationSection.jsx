@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { MapPin, Navigation, Phone, Clock, Share2, Sparkles, CheckCircle2, ShieldCheck, ExternalLink } from 'lucide-react';
+import { MapPin, Navigation, Phone, Clock, Share2, Sparkles, CheckCircle2, ShieldCheck, ExternalLink, Facebook, Youtube, Instagram } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import ScrollReveal from '@/components/ScrollReveal';
 import { useModal } from '@/context/ModalContext';
@@ -96,8 +96,18 @@ export default function CenterLocationSection({ onOpenRegister }) {
                       <div className="font-extrabold text-slate-900 text-[11px]">9899818241 / 9999495938</div>
                     </div>
                     <div className="bg-cyan-50/70 border border-cyan-200/80 p-2.5 rounded-xl">
-                      <div className="text-[9px] font-black text-cyan-900 uppercase">INSTAGRAM</div>
-                      <div className="font-extrabold text-slate-900 text-[11px]">@chemistrybybighnarajsir</div>
+                      <div className="text-[9px] font-black text-cyan-900 uppercase">SOCIAL MEDIA</div>
+                      <div className="flex items-center gap-3 mt-1">
+                        <a href="https://www.facebook.com/share/1PFmnYsfRK/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                          <Facebook className="w-4 h-4 text-slate-700 hover:text-cyan-600 transition-colors" />
+                        </a>
+                        <a href="https://youtube.com/watch?v=XDQq1L-ldP8&feature=shared" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                          <Youtube className="w-4 h-4 text-slate-700 hover:text-cyan-600 transition-colors" />
+                        </a>
+                        <a href="https://www.instagram.com/bm__classes?igsh=MTB3cjRtZHdwYTBocA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                          <Instagram className="w-4 h-4 text-slate-700 hover:text-cyan-600 transition-colors" />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
