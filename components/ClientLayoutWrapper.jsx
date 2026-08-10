@@ -9,6 +9,7 @@ import Modals from '@/components/Modals';
 import SeatLockModal from '@/components/SeatLockModal';
 import FloatingWhatsAppButton from '@/components/FloatingWhatsAppButton';
 import MobileStickyActionBar from '@/components/MobileStickyActionBar';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 function Shell({ children }) {
   const { registerOpen, loginOpen, seatLockOpen, videoTitle, preselectedProgram, closeModals } = useModal();
@@ -33,6 +34,7 @@ function Shell({ children }) {
         onClose={closeModals}
       />
       <FloatingWhatsAppButton />
+      <ScrollToTopButton />
       <MobileStickyActionBar />
     </div>
   );
