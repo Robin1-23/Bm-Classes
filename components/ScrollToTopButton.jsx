@@ -29,7 +29,7 @@ export default function ScrollToTopButton() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-20 lg:bottom-8 right-4 sm:right-6 z-40 transition-all duration-300">
+    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 transition-all duration-300">
       <button
         onClick={scrollToTop}
         aria-label="Scroll to top of page"
