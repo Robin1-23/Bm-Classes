@@ -83,15 +83,15 @@ export default function Header({ onOpenRegister }) {
             </a>
           </div>
 
-          {/* Center Brand Logo & Name (Ultra-Fancy 3D Prism Gem Badge & Syne Display Font) */}
-          <Link href="/" className="flex items-center gap-3 group shrink-0">
+          {/* Center Brand Logo & Name (Flared Rounded Vintage Display Font matching "FRIDAY" screenshot) */}
+          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
             <div className="relative p-[2px] rounded-2xl bg-gradient-to-tr from-cyan-400 via-indigo-500 to-emerald-400 shadow-xl shadow-cyan-500/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
               <div className="w-10 h-10 rounded-[14px] bg-gradient-to-b from-[#111c35] via-[#090d16] to-[#04070d] flex items-center justify-center relative overflow-hidden border border-white/20 shadow-inner">
-                {/* Inner Metallic Diagonal Glow */}
+                {/* Inner Glow */}
                 <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/30 via-indigo-500/15 to-transparent pointer-events-none"></div>
                 
-                {/* Monogram Icon */}
-                <span className="font-logo font-black text-sm sm:text-base text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-white to-teal-300 tracking-wider relative z-10">
+                {/* Monogram Icon in Calistoga Flared Serif */}
+                <span className="font-logo font-normal text-sm sm:text-base text-[#fffdf5] tracking-tight relative z-10 drop-shadow-xs">
                   BM
                 </span>
                 
@@ -100,7 +100,7 @@ export default function Header({ onOpenRegister }) {
               </div>
             </div>
 
-            <span className="font-logo font-black text-xl sm:text-2xl tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-teal-200 group-hover:from-cyan-300 group-hover:to-white transition-all">
+            <span className="font-logo font-normal text-2xl sm:text-3xl tracking-tight text-[#fffdf5] group-hover:text-cyan-300 transition-colors drop-shadow-md">
               BM CLASSES
             </span>
           </Link>
