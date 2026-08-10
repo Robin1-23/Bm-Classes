@@ -45,7 +45,7 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
   const marqueeItems = [...badges, ...badges];
 
   return (
-    <section className="relative bg-[#faf8f5] pt-20 xs:pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-24 overflow-hidden">
+    <section className="relative bg-[#faf8f5] pt-32 xs:pt-36 sm:pt-40 lg:pt-44 xl:pt-48 pb-16 sm:pb-24 overflow-hidden">
       
       {/* Background Soft Glow Radial Gradient */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] xs:w-[500px] sm:w-[700px] h-[320px] xs:h-[500px] sm:h-[700px] bg-indigo-100/50 rounded-full blur-3xl pointer-events-none"></div>
