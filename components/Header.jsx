@@ -62,7 +62,7 @@ export default function Header({ onOpenRegister }) {
           <div className="flex items-center gap-2 shrink-0">
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 hover:text-white transition-colors cursor-pointer"
+              className="xl:hidden p-2 rounded-xl bg-slate-900/90 border border-slate-800 text-slate-300 hover:text-white transition-colors cursor-pointer"
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5 text-cyan-400" /> : <Menu className="w-5 h-5 text-white" />}
@@ -105,8 +105,8 @@ export default function Header({ onOpenRegister }) {
             </span>
           </Link>
 
-          {/* Centered-Right Nav Capsule */}
-          <nav className="hidden lg:flex items-center gap-5 bg-[#0b1120]/90 border border-slate-800/90 rounded-full px-5 py-1.5 text-xs font-bold text-slate-300 shadow-inner">
+          {/* Centered-Right Nav Capsule (Hidden on Mobile & Tablet < 1280px, visible on Desktop xl+) */}
+          <nav className="hidden xl:flex items-center gap-5 bg-[#0b1120]/90 border border-slate-800/90 rounded-full px-5 py-1.5 text-xs font-bold text-slate-300 shadow-inner">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               return (
@@ -125,8 +125,8 @@ export default function Header({ onOpenRegister }) {
             })}
           </nav>
 
-          {/* Right Action Button (Hidden on Mobile & Tablet, visible on Desktop lg+) */}
-          <div className="hidden lg:flex items-center gap-2 shrink-0">
+          {/* Right Action Button (Hidden on Mobile & Tablet < 1280px, visible on Desktop xl+) */}
+          <div className="hidden xl:flex items-center gap-2 shrink-0">
             <button 
               onClick={() => handleRegister()}
               className="bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400 hover:from-cyan-300 hover:to-indigo-300 text-slate-950 font-black text-xs px-3.5 sm:px-4.5 py-2 rounded-2xl flex items-center gap-1.5 shadow-lg shadow-cyan-950/60 hover:scale-[1.03] transition-all cursor-pointer"
@@ -139,11 +139,31 @@ export default function Header({ onOpenRegister }) {
 
         </div>
 
+        {/* Mobile & Tablet Horizontal Jump Bar */}
+        <div className="xl:hidden bg-slate-950/90 border-t border-slate-800/60 overflow-x-auto no-scrollbar py-1.5 px-3 flex items-center gap-2 text-[11px] font-extrabold text-slate-300">
+          {navItems.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`shrink-0 px-3 py-1 rounded-full border transition-all ${
+                  isActive
+                    ? 'bg-indigo-600 text-white border-indigo-500 shadow-xs font-black'
+                    : 'bg-slate-900 text-slate-300 border-slate-800 hover:bg-slate-800 hover:text-white'
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+        </div>
+
       </header>
 
-      {/* Mobile Drawer Overlay */}
+      {/* Mobile & Tablet Drawer Overlay */}
       {mobileMenuOpen && (
-        <div className="lg:hidden">
+        <div className="xl:hidden">
           <div 
             className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 transition-opacity"
             onClick={() => setMobileMenuOpen(false)}
