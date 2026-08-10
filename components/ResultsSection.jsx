@@ -91,54 +91,56 @@ export default function ResultsSection({ onOpenVideo }) {
           </div>
         </ScrollReveal>
 
-        {/* Real Google Reviews Infinite Moving Deck (Pitch Dark Black Cards & 3D Shadows) */}
-        <ScrollReveal delay={200} direction="up" className="mb-14 sm:mb-18">
+      </div>{/* end max-w-7xl */}
 
-          <div className="overflow-hidden py-4">
-            <div className="animate-marquee flex items-stretch gap-6">
-              {[...writtenReviews, ...writtenReviews].map((rev, idx) => (
-                <div 
-                  key={idx}
-                  className="w-[310px] sm:w-[380px] lg:w-[410px] bg-black text-white border-2 border-zinc-800 hover:border-cyan-400 rounded-3xl p-6 sm:p-7 shadow-[0_15px_35px_-5px_rgba(0,0,0,0.5)] hover:shadow-[0_25px_50px_-10px_rgba(34,211,238,0.25)] hover:-translate-y-2.5 transition-all duration-300 flex flex-col justify-between shrink-0 group cursor-pointer relative"
-                >
-                  <div>
-                    {/* Header Row: Stars & Google Badge */}
-                    <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-zinc-800/80">
-                      <div className="flex items-center gap-1 text-amber-400">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-amber-400" />
-                        ))}
-                      </div>
-                      <span className="text-[10px] font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                        Google Review
-                      </span>
+      {/* Real Google Reviews — Full Viewport Width Infinite Moving Deck */}
+      <ScrollReveal delay={200} direction="up" className="mb-14 sm:mb-18 w-full">
+        <div className="overflow-hidden py-4 w-full">
+          <div className="animate-marquee flex items-stretch gap-6">
+            {[...writtenReviews, ...writtenReviews].map((rev, idx) => (
+              <div 
+                key={idx}
+                className="w-[310px] sm:w-[380px] lg:w-[410px] bg-black text-white border-2 border-zinc-800 hover:border-cyan-400 rounded-3xl p-6 sm:p-7 shadow-[0_15px_35px_-5px_rgba(0,0,0,0.5)] hover:shadow-[0_25px_50px_-10px_rgba(34,211,238,0.25)] hover:-translate-y-2.5 transition-all duration-300 flex flex-col justify-between shrink-0 group cursor-pointer relative"
+              >
+                <div>
+                  {/* Header Row: Stars & Google Badge */}
+                  <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-zinc-800/80">
+                    <div className="flex items-center gap-1 text-amber-400">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-amber-400" />
+                      ))}
                     </div>
-
-                    {/* Quote Text in Pure White */}
-                    <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-medium italic mb-6">
-                      "{rev.quote}"
-                    </p>
+                    <span className="text-[10px] font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                      Google Review
+                    </span>
                   </div>
 
-                  {/* Author Footer */}
-                  <div className="pt-4 border-t border-zinc-800/80 flex items-center justify-between">
-                    <div>
-                      <div className="font-heading font-black text-white text-sm group-hover:text-cyan-300 transition-colors">
-                        {rev.author}
-                      </div>
-                      <div className="text-[11px] font-bold text-cyan-400 mt-0.5">
-                        {rev.sub}
-                      </div>
-                    </div>
-                    <span className="text-slate-400 text-xs font-mono font-bold">5.0 ★</span>
-                  </div>
-
+                  {/* Quote Text in Pure White */}
+                  <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-medium italic mb-6">
+                    "{rev.quote}"
+                  </p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </ScrollReveal>
 
+                {/* Author Footer */}
+                <div className="pt-4 border-t border-zinc-800/80 flex items-center justify-between">
+                  <div>
+                    <div className="font-heading font-black text-white text-sm group-hover:text-cyan-300 transition-colors">
+                      {rev.author}
+                    </div>
+                    <div className="text-[11px] font-bold text-cyan-400 mt-0.5">
+                      {rev.sub}
+                    </div>
+                  </div>
+                  <span className="text-slate-400 text-xs font-mono font-bold">5.0 ★</span>
+                </div>
+
+              </div>
+            ))}
+          </div>
+        </div>
+      </ScrollReveal>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Video Testimonial Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-lg sm:max-w-none mx-auto">
           {videoCards.map((v, idx) => (
