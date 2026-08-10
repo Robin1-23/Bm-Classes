@@ -74,6 +74,12 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
             </h1>
           </ScrollReveal>
 
+          <ScrollReveal delay={250} direction="up">
+            <p className="text-base sm:text-lg lg:text-xl font-bold text-slate-700 max-w-xl mx-auto lg:mx-0 mb-5 tracking-tight leading-snug">
+              100% taught directly by <span className="font-serif italic font-normal text-indigo-600 text-lg sm:text-xl lg:text-2xl">Ex-FIITJEE & VMC HODs</span> in capped 10-15 student micro-batches.
+            </p>
+          </ScrollReveal>
+
           <ScrollReveal delay={300} direction="up">
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3 mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0">
               <div className="flex items-center gap-2 bg-slate-950 text-white font-extrabold text-xs sm:text-sm px-3.5 sm:px-4 py-2 rounded-xl border border-slate-800 shadow-md">
