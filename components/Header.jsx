@@ -37,11 +37,10 @@ export default function Header({ onOpenRegister }) {
 
   const navItems = [
     { label: 'Why Us', href: '/why-us' },
-    { label: 'Programs', href: '/programs' },
-    { label: 'Ex-HOD Mentors', href: '/faculty' },
+    { label: 'Courses', href: '/programs' },
     { label: 'Fee Estimator', href: '/calculator' },
-    { label: 'AIR Ranks', href: '/results' },
-    { label: 'Contact', href: '/contact' },
+    { label: 'Reviews', href: '/results' },
+    { label: 'Contact Us', href: '/contact' },
   ];
 
   const whatsappUrl = "https://wa.me/919899818241?text=Hi%20BM%20CLASSES%2C%20I%20would%20like%20to%20know%20more%20about%20your%20coaching%20programs.";
