@@ -145,14 +145,14 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
                 className="w-full h-auto rounded-2xl xs:rounded-3xl block border-2 xs:border-4 border-white shadow-2xl gpu-accelerate"
               />
               
-              {/* Floating Live Badge */}
-              <div className="absolute bottom-2 xs:bottom-4 left-2 xs:left-4 bg-slate-950/95 backdrop-blur-md text-white border border-slate-700/80 px-2.5 xs:px-4 py-1.5 xs:py-2.5 rounded-xl xs:rounded-2xl shadow-xl flex items-center gap-2 xs:gap-3">
-                <div className="w-7 xs:w-9 h-7 xs:h-9 rounded-lg xs:rounded-xl bg-cyan-400 text-slate-950 font-black flex items-center justify-center text-[10px] xs:text-xs shrink-0">
+              {/* Floating Glassmorphism Live Badge */}
+              <div className="absolute bottom-2 xs:bottom-4 left-2 xs:left-4 bg-slate-950/80 backdrop-blur-xl text-white border border-slate-700/80 px-3 xs:px-4 py-2 xs:py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 xs:gap-3">
+                <div className="w-8 xs:w-10 h-8 xs:h-10 rounded-xl bg-gradient-to-tr from-cyan-400 to-teal-300 text-slate-950 font-black flex items-center justify-center text-xs xs:text-sm shrink-0 shadow-md">
                   AIR 18
                 </div>
                 <div>
-                  <div className="text-[10px] xs:text-xs font-black text-white leading-tight">Top Rank Proven</div>
-                  <div className="text-[8px] xs:text-[10px] text-cyan-300 font-semibold leading-tight">Ex-FIITJEE HOD Guidance</div>
+                  <div className="text-xs xs:text-sm font-black text-white leading-tight">Top Rank Proven</div>
+                  <div className="text-[9px] xs:text-[11px] text-cyan-300 font-extrabold leading-tight">100% Ex-FIITJEE HOD Direct Mentorship</div>
                 </div>
               </div>
 

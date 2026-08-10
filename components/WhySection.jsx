@@ -183,7 +183,7 @@ export default function WhySection() {
             const IconComponent = pillar.icon;
             return (
               <ScrollReveal key={idx} delay={150 * (idx + 1)} direction="up">
-                <div className="bg-white border-2 border-slate-200/90 rounded-3xl p-7 sm:p-8 shadow-sm hover:shadow-2xl hover:-translate-y-1.5 hover:border-indigo-500 transition-all duration-300 relative group flex flex-col justify-between overflow-hidden h-full">
+                <div className="bg-white/80 backdrop-blur-xl border-2 border-slate-200/90 rounded-3xl p-7 sm:p-8 shadow-md hover:shadow-2xl hover:-translate-y-1.5 hover:border-indigo-500 hover:bg-white/95 transition-all duration-300 relative group flex flex-col justify-between overflow-hidden h-full">
                   
                   {/* Subtle Architectural Corner Tag */}
                   <div className="flex items-center justify-between pb-5 border-b border-slate-100 mb-6">
