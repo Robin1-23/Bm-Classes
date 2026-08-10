@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { Award, ShieldCheck, Trophy, Sparkles, GraduationCap, Flame, ArrowRight, CheckCircle2, Check, Star, Lock } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 import { useModal } from '@/context/ModalContext';
@@ -107,12 +108,13 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </button>
 
-              <button 
-                onClick={() => handleRegister('Free Academic Counseling')}
+              <Link 
+                href="/programs"
                 className="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-900 font-extrabold text-sm sm:text-base px-6 sm:px-7 py-3.5 sm:py-4 rounded-2xl transition-all border-2 border-slate-200 shadow-xs hover:border-slate-300 cursor-pointer flex items-center justify-center gap-2"
               >
-                <span>Book Free Counseling</span>
-              </button>
+                <span>Explore All Programs</span>
+                <ArrowRight className="w-4 h-4 text-indigo-600" />
+              </Link>
             </div>
           </ScrollReveal>
 
