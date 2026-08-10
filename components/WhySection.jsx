@@ -280,48 +280,48 @@ export default function WhySection({ hidePedagogy = false }) {
             {/* DUAL CHAMBER NATURAL COMPARISON */}
             <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 relative z-10">
               
-              {/* CHAMBER A: MASS FACTORY (MUTED ELEGANT NEUTRAL) */}
-              <div className="bg-slate-900 border border-slate-800 rounded-2xl p-5 sm:p-7 text-white flex flex-col justify-between shadow-md hover:border-slate-700 transition-all">
+              {/* CHAMBER A: MASS FACTORY (PITCH DARKBLACK) */}
+              <div className="bg-black border border-zinc-800 rounded-2xl p-5 sm:p-7 text-white flex flex-col justify-between shadow-md hover:border-zinc-700 transition-all">
                 <div>
                   <div className="space-y-2 mb-5">
                     <div className="flex items-center justify-between">
-                      <span className="text-[11px] font-black tracking-widest text-slate-400 uppercase">
+                      <span className="text-[11px] font-black tracking-widest text-zinc-400 uppercase">
                         MASS FACTORY
                       </span>
-                      <span className="text-[10px] font-semibold text-slate-500">Traditional Setup</span>
+                      <span className="text-[10px] font-semibold text-zinc-400">Traditional Setup</span>
                     </div>
-                    <div className="inline-flex items-center gap-1.5 bg-slate-800 text-slate-300 border border-slate-700/80 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider">
+                    <div className="inline-flex items-center gap-1.5 bg-zinc-900 text-zinc-200 border border-zinc-800 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider">
                       <span>{currentDim.factory.badge}</span>
                     </div>
                   </div>
 
-                  <h4 className="font-heading font-black text-lg sm:text-xl text-slate-100 mb-2">
+                  <h4 className="font-heading font-black text-lg sm:text-xl text-white mb-2">
                     {currentDim.factory.headline}
                   </h4>
 
-                  <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6 font-medium">
+                  <p className="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-6 font-medium">
                     {currentDim.factory.details}
                   </p>
                 </div>
 
                 {/* Telemetry Meter */}
-                <div className="space-y-4 pt-4 border-t border-slate-800">
+                <div className="space-y-4 pt-4 border-t border-zinc-800">
                   <div>
                     <div className="flex justify-between text-xs font-extrabold mb-1">
-                      <span className="text-slate-400">Individual Attention Score</span>
-                      <span className="text-slate-300">{currentDim.factory.attentionScore}%</span>
+                      <span className="text-zinc-300">Individual Attention Score</span>
+                      <span className="text-white font-black">{currentDim.factory.attentionScore}%</span>
                     </div>
-                    <div className="h-2 bg-slate-950 rounded-full overflow-hidden">
+                    <div className="h-2 bg-zinc-900 rounded-full overflow-hidden">
                       <div 
-                        className="h-full bg-slate-600 rounded-full transition-all duration-700" 
+                        className="h-full bg-zinc-600 rounded-full transition-all duration-700" 
                         style={{ width: `${currentDim.factory.attentionScore}%` }}
                       ></div>
                     </div>
                   </div>
 
-                  <div className="bg-slate-950/80 border border-slate-800 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2 text-xs">
-                    <span className="text-slate-400 font-semibold">Doubt Delay Window:</span>
-                    <span className="font-extrabold text-slate-300">{currentDim.factory.doubtSpeed}</span>
+                  <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2 text-xs">
+                    <span className="text-zinc-300 font-semibold">Doubt Delay Window:</span>
+                    <span className="font-extrabold text-white">{currentDim.factory.doubtSpeed}</span>
                   </div>
                 </div>
 
@@ -361,13 +361,13 @@ export default function WhySection({ hidePedagogy = false }) {
                 </div>
 
                 {/* Telemetry Meter */}
-                <div className="space-y-4 pt-4 border-t border-indigo-900/60 relative z-10">
+                <div className="space-y-4 pt-4 border-t border-zinc-800 relative z-10">
                   <div>
                     <div className="flex justify-between text-xs font-extrabold mb-1">
-                      <span className="text-slate-300">Individual Attention Score</span>
-                      <span className="text-cyan-300">{currentDim.bmclasses.attentionScore}%</span>
+                      <span className="text-zinc-200">Individual Attention Score</span>
+                      <span className="text-cyan-300 font-black">{currentDim.bmclasses.attentionScore}%</span>
                     </div>
-                    <div className="h-2 bg-slate-950 rounded-full overflow-hidden">
+                    <div className="h-2 bg-zinc-900 rounded-full overflow-hidden">
                       <div 
                         className="h-full bg-gradient-to-r from-indigo-500 to-cyan-400 rounded-full transition-all duration-700" 
                         style={{ width: `${currentDim.bmclasses.attentionScore}%` }}
@@ -375,8 +375,8 @@ export default function WhySection({ hidePedagogy = false }) {
                     </div>
                   </div>
 
-                  <div className="bg-indigo-900/40 border border-indigo-700/50 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2 text-xs">
-                    <span className="text-slate-200 font-semibold">Doubt Clearing Speed:</span>
+                  <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2 text-xs">
+                    <span className="text-zinc-200 font-semibold">Doubt Clearing Speed:</span>
                     <span className="font-black text-cyan-300 flex items-center gap-1 shrink-0">
                       <Zap className="w-3.5 h-3.5 fill-cyan-400 text-cyan-400 shrink-0" />
                       <span>{currentDim.bmclasses.doubtSpeed}</span>
