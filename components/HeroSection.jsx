@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Award, ShieldCheck, Trophy, Sparkles, GraduationCap, Flame, ArrowRight, CheckCircle2, Star, Lock } from 'lucide-react';
+import { Award, ShieldCheck, Trophy, Sparkles, GraduationCap, Flame, ArrowRight, CheckCircle2, Check, Star, Lock } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 import { useModal } from '@/context/ModalContext';
 
@@ -81,17 +81,17 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
           </ScrollReveal>
 
           <ScrollReveal delay={300} direction="up">
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-3 mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0">
-              <div className="flex items-center gap-2 bg-slate-950 text-white font-extrabold text-xs sm:text-sm px-3.5 sm:px-4 py-2 rounded-xl border border-slate-800 shadow-md">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 shadow-xs shadow-cyan-300"></span>
+            <div className="flex flex-col gap-2.5 sm:gap-3 mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0 text-left">
+              <div className="flex items-center gap-3 font-extrabold text-sm sm:text-base lg:text-lg text-slate-950">
+                <Check className="w-5 h-5 text-emerald-500 stroke-[3] shrink-0" />
                 <span>20+ Yrs Teaching Faculty</span>
               </div>
-              <div className="flex items-center gap-2 bg-indigo-950/90 text-indigo-200 font-extrabold text-xs sm:text-sm px-3.5 sm:px-4 py-2 rounded-xl border border-indigo-800/80 shadow-md">
-                <span className="w-2 h-2 rounded-full bg-indigo-400 shadow-xs shadow-indigo-300"></span>
+              <div className="flex items-center gap-3 font-extrabold text-sm sm:text-base lg:text-lg text-slate-950">
+                <Check className="w-5 h-5 text-emerald-500 stroke-[3] shrink-0" />
                 <span>Annual IITian Interaction</span>
               </div>
-              <div className="flex items-center gap-2 bg-emerald-950/90 text-emerald-200 font-extrabold text-xs sm:text-sm px-3.5 sm:px-4 py-2 rounded-xl border border-emerald-800/80 shadow-md">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-xs shadow-emerald-300"></span>
+              <div className="flex items-center gap-3 font-extrabold text-sm sm:text-base lg:text-lg text-slate-950">
+                <Check className="w-5 h-5 text-emerald-500 stroke-[3] shrink-0" />
                 <span>Offline & Online Classes</span>
               </div>
             </div>
