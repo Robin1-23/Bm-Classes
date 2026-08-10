@@ -83,22 +83,26 @@ export default function Header({ onOpenRegister }) {
             </a>
           </div>
 
-          {/* Center Brand Logo & Name (Glowing Gradient Border Box) */}
+          {/* Center Brand Logo & Name (Ultra-Cool 3D Metallic Monogram Badge) */}
           <Link href="/" className="flex items-center gap-2.5 font-heading text-base sm:text-lg font-black tracking-tight text-white group shrink-0">
-            <div className="p-0.5 rounded-xl bg-gradient-to-tr from-cyan-400 via-indigo-500 to-emerald-400 shadow-md group-hover:shadow-cyan-400/30 transition-shadow">
-              <div className="w-7 h-7 rounded-[10px] bg-[#070b14] flex items-center justify-center text-cyan-300 font-heading font-black text-xs">
-                BM
+            <div className="relative p-[1.5px] rounded-2xl bg-gradient-to-br from-cyan-400 via-indigo-500 to-emerald-400 shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-400/50 group-hover:scale-105 transition-all duration-300">
+              <div className="w-9 h-9 rounded-[14px] bg-gradient-to-b from-[#0f172a] via-[#090d16] to-[#04070d] flex items-center justify-center relative overflow-hidden">
+                {/* Inner Metallic Radial Glow */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/20 via-indigo-500/10 to-transparent pointer-events-none"></div>
+                
+                {/* Monogram Icon */}
+                <span className="font-heading font-black text-xs sm:text-sm text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-white to-teal-300 tracking-wider relative z-10">
+                  BM
+                </span>
+                
+                {/* Micro Sparkle Beacon */}
+                <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-cyan-400 shadow-xs shadow-cyan-300"></span>
               </div>
             </div>
 
-            <div className="flex flex-col">
-              <span className="font-extrabold tracking-tight text-white group-hover:text-cyan-300 transition-colors leading-none">
-                BM CLASSES
-              </span>
-              <span className="text-[8px] font-black uppercase tracking-widest text-cyan-400/90 mt-0.5">
-                EX-HOD ACADEMY
-              </span>
-            </div>
+            <span className="font-heading font-black text-lg tracking-tight text-white group-hover:text-cyan-300 transition-colors">
+              BM CLASSES
+            </span>
           </Link>
 
           {/* Centered-Right Nav Capsule */}
