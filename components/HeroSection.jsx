@@ -75,8 +75,8 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
           </ScrollReveal>
 
           <ScrollReveal delay={250} direction="up">
-            <p className="text-base sm:text-lg lg:text-xl font-bold text-slate-700 max-w-xl mx-auto lg:mx-0 mb-5 tracking-tight leading-snug">
-              100% taught directly by <span className="font-serif italic font-normal text-indigo-600 text-lg sm:text-xl lg:text-2xl">Ex-FIITJEE & VMC HODs</span> in capped 10-15 student micro-batches.
+            <p className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-800 max-w-xl mx-auto lg:mx-0 mb-5 tracking-tight leading-snug">
+              Small Batches. <span className="font-serif italic font-normal text-indigo-600 text-xl sm:text-2xl lg:text-3xl">Personal Focus.</span> Unmatched Results.
             </p>
           </ScrollReveal>
 
