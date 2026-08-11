@@ -5,7 +5,8 @@ import { useRouter } from 'next/navigation';
 import { 
   ShieldCheck, Download, Search, Trash2, Phone, Mail, CheckCircle2, Lock, 
   Sparkles, RefreshCw, MessageSquare, Plus, Edit3, X, Filter, UserPlus, 
-  StickyNote, ChevronDown, Check, User, Globe, Cloud, Database, Upload, LogOut
+  StickyNote, ChevronDown, Check, User, Globe, Cloud, Database, Upload, LogOut,
+  Key, Eye, EyeOff
 } from 'lucide-react';
 
 const PROGRAM_OPTIONS = [
@@ -29,6 +30,7 @@ export default function AdminPage() {
   const router = useRouter();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [passcode, setPasscode] = useState('');
+  const [showPasscode, setShowPasscode] = useState(false);
   const [passError, setPassError] = useState(false);
   
   const [applications, setApplications] = useState([]);
@@ -484,17 +486,46 @@ export default function AdminPage() {
 
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
-              <label className="block text-xs font-black text-zinc-300 uppercase tracking-wider mb-1.5">
-                Admin Passkey
+              <label className="block text-xs font-black text-zinc-300 uppercase tracking-wider mb-1.5 flex items-center justify-between">
+                <span>Admin Passkey</span>
+                <button
+                  type="button"
+                  onClick={() => setShowPasscode(!showPasscode)}
+                  className="text-[11px] font-bold text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1.5 cursor-pointer focus:outline-none"
+                >
+                  <Key className="w-3.5 h-3.5 text-cyan-400" />
+                  <span>{showPasscode ? 'Hide Password' : 'Show Password'}</span>
+                </button>
               </label>
-              <input
-                type="password"
-                required
-                value={passcode}
-                onChange={(e) => setPasscode(e.target.value)}
-                placeholder="Enter admin passcode..."
-                className="w-full px-4 py-3 rounded-2xl bg-black border-2 border-zinc-800 text-white font-extrabold text-sm focus:outline-none focus:border-cyan-400 transition-all"
-              />
+
+              <div className="relative">
+                <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-cyan-400 pointer-events-none">
+                  <Key className="w-4 h-4 text-cyan-400" />
+                </div>
+
+                <input
+                  type={showPasscode ? 'text' : 'password'}
+                  required
+                  value={passcode}
+                  onChange={(e) => setPasscode(e.target.value)}
+                  placeholder="Enter admin passcode..."
+                  className="w-full pl-10 pr-11 py-3 rounded-2xl bg-black border-2 border-zinc-800 text-white font-extrabold text-sm focus:outline-none focus:border-cyan-400 transition-all"
+                />
+
+                <button
+                  type="button"
+                  onClick={() => setShowPasscode(!showPasscode)}
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-cyan-300 transition-colors cursor-pointer p-1"
+                  title={showPasscode ? 'Hide Password' : 'Show Password'}
+                >
+                  {showPasscode ? (
+                    <EyeOff className="w-4 h-4 text-cyan-400" />
+                  ) : (
+                    <Eye className="w-4 h-4 text-zinc-400 hover:text-cyan-400" />
+                  )}
+                </button>
+              </div>
+
               {passError && (
                 <p className="text-xs font-bold text-red-400 mt-1">{passErrorMsg || 'Incorrect passcode. Please try again.'}</p>
               )}
