@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Phone, MapPin, ArrowRight, Star, ShieldCheck, Award } from 'lucide-react';
+import { Phone, MapPin, ArrowRight, Star, ShieldCheck, Award, Lock } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { useModal } from '@/context/ModalContext';
 
@@ -148,6 +148,12 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
                   <span>Gurgaon Center Location</span>
                 </Link>
               </li>
+              <li>
+                <Link href="/admin" className="text-cyan-400 hover:text-cyan-300 font-black transition-colors flex items-center gap-2.5 group">
+                  <Lock className="w-3.5 h-3.5 text-cyan-400 group-hover:scale-110 transition-transform" />
+                  <span>Admin Panel (Applications Desk)</span>
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -246,7 +252,10 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
           <div className="flex items-center gap-4 text-[11px]">
             <button onClick={handleRegister} className="hover:text-cyan-400 transition-colors cursor-pointer">Admissions</button>
             <span>·</span>
-            <button onClick={handleLogin} className="hover:text-cyan-400 transition-colors cursor-pointer">Student Portal</button>
+            <Link href="/admin" className="hover:text-cyan-400 text-cyan-300 font-bold transition-colors cursor-pointer flex items-center gap-1">
+              <Lock className="w-3 h-3 text-cyan-400" />
+              <span>Admin Panel</span>
+            </Link>
             <span>·</span>
             <Link href="/contact" className="hover:text-cyan-400 transition-colors">Ardee City Sector 52 Gurgaon</Link>
           </div>
