@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { usePathname } from 'next/navigation';
 import { ModalProvider, useModal } from '@/context/ModalContext';
 import AnnouncementBar from '@/components/AnnouncementBar';
 import Header from '@/components/Header';
@@ -12,7 +13,9 @@ import MobileStickyActionBar from '@/components/MobileStickyActionBar';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 function Shell({ children }) {
+  const pathname = usePathname();
   const { registerOpen, loginOpen, seatLockOpen, videoTitle, preselectedProgram, closeModals } = useModal();
+  const isAdmin = pathname?.startsWith('/admin');
 
   return (
     <div className="min-h-screen flex flex-col pb-16 lg:pb-0 overflow-x-hidden max-w-full w-full">
@@ -21,7 +24,7 @@ function Shell({ children }) {
       <main className="flex-1 w-full max-w-full overflow-x-hidden">
         {children}
       </main>
-      <Footer />
+      {!isAdmin && <Footer />}
       <Modals
         registerOpen={registerOpen}
         loginOpen={loginOpen}
