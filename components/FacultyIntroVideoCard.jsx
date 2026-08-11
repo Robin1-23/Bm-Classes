@@ -1,13 +1,38 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX, Sparkles, ShieldCheck, Award, Maximize } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 
 export default function FacultyIntroVideoCard({ title = "Meet Your Mentors: BM Sir & Konika Ma'am", subtitle = "Watch the 2.5-minute masterclass introduction to learn about our micro-batch coaching philosophy, Ex-HOD pedagogy, and direct student mentorship." }) {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
+
+  // IntersectionObserver for auto-play on viewport enter & auto-pause on exit
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Start muted for browser autoplay policy compliance
+    video.muted = true;
+    setIsMuted(true);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().then(() => setIsPlaying(true)).catch(() => {});
+        } else {
+          video.pause();
+          setIsPlaying(false);
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
 
   const togglePlay = () => {
     const video = videoRef.current;
@@ -80,6 +105,8 @@ export default function FacultyIntroVideoCard({ title = "Meet Your Mentors: BM S
               ref={videoRef}
               src="/videos/introductory_video.mp4"
               playsInline
+              muted
+              loop
               preload="metadata"
               className="w-full h-full object-cover"
               onPlay={() => setIsPlaying(true)}
