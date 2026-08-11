@@ -78,25 +78,25 @@ export default function ResultsSection({ onOpenVideo }) {
   ];
 
   return (
-    <section className="bg-[#faf8f5] py-20 sm:py-28 border-b border-slate-200/80 relative overflow-hidden" id="results">
+    <section className="bg-black text-white py-20 sm:py-28 border-b border-zinc-900 relative overflow-hidden" id="results">
       
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:32px_32px] opacity-35 pointer-events-none"></div>
+      {/* Ambient Glow */}
+      <div className="absolute top-1/3 left-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Header */}
         <ScrollReveal delay={100} direction="up" className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-800/40 text-cyan-400 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
             <span>REAL GOOGLE REVIEWS</span>
           </div>
           
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-slate-950 tracking-tight leading-[1.15]">
-            Clarity that parents & students remember<span className="text-indigo-600">.</span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-[1.15]">
+            Clarity That Parents & Students <span className="font-serif italic font-normal text-cyan-300">Remember</span>
           </h2>
           
-          <p className="text-slate-600 text-base sm:text-lg mt-3 font-medium leading-relaxed max-w-2xl mx-auto">
+          <p className="text-zinc-300 text-base sm:text-lg mt-3 font-medium leading-relaxed max-w-2xl mx-auto">
             Authentic Google reviews from Gurgaon parents and top JEE & NEET rankers.
           </p>
         </ScrollReveal>
@@ -107,11 +107,11 @@ export default function ResultsSection({ onOpenVideo }) {
             {ranks.map((rank, idx) => (
               <div 
                 key={idx}
-                className="bg-slate-950 text-white px-5 sm:px-6 py-3 rounded-2xl font-heading font-black text-xs sm:text-sm tracking-wide flex items-center gap-2.5 border border-slate-800 shadow-md hover:scale-105 transition-transform"
+                className="bg-zinc-950 text-white px-5 sm:px-6 py-3 rounded-2xl font-heading font-black text-xs sm:text-sm tracking-wide flex items-center gap-2.5 border-2 border-zinc-800 hover:border-cyan-400 shadow-md hover:scale-105 transition-all cursor-default"
               >
-                <Trophy className="w-4 h-4 text-cyan-300" />
+                <Trophy className="w-4 h-4 text-cyan-400" />
                 <span>JEE ADVANCED</span>
-                <span className="text-cyan-300">{rank}</span>
+                <span className="text-cyan-300 font-bold">{rank}</span>
               </div>
             ))}
           </div>
@@ -126,29 +126,29 @@ export default function ResultsSection({ onOpenVideo }) {
             {[...writtenReviews, ...writtenReviews].map((rev, idx) => (
               <div 
                 key={idx}
-                className="w-[310px] sm:w-[380px] lg:w-[410px] bg-black text-white border-2 border-zinc-800 hover:border-cyan-400 rounded-3xl p-6 sm:p-7 shadow-[0_15px_35px_-5px_rgba(0,0,0,0.5)] hover:shadow-[0_25px_50px_-10px_rgba(34,211,238,0.25)] hover:-translate-y-2.5 transition-all duration-300 flex flex-col justify-between shrink-0 group cursor-pointer relative"
+                className="w-[310px] sm:w-[380px] lg:w-[410px] bg-zinc-950 text-white border-2 border-zinc-800 hover:border-cyan-400 rounded-3xl p-6 sm:p-7 shadow-[0_15px_35px_-5px_rgba(0,0,0,0.8)] hover:shadow-[0_25px_50px_-10px_rgba(34,211,238,0.2)] hover:-translate-y-2.5 transition-all duration-300 flex flex-col justify-between shrink-0 group cursor-pointer relative"
               >
                 <div>
                   {/* Header Row: Stars & Google Badge */}
-                  <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-zinc-800/80">
+                  <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-zinc-800">
                     <div className="flex items-center gap-1 text-amber-400">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-amber-400" />
+                        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
-                    <span className="text-[10px] font-black bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                    <span className="text-[10px] font-black bg-cyan-950/60 text-cyan-400 border border-cyan-800/40 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                       Google Review
                     </span>
                   </div>
 
                   {/* Quote Text in Pure White */}
-                  <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-medium italic mb-6">
+                  <p className="text-xs sm:text-sm text-zinc-200 leading-relaxed font-medium italic mb-6">
                     "{rev.quote}"
                   </p>
                 </div>
 
                 {/* Author Footer */}
-                <div className="pt-4 border-t border-zinc-800/80 flex items-center justify-between">
+                <div className="pt-4 border-t border-zinc-800 flex items-center justify-between">
                   <div>
                     <div className="font-heading font-black text-white text-sm group-hover:text-cyan-300 transition-colors">
                       {rev.author}
@@ -157,7 +157,7 @@ export default function ResultsSection({ onOpenVideo }) {
                       {rev.sub}
                     </div>
                   </div>
-                  <span className="text-slate-400 text-xs font-mono font-bold">5.0 ★</span>
+                  <span className="text-zinc-400 text-xs font-mono font-bold">5.0 ★</span>
                 </div>
 
               </div>

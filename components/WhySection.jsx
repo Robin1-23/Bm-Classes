@@ -153,26 +153,26 @@ export default function WhySection({ hidePedagogy = false }) {
   const currentDim = dimensions[selectedDimension];
 
   return (
-    <section className="relative bg-[#faf8f5] py-20 sm:py-28 border-b border-slate-200/80 overflow-hidden" id="why-bmclasses">
+    <section className="relative bg-black text-white py-20 sm:py-28 border-b border-zinc-900 overflow-hidden" id="why-bmclasses">
       
       {/* Background Glow Orbs */}
-      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-10 right-0 w-96 h-96 bg-cyan-200/30 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-10 right-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Header */}
         <ScrollReveal delay={100} direction="up" className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
-            <Sparkles className="w-4 h-4 text-indigo-600" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-800/40 text-cyan-400 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
+            <Sparkles className="w-4 h-4 text-cyan-400" />
             <span>PEDAGOGY DIFFERENCE</span>
           </div>
           
-          <h2 className="font-heading text-3xl sm:text-5xl font-black text-slate-950 tracking-tight leading-[1.15]">
-            Depth over mechanical drills<span className="text-indigo-600">.</span>
+          <h2 className="font-heading text-3xl sm:text-5xl font-black text-white tracking-tight leading-[1.15]">
+            Conceptual Depth Over <span className="font-serif italic font-normal text-cyan-300">Mechanical Drills</span>
           </h2>
           
-          <p className="text-slate-600 text-base sm:text-lg mt-3 font-medium leading-relaxed max-w-xl mx-auto">
+          <p className="text-zinc-300 text-base sm:text-lg mt-3 font-medium leading-relaxed max-w-xl mx-auto">
             Premier institute rigor combined with the personal mentorship only a 10-15 student batch provides.
           </p>
         </ScrollReveal>
@@ -183,47 +183,31 @@ export default function WhySection({ hidePedagogy = false }) {
             const IconComponent = pillar.icon;
             return (
               <ScrollReveal key={idx} delay={150 * (idx + 1)} direction="up">
-                <div className="bg-white/80 backdrop-blur-xl border-2 border-slate-200/90 rounded-3xl p-7 sm:p-8 shadow-md hover:shadow-2xl hover:-translate-y-1.5 hover:border-indigo-500 hover:bg-white/95 transition-all duration-300 relative group flex flex-col justify-between overflow-hidden h-full">
+                <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl p-7 sm:p-8 text-white shadow-xl hover:shadow-[0_20px_40px_-10px_rgba(34,211,238,0.2)] hover:-translate-y-1.5 hover:border-cyan-400 transition-all duration-300 relative group flex flex-col justify-between overflow-hidden h-full">
                   
-                  {/* Subtle Architectural Corner Tag */}
-                  <div className="flex items-center justify-between pb-5 border-b border-slate-100 mb-6">
-                    <span className="text-[10px] font-black tracking-widest uppercase text-indigo-700 bg-indigo-50 border border-indigo-100 px-3 py-1 rounded-md">
+                  {/* Architectural Corner Tag */}
+                  <div className="flex items-center justify-between pb-5 border-b border-zinc-800 mb-6">
+                    <span className="text-[10px] font-black tracking-widest uppercase text-cyan-400 bg-cyan-950/60 border border-cyan-800/40 px-3 py-1 rounded-md">
                       {pillar.tag}
                     </span>
-                    <span className="font-heading font-black text-slate-400 text-sm">
+                    <span className="font-heading font-black text-zinc-400 text-sm">
                       #{pillar.num}
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="font-heading text-xl sm:text-2xl font-black text-slate-950 mb-3 group-hover:text-indigo-600 transition-colors leading-snug">
+                    <h3 className="font-heading text-xl sm:text-2xl font-black text-white mb-3 group-hover:text-cyan-300 transition-colors leading-snug">
                       {pillar.title}
                     </h3>
-
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-medium">
+                    <p className="text-zinc-300 text-xs sm:text-sm font-medium leading-relaxed mb-6">
                       {pillar.desc}
                     </p>
                   </div>
 
-                  <div>
-                    {/* Outcome Metric Ribbon */}
-                    <div className="bg-indigo-50/80 rounded-2xl p-4 border border-indigo-100 mb-6 group-hover:bg-indigo-100/80 transition-colors">
-                      <div className="font-heading font-black text-xs sm:text-sm text-indigo-950 flex items-center gap-2">
-                        <Zap className="w-4 h-4 text-cyan-500 fill-cyan-400 shrink-0" />
-                        <span>{pillar.stats}</span>
-                      </div>
-                      <div className="text-[11px] text-indigo-700/80 font-semibold mt-1">
-                        {pillar.versusText}
-                      </div>
-                    </div>
-
-                    <div className="pt-4 border-t border-slate-100 space-y-2.5">
-                      {pillar.highlights.map((h, hIdx) => (
-                        <div key={hIdx} className="flex items-center gap-2.5 text-xs font-bold text-slate-800">
-                          <span className="w-1.5 h-1.5 rounded-full bg-indigo-600 shrink-0"></span>
-                          <span>{h}</span>
-                        </div>
-                      ))}
+                  <div className="pt-4 border-t border-zinc-800">
+                    <div className="flex items-center gap-2 text-xs font-black text-cyan-300 bg-zinc-900 border border-zinc-800 px-3.5 py-2 rounded-xl">
+                      <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                      <span>{pillar.stats}</span>
                     </div>
                   </div>
 
@@ -233,69 +217,60 @@ export default function WhySection({ hidePedagogy = false }) {
           })}
         </div>
 
-        {/* ELEGANT & NATURALLY INTEGRATED PEDAGOGY COMPARISON DECK */}
+        {/* INTERACTIVE PEDAGOGY COMPARISON DECK */}
         {!hidePedagogy && (
         <ScrollReveal delay={200} direction="up">
-          <div className="bg-gradient-to-br from-indigo-50/80 via-white to-cyan-50/40 border border-slate-200/90 rounded-3xl p-5 xs:p-7 sm:p-10 lg:p-12 shadow-lg relative overflow-hidden text-slate-950">
+          <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl p-6 sm:p-10 text-white shadow-2xl relative overflow-hidden">
             
-            {/* Soft Ambient Light Orbs */}
-            <div className="absolute -right-24 -top-24 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl pointer-events-none"></div>
-            <div className="absolute -left-24 -bottom-24 w-96 h-96 bg-cyan-200/25 rounded-full blur-3xl pointer-events-none"></div>
-
-            {/* Flight Deck Header */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-indigo-100 mb-8 relative z-10">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-zinc-800 mb-8">
               <div>
-                <div className="flex items-center gap-2 text-indigo-700 text-xs font-black uppercase tracking-widest mb-1">
-                  <Gauge className="w-4 h-4 text-indigo-600" />
-                  <span>Pedagogy Comparison Deck</span>
-                </div>
-                <h3 className="font-heading text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
-                  Micro-Batch Mentorship vs Mass Coaching Factory
+                <span className="text-[10px] font-black tracking-widest text-cyan-400 uppercase block mb-1">
+                  PEDAGOGY COMPARISON DECK
+                </span>
+                <h3 className="font-heading text-2xl sm:text-3xl font-black text-white">
+                  Why Micro-Batches <span className="font-serif italic font-normal text-cyan-300">Outperform Mass Coaching</span>
                 </h3>
               </div>
 
-              <span className="bg-indigo-50 text-indigo-700 border border-indigo-200 text-[10px] sm:text-xs font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider self-start md:self-auto shadow-xs">
-                Interactive Comparison
-              </span>
+              {/* Dimension Selector Pills */}
+              <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-2 sm:pb-0">
+                {dimensions.map((dim, dIdx) => (
+                  <button
+                    key={dim.id}
+                    onClick={() => setSelectedDimension(dIdx)}
+                    className={`px-3.5 py-2 rounded-xl text-xs font-black transition-all cursor-pointer whitespace-nowrap ${
+                      selectedDimension === dIdx
+                        ? 'bg-cyan-400 text-black shadow-[0_0_20px_rgba(34,211,238,0.4)]'
+                        : 'bg-zinc-900 text-zinc-300 border border-zinc-800 hover:text-white'
+                    }`}
+                  >
+                    {dim.title}
+                  </button>
+                ))}
+              </div>
             </div>
 
-            {/* Dimension Selection Dial Tabs */}
-            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-3 mb-8 relative z-10">
-              {dimensions.map((dim, dIdx) => (
-                <button
-                  key={dim.id}
-                  onClick={() => setSelectedDimension(dIdx)}
-                  className={`px-4 sm:px-5 py-2.5 rounded-2xl text-xs font-extrabold transition-all duration-300 shrink-0 cursor-pointer flex items-center gap-2 ${
-                    selectedDimension === dIdx
-                      ? 'bg-indigo-600 text-white shadow-md shadow-indigo-200 border border-indigo-500'
-                      : 'bg-white text-slate-600 hover:text-slate-950 border border-slate-200 hover:bg-slate-100/80'
-                  }`}
-                >
-                  <span className={`w-2 h-2 rounded-full ${selectedDimension === dIdx ? 'bg-cyan-400' : 'bg-slate-400'}`}></span>
-                  <span>{dim.title}</span>
-                </button>
-              ))}
-            </div>
-
-            {/* DUAL CHAMBER NATURAL COMPARISON */}
-            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 relative z-10">
+            {/* Side-by-Side Comparison Chambers */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               
-              {/* CHAMBER A: MASS FACTORY (PITCH DARKBLACK) */}
-              <div className="bg-black border border-zinc-800 rounded-2xl p-5 sm:p-7 text-white flex flex-col justify-between shadow-md hover:border-zinc-700 transition-all">
+              {/* CHAMBER A: MASS FACTORY */}
+              <div className="bg-black border-2 border-zinc-800 rounded-2xl p-5 sm:p-7 text-white flex flex-col justify-between shadow-xl">
                 <div>
                   <div className="space-y-2 mb-5">
                     <div className="flex items-center justify-between">
                       <span className="text-[11px] font-black tracking-widest text-zinc-400 uppercase">
-                        MASS FACTORY
+                        MASS FACTORY SYSTEM
                       </span>
-                      <span className="text-[10px] font-semibold text-zinc-400">Traditional Setup</span>
+                      <span className="text-[10px] font-extrabold text-zinc-400">Standard Industry</span>
                     </div>
-                    <div className="inline-flex items-center gap-1.5 bg-zinc-900 text-zinc-200 border border-zinc-800 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider">
-                      <span>{currentDim.factory.badge}</span>
+                    <div>
+                      <span className="inline-flex items-center gap-1.5 bg-zinc-900 text-zinc-300 border border-zinc-800 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider">
+                        <span>{currentDim.factory.badge}</span>
+                      </span>
                     </div>
                   </div>
 
-                  <h4 className="font-heading font-black text-lg sm:text-xl text-white mb-2">
+                  <h4 className="font-heading font-black text-lg sm:text-xl text-zinc-200 mb-2">
                     {currentDim.factory.headline}
                   </h4>
 
@@ -327,10 +302,10 @@ export default function WhySection({ hidePedagogy = false }) {
 
               </div>
 
-              {/* CHAMBER B: BMCLASSES STANDARD (PITCH DARKBLACK) */}
+              {/* CHAMBER B: BMCLASSES STANDARD */}
               <div className="bg-black border-2 border-zinc-800 rounded-2xl p-5 sm:p-7 text-white flex flex-col justify-between shadow-xl relative overflow-hidden group hover:border-cyan-400 transition-all">
                 
-                <div className="absolute -right-12 -top-12 w-48 h-48 bg-indigo-500/20 rounded-full blur-2xl pointer-events-none"></div>
+                <div className="absolute -right-12 -top-12 w-48 h-48 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none"></div>
 
                 <div>
                   <div className="space-y-2 mb-5 relative z-10">
@@ -344,8 +319,8 @@ export default function WhySection({ hidePedagogy = false }) {
                       </span>
                     </div>
                     <div>
-                      <span className="inline-flex items-center gap-1.5 bg-cyan-400 text-slate-950 px-3.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider shadow-sm">
-                        <ShieldCheck className="w-3.5 h-3.5 text-slate-950 shrink-0" />
+                      <span className="inline-flex items-center gap-1.5 bg-cyan-400 text-black px-3.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider shadow-sm">
+                        <ShieldCheck className="w-3.5 h-3.5 text-black shrink-0" />
                         <span>{currentDim.bmclasses.badge}</span>
                       </span>
                     </div>
@@ -355,7 +330,7 @@ export default function WhySection({ hidePedagogy = false }) {
                     {currentDim.bmclasses.headline}
                   </h4>
 
-                  <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-medium relative z-10">
+                  <p className="text-zinc-300 text-xs sm:text-sm leading-relaxed mb-6 font-medium relative z-10">
                     {currentDim.bmclasses.details}
                   </p>
                 </div>
@@ -388,20 +363,12 @@ export default function WhySection({ hidePedagogy = false }) {
 
             </div>
 
-            {/* Flight Deck Quote Footer */}
-            <div className="mt-8 pt-6 border-t border-indigo-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600 font-medium relative z-10">
+            {/* Deck Footer */}
+            <div className="mt-8 pt-6 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-300 font-medium relative z-10">
               <div className="flex items-center gap-2">
-                <Layers className="w-4 h-4 text-indigo-600 shrink-0" />
-                <span>Comparing Dimension: <strong className="text-slate-950 font-extrabold">{currentDim.subtitle}</strong></span>
+                <Layers className="w-4 h-4 text-cyan-400 shrink-0" />
+                <span>Comparing Dimension: <strong className="text-white font-extrabold">{currentDim.subtitle}</strong></span>
               </div>
-
-              <a 
-                href="#calculator" 
-                className="inline-flex items-center gap-1.5 text-indigo-600 hover:text-indigo-800 font-extrabold transition-colors group cursor-pointer"
-              >
-                <span>Calculate Fee for {currentDim.title}</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
             </div>
 
           </div>
