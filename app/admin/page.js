@@ -230,33 +230,48 @@ export default function AdminPage() {
         </div>
 
         {/* Stats Metrics Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-5">
-            <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest block">TOTAL APPLICATIONS</span>
-            <span className="font-mono text-3xl font-black text-cyan-400 mt-1 block">{applications.length}</span>
-          </div>
+        {(() => {
+          let jeeCount = 0;
+          let neetCount = 0;
+          let foundationCount = 0;
 
-          <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-5">
-            <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest block">JEE MAIN & ADVANCED</span>
-            <span className="font-mono text-3xl font-black text-white mt-1 block">
-              {applications.filter((a) => (a.selectedProgram || '').toLowerCase().includes('jee')).length}
-            </span>
-          </div>
+          applications.forEach((a) => {
+            const prog = (a.selectedProgram || '').toLowerCase();
+            if (prog.includes('9th') || prog.includes('10th') || prog.includes('foundation') || prog.includes('pre-nurture')) {
+              foundationCount++;
+            } else if (prog.includes('neet') && !prog.includes('jee')) {
+              neetCount++;
+            } else if (prog.includes('jee')) {
+              jeeCount++;
+            } else if (prog.includes('neet') || prog.includes('medical') || prog.includes('biology')) {
+              neetCount++;
+            }
+          });
 
-          <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-5">
-            <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest block">NEET UG MEDICAL</span>
-            <span className="font-mono text-3xl font-black text-emerald-400 mt-1 block">
-              {applications.filter((a) => (a.selectedProgram || '').toLowerCase().includes('neet') || (a.selectedProgram || '').toLowerCase().includes('biology')).length}
-            </span>
-          </div>
+          return (
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-5">
+                <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest block">TOTAL APPLICATIONS</span>
+                <span className="font-mono text-3xl font-black text-cyan-400 mt-1 block">{applications.length}</span>
+              </div>
 
-          <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-5">
-            <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest block">CLASS 9TH & 10TH</span>
-            <span className="font-mono text-3xl font-black text-purple-400 mt-1 block">
-              {applications.filter((a) => (a.selectedProgram || '').toLowerCase().includes('10th') || (a.selectedProgram || '').toLowerCase().includes('9th')).length}
-            </span>
-          </div>
-        </div>
+              <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-5">
+                <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest block">JEE MAIN & ADVANCED</span>
+                <span className="font-mono text-3xl font-black text-white mt-1 block">{jeeCount}</span>
+              </div>
+
+              <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-5">
+                <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest block">NEET UG MEDICAL</span>
+                <span className="font-mono text-3xl font-black text-emerald-400 mt-1 block">{neetCount}</span>
+              </div>
+
+              <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-5">
+                <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest block">CLASS 9TH & 10TH</span>
+                <span className="font-mono text-3xl font-black text-purple-400 mt-1 block">{foundationCount}</span>
+              </div>
+            </div>
+          );
+        })()}
 
         {/* Search & Filter Bar */}
         <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4">
