@@ -99,6 +99,9 @@ export const metadata = {
     shortcut: '/favicon.ico',
     apple: '/icon.png',
   },
+  verification: {
+    google: 'Fq-s47d0ftSJBLa5q6IbNPpc3H-HVjL3E2FqVasZaZg',
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -246,6 +249,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="icon" href="/icon.png" type="image/png" />
         <link rel="shortcut icon" href="/favicon.ico" />
+        <meta name="google-site-verification" content="Fq-s47d0ftSJBLa5q6IbNPpc3H-HVjL3E2FqVasZaZg" />
 
         {/* JSON-LD Master Organization & FAQ Schemas */}
         <script
