@@ -4,7 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX, Sparkles, ShieldCheck, Award, Maximize } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 
-export default function FacultyIntroVideoCard({ title = "Meet Your Mentors: BM Sir & Konika Ma'am", subtitle = "Watch the 2.5-minute masterclass introduction to learn about our micro-batch coaching philosophy, pedagogy, and direct student mentorship." }) {
+export default function FacultyIntroVideoCard({ title = "Meet Your Mentors: BM Sir & Konika Ma'am", subtitle = null }) {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
@@ -83,9 +83,11 @@ export default function FacultyIntroVideoCard({ title = "Meet Your Mentors: BM S
               <h3 className="font-heading font-black text-white text-xl sm:text-2xl lg:text-3xl tracking-tight">
                 {title}
               </h3>
-              <p className="text-zinc-300 text-xs sm:text-sm mt-1 font-medium max-w-2xl leading-relaxed">
-                {subtitle}
-              </p>
+              {subtitle && (
+                <p className="text-zinc-300 text-xs sm:text-sm mt-1 font-medium max-w-2xl leading-relaxed">
+                  {subtitle}
+                </p>
+              )}
             </div>
 
             {/* Quick Badge */}

@@ -21,7 +21,6 @@ export default function FacultyPage() {
       />
       <FacultyIntroVideoCard 
         title="Meet BM Sir & Konika Ma'am (Masterclass Intro)"
-        subtitle="Watch the 2.5-minute introduction to see how our Senior faculty build conceptual clarity and 1-on-1 student mentorship."
       />
       <BespokeFacultyBios />
       <FacultySection 
