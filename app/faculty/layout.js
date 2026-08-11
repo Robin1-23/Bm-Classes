@@ -1,6 +1,6 @@
 import React from 'react';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bmclasses.in';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bm-classes.com';
 
 export const metadata = {
   title: 'Senior Ex-FIITJEE & VMC HOD Faculty Team | BmClasses Gurgaon',

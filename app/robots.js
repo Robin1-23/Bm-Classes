@@ -1,5 +1,5 @@
 export default function robots() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bmclasses.in';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bm-classes.com';
 
   return {
     rules: [

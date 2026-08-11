@@ -1,5 +1,5 @@
 export default function sitemap() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bmclasses.in';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bm-classes.com';
   const lastModified = new Date();
 
   return [

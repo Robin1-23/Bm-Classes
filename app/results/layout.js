@@ -1,6 +1,6 @@
 import React from 'react';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bmclasses.in';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bm-classes.com';
 
 export const metadata = {
   title: 'BmClasses Results & Rankers | AIR 18, AIR 22, AIR 52 JEE & NEET Selections',

@@ -1,7 +1,7 @@
 import './globals.css';
 import ClientLayoutWrapper from '@/components/ClientLayoutWrapper';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bmclasses.in';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bm-classes.com';
 
 export const metadata = {
   metadataBase: new URL(siteUrl),

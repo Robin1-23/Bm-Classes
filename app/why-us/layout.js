@@ -1,6 +1,6 @@
 import React from 'react';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bmclasses.in';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bm-classes.com';
 
 export const metadata = {
   title: 'Why BmClasses Gurgaon | Ex-FIITJEE & VMC HODs vs Mass Coaching Factories',
