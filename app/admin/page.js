@@ -170,8 +170,6 @@ export default function AdminPage() {
             >
               <span>Unlock Admin Panel</span>
             </button>
-
-            <p className="text-[10px] text-zinc-500 text-center font-mono">Default Passkey: bmclasses2026</p>
           </form>
         </div>
       </div>
