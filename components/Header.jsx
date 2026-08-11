@@ -38,7 +38,6 @@ export default function Header({ onOpenRegister }) {
   const navItems = [
     { label: 'Why Us', href: '/why-us' },
     { label: 'Courses', href: '/programs' },
-    { label: 'Fee Estimator', href: '/calculator' },
     { label: 'Reviews', href: '/results' },
     { label: 'Contact Us', href: '/contact' },
   ];
