@@ -6,6 +6,7 @@ import AdmissionJourneySection from '@/components/AdmissionJourneySection';
 import ProgramsSection from '@/components/ProgramsSection';
 import CalculatorSection from '@/components/CalculatorSection';
 import FacultySection from '@/components/FacultySection';
+import FacultyIntroVideoCard from '@/components/FacultyIntroVideoCard';
 import WhySection from '@/components/WhySection';
 import PlatformSection from '@/components/PlatformSection';
 import ResultsSection from '@/components/ResultsSection';
@@ -25,6 +26,7 @@ export default function Home() {
       <AdmissionJourneySection 
         onOpenRegister={openRegister}
       />
+      <FacultyIntroVideoCard />
       <ProgramsSection 
         onOpenRegister={openRegister} 
         onOpenSeatLock={openSeatLock}
