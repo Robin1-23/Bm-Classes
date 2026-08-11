@@ -9,36 +9,66 @@ export default function FacultyIntroVideoCard({ title = "Meet Your Mentors: BM S
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
 
-  // IntersectionObserver for auto-play on viewport enter & auto-pause on exit
+  // IntersectionObserver for auto-play (unmuted) on viewport enter & auto-pause on exit
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    // Unmute by default as requested
-    video.muted = false;
-    setIsMuted(false);
+    let userInteracted = false;
+
+    // Listen for any user interaction on document to enable unmuted audio
+    const unlockAudio = () => {
+      userInteracted = true;
+      if (videoRef.current) {
+        videoRef.current.muted = false;
+        setIsMuted(false);
+        if (!videoRef.current.paused) {
+          videoRef.current.play().catch(() => {});
+        }
+      }
+      window.removeEventListener('pointerdown', unlockAudio);
+      window.removeEventListener('keydown', unlockAudio);
+      window.removeEventListener('touchstart', unlockAudio);
+    };
+
+    window.addEventListener('pointerdown', unlockAudio);
+    window.addEventListener('keydown', unlockAudio);
+    window.addEventListener('touchstart', unlockAudio);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
+          // Attempt unmuted play first
+          video.muted = false;
+          setIsMuted(false);
+
           video.play()
             .then(() => setIsPlaying(true))
             .catch(() => {
-              // Browser autoplay policy fallback: if unmuted autoplay is blocked, play muted
-              video.muted = true;
-              setIsMuted(true);
-              video.play().then(() => setIsPlaying(true)).catch(() => {});
+              // If browser blocks unmuted autoplay on initial load, fallback to muted play until first tap
+              if (!userInteracted) {
+                video.muted = true;
+                setIsMuted(true);
+                video.play().then(() => setIsPlaying(true)).catch(() => {});
+              }
             });
         } else {
+          // Autopause when scrolled to other sections
           video.pause();
           setIsPlaying(false);
         }
       },
-      { threshold: 0.4 }
+      { threshold: 0.35 }
     );
 
     observer.observe(video);
-    return () => observer.disconnect();
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('pointerdown', unlockAudio);
+      window.removeEventListener('keydown', unlockAudio);
+      window.removeEventListener('touchstart', unlockAudio);
+    };
   }, []);
 
   const togglePlay = () => {
