@@ -107,12 +107,17 @@ export default function SeatLockModal({ isOpen, onClose }) {
     };
 
     // 1. Post to API route for persistent server storage
+    let serverApp = null;
     try {
-      await fetch('/api/applications', {
+      const res = await fetch('/api/applications', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
+      const data = await res.json();
+      if (data.success && data.application) {
+        serverApp = data.application;
+      }
     } catch (err) {
       console.error('Failed to submit application to server API:', err);
     }
@@ -120,12 +125,18 @@ export default function SeatLockModal({ isOpen, onClose }) {
     // 2. Save Lead to localStorage as offline fallback
     try {
       const existing = JSON.parse(localStorage.getItem('bmclasses_registrations') || '[]');
-      existing.unshift({
+      const newLead = serverApp || {
         id: `LOCK-${Date.now()}`,
         ...payload,
-        submittedAt: new Date().toLocaleString(),
-      });
-      localStorage.setItem('bmclasses_registrations', JSON.stringify(existing));
+        status: 'New Lead',
+        submittedAt: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+      };
+      // Prevent duplicates in local storage
+      const filtered = existing.filter(
+        (item) => !(item.phoneNumber === newLead.phoneNumber && item.studentName === newLead.studentName)
+      );
+      filtered.unshift(newLead);
+      localStorage.setItem('bmclasses_registrations', JSON.stringify(filtered));
     } catch (err) {
       console.error('Failed to save lead locally:', err);
     }

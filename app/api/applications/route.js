@@ -47,7 +47,7 @@ export async function GET() {
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { studentName, phoneNumber, email, selectedProgram, marksPercentage, lockPassId, source } = body;
+    const { studentName, phoneNumber, email, selectedProgram, marksPercentage, lockPassId, source, status, notes } = body;
 
     // Strict Validations
     if (!studentName || !studentName.trim()) {
@@ -74,7 +74,8 @@ export async function POST(req) {
       marksPercentage: marksPercentage || null,
       lockPassId: lockPassId || null,
       source: source || 'Website Registration Modal',
-      status: 'New Lead',
+      status: status || 'New Lead',
+      notes: notes || '',
       submittedAt: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
       timestamp: Date.now(),
     };
@@ -86,6 +87,48 @@ export async function POST(req) {
     return NextResponse.json({ success: true, message: 'Application submitted successfully!', application: newApplication });
   } catch (err) {
     console.error('API Error saving application:', err);
+    return NextResponse.json({ success: false, message: 'Internal Server Error' }, { status: 500 });
+  }
+}
+
+// PATCH: Update an application (e.g. status or notes)
+export async function PATCH(req) {
+  try {
+    const body = await req.json();
+    const { id, status, notes, studentName, phoneNumber, email, selectedProgram, marksPercentage } = body;
+
+    if (!id) {
+      return NextResponse.json({ success: false, message: 'Application ID is required.' }, { status: 400 });
+    }
+
+    let registrations = readRegistrations();
+    const index = registrations.findIndex((app) => app.id === id);
+
+    if (index === -1) {
+      return NextResponse.json({ success: false, message: 'Application not found.' }, { status: 404 });
+    }
+
+    registrations[index] = {
+      ...registrations[index],
+      ...(status !== undefined && { status }),
+      ...(notes !== undefined && { notes }),
+      ...(studentName && { studentName: studentName.trim() }),
+      ...(phoneNumber && { phoneNumber: phoneNumber.replace(/\D/g, '') }),
+      ...(email && { email: email.trim() }),
+      ...(selectedProgram && { selectedProgram }),
+      ...(marksPercentage !== undefined && { marksPercentage }),
+      updatedAt: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+    };
+
+    writeRegistrations(registrations);
+
+    return NextResponse.json({
+      success: true,
+      message: 'Application updated successfully!',
+      application: registrations[index],
+    });
+  } catch (err) {
+    console.error('API Error updating application:', err);
     return NextResponse.json({ success: false, message: 'Internal Server Error' }, { status: 500 });
   }
 }
