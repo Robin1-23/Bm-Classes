@@ -7,21 +7,28 @@ import ScrollReveal from '@/components/ScrollReveal';
 export default function FacultyIntroVideoCard({ title = "Meet Your Mentors: BM Sir & Konika Ma'am", subtitle = null }) {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isMuted, setIsMuted] = useState(false);
 
   // IntersectionObserver for auto-play on viewport enter & auto-pause on exit
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    // Start muted for browser autoplay policy compliance
-    video.muted = true;
-    setIsMuted(true);
+    // Unmute by default as requested
+    video.muted = false;
+    setIsMuted(false);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          video.play().then(() => setIsPlaying(true)).catch(() => {});
+          video.play()
+            .then(() => setIsPlaying(true))
+            .catch(() => {
+              // Browser autoplay policy fallback: if unmuted autoplay is blocked, play muted
+              video.muted = true;
+              setIsMuted(true);
+              video.play().then(() => setIsPlaying(true)).catch(() => {});
+            });
         } else {
           video.pause();
           setIsPlaying(false);
@@ -107,7 +114,6 @@ export default function FacultyIntroVideoCard({ title = "Meet Your Mentors: BM S
               ref={videoRef}
               src="/videos/introductory_video.mp4"
               playsInline
-              muted
               loop
               preload="metadata"
               className="w-full h-full object-cover"
