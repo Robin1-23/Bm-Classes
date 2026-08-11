@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   ShieldCheck, Download, Search, Trash2, Phone, Mail, CheckCircle2, Lock, 
   Sparkles, RefreshCw, MessageSquare, Plus, Edit3, X, Filter, UserPlus, 
-  StickyNote, ChevronDown, Check, User
+  StickyNote, ChevronDown, Check, User, Globe, Cloud, Database, Upload
 } from 'lucide-react';
 
 const PROGRAM_OPTIONS = [
@@ -33,6 +33,7 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
+  const [lastSyncTime, setLastSyncTime] = useState('');
 
   // Add Application Modal state
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
@@ -54,6 +55,10 @@ export default function AdminPage() {
   const [notesText, setNotesText] = useState('');
   const [isSavingNotes, setIsSavingNotes] = useState(false);
 
+  // JSON Import/Export Backup Modal state
+  const [isBackupModalOpen, setIsBackupModalOpen] = useState(false);
+  const [importJsonText, setImportJsonText] = useState('');
+
   // Notification Toast state
   const [toastMessage, setToastMessage] = useState('');
 
@@ -74,21 +79,22 @@ export default function AdminPage() {
     }
   };
 
-  // Fetch applications from server API + merge with local storage
+  // Fetch applications from Cloud Store API + merge with local storage
   const fetchApplications = async () => {
     setLoading(true);
     let serverApps = [];
     try {
-      const res = await fetch('/api/applications');
+      const res = await fetch('/api/applications', { cache: 'no-store' });
       const data = await res.json();
       if (data.success && Array.isArray(data.applications)) {
         serverApps = data.applications;
+        setLastSyncTime(new Date().toLocaleTimeString('en-IN', { timeZone: 'Asia/Kolkata' }));
       }
     } catch (err) {
-      console.error('Error fetching server applications:', err);
+      console.error('Error fetching cloud applications:', err);
     }
 
-    // Combine with localStorage leads if offline
+    // Combine with localStorage leads on device
     let localApps = [];
     try {
       localApps = JSON.parse(localStorage.getItem('bmclasses_registrations') || '[]');
@@ -103,16 +109,27 @@ export default function AdminPage() {
     });
 
     setApplications(combined);
+
+    // Sync back to local device storage
+    try {
+      localStorage.setItem('bmclasses_registrations', JSON.stringify(combined));
+    } catch (err) {}
+
     setLoading(false);
   };
 
   useEffect(() => {
     if (isAuthenticated) {
       fetchApplications();
+      // Auto refresh telemetry every 30 seconds for live mobile/desktop updates
+      const interval = setInterval(() => {
+        fetchApplications();
+      }, 30000);
+      return () => clearInterval(interval);
     }
   }, [isAuthenticated]);
 
-  // Delete an application cleanly from both server and local storage
+  // Delete an application cleanly from Cloud Store and local storage
   const handleDelete = async (id) => {
     const targetApp = applications.find((a) => a.id === id);
     const targetName = targetApp?.studentName || 'this application';
@@ -292,6 +309,34 @@ export default function AdminPage() {
     showToast(`Successfully added student application for "${newApplication.studentName}"`);
   };
 
+  // Import JSON Backup
+  const handleImportJson = async () => {
+    try {
+      const parsed = JSON.parse(importJsonText);
+      if (!Array.isArray(parsed)) {
+        alert('Invalid format. Please paste a valid array of application objects.');
+        return;
+      }
+      
+      for (const item of parsed) {
+        if (item.studentName && item.phoneNumber) {
+          await fetch('/api/applications', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(item),
+          });
+        }
+      }
+
+      await fetchApplications();
+      setIsBackupModalOpen(false);
+      setImportJsonText('');
+      showToast('Successfully imported application records!');
+    } catch (err) {
+      alert('Error parsing JSON text. Please check formatting.');
+    }
+  };
+
   // 1-Click Export to Excel / CSV (Robust Blob Download)
   const handleExportExcel = () => {
     if (applications.length === 0) {
@@ -377,7 +422,7 @@ export default function AdminPage() {
             BM CLASSES <span className="text-cyan-400">Admin Portal</span>
           </h1>
           <p className="text-zinc-400 text-xs mt-1 font-medium mb-6">
-            Enter passkey to view, manage, add, and export student course applications.
+            Enter passkey to view, manage, add, and sync student course applications across mobile & desktop.
           </p>
 
           <form onSubmit={handleLogin} className="space-y-4">
@@ -429,20 +474,21 @@ export default function AdminPage() {
 
           <div>
             <div className="flex items-center gap-2 mb-2 flex-wrap">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-800/40 text-cyan-400 text-xs font-black uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-                <span>LIVE ADMISSION TELEMETRY</span>
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-800/60 text-emerald-400 text-xs font-black uppercase tracking-wider">
+                <Globe className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
+                <span>CROSS-DEVICE CLOUD SYNC ACTIVE</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/60 border border-emerald-800/40 text-emerald-400 text-xs font-mono font-bold">
-                <Phone className="w-3 h-3 text-emerald-400" />
-                <span>Queries Routed To: +91 98998 18241</span>
-              </span>
+              {lastSyncTime && (
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs font-mono font-bold">
+                  <span>Synced: {lastSyncTime}</span>
+                </span>
+              )}
             </div>
             <h1 className="font-heading text-2xl sm:text-4xl font-black text-white tracking-tight">
               Student Application <span className="font-serif italic font-normal text-cyan-300">Admin Panel</span>
             </h1>
             <p className="text-zinc-400 text-xs sm:text-sm font-medium mt-1">
-              View, search, add, edit, and export student course applications cleanly in real-time.
+              Live admission telemetry persistent across all mobile phones, tablets, and laptops.
             </p>
           </div>
 
@@ -452,23 +498,32 @@ export default function AdminPage() {
               className="bg-cyan-400 hover:bg-cyan-300 text-black font-black text-xs px-5 py-3 rounded-2xl transition-all shadow-lg flex items-center gap-2 cursor-pointer"
             >
               <Plus className="w-4 h-4 text-black stroke-[3]" />
-              <span>+ Add Application</span>
+              <span>+ Add Lead</span>
+            </button>
+
+            <button
+              onClick={fetchApplications}
+              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 font-extrabold text-xs px-4 py-3 rounded-2xl transition-all flex items-center gap-2 cursor-pointer"
+              title="Force Sync Cloud Data"
+            >
+              <RefreshCw className={`w-4 h-4 text-cyan-400 ${loading ? 'animate-spin' : ''}`} />
+              <span>{loading ? 'Syncing...' : 'Cloud Sync'}</span>
             </button>
 
             <button
               onClick={handleExportExcel}
-              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-extrabold text-xs px-4.5 py-3 rounded-2xl transition-all flex items-center gap-2 cursor-pointer"
+              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-extrabold text-xs px-4 py-3 rounded-2xl transition-all flex items-center gap-2 cursor-pointer"
             >
               <Download className="w-4 h-4 text-cyan-400" />
               <span>Export CSV</span>
             </button>
 
             <button
-              onClick={fetchApplications}
-              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 font-extrabold text-xs px-3.5 py-3 rounded-2xl transition-all flex items-center gap-1.5 cursor-pointer"
-              title="Refresh Telemetry"
+              onClick={() => setIsBackupModalOpen(true)}
+              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 font-extrabold text-xs px-3.5 py-3 rounded-2xl transition-all cursor-pointer"
+              title="Backup & Transfer Data"
             >
-              <RefreshCw className="w-4 h-4 text-cyan-400" />
+              <Database className="w-4 h-4 text-purple-400" />
             </button>
 
             <button
@@ -578,7 +633,10 @@ export default function AdminPage() {
         {/* Applications Data Table */}
         <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl overflow-hidden shadow-2xl">
           {loading ? (
-            <div className="p-12 text-center text-zinc-400 text-sm font-bold">Loading student applications...</div>
+            <div className="p-12 text-center text-zinc-400 text-sm font-bold flex flex-col items-center justify-center gap-3">
+              <RefreshCw className="w-6 h-6 text-cyan-400 animate-spin" />
+              <span>Syncing live student applications from cloud database...</span>
+            </div>
           ) : filteredApps.length === 0 ? (
             <div className="p-12 text-center text-zinc-400 text-sm font-medium">
               No application records match your filter criteria.
@@ -934,6 +992,72 @@ export default function AdminPage() {
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* JSON BACKUP & TRANSFER MODAL */}
+      {isBackupModalOpen && (
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl my-auto">
+            <button
+              onClick={() => setIsBackupModalOpen(false)}
+              className="absolute top-5 right-5 text-zinc-400 hover:text-white p-2 rounded-full bg-zinc-900 border border-zinc-800 cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            <div className="flex items-center gap-2 mb-2">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-950 border border-purple-800 text-purple-400 text-[10px] font-black uppercase tracking-wider">
+                <Database className="w-3.5 h-3.5 text-purple-400" />
+                <span>CROSS-DEVICE DATA SYNC & BACKUP</span>
+              </span>
+            </div>
+
+            <h2 className="font-heading text-xl font-black text-white">Import / Backup JSON Leads</h2>
+            <p className="text-zinc-400 text-xs mt-1 mb-4">Copy your JSON data to transfer leads to another phone or paste JSON to import leads.</p>
+
+            <div className="space-y-4">
+              <div>
+                <div className="flex items-center justify-between mb-1.5">
+                  <label className="text-xs font-bold text-zinc-300 uppercase tracking-wider">Paste JSON Array to Import</label>
+                  <button
+                    onClick={() => {
+                      navigator.clipboard.writeText(JSON.stringify(applications, null, 2));
+                      showToast('Copied all JSON applications to clipboard!');
+                    }}
+                    className="text-xs font-bold text-cyan-400 hover:underline cursor-pointer"
+                  >
+                    Copy Current JSON ({applications.length})
+                  </button>
+                </div>
+                <textarea
+                  rows={6}
+                  value={importJsonText}
+                  onChange={(e) => setImportJsonText(e.target.value)}
+                  placeholder='Paste JSON array here e.g. [{"studentName":"Rahul", "phoneNumber":"9899818241", ...}]'
+                  className="w-full px-4 py-3 rounded-2xl bg-black border border-zinc-800 text-white font-mono text-xs focus:outline-none focus:border-cyan-400"
+                />
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setIsBackupModalOpen(false)}
+                  className="px-4 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white font-bold text-xs cursor-pointer"
+                >
+                  Close
+                </button>
+                <button
+                  type="button"
+                  onClick={handleImportJson}
+                  className="px-5 py-2.5 rounded-xl bg-purple-500 hover:bg-purple-400 text-black font-black text-xs cursor-pointer flex items-center gap-1.5"
+                >
+                  <Upload className="w-3.5 h-3.5 text-black" />
+                  <span>Import Records</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}

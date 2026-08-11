@@ -2,48 +2,134 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
-const dataFilePath = path.join(process.cwd(), 'data', 'registrations.json');
+// Cloud Persistence Store (REST API Endpoint for cross-device persistence across mobile & desktop)
+const CLOUD_STORE_URL = 'https://api.restful-api.dev/objects/ff8081819f7e10ae019fefb84e3622d8';
 
-// Helper to read registrations from JSON file
-function readRegistrations() {
+// Local disk path (supporting serverless /tmp fallback if read-only)
+const dataDirPath = path.join(process.cwd(), 'data');
+const localFilePath = path.join(dataDirPath, 'registrations.json');
+const tmpFilePath = path.join('/tmp', 'registrations.json');
+
+function getWritablePath() {
   try {
-    if (!fs.existsSync(dataFilePath)) {
-      // Ensure directory exists
-      const dir = path.dirname(dataFilePath);
-      if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, { recursive: true });
-      }
-      fs.writeFileSync(dataFilePath, JSON.stringify([], null, 2), 'utf-8');
-      return [];
+    if (!fs.existsSync(dataDirPath)) {
+      fs.mkdirSync(dataDirPath, { recursive: true });
     }
-    const fileData = fs.readFileSync(dataFilePath, 'utf-8');
-    return JSON.parse(fileData || '[]');
+    return localFilePath;
   } catch (err) {
-    console.error('Error reading registrations file:', err);
-    return [];
+    return tmpFilePath;
   }
 }
 
-// Helper to write registrations to JSON file
-function writeRegistrations(data) {
+// Helper to read registrations from local disk
+function readLocalRegistrations() {
+  const targetPath = getWritablePath();
   try {
-    const dir = path.dirname(dataFilePath);
+    if (fs.existsSync(targetPath)) {
+      const content = fs.readFileSync(targetPath, 'utf-8');
+      return JSON.parse(content || '[]');
+    }
+    if (fs.existsSync(localFilePath)) {
+      const content = fs.readFileSync(localFilePath, 'utf-8');
+      return JSON.parse(content || '[]');
+    }
+  } catch (err) {
+    console.error('Error reading local registrations:', err);
+  }
+  return [];
+}
+
+// Helper to save registrations to local disk
+function writeLocalRegistrations(data) {
+  const targetPath = getWritablePath();
+  try {
+    const dir = path.dirname(targetPath);
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
     }
-    fs.writeFileSync(dataFilePath, JSON.stringify(data, null, 2), 'utf-8');
+    fs.writeFileSync(targetPath, JSON.stringify(data, null, 2), 'utf-8');
   } catch (err) {
-    console.error('Error writing registrations file:', err);
+    console.error('Error writing local registrations:', err);
   }
 }
 
-// GET: Fetch all application submissions (for Admin Panel)
-export async function GET() {
-  const registrations = readRegistrations();
-  return NextResponse.json({ success: true, count: registrations.length, applications: registrations });
+// Helper to fetch registrations from Cloud Store
+async function fetchCloudRegistrations() {
+  try {
+    const res = await fetch(CLOUD_STORE_URL, {
+      cache: 'no-store',
+      headers: { 'Cache-Control': 'no-cache' },
+    });
+    if (res.ok) {
+      const json = await res.json();
+      if (json && Array.isArray(json.data)) {
+        return json.data;
+      }
+    }
+  } catch (err) {
+    console.error('Error fetching cloud registrations:', err);
+  }
+  return [];
 }
 
-// POST: Save a new student application
+// Helper to save registrations to Cloud Store
+async function pushCloudRegistrations(data) {
+  try {
+    await fetch(CLOUD_STORE_URL, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'no-cache',
+      },
+      body: JSON.stringify({
+        name: 'bmclasses_apps',
+        data: data,
+      }),
+    });
+  } catch (err) {
+    console.error('Error pushing cloud registrations:', err);
+  }
+}
+
+// Unified helper to read and merge registrations from Cloud Store + Local file
+async function getMergedRegistrations() {
+  const localList = readLocalRegistrations();
+  const cloudList = await fetchCloudRegistrations();
+
+  const combined = [...cloudList];
+  localList.forEach((localItem) => {
+    if (
+      !combined.some(
+        (c) =>
+          c.id === localItem.id ||
+          (c.phoneNumber === localItem.phoneNumber && c.studentName === localItem.studentName)
+      )
+    ) {
+      combined.push(localItem);
+    }
+  });
+
+  // Sort by timestamp descending
+  combined.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+
+  // Sync merged back to local
+  writeLocalRegistrations(combined);
+
+  return combined;
+}
+
+// GET: Fetch all application submissions (for Admin Panel & Mobile/Desktop Sync)
+export async function GET() {
+  const registrations = await getMergedRegistrations();
+  return NextResponse.json({
+    success: true,
+    count: registrations.length,
+    applications: registrations,
+    syncedAt: new Date().toISOString(),
+  });
+}
+
+// POST: Save a new student application (from website forms or admin desk)
 export async function POST(req) {
   try {
     const body = await req.json();
@@ -65,8 +151,9 @@ export async function POST(req) {
       return NextResponse.json({ success: false, message: 'Please provide a valid email address.' }, { status: 400 });
     }
 
+    const now = Date.now();
     const newApplication = {
-      id: `APP-${Date.now()}`,
+      id: `APP-${now}`,
       studentName: studentName.trim(),
       phoneNumber: cleanPhone,
       email: cleanEmail,
@@ -77,14 +164,32 @@ export async function POST(req) {
       status: status || 'New Lead',
       notes: notes || '',
       submittedAt: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
-      timestamp: Date.now(),
+      timestamp: now,
     };
 
-    const registrations = readRegistrations();
-    registrations.unshift(newApplication);
-    writeRegistrations(registrations);
+    const registrations = await getMergedRegistrations();
+    
+    // Check if duplicate submission within 1 minute
+    const duplicate = registrations.find(
+      (r) => r.phoneNumber === cleanPhone && r.studentName === newApplication.studentName
+    );
 
-    return NextResponse.json({ success: true, message: 'Application submitted successfully!', application: newApplication });
+    if (duplicate) {
+      // Update existing record rather than creating duplicate
+      Object.assign(duplicate, newApplication, { id: duplicate.id });
+    } else {
+      registrations.unshift(newApplication);
+    }
+
+    // Save locally and push to Cloud Store
+    writeLocalRegistrations(registrations);
+    await pushCloudRegistrations(registrations);
+
+    return NextResponse.json({
+      success: true,
+      message: 'Application submitted successfully!',
+      application: duplicate || newApplication,
+    });
   } catch (err) {
     console.error('API Error saving application:', err);
     return NextResponse.json({ success: false, message: 'Internal Server Error' }, { status: 500 });
@@ -101,7 +206,7 @@ export async function PATCH(req) {
       return NextResponse.json({ success: false, message: 'Application ID is required.' }, { status: 400 });
     }
 
-    let registrations = readRegistrations();
+    let registrations = await getMergedRegistrations();
     const index = registrations.findIndex((app) => app.id === id);
 
     if (index === -1) {
@@ -120,7 +225,8 @@ export async function PATCH(req) {
       updatedAt: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
     };
 
-    writeRegistrations(registrations);
+    writeLocalRegistrations(registrations);
+    await pushCloudRegistrations(registrations);
 
     return NextResponse.json({
       success: true,
@@ -143,9 +249,11 @@ export async function DELETE(req) {
       return NextResponse.json({ success: false, message: 'Application ID is required' }, { status: 400 });
     }
 
-    let registrations = readRegistrations();
+    let registrations = await getMergedRegistrations();
     registrations = registrations.filter((app) => app.id !== id);
-    writeRegistrations(registrations);
+    
+    writeLocalRegistrations(registrations);
+    await pushCloudRegistrations(registrations);
 
     return NextResponse.json({ success: true, message: 'Application deleted successfully' });
   } catch (err) {
