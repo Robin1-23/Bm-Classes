@@ -20,8 +20,8 @@ export default function FacultyPage() {
         breadcrumb="Ex-HOD Faculty"
       />
       <FacultyIntroVideoCard 
-        title="Meet BM Sir & Konika Ma'am (Ex-HOD Masterclass Intro)"
-        subtitle="Watch the 2.5-minute introduction to see how our Senior Ex-HOD faculty build conceptual clarity and 1-on-1 student mentorship."
+        title="Meet BM Sir & Konika Ma'am (Masterclass Intro)"
+        subtitle="Watch the 2.5-minute introduction to see how our Senior faculty build conceptual clarity and 1-on-1 student mentorship."
       />
       <BespokeFacultyBios />
       <FacultySection 

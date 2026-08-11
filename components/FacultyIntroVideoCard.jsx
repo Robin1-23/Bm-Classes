@@ -4,7 +4,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Play, Pause, Volume2, VolumeX, Sparkles, ShieldCheck, Award, Maximize } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 
-export default function FacultyIntroVideoCard({ title = "Meet Your Mentors: BM Sir & Konika Ma'am", subtitle = "Watch the 2.5-minute masterclass introduction to learn about our micro-batch coaching philosophy, Ex-HOD pedagogy, and direct student mentorship." }) {
+export default function FacultyIntroVideoCard({ title = "Meet Your Mentors: BM Sir & Konika Ma'am", subtitle = "Watch the 2.5-minute masterclass introduction to learn about our micro-batch coaching philosophy, pedagogy, and direct student mentorship." }) {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
@@ -78,7 +78,7 @@ export default function FacultyIntroVideoCard({ title = "Meet Your Mentors: BM S
             <div>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-800/40 text-cyan-400 text-xs font-black uppercase tracking-wider mb-2">
                 <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-                <span>EX-HOD FACULTY INTRO</span>
+                <span>FACULTY INTRODUCTION</span>
               </div>
               <h3 className="font-heading font-black text-white text-xl sm:text-2xl lg:text-3xl tracking-tight">
                 {title}
@@ -170,7 +170,7 @@ export default function FacultyIntroVideoCard({ title = "Meet Your Mentors: BM S
           <div className="p-5 sm:p-6 bg-zinc-950 border-t border-zinc-800 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-bold text-zinc-300">
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-cyan-400 shrink-0" />
-              <span>100% Ex-HOD Taught</span>
+              <span>100% Senior Mentors</span>
             </div>
             <div className="flex items-center gap-2">
               <ShieldCheck className="w-4 h-4 text-cyan-400 shrink-0" />
