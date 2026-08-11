@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle2, ArrowRight, ShieldCheck, Phone } from 'lucide-react';
+import { X, CheckCircle2, ArrowRight, ShieldCheck, Phone, Mail } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { PROGRAMS_DATA, CENTER_INFO } from '@/data/contentData';
 
@@ -14,8 +14,12 @@ export default function Modals({
 }) {
   const [studentName, setStudentName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
   const [selectedProgram, setSelectedProgram] = useState(`${PROGRAMS_DATA[0]?.title} (${PROGRAMS_DATA[0]?.category})`);
   const [submitted, setSubmitted] = useState(false);
+  const [phoneError, setPhoneError] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     if (preselectedProgram && registerOpen) {
@@ -33,38 +37,98 @@ export default function Modals({
     }
   }, [preselectedProgram, registerOpen]);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!studentName || !phoneNumber) return;
+  // Phone input handler (only digits up to 10 characters)
+  const handlePhoneChange = (e) => {
+    const val = e.target.value.replace(/\D/g, '').slice(0, 10);
+    setPhoneNumber(val);
+    if (val.length > 0 && val.length < 10) {
+      setPhoneError('Mobile number must be exactly 10 digits.');
+    } else if (val.length === 10 && !/^[6-9]\d{9}$/.test(val)) {
+      setPhoneError('Please enter a valid 10-digit mobile number starting with 6-9.');
+    } else {
+      setPhoneError('');
+    }
+  };
 
-    // 1. Save Lead to localStorage for persistent local retrieval
-    const newLead = {
-      id: `REG-${Date.now()}`,
-      studentName,
-      phoneNumber,
+  // Email input handler
+  const handleEmailChange = (e) => {
+    const val = e.target.value;
+    setEmail(val);
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (val.trim() && !emailRegex.test(val.trim())) {
+      setEmailError('Please enter a valid email address (e.g. name@domain.com).');
+    } else {
+      setEmailError('');
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Strict Validations
+    let hasError = false;
+    const cleanPhone = phoneNumber.replace(/\D/g, '');
+    if (!/^[6-9]\d{9}$/.test(cleanPhone)) {
+      setPhoneError('Please enter a valid 10-digit Indian mobile number.');
+      hasError = true;
+    }
+
+    const cleanEmail = email.trim();
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!cleanEmail || !emailRegex.test(cleanEmail)) {
+      setEmailError('Please enter a valid email address.');
+      hasError = true;
+    }
+
+    if (hasError || !studentName.trim()) return;
+
+    setSubmitting(true);
+
+    const payload = {
+      studentName: studentName.trim(),
+      phoneNumber: cleanPhone,
+      email: cleanEmail,
       selectedProgram,
-      submittedAt: new Date().toLocaleString(),
+      source: 'Registration Modal',
     };
 
+    // 1. Save to Server File via API
+    try {
+      await fetch('/api/applications', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+    } catch (err) {
+      console.error('Failed to submit application to server API:', err);
+    }
+
+    // 2. Save Lead to localStorage as offline fallback
     try {
       const existing = JSON.parse(localStorage.getItem('bmclasses_registrations') || '[]');
-      existing.unshift(newLead);
+      existing.unshift({
+        id: `REG-${Date.now()}`,
+        ...payload,
+        submittedAt: new Date().toLocaleString(),
+      });
       localStorage.setItem('bmclasses_registrations', JSON.stringify(existing));
     } catch (err) {
       console.error('Failed to save lead locally:', err);
     }
 
-    // 2. Format WhatsApp Instant Message
-    const textMessage = `*📋 NEW BMCLASSES ADMISSION REGISTRATION*\n\n` +
+    // 3. Format WhatsApp Instant Notification
+    const textMessage = `*📋 NEW BMCLASSES ADMISSION APPLICATION*\n\n` +
       `*Student Name:* ${studentName}\n` +
-      `*Phone Number:* ${phoneNumber}\n` +
+      `*Mobile Number:* ${cleanPhone}\n` +
+      `*Email ID:* ${cleanEmail}\n` +
       `*Target Program:* ${selectedProgram}\n` +
       `*Center:* Ardee City, Sector 52, Gurgaon\n\n` +
-      `Hi BmClasses, I have submitted my admission registration on the website. Please contact me for my diagnostic session and counseling call.`;
+      `Hi BmClasses, I have submitted my admission application on the website. Please contact me for my diagnostic session and counseling call.`;
 
     const encoded = encodeURIComponent(textMessage);
     window.open(`https://wa.me/919991239374?text=${encoded}`, '_blank');
 
+    setSubmitting(false);
     setSubmitted(true);
   };
 
@@ -72,6 +136,9 @@ export default function Modals({
     setSubmitted(false);
     setStudentName('');
     setPhoneNumber('');
+    setEmail('');
+    setPhoneError('');
+    setEmailError('');
     onClose();
   };
 
@@ -84,7 +151,6 @@ export default function Modals({
             
             {/* Modal Header Banner */}
             <div className="bg-black text-white p-6 sm:p-8 rounded-t-3xl relative overflow-hidden border-b border-zinc-800">
-              {/* Glow Accent */}
               <div className="absolute top-0 right-0 w-48 h-48 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
 
               {/* Close Button */}
@@ -112,54 +178,77 @@ export default function Modals({
             {/* Modal Body */}
             <div className="p-6 sm:p-8">
               {!submitted ? (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-4">
                   
                   {/* Input 1: Student Full Name */}
                   <div>
-                    <label className="block text-xs font-black text-slate-900 uppercase tracking-wider mb-1.5 flex items-center justify-between">
+                    <label className="block text-xs font-black text-slate-900 uppercase tracking-wider mb-1 flex items-center justify-between">
                       <span>Student Full Name</span>
                       <span className="text-cyan-600 font-black text-[10px]">* Required</span>
                     </label>
-                    <div className="relative">
-                      <input 
-                        type="text" 
-                        required 
-                        value={studentName}
-                        onChange={(e) => setStudentName(e.target.value)}
-                        placeholder="e.g. Rahul Sharma"
-                        className="w-full pl-4 pr-4 py-3.5 rounded-2xl border-2 border-slate-200/90 text-sm focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600/20 font-extrabold text-slate-900 bg-slate-50/80 focus:bg-white transition-all shadow-xs"
-                      />
-                    </div>
+                    <input 
+                      type="text" 
+                      required 
+                      value={studentName}
+                      onChange={(e) => setStudentName(e.target.value)}
+                      placeholder="e.g. Rahul Sharma"
+                      className="w-full pl-4 pr-4 py-3 rounded-2xl border-2 border-slate-200/90 text-sm focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600/20 font-extrabold text-slate-900 bg-slate-50/80 focus:bg-white transition-all shadow-xs"
+                    />
                   </div>
 
-                  {/* Input 2: Parent Phone Number */}
+                  {/* Input 2: Parent Mobile Number (Strict 10 Digits) */}
                   <div>
-                    <label className="block text-xs font-black text-slate-900 uppercase tracking-wider mb-1.5 flex items-center justify-between">
-                      <span>Parent Mobile Number</span>
-                      <span className="text-cyan-600 font-black text-[10px]">* Required</span>
+                    <label className="block text-xs font-black text-slate-900 uppercase tracking-wider mb-1 flex items-center justify-between">
+                      <span>Mobile Number (10 Digits)</span>
+                      <span className="text-cyan-600 font-black text-[10px]">* Exactly 10 Digits</span>
                     </label>
-                    <div className="relative">
-                      <input 
-                        type="tel" 
-                        required 
-                        value={phoneNumber}
-                        onChange={(e) => setPhoneNumber(e.target.value)}
-                        placeholder="e.g. 9899818241"
-                        className="w-full pl-4 pr-4 py-3.5 rounded-2xl border-2 border-slate-200/90 text-sm focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600/20 font-extrabold text-slate-900 bg-slate-50/80 focus:bg-white transition-all shadow-xs"
-                      />
-                    </div>
+                    <input 
+                      type="tel" 
+                      required 
+                      maxLength={10}
+                      value={phoneNumber}
+                      onChange={handlePhoneChange}
+                      placeholder="e.g. 9899818241"
+                      className={`w-full pl-4 pr-4 py-3 rounded-2xl border-2 text-sm focus:outline-none font-extrabold text-slate-900 transition-all shadow-xs ${
+                        phoneError ? 'border-red-500 bg-red-50/30' : 'border-slate-200/90 bg-slate-50/80 focus:border-indigo-600 focus:bg-white'
+                      }`}
+                    />
+                    {phoneError && (
+                      <p className="text-[11px] font-bold text-red-600 mt-1">{phoneError}</p>
+                    )}
                   </div>
 
-                  {/* Input 3: Target Program */}
+                  {/* Input 3: Email ID */}
                   <div>
-                    <label className="block text-xs font-black text-slate-900 uppercase tracking-wider mb-1.5 flex items-center justify-between">
+                    <label className="block text-xs font-black text-slate-900 uppercase tracking-wider mb-1 flex items-center justify-between">
+                      <span>Email Address</span>
+                      <span className="text-cyan-600 font-black text-[10px]">* Valid Email Required</span>
+                    </label>
+                    <input 
+                      type="email" 
+                      required 
+                      value={email}
+                      onChange={handleEmailChange}
+                      placeholder="e.g. rahul.sharma@gmail.com"
+                      className={`w-full pl-4 pr-4 py-3 rounded-2xl border-2 text-sm focus:outline-none font-extrabold text-slate-900 transition-all shadow-xs ${
+                        emailError ? 'border-red-500 bg-red-50/30' : 'border-slate-200/90 bg-slate-50/80 focus:border-indigo-600 focus:bg-white'
+                      }`}
+                    />
+                    {emailError && (
+                      <p className="text-[11px] font-bold text-red-600 mt-1">{emailError}</p>
+                    )}
+                  </div>
+
+                  {/* Input 4: Target Program */}
+                  <div>
+                    <label className="block text-xs font-black text-slate-900 uppercase tracking-wider mb-1 flex items-center justify-between">
                       <span>Target Program & Course</span>
                       <span className="text-indigo-600 font-black text-[10px]">Capped 10-15 Batch</span>
                     </label>
                     <select 
                       value={selectedProgram}
                       onChange={(e) => setSelectedProgram(e.target.value)}
-                      className="w-full px-4 py-3.5 rounded-2xl border-2 border-slate-200/90 text-sm focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600/20 font-extrabold text-slate-900 bg-slate-50/80 focus:bg-white transition-all shadow-xs cursor-pointer"
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200/90 text-sm focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600/20 font-extrabold text-slate-900 bg-slate-50/80 focus:bg-white transition-all shadow-xs cursor-pointer"
                     >
                       {PROGRAMS_DATA.map((prog, pIdx) => (
                         <option key={pIdx} value={`${prog.title} (${prog.category})`}>
@@ -172,16 +261,17 @@ export default function Modals({
                   {/* Submit CTA Button */}
                   <button 
                     type="submit" 
-                    className="w-full bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-black py-4 rounded-2xl transition-all text-sm sm:text-base shadow-xl shadow-indigo-200 hover:-translate-y-0.5 active:scale-95 cursor-pointer flex items-center justify-center gap-2 border border-indigo-400/30"
+                    disabled={submitting}
+                    className="w-full bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-black py-3.5 rounded-2xl transition-all text-sm sm:text-base shadow-xl shadow-indigo-200 hover:-translate-y-0.5 active:scale-95 cursor-pointer flex items-center justify-center gap-2 border border-indigo-400/30 disabled:opacity-50"
                   >
-                    <span>Submit & Forward to Ex-HOD Counselor</span>
+                    <span>{submitting ? 'Submitting Application...' : 'Submit & Save Application'}</span>
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-300" />
                   </button>
 
                   {/* Trust Micro Footer */}
-                  <div className="pt-2 text-center text-[11px] font-extrabold text-slate-500 flex items-center justify-center gap-2">
+                  <div className="pt-1 text-center text-[11px] font-extrabold text-slate-500 flex items-center justify-center gap-2">
                     <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>100% Privacy Guaranteed • Direct Ex-HOD Counseling Session</span>
+                    <span>Saved to Admin Database • 100% Privacy Guaranteed</span>
                   </div>
 
                 </form>
@@ -193,11 +283,11 @@ export default function Modals({
 
                   <div>
                     <span className="text-[10px] font-black uppercase tracking-widest text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
-                      APPLICATION RECEIVED
+                      APPLICATION SAVED & REGISTERED
                     </span>
                     <h3 className="font-heading text-2xl font-black text-slate-950 mt-2">Registration Submitted!</h3>
                     <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed max-w-sm mx-auto mt-1">
-                      Thank you, <strong className="text-slate-900">{studentName}</strong>. Your details have been collected and forwarded directly to our Senior HOD counselor at Ardee City Center.
+                      Thank you, <strong className="text-slate-900">{studentName}</strong>. Your application has been saved to our database and forwarded to Senior HOD counselors.
                     </p>
                   </div>
 
@@ -207,8 +297,12 @@ export default function Modals({
                       <span className="text-indigo-700 font-extrabold">{selectedProgram}</span>
                     </div>
                     <div className="flex justify-between border-b border-slate-200/80 pb-1.5">
-                      <span className="text-slate-500">Contact Number:</span>
+                      <span className="text-slate-500">Mobile Number:</span>
                       <span className="text-slate-900 font-extrabold">{phoneNumber}</span>
+                    </div>
+                    <div className="flex justify-between border-b border-slate-200/80 pb-1.5">
+                      <span className="text-slate-500">Email Address:</span>
+                      <span className="text-slate-900 font-extrabold">{email}</span>
                     </div>
                     <div className="flex justify-between pt-0.5">
                       <span className="text-slate-500">Destination Counselor:</span>
@@ -218,7 +312,7 @@ export default function Modals({
 
                   <div className="space-y-2.5 pt-2">
                     <a 
-                      href="https://wa.me/919991239374?text=Hi%20BmClasses%2C%20I%20have%20submitted%20my%20registration%20form%20on%20the%20website." 
+                      href={`https://wa.me/919991239374?text=${encodeURIComponent(`Hi BmClasses, I have submitted my admission application for ${selectedProgram}. My name is ${studentName}.`)}`} 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="w-full bg-[#25D366] hover:bg-emerald-600 text-white font-extrabold text-xs sm:text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
@@ -237,78 +331,6 @@ export default function Modals({
               )}
             </div>
 
-          </div>
-        </div>
-      )}
-
-      {/* LOGIN MODAL */}
-      {loginOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-[92%] max-h-[90vh] overflow-y-auto relative shadow-2xl border border-slate-100">
-            <button 
-              onClick={onClose}
-              className="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-slate-200 transition-colors cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <h3 className="font-heading text-xl sm:text-2xl font-black text-slate-950 mb-1">Student & Parent Login</h3>
-            <p className="text-xs text-slate-500 mb-6 font-medium">Access your tests, analytics dashboard, and study materials.</p>
-
-            <form onSubmit={(e) => {
-              e.preventDefault();
-              alert('Redirecting to your BmClasses student portal...');
-              onClose();
-            }} className="space-y-4">
-              <div>
-                <label className="block text-xs font-extrabold text-slate-900 mb-1">Registration ID / Mobile</label>
-                <input 
-                  type="text" 
-                  required 
-                  placeholder="Enter ID or mobile number"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-600 font-medium"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-extrabold text-slate-900 mb-1">Password</label>
-                <input 
-                  type="password" 
-                  required 
-                  placeholder="Enter password"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-indigo-600 font-medium"
-                />
-              </div>
-
-              <button 
-                type="submit" 
-                className="w-full bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-extrabold py-3.5 rounded-xl transition-all text-sm shadow-md mt-2 cursor-pointer"
-              >
-                Login to Dashboard
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* VIDEO MODAL */}
-      {videoTitle && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
-          <div className="bg-slate-950 text-white rounded-3xl p-6 max-w-2xl w-[94%] relative shadow-2xl border border-slate-800">
-            <button 
-              onClick={onClose}
-              className="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            <h3 className="font-heading text-base sm:text-lg font-black mb-4 pr-8">{videoTitle}</h3>
-
-            <div className="bg-black/80 rounded-2xl h-64 sm:h-80 flex flex-col items-center justify-center border border-white/10 p-4">
-              <div className="text-4xl mb-3 text-cyan-300">🎬</div>
-              <p className="font-black text-sm sm:text-base text-center">Playing Student Interview</p>
-              <p className="text-xs text-slate-400 mt-1 text-center font-medium">IIT Delhi JEE Advanced Top Ranker Journey</p>
-            </div>
           </div>
         </div>
       )}
