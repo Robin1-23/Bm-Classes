@@ -126,8 +126,8 @@ export default function AdminPage() {
   // Login Gate
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center p-4">
-        <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl p-8 sm:p-10 max-w-md w-full shadow-2xl relative overflow-hidden">
+      <div className="min-h-screen bg-black text-white flex items-center justify-center p-4 pt-28 sm:pt-36 pb-16">
+        <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl p-8 sm:p-10 max-w-md w-full shadow-2xl relative overflow-hidden my-auto">
           <div className="absolute top-0 right-0 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
           <div className="w-12 h-12 rounded-2xl bg-cyan-950/80 border border-cyan-800/40 text-cyan-400 font-black flex items-center justify-center mb-6">
@@ -179,7 +179,7 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white py-10 px-4 sm:px-8">
+    <div className="min-h-screen bg-black text-white pt-28 sm:pt-36 pb-20 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto space-y-8">
         
         {/* Header Bar */}
