@@ -11,7 +11,7 @@ export const CENTER_INFO = {
     { label: 'Admissions Desk', number: '+91 99994 95938', raw: '+919999495938' },
     { label: 'Counseling Cell', number: '+91 96256 84092', raw: '+919625684092' },
   ],
-  whatsappRegistration: '+91 99912 39374',
+  whatsappRegistration: '+91 98998 18241',
   whatsappUrl: 'https://wa.me/919899818241?text=Hi%20BM%20CLASSES%2C%20I%20would%20like%20to%20know%20more%20about%20your%20coaching%20programs.',
   email: 'info@bmclasses.in',
   instagram: '@chemistrybybighnarajsir',

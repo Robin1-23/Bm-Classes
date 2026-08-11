@@ -126,7 +126,7 @@ export default function Modals({
       `Hi BmClasses, I have submitted my admission application on the website. Please contact me for my diagnostic session and counseling call.`;
 
     const encoded = encodeURIComponent(textMessage);
-    window.open(`https://wa.me/919991239374?text=${encoded}`, '_blank');
+    window.open(`https://wa.me/919899818241?text=${encoded}`, '_blank');
 
     setSubmitting(false);
     setSubmitted(true);
@@ -306,18 +306,18 @@ export default function Modals({
                     </div>
                     <div className="flex justify-between pt-0.5">
                       <span className="text-slate-500">Destination Counselor:</span>
-                      <span className="text-emerald-700 font-black">+91 99912 39374</span>
+                      <span className="text-emerald-700 font-black">+91 98998 18241</span>
                     </div>
                   </div>
 
                   <div className="space-y-2.5 pt-2">
                     <a 
-                      href={`https://wa.me/919991239374?text=${encodeURIComponent(`Hi BmClasses, I have submitted my admission application for ${selectedProgram}. My name is ${studentName}.`)}`} 
+                      href={`https://wa.me/919899818241?text=${encodeURIComponent(`Hi BmClasses, I have submitted my admission application for ${selectedProgram}. My name is ${studentName}.`)}`} 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="w-full bg-[#25D366] hover:bg-emerald-600 text-white font-extrabold text-xs sm:text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
                     >
-                      <WhatsAppIcon className="w-4 h-4 text-white" /> Connect Directly on WhatsApp (+91 99912 39374)
+                      <WhatsAppIcon className="w-4 h-4 text-white" /> Connect Directly on WhatsApp (+91 98998 18241)
                     </a>
 
                     <button 

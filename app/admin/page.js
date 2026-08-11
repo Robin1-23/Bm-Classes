@@ -187,9 +187,15 @@ export default function AdminPage() {
           <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-800/40 text-cyan-400 text-xs font-black uppercase tracking-wider mb-2">
-              <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-              <span>LIVE ADMISSION TELEMETRY</span>
+            <div className="flex items-center gap-2 mb-2 flex-wrap">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-800/40 text-cyan-400 text-xs font-black uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+                <span>LIVE ADMISSION TELEMETRY</span>
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/60 border border-emerald-800/40 text-emerald-400 text-xs font-mono font-bold">
+                <Phone className="w-3 h-3 text-emerald-400" />
+                <span>Queries Routed To: +91 98998 18241</span>
+              </span>
             </div>
             <h1 className="font-heading text-2xl sm:text-4xl font-black text-white tracking-tight">
               Student Application <span className="font-serif italic font-normal text-cyan-300">Admin Panel</span>
