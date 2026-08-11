@@ -1,10 +1,11 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { 
   ShieldCheck, Download, Search, Trash2, Phone, Mail, CheckCircle2, Lock, 
   Sparkles, RefreshCw, MessageSquare, Plus, Edit3, X, Filter, UserPlus, 
-  StickyNote, ChevronDown, Check, User, Globe, Cloud, Database, Upload
+  StickyNote, ChevronDown, Check, User, Globe, Cloud, Database, Upload, LogOut
 } from 'lucide-react';
 
 const PROGRAM_OPTIONS = [
@@ -25,6 +26,7 @@ const STATUS_OPTIONS = [
 ];
 
 export default function AdminPage() {
+  const router = useRouter();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [passcode, setPasscode] = useState('');
   const [passError, setPassError] = useState(false);
@@ -67,16 +69,71 @@ export default function AdminPage() {
     setTimeout(() => setToastMessage(''), 4000);
   };
 
-  // Admin Security passcode check
-  const handleLogin = (e) => {
+  const [passErrorMsg, setPassErrorMsg] = useState('');
+  const [isAuthenticating, setIsAuthenticating] = useState(false);
+
+  // Check session token on mount
+  useEffect(() => {
+    try {
+      const token = sessionStorage.getItem('bm_admin_token');
+      if (token && typeof token === 'string' && token.startsWith('BM_AUTH_')) {
+        setIsAuthenticated(true);
+      }
+    } catch (err) {}
+  }, []);
+
+  // Secure Server-side Admin Passcode authentication check with strict type checking
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (passcode === 'bmclasses2026' || passcode === 'bmclasses') {
-      setIsAuthenticated(true);
-      setPassError(false);
-      fetchApplications();
-    } else {
+    setPassError(false);
+    setPassErrorMsg('');
+
+    // Enforce strict string type check
+    if (typeof passcode !== 'string' || !passcode.trim()) {
       setPassError(true);
+      setPassErrorMsg('Please enter a valid non-empty passcode.');
+      return;
     }
+
+    setIsAuthenticating(true);
+
+    try {
+      const res = await fetch('/api/admin/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ passcode: String(passcode).trim() }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success && typeof data.token === 'string') {
+        try {
+          sessionStorage.setItem('bm_admin_token', data.token);
+        } catch (err) {}
+        setIsAuthenticated(true);
+        setPasscode('');
+        setPassError(false);
+        fetchApplications();
+      } else {
+        setPassError(true);
+        setPassErrorMsg(data.message || 'Incorrect passcode. Please try again.');
+      }
+    } catch (err) {
+      console.error('Authentication error:', err);
+      setPassError(true);
+      setPassErrorMsg('Server error during authentication. Please try again.');
+    } finally {
+      setIsAuthenticating(false);
+    }
+  };
+
+  const handleLogout = () => {
+    try {
+      sessionStorage.removeItem('bm_admin_token');
+    } catch (err) {}
+    setIsAuthenticated(false);
+    setPasscode('');
+    router.push('/');
   };
 
   // Fetch applications from Cloud Store API + merge with local storage
@@ -439,15 +496,23 @@ export default function AdminPage() {
                 className="w-full px-4 py-3 rounded-2xl bg-black border-2 border-zinc-800 text-white font-extrabold text-sm focus:outline-none focus:border-cyan-400 transition-all"
               />
               {passError && (
-                <p className="text-xs font-bold text-red-400 mt-1">Incorrect passcode. Please try again.</p>
+                <p className="text-xs font-bold text-red-400 mt-1">{passErrorMsg || 'Incorrect passcode. Please try again.'}</p>
               )}
             </div>
 
             <button
               type="submit"
+              disabled={isAuthenticating}
               className="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-black py-3.5 rounded-2xl transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer text-sm"
             >
-              <span>Unlock Admin Panel</span>
+              {isAuthenticating ? (
+                <>
+                  <RefreshCw className="w-4 h-4 text-black animate-spin" />
+                  <span>Verifying Passcode...</span>
+                </>
+              ) : (
+                <span>Unlock Admin Panel</span>
+              )}
             </button>
           </form>
         </div>
@@ -527,10 +592,12 @@ export default function AdminPage() {
             </button>
 
             <button
-              onClick={() => setIsAuthenticated(false)}
-              className="bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white font-extrabold text-xs px-3.5 py-3 rounded-2xl transition-all cursor-pointer"
+              onClick={handleLogout}
+              className="bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 hover:text-red-300 font-extrabold text-xs px-4 py-3 rounded-2xl transition-all flex items-center gap-2 cursor-pointer shadow-sm"
+              title="Logout & Return to Home Screen"
             >
-              Lock
+              <LogOut className="w-4 h-4 text-red-400" />
+              <span>Logout</span>
             </button>
           </div>
         </div>
