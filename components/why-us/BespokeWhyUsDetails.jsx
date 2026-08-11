@@ -11,7 +11,7 @@ export default function BespokeWhyUsDetails() {
       title: 'Ex-HOD Concept Foundation',
       desc: 'First-principles derivation with zero formula memorization.',
       tag: '10-15 Micro Batch',
-      badgeBg: 'bg-cyan-950/80 text-cyan-300 border-cyan-800/40',
+      badgeBg: 'bg-indigo-50 text-indigo-700 border-indigo-200',
       bullets: ['100% Ex-HOD Taught', 'Zero TA Delegation'],
     },
     {
@@ -19,7 +19,7 @@ export default function BespokeWhyUsDetails() {
       title: '15 High-Yield Advanced Twists',
       desc: 'Curated 15 Advanced problems per chapter instead of 200+ drills.',
       tag: 'Zero Rote Drills',
-      badgeBg: 'bg-cyan-950/80 text-cyan-300 border-cyan-800/40',
+      badgeBg: 'bg-cyan-50 text-cyan-900 border-cyan-200',
       bullets: ['Pattern Recognition', 'High-Yield Curation'],
     },
     {
@@ -27,7 +27,7 @@ export default function BespokeWhyUsDetails() {
       title: 'Same-Day Board Doubt Clearance',
       desc: 'Bring doubts from any material — solved live on the board with HODs.',
       tag: '0 Days Queue',
-      badgeBg: 'bg-cyan-950/80 text-cyan-300 border-cyan-800/40',
+      badgeBg: 'bg-emerald-50 text-emerald-800 border-emerald-200',
       bullets: ['Same-Day Clearance', 'Live Board Solving'],
     },
     {
@@ -35,7 +35,7 @@ export default function BespokeWhyUsDetails() {
       title: 'Weekly AI Rank Telemetry Review',
       desc: 'Chapter accuracy heatmaps & 1-on-1 parent progress tracking.',
       tag: 'AIR Telemetry',
-      badgeBg: 'bg-cyan-950/80 text-cyan-300 border-cyan-800/40',
+      badgeBg: 'bg-purple-50 text-purple-800 border-purple-200',
       bullets: ['Weekly Diagnostic', '1-on-1 Parent Calls'],
     },
   ];
@@ -137,28 +137,31 @@ export default function BespokeWhyUsDetails() {
           </div>
         </ScrollReveal>
 
-        {/* 2. 24-HOUR DAY IN THE LIFE TIMELINE */}
-        <div>
+        {/* 2. 24-HOUR DAY IN THE LIFE TIMELINE — VERY LIGHT CRISP BACKGROUND SECTION */}
+        <div className="bg-[#faf8f5] text-slate-900 border-2 border-slate-200/90 rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden">
           <ScrollReveal delay={150} direction="up" className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-xs font-black tracking-widest uppercase text-cyan-400 bg-cyan-950/60 border border-cyan-800/40 px-4 py-1.5 rounded-full inline-flex items-center gap-2">
-              <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+            <span className="text-xs font-black tracking-widest uppercase text-indigo-700 bg-indigo-50 border border-indigo-200 px-4 py-1.5 rounded-full inline-flex items-center gap-2 shadow-xs">
+              <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
               <span>DAILY ACADEMIC TIMELINE</span>
             </span>
-            <h2 className="font-heading text-3xl sm:text-4xl font-black text-white tracking-tight mt-3">
-              Daily Ranker Routine at <span className="font-serif italic font-normal text-cyan-300">BmClasses</span>
+            <h2 className="font-heading text-3xl sm:text-4xl font-black text-slate-950 tracking-tight mt-3">
+              Daily Ranker Routine at <span className="font-serif italic font-normal text-indigo-700">BmClasses</span>
             </h2>
+            <p className="text-slate-600 text-xs sm:text-sm font-medium mt-2">
+              A structured, high-yield day designed for maximum retention and same-day doubt resolution.
+            </p>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {dayTimeline.map((item, idx) => (
               <ScrollReveal key={idx} delay={120 * (idx + 1)} direction="up">
-                <div className="group relative bg-zinc-950 border-2 border-zinc-800 hover:border-cyan-400 rounded-3xl p-6 h-full flex flex-col justify-between shadow-xl hover:-translate-y-2 transition-all duration-300">
+                <div className="group relative bg-gradient-to-b from-white via-indigo-50/30 to-slate-50 border-2 border-slate-200/90 hover:border-indigo-500 rounded-3xl p-6 h-full flex flex-col justify-between shadow-[0_10px_25px_-5px_rgba(0,0,0,0.05)] hover:shadow-[0_25px_50px_-12px_rgba(99,102,241,0.25)] hover:-translate-y-2.5 transition-all duration-300 transform-gpu overflow-hidden">
                   
                   <div>
                     {/* Time & Tag Row */}
-                    <div className="flex items-center justify-between pb-3 border-b border-zinc-800 mb-3">
-                      <span className="font-mono text-xs font-black text-cyan-300 flex items-center gap-1 bg-zinc-900 px-2 py-0.5 rounded-lg border border-zinc-800">
-                        <Clock className="w-3 h-3 text-cyan-400" />
+                    <div className="flex items-center justify-between pb-3 border-b border-slate-200/80 mb-3">
+                      <span className="font-mono text-xs font-black text-indigo-700 flex items-center gap-1 bg-indigo-50 px-2 py-0.5 rounded-lg border border-indigo-100 shadow-xs">
+                        <Clock className="w-3 h-3 text-indigo-600" />
                         {item.time}
                       </span>
                       <span className={`text-[9px] font-black px-2 py-0.5 rounded-md border ${item.badgeBg}`}>
@@ -167,20 +170,20 @@ export default function BespokeWhyUsDetails() {
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-heading font-black text-white text-base mb-1.5 group-hover:text-cyan-300 transition-colors leading-snug">
+                    <h3 className="font-heading font-black text-slate-950 text-base mb-1.5 group-hover:text-indigo-600 transition-colors leading-snug">
                       {item.title}
                     </h3>
 
                     {/* Description */}
-                    <p className="text-zinc-300 text-xs font-medium leading-relaxed mb-3">
+                    <p className="text-slate-600 text-xs font-medium leading-relaxed mb-3">
                       {item.desc}
                     </p>
 
                     {/* Bullets */}
-                    <div className="space-y-1 pt-2 border-t border-zinc-800/80">
+                    <div className="space-y-1 pt-2 border-t border-slate-200/80">
                       {item.bullets.map((b, bIdx) => (
-                        <div key={bIdx} className="flex items-center gap-1.5 text-[11px] font-bold text-zinc-300">
-                          <Zap className="w-3 h-3 text-cyan-400 shrink-0" />
+                        <div key={bIdx} className="flex items-center gap-1.5 text-[11px] font-bold text-slate-800">
+                          <Zap className="w-3 h-3 text-indigo-600 shrink-0" />
                           <span>{b}</span>
                         </div>
                       ))}
@@ -188,9 +191,9 @@ export default function BespokeWhyUsDetails() {
                   </div>
 
                   {/* 3D Footer Accent */}
-                  <div className="pt-3 mt-3 border-t border-zinc-800 text-xs font-black text-cyan-400 flex items-center justify-between">
+                  <div className="pt-3 mt-3 border-t border-slate-200/80 text-xs font-black text-indigo-600 flex items-center justify-between">
                     <span>Micro-Batch Rigor</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-cyan-400 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5 text-indigo-600 group-hover:translate-x-1 transition-transform" />
                   </div>
 
                 </div>
