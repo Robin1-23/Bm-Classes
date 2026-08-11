@@ -16,24 +16,24 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
     : PROGRAMS_DATA.filter(p => p.categoryTypes && p.categoryTypes.includes(activeTab));
 
   return (
-    <section className="bg-black text-white py-20 sm:py-28 relative overflow-hidden border-b border-zinc-900" id="programs">
+    <section className="bg-[#faf8f5] text-slate-900 py-20 sm:py-28 relative overflow-hidden border-b border-slate-200/80" id="programs">
       
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/3 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-10 left-10 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-1/3 right-10 w-96 h-96 bg-cyan-100/60 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-10 left-10 w-96 h-96 bg-indigo-100/60 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Section Header */}
         <ScrollReveal delay={100} direction="down" className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-800/40 text-cyan-400 text-xs font-black uppercase tracking-wider mb-3 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-black uppercase tracking-wider mb-3 shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
             <span>ACADEMIC PROGRAMS</span>
           </div>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
-            Courses Built for <span className="font-serif italic font-normal text-cyan-300">Top AIR Ranks</span>
+          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight leading-tight">
+            Courses Built for <span className="font-serif italic font-normal text-indigo-700">Top AIR Ranks</span>
           </h2>
-          <p className="text-zinc-300 text-xs sm:text-sm font-medium mt-2">
+          <p className="text-slate-600 text-xs sm:text-sm font-medium mt-2">
             Classroom coaching, 1-on-1 mentoring, adaptive testing & same-day doubt clearing.
           </p>
         </ScrollReveal>
@@ -53,8 +53,8 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-4 py-2 rounded-xl text-xs font-black transition-all cursor-pointer ${
                   activeTab === tab.id
-                    ? 'bg-cyan-400 text-black shadow-[0_0_20px_rgba(34,211,238,0.4)] border border-cyan-300'
-                    : 'bg-zinc-950 text-zinc-300 border border-zinc-800 hover:border-zinc-700 hover:text-white'
+                    ? 'bg-slate-950 text-white shadow-lg border border-slate-800 scale-105'
+                    : 'bg-white text-slate-800 border border-slate-200 hover:border-slate-400 hover:bg-slate-50'
                 }`}
               >
                 {tab.label}
@@ -141,47 +141,47 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
 
             return (
               <ScrollReveal key={idx} delay={150 * (idx + 1)} direction="up">
-                <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl p-6 text-white shadow-xl hover:border-cyan-400 hover:shadow-[0_20px_40px_-10px_rgba(34,211,238,0.2)] hover:-translate-y-1.5 transition-all duration-300 relative group flex flex-col justify-between h-full">
+                <div className="bg-white border-2 border-slate-200/90 rounded-3xl p-6 text-slate-900 shadow-md hover:border-indigo-500 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 relative group flex flex-col justify-between h-full">
                   <div>
-                    <div className="flex items-center justify-between pb-3.5 border-b border-zinc-800/80 mb-4">
-                      <div className="w-9 h-9 rounded-xl bg-zinc-900 text-cyan-400 border border-zinc-800 flex items-center justify-center">
+                    <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-4">
+                      <div className="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-700 border border-indigo-200/80 flex items-center justify-center">
                         <IconComponent className="w-4 h-4" />
                       </div>
-                      <span className="text-[9px] font-black bg-cyan-950/60 text-cyan-400 border border-cyan-800/40 px-2 py-0.5 rounded uppercase tracking-wider">
+                      <span className="text-[9px] font-black bg-indigo-50 text-indigo-700 border border-indigo-200 px-2 py-0.5 rounded uppercase tracking-wider">
                         {prog.badgeText}
                       </span>
                     </div>
 
-                    <span className="text-[10px] font-black tracking-widest text-zinc-400 uppercase block mb-1">
+                    <span className="text-[10px] font-black tracking-widest text-slate-400 uppercase block mb-1">
                       {prog.category}
                     </span>
 
-                    <h3 className="font-heading text-lg font-black text-white mb-2 group-hover:text-cyan-300 transition-colors leading-snug">
+                    <h3 className="font-heading text-lg font-black text-slate-950 mb-2 group-hover:text-indigo-600 transition-colors leading-snug">
                       {prog.title}
                     </h3>
 
-                    <p className="text-zinc-300 text-xs leading-relaxed mb-4 font-medium">
+                    <p className="text-slate-600 text-xs leading-relaxed mb-4 font-medium">
                       {prog.desc}
                     </p>
 
                     {/* Punchy Bullets */}
-                    <div className="space-y-2 mb-5 pt-2 border-t border-zinc-800/80">
+                    <div className="space-y-2 mb-5 pt-2 border-t border-slate-100">
                       {prog.bullets.map((b, bIdx) => (
-                        <div key={bIdx} className="flex items-center gap-2 text-xs font-bold text-zinc-200">
-                          <Zap className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                        <div key={bIdx} className="flex items-center gap-2 text-xs font-bold text-slate-800">
+                          <Zap className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
                           <span>{b}</span>
                         </div>
                       ))}
                     </div>
                   </div>
 
-                  <div className="pt-3 border-t border-zinc-800">
+                  <div className="pt-3 border-t border-slate-100">
                     <button
                       onClick={() => handleRegister(prog.title)}
-                      className="w-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-extrabold text-xs py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                      className="w-full bg-slate-950 hover:bg-slate-900 border border-slate-800 text-white font-extrabold text-xs py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                     >
                       <span>{prog.linkText}</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-cyan-400" />
+                      <ArrowRight className="w-3.5 h-3.5 text-cyan-300" />
                     </button>
                   </div>
 
