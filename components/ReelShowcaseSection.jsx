@@ -89,7 +89,7 @@ const REELS = [
     title: 'Interactive Classroom Masterclass',
     faculty: 'BM SIR',
     role: 'Senior Ex-HOD Mentorship',
-    videoUrl: '/videos/leaarn7.mp4',
+    videoUrl: '/videos/learn7.mp4',
     badgeColor: 'from-amber-500 to-orange-600',
     borderColor: 'border-amber-400/40',
     accentText: 'text-amber-400',
