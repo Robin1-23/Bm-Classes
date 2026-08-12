@@ -59,6 +59,7 @@ export const MENTORS_DATA = [
   {
     id: 'chumki-maam',
     initials: 'CM',
+    image: '/chumki_mam.jpeg',
     name: 'Chumki Ma\'am',
     role: 'Science Lead (Class 6th, 7th & 8th)',
     exp: '22 Yrs Exp',

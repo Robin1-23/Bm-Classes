@@ -45,6 +45,7 @@ export default function BespokeFacultyBios() {
     },
     {
       name: 'Chumki Ma\'am',
+      image: '/chumki_mam.jpeg',
       role: 'Science Lead (Class 6th, 7th & 8th)',
       pedagogyFocus: 'Class 6, 7 & 8 Science & 1-on-1 Online Batches',
       experience: '22 Yrs Exp',
@@ -90,9 +91,19 @@ export default function BespokeFacultyBios() {
                   {/* Left Column: Avatar & Credentials (4 cols) */}
                   <div className="lg:col-span-4 space-y-3">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-2xl bg-slate-950 text-cyan-300 font-heading font-black text-lg flex items-center justify-center shadow-xs">
-                        {m.name.split(' ').map(n => n[0]).join('')}
-                      </div>
+                      {m.image ? (
+                        <div className="w-14 h-14 rounded-2xl overflow-hidden shadow-md border-2 border-white bg-slate-950 shrink-0">
+                          <img 
+                            src={m.image} 
+                            alt={m.name} 
+                            className="w-full h-full object-cover object-top" 
+                          />
+                        </div>
+                      ) : (
+                        <div className="w-12 h-12 rounded-2xl bg-slate-950 text-cyan-300 font-heading font-black text-lg flex items-center justify-center shadow-xs shrink-0">
+                          {m.name.split(' ').map(n => n[0]).join('')}
+                        </div>
+                      )}
                       <div>
                         <span className={`text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded ${m.badgeBg}`}>
                           {m.exRole}

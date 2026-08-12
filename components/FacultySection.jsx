@@ -49,9 +49,19 @@ export default function FacultySection({ onOpenRegister }) {
                     {/* Top Avatar & Experience Row */}
                     <div className="flex items-center justify-between pb-3.5 border-b border-slate-200/70 mb-4">
                       <div className="relative">
-                        <div className="w-12 h-12 rounded-2xl bg-slate-950 text-white font-heading font-black text-lg flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-                          {mentor.initials}
-                        </div>
+                        {mentor.image ? (
+                          <div className="w-13 h-13 rounded-2xl overflow-hidden shadow-md border-2 border-white group-hover:scale-105 transition-transform bg-slate-950">
+                            <img 
+                              src={mentor.image} 
+                              alt={mentor.name} 
+                              className="w-full h-full object-cover object-top" 
+                            />
+                          </div>
+                        ) : (
+                          <div className="w-12 h-12 rounded-2xl bg-slate-950 text-white font-heading font-black text-lg flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+                            {mentor.initials}
+                          </div>
+                        )}
                         <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full"></span>
                       </div>
 
