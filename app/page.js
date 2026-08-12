@@ -2,6 +2,7 @@
 
 import React from 'react';
 import HeroSection from '@/components/HeroSection';
+import ClassroomStories from '@/components/ClassroomStories';
 import AdmissionJourneySection from '@/components/AdmissionJourneySection';
 import ProgramsSection from '@/components/ProgramsSection';
 import CalculatorSection from '@/components/CalculatorSection';
@@ -23,6 +24,7 @@ export default function Home() {
         onOpenRegister={openRegister} 
         onOpenSeatLock={openSeatLock}
       />
+      <ClassroomStories />
       <AdmissionJourneySection 
         onOpenRegister={openRegister}
       />
