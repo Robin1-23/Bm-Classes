@@ -72,9 +72,13 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
           {/* Col 1: Institute Brand & Quality Guarantee (5 cols) */}
           <div className="md:col-span-5">
             <Link href="/" className="inline-flex items-center gap-3 font-heading text-2xl font-black tracking-tight text-white mb-3">
-              <span className="w-10 h-10 rounded-2xl bg-gradient-to-br from-cyan-400 to-teal-400 text-black font-black flex items-center justify-center text-lg shadow-lg">
-                BM
-              </span>
+              <div className="w-10 h-10 rounded-xl bg-white p-0.5 overflow-hidden shadow-lg border border-cyan-400/40 shrink-0">
+                <img 
+                  src="/logo.jpg" 
+                  alt="BM Classes Gurgaon" 
+                  className="w-full h-full object-contain" 
+                />
+              </div>
               <span className="text-xl sm:text-2xl font-heading font-black tracking-tight">BM CLASSES</span>
             </Link>
 

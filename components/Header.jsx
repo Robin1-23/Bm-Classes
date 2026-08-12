@@ -56,26 +56,24 @@ export default function Header({ onOpenRegister }) {
             : 'bg-black/90 backdrop-blur-xl border-zinc-800 shadow-2xl'
         }`}>
 
-          {/* Left Side: Brand Logo & Pure White Name */}
+          {/* Left Side: Official BM Classes Logo Image */}
           <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
-            <div className="relative p-[2px] rounded-2xl bg-gradient-to-tr from-cyan-400 via-indigo-500 to-emerald-400 shadow-xl shadow-cyan-500/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-              <div className="w-10 h-10 rounded-[14px] bg-black flex items-center justify-center relative overflow-hidden border border-white/30 shadow-inner">
-                {/* Inner Glow */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500/30 via-indigo-500/15 to-transparent pointer-events-none"></div>
-                
-                {/* Monogram Icon in Calistoga Flared Serif */}
-                <span className="font-logo font-normal text-sm sm:text-base text-white tracking-tight relative z-10 drop-shadow-xs">
-                  BM
-                </span>
-                
-                {/* Micro Sparkle Beacon */}
-                <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-cyan-400 shadow-sm shadow-cyan-300 border border-white/40"></span>
-              </div>
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white p-0.5 overflow-hidden shadow-xl border border-cyan-400/40 group-hover:scale-105 transition-transform shrink-0">
+              <img 
+                src="/logo.jpg" 
+                alt="BM Classes Gurgaon" 
+                className="w-full h-full object-contain" 
+              />
             </div>
 
-            <span className="font-logo font-normal text-2xl sm:text-3xl tracking-tight text-white group-hover:text-cyan-300 transition-colors drop-shadow-md">
-              BM CLASSES
-            </span>
+            <div className="flex flex-col">
+              <span className="font-heading font-black text-base sm:text-lg tracking-tight text-white group-hover:text-cyan-300 transition-colors leading-none">
+                BM CLASSES
+              </span>
+              <span className="text-[9px] font-black tracking-widest text-cyan-400 uppercase mt-0.5">
+                EX-HOD ACADEMY
+              </span>
+            </div>
           </Link>
 
           {/* Center: Desktop Nav Capsule with Pure White Text (Increased Font Size) */}
