@@ -156,13 +156,13 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
             <div className="relative z-10 w-full p-2 xs:p-3 sm:p-4">
               <div className="relative overflow-hidden rounded-2xl sm:rounded-[28px] shadow-2xl border-2 border-white/20 group">
                 <img 
-                  src="/hero_students_celebrating.jpg" 
+                  src="/CELEBRATION_PHOTO.jpg" 
                   alt="BM CLASSES Celebrating Top Rank Students" 
                   loading="eager"
                   decoding="async"
                   className="w-full h-[320px] xs:h-[400px] sm:h-[480px] lg:h-[520px] object-cover object-top sm:object-center group-hover:scale-105 transition-transform duration-700"
                   onError={(e) => {
-                    e.target.src = '/hero_student_laptop.jpg';
+                    e.target.src = '/hero_students_celebrating.jpg';
                   }}
                 />
 
