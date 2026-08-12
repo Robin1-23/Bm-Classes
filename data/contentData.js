@@ -37,6 +37,7 @@ export const MENTORS_DATA = [
   {
     id: 'bm-sir',
     initials: 'BM',
+    image: '/bm_sir.jpg',
     name: 'Bighnaraj Mishra (BM Sir)',
     role: 'HOD Chemistry',
     exp: '20+ Yrs Exp',

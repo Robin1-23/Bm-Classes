@@ -11,6 +11,7 @@ export default function BespokeFacultyBios() {
   const mentors = [
     {
       name: 'Bighnaraj Mishra (BM Sir)',
+      image: '/bm_sir.jpg',
       role: 'Senior HOD Chemistry',
       pedagogyFocus: 'Organic Mechanisms & Inorganic Mnemonics',
       experience: '20+ Yrs Exp',
