@@ -158,7 +158,7 @@ export default function CenterLocationSection({ onOpenRegister }) {
               <div className="w-full h-full min-h-[300px] lg:min-h-[380px] relative bg-zinc-900">
                 <iframe
                   title="Chemistry classes by BM sir Gurgaon Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.123456789!2d77.08!3d28.44!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDI2JzI0LjAiTiA3N8KwMDQnNDguMCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+                  src="https://maps.google.com/maps?q=House+no+-+1411p,+1st+floor,+sec-45,+near+DPS-45+school,+Gurgaon&t=&z=16&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
