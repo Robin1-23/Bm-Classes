@@ -13,6 +13,7 @@ import PlatformSection from '@/components/PlatformSection';
 import ResultsSection from '@/components/ResultsSection';
 import CenterLocationSection from '@/components/CenterLocationSection';
 import LocalSeoKeywordsSection from '@/components/LocalSeoKeywordsSection';
+import InspirationalQuoteBanner from '@/components/InspirationalQuoteBanner';
 import StickyMobileCTA from '@/components/StickyMobileCTA';
 import { useModal } from '@/context/ModalContext';
 
@@ -28,6 +29,7 @@ export default function Home() {
       <AdmissionJourneySection 
         onOpenRegister={openRegister}
       />
+      <InspirationalQuoteBanner />
       <FacultyIntroVideoCard />
       <ProgramsSection 
         onOpenRegister={openRegister} 
