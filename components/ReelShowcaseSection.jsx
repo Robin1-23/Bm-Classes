@@ -256,11 +256,8 @@ export default function ReelShowcaseSection() {
           <div className="flex items-center justify-between text-xs font-semibold text-zinc-500 mt-2 px-2">
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-              <span>Swipe left or use arrows to view all 7 teaching reels</span>
+              <span>Swipe left or use arrows to view all teaching reels</span>
             </span>
-            <div className="flex items-center gap-1 font-mono text-[11px] text-cyan-400">
-              <span>7 Reels Total</span>
-            </div>
           </div>
         </div>
 
