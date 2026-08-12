@@ -133,7 +133,7 @@ export default function Modals({
       `*Mobile Number:* ${cleanPhone}\n` +
       `*Email ID:* ${cleanEmail}\n` +
       `*Target Program:* ${selectedProgram}\n` +
-      `*Center:* Ardee City, Sector 52, Gurgaon\n\n` +
+      `*Center:* House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon\n\n` +
       `Hi BmClasses, I have submitted my admission application on the website. Please contact me for my diagnostic session and counseling call.`;
 
     const encoded = encodeURIComponent(textMessage);

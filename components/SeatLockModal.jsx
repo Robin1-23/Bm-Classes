@@ -155,7 +155,7 @@ export default function SeatLockModal({ isOpen, onClose }) {
       `*Program Selected:* ${currentProgram.title} (${currentProgram.category || 'JEE & NEET'})\n` +
       `*Class Score:* ${marksPercentage}%\n` +
       `*Merit Scholarship:* ${scholarshipPercent}% Waiver Applied\n` +
-      `*Center:* Ardee City, Sector 52, Gurgaon\n\n` +
+      `*Center:* House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon\n\n` +
       `Hi BmClasses Senior HOD, I have locked a micro-batch seat on the website. Please confirm my diagnostic session and seat reservation.`;
 
     const encoded = encodeURIComponent(textMessage);

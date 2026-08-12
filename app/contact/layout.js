@@ -3,24 +3,23 @@ import React from 'react';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bm-classes.com';
 
 export const metadata = {
-  title: 'Best IIT JEE & NEET Coaching Center in Sector 52 Gurgaon | Contact BmClasses',
-  description: 'Visit the best IIT JEE coaching and best NEET coaching institute in Gurgaon Sector 52 & Ardee City. Book 1-on-1 diagnostic counseling with Senior Ex-HODs at B 38 Ground Floor Ardee City. Call +91 98998 18241.',
+  title: 'Contact Chemistry classes by BM sir | Sector 45 Gurgaon Center',
+  description: 'Visit Chemistry classes by BM sir at House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon. Book 1-on-1 diagnostic counseling with BM Sir. Call +91 98998 18241.',
   keywords: [
     'iit jee coaching in gurgaon',
     'best iit jee coaching in gurgaon',
     'neet coaching in gurgaon',
     'best neet coaching in gurgaon',
-    'best iit jee coaching in sector 52 gurgaon',
-    'best neet coaching in sector 52 gurgaon',
-    'best coaching in ardee city gurgaon',
-    'coaching institute in gurgaon sector 52',
+    'chemistry classes by bm sir sector 45',
+    'best coaching near dps 45 gurgaon',
+    'best coaching in sector 45 gurgaon',
   ],
   alternates: {
     canonical: `${siteUrl}/contact`,
   },
   openGraph: {
-    title: 'Contact BmClasses Gurgaon | Ardee City Sector 52 Studio',
-    description: 'Visit our center at B 38 Ground Floor Ardee City Sector 52 Gurgaon or call +91 98998 18241 for 1-on-1 Ex-HOD counseling.',
+    title: 'Contact Chemistry classes by BM sir | Sector 45 Gurgaon',
+    description: 'Visit our center at House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon or call +91 98998 18241 for 1-on-1 counseling.',
     url: `${siteUrl}/contact`,
     siteName: 'BmClasses Gurgaon',
     type: 'website',
@@ -31,12 +30,12 @@ export default function ContactLayout({ children }) {
   const jsonLdContactSchema = {
     '@context': 'https://schema.org',
     '@type': 'EducationalOrganization',
-    name: 'BmClasses Gurgaon',
+    name: 'Chemistry classes by BM sir',
     url: `${siteUrl}/contact`,
     telephone: '+919899818241',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'B 38, Ground Floor, Ardee City, Sector 52',
+      streetAddress: 'House no - 1411p, 1st floor, sec-45, near DPS-45 school',
       addressLocality: 'Gurgaon',
       addressRegion: 'Haryana',
       postalCode: '122003',

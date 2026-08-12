@@ -168,8 +168,8 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
               <div className="flex items-start gap-3 bg-zinc-950 border border-zinc-800/80 p-3.5 rounded-2xl">
                 <MapPin className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
                 <div className="leading-relaxed text-zinc-300 text-[11px]">
-                  <strong className="text-white block font-bold mb-0.5">4 Learning Centers in Gurgaon:</strong>
-                  Sec 45 (Near DPS) · Sec 47 (Malibu Towne) · Sec 46 · Sec 52 (Ardee City)
+                  <strong className="text-white block font-bold mb-0.5">Official Center Address:</strong>
+                  House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon
                 </div>
               </div>
 
@@ -257,7 +257,7 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
               <span>Admin Panel</span>
             </Link>
             <span>·</span>
-            <Link href="/contact" className="hover:text-cyan-400 transition-colors">Ardee City Sector 52 Gurgaon</Link>
+            <Link href="/contact" className="hover:text-cyan-400 transition-colors">Sector 45 Gurgaon Center</Link>
           </div>
         </div>
 

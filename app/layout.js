@@ -142,7 +142,7 @@ export default function RootLayout({ children }) {
     priceRange: '₹₹',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'B 38, Ground Floor, Ardee City, Sector 52',
+      streetAddress: 'House no - 1411p, 1st floor, sec-45, near DPS-45 school',
       addressLocality: 'Gurgaon',
       addressRegion: 'Haryana',
       postalCode: '122003',
@@ -234,7 +234,7 @@ export default function RootLayout({ children }) {
         name: 'Where is BmClasses located in Gurgaon?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'BmClasses is located at B 38, Ground Floor, Ardee City, Sector 52, Gurgaon, Haryana 122003 (Near Sector 52 Metro & Golf Course Extension Road).',
+          text: 'Chemistry classes by BM sir is located at House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon, Haryana 122003.',
         },
       },
       {

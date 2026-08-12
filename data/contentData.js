@@ -19,36 +19,16 @@ export const CENTER_INFO = {
   hours: 'Mon - Sun: 8:00 AM - 8:00 PM',
   rating: '4.9/5',
   reviewsCount: '120+ Parent Reviews',
-  googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=BM+Classes+Sector+45+Gurgaon',
+  address: 'House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon',
+  googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Chemistry+classes+by+BM+sir+House+no+-+1411p,+1st+floor,+sec-45,+near+DPS-45+school+Gurgaon',
   
   centres: [
     {
       id: 'center1',
-      name: 'Sector 45 Center (Near DPS)',
-      address: '303, Ayyachi Apartment, Sector 45, Gurgaon',
-      tag: 'Main Academic Hub',
-      landmark: 'Near DPS Sushant Lok, Gurgaon',
-    },
-    {
-      id: 'center2',
-      name: 'Sector 47 Center (Malibu Towne)',
-      address: 'OD-55, Malibu Towne, Sector 47, Gurgaon',
-      tag: 'Executive Studio',
-      landmark: 'Malibu Towne Gate 1, Gurgaon',
-    },
-    {
-      id: 'center3',
-      name: 'Sector 46 Center',
-      address: '2423, Sector 46, Gurgaon',
-      tag: 'Foundation Hub',
-      landmark: 'Sector 46 Market Road, Gurgaon',
-    },
-    {
-      id: 'center4',
-      name: 'Sector 52 Center (Ardee City)',
-      address: 'B 38, Ground Floor, Ardee City, Sector 52, Gurgaon',
-      tag: 'Ex-HOD Studio',
-      landmark: 'Ardee City Gate 1, Gurgaon',
+      name: 'Chemistry classes by BM sir',
+      address: 'House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon',
+      tag: 'Main Academic Center',
+      landmark: 'Near DPS-45 School, Sector 45, Gurgaon',
     },
   ],
 };

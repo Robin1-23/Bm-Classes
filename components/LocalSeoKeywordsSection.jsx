@@ -6,12 +6,12 @@ import ScrollReveal from '@/components/ScrollReveal';
 
 const LOCAL_FAQS = [
   {
-    question: 'Which is the best IIT JEE coaching institute in Gurgaon Sector 52 & Ardee City?',
-    answer: 'BmClasses (located at B 38, Ground Floor, Ardee City, Sector 52, Gurgaon) is widely recognized as the #1 Best IIT JEE Coaching Institute in Gurgaon. It features 100% direct teaching by Senior Ex-HODs of FIITJEE & VMC in capped 10-15 student micro-batches, producing top AIR 18, 22, 52 & 102 ranks.',
+    question: 'Where is Chemistry classes by BM sir located in Gurgaon?',
+    answer: 'Chemistry classes by BM sir is located at House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon, Haryana 122003. It features 100% direct teaching by BM Sir & Senior Ex-HODs of FIITJEE & VMC in capped 10-15 student micro-batches, producing top AIR 18, 22, 52 & 102 ranks.',
   },
   {
     question: 'Which is the best NEET coaching institute in Gurgaon for Class 11, 12 & Droppers?',
-    answer: 'BmClasses offers Gurgaon’s top-rated NEET UG Medical Excellence batch taught by Senior Ex-FIITJEE & VMC Biology & Chemistry HODs. With 350+ NEET score track records and NCERT line-by-line mastery, BmClasses provides personalized doubt clearing for medical aspirants in Sector 52, Sector 45 & Sector 47 Gurgaon.',
+    answer: 'Chemistry classes by BM sir offers Gurgaon’s top-rated NEET UG Medical Excellence batch taught by Senior Ex-FIITJEE & VMC Biology & Chemistry HODs. With 350+ NEET score track records and NCERT line-by-line mastery, personalized doubt clearing is provided for medical aspirants at Sector 45 Gurgaon near DPS-45 school.',
   },
   {
     question: 'What makes BmClasses different from mass coaching centers in Gurgaon like FIITJEE, VMC & Allen?',

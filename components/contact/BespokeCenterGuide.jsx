@@ -36,18 +36,18 @@ export default function BespokeCenterGuide() {
   const landmarks = [
     {
       from: 'From Huda City Centre Metro',
-      dist: '7 Mins (2.8 km)',
-      desc: 'Drive via Sector 52 Main Road into Ardee City Gate 1. First left to Block B 38.',
+      dist: '5 Mins (1.8 km)',
+      desc: 'Drive via Sector 45 Main Road towards DPS-45 School. House no - 1411p, 1st floor.',
     },
     {
-      from: 'From Golf Course Road / Sec 56',
-      dist: '10 Mins (4.2 km)',
-      desc: 'Head south towards Sec 52/53 road. Enter Ardee City Gate 2 near Ardee Mall.',
+      from: 'From Golf Course Road / Sec 43',
+      dist: '7 Mins (2.5 km)',
+      desc: 'Head west via Golf Course Road into Sector 45. Located near DPS-45 School.',
     },
     {
       from: 'From Sohna Road / Subhash Chowk',
-      dist: '12 Mins (5.5 km)',
-      desc: 'Via Netaji Subhash Marg towards Sector 52. Dedicated parent parking available.',
+      dist: '10 Mins (4.0 km)',
+      desc: 'Via Netaji Subhash Marg towards Sector 45. Dedicated parent parking available.',
     },
   ];
 

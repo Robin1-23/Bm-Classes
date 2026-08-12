@@ -13,9 +13,9 @@ export default function ContactPage() {
   return (
     <>
       <PageHeader 
-        badgeText="ARDEE CITY GROUND FLOOR"
-        title="Visit BmClasses Gurgaon Studio & Meet Ex-HODs"
-        subtitle="Book a direct 1-on-1 diagnostic counseling session with Senior HODs at our Ardee City, Sector 52 center."
+        badgeText="SECTOR 45 GURGAON CENTER"
+        title="Visit Chemistry classes by BM sir"
+        subtitle="Book a direct 1-on-1 diagnostic counseling session at House no - 1411p, 1st floor, sec-45, near DPS-45 school."
         breadcrumb="Contact Us"
       />
       <BespokeCenterGuide />

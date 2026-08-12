@@ -11,18 +11,18 @@ export default function CenterLocationSection({ onOpenRegister }) {
   const handleRegister = onOpenRegister || modal.openRegister;
   const [copied, setCopied] = useState(false);
 
-  const centerAddress = "B 38, Ground Floor, Ardee City, Sector 52, Gurgaon, Haryana 122003";
-  const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=BmClasses+Ardee+City+Sector+52+Gurgaon";
+  const centerAddress = "House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon, Haryana 122003";
+  const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Chemistry+classes+by+BM+sir+House+no+-+1411p,+1st+floor,+sec-45,+near+DPS-45+school+Gurgaon";
   const phoneUrl = "tel:+919899818241";
-  const whatsappUrl = "https://wa.me/919899818241?text=Hi%20BmClasses%2C%20I%20would%20like%20to%20schedule%20a%20center%20visit%20at%20Ardee%20City%20Sector%2052.";
+  const whatsappUrl = "https://wa.me/919899818241?text=Hi%20BM%20Sir%2C%20I%20would%20like%20to%20schedule%20a%20center%20visit%20at%20House%20no%20-%201411p%2C%201st%20floor%2C%20sec-45%2C%20near%20DPS-45%20school.";
 
   const shareText = encodeURIComponent(
-    "Check out BmClasses Gurgaon — Premier JEE Advanced, JEE Main & NEET coaching taught 100% directly by Ex-HODs of FIITJEE & VMC in capped 10-15 student micro-batches!\n\n📍 Center: B 38, Ardee City, Sector 52, Gurgaon\n📞 Contact: +91 98998 18241"
+    "Check out Chemistry classes by BM sir — Premier JEE Advanced, JEE Main & NEET coaching taught 100% directly by BM Sir & Senior Ex-HODs in capped 10-15 student micro-batches!\n\n📍 Center: House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon\n📞 Contact: +91 98998 18241"
   );
   const whatsappShareUrl = `https://api.whatsapp.com/send?text=${shareText}`;
 
   const handleCopyDetails = () => {
-    navigator.clipboard.writeText(`BmClasses Gurgaon\nAddress: ${centerAddress}\nPhone: +91 98998 18241`);
+    navigator.clipboard.writeText(`Chemistry classes by BM sir\nAddress: ${centerAddress}\nPhone: +91 98998 18241`);
     setCopied(true);
     setTimeout(() => setCopied(false), 3000);
   };
@@ -39,15 +39,15 @@ export default function CenterLocationSection({ onOpenRegister }) {
         <ScrollReveal delay={100} direction="up" className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-800/40 text-cyan-400 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-            <span>GURGAON CENTER LOCATION</span>
+            <span>GURGAON ACADEMIC CENTER</span>
           </div>
           
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.15]">
-            Visit Our <span className="font-serif italic font-normal text-cyan-300">Gurgaon Campuses</span>
+            Visit Our <span className="font-serif italic font-normal text-cyan-300">Gurgaon Center</span>
           </h2>
           
           <p className="text-zinc-300 text-base sm:text-lg mt-3 font-medium leading-relaxed max-w-xl mx-auto">
-            Conveniently located in Sector 45, 46, 47 & 52 Gurgaon. Easy access for students from Sushant Lok, Golf Course Road, and Huda City Centre.
+            Conveniently located in Sector 45 Gurgaon near DPS-45 school. Easy access for students from Sushant Lok, Golf Course Road, Sector 46, 47 & 52.
           </p>
         </ScrollReveal>
 
@@ -62,7 +62,7 @@ export default function CenterLocationSection({ onOpenRegister }) {
                 <div className="flex items-center justify-between pb-4 border-b border-zinc-800 mb-6">
                   <span className="text-[10px] font-black uppercase tracking-wider bg-cyan-950/60 text-cyan-400 border border-cyan-800/40 px-3 py-1 rounded-full flex items-center gap-1.5">
                     <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
-                    MAIN ACADEMIC CAMPUS
+                    OFFICIAL ACADEMIC CENTER
                   </span>
                   <span className="text-xs font-black text-emerald-400 flex items-center gap-1">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -71,23 +71,14 @@ export default function CenterLocationSection({ onOpenRegister }) {
                 </div>
 
                 <h3 className="font-heading text-2xl font-black text-white mb-3">
-                  BM CLASSES Gurgaon Hubs
+                  Chemistry classes by BM sir
                 </h3>
 
                 <div className="space-y-2.5 mb-6 text-xs font-semibold text-zinc-300">
-                  <div className="bg-black border border-zinc-800 p-3 rounded-2xl">
-                    <span className="text-[10px] font-black text-cyan-400 uppercase block">CENTRE 1 (MAIN HUB)</span>
-                    <span className="leading-snug text-white font-extrabold block">303, Ayyachi Apartment, Sector 45, Gurgaon (Near DPS)</span>
-                  </div>
-
-                  <div className="bg-black border border-zinc-800 p-3 rounded-2xl">
-                    <span className="text-[10px] font-black text-cyan-400 uppercase block">CENTRE 2 (MALIBU TOWNE)</span>
-                    <span className="leading-snug text-white font-extrabold block">OD-55, Malibu Towne, Sector 47, Gurgaon</span>
-                  </div>
-
-                  <div className="bg-black border border-zinc-800 p-3 rounded-2xl">
-                    <span className="text-[10px] font-black text-cyan-400 uppercase block">CENTRE 3 & 4</span>
-                    <span className="leading-snug text-white font-extrabold block">2423, Sector 46 & B 38 Ground Floor, Ardee City, Sector 52</span>
+                  <div className="bg-black border border-zinc-800 p-4 rounded-2xl">
+                    <span className="text-[10px] font-black text-cyan-400 uppercase block mb-1">OFFICIAL CENTER ADDRESS</span>
+                    <span className="leading-snug text-white font-extrabold text-sm block">House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon</span>
+                    <span className="text-zinc-400 text-xs mt-1 block">Landmark: Near DPS-45 School</span>
                   </div>
 
                   <div className="grid grid-cols-2 gap-2 text-xs pt-1">
@@ -158,7 +149,7 @@ export default function CenterLocationSection({ onOpenRegister }) {
               <div className="bg-black border-b border-zinc-800 px-5 py-3.5 flex items-center justify-between z-10">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-cyan-400" />
-                  <span className="font-heading font-black text-xs text-white">Ardee City Sector 52 Center</span>
+                  <span className="font-heading font-black text-xs text-white">Sector 45 Center (Near DPS-45 School)</span>
                 </div>
                 <span className="text-[10px] font-mono font-bold text-zinc-400">Gurgaon, Haryana</span>
               </div>
@@ -166,7 +157,7 @@ export default function CenterLocationSection({ onOpenRegister }) {
               {/* Embedded Google Map iFrame */}
               <div className="w-full h-full min-h-[300px] lg:min-h-[380px] relative bg-zinc-900">
                 <iframe
-                  title="BmClasses Gurgaon Ardee City Location"
+                  title="Chemistry classes by BM sir Gurgaon Location"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3509.123456789!2d77.08!3d28.44!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDI2JzI0LjAiTiA3N8KwMDQnNDguMCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
