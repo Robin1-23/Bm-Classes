@@ -72,30 +72,64 @@ export default function LocalSeoKeywordsSection() {
           </ScrollReveal>
         </div>
 
-        {/* Local Target Search Keywords Badges Grid */}
-        <ScrollReveal delay={250} direction="up" className="mb-16">
-          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 max-w-4xl mx-auto">
-            {[
-              'Best IIT JEE Coaching in Gurgaon',
-              'Best NEET Coaching in Gurgaon',
-              'Best IIT JEE Coaching in Sector 52 Gurgaon',
-              'Best NEET Coaching in Sector 52 Gurgaon',
-              'Top IIT JEE Coaching Institute Ardee City',
-              'JEE Main & Advanced Coaching Gurgaon',
-              'NEET UG Medical Coaching Gurgaon',
-              'Class 11 & 12 Integrated Coaching Gurgaon',
-              'Class 12 Pass Dropper Ranker Batch Gurgaon',
-              'Class 9th & 10th Foundation Coaching Gurgaon',
-              'Ex-FIITJEE & VMC HOD Coaching Gurgaon',
-            ].map((kw, idx) => (
-              <div 
-                key={idx}
-                className="bg-white border-2 border-slate-200/90 hover:border-indigo-500 px-3.5 py-2 rounded-2xl text-xs sm:text-sm font-extrabold text-slate-800 shadow-2xs hover:shadow-md hover:-translate-y-0.5 transition-all flex items-center gap-2 cursor-default"
-              >
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                <span>{kw}</span>
+        {/* Local Target Search Keywords — Dual-Row Smooth Marquee Ticker */}
+        <ScrollReveal delay={250} direction="up" className="mb-16 -mx-4 sm:-mx-6">
+          <div className="overflow-hidden py-2 space-y-3.5 w-full">
+            {/* Row 1: Leftward Marquee */}
+            <div className="flex overflow-hidden group">
+              <div className="flex shrink-0 animate-marquee items-center gap-3">
+                {[
+                  'Best IIT JEE Coaching in Gurgaon',
+                  'Best NEET Coaching in Gurgaon',
+                  'Best IIT JEE Coaching in Sector 52 Gurgaon',
+                  'Best NEET Coaching in Sector 52 Gurgaon',
+                  'Top IIT JEE Coaching Institute Ardee City',
+                  'JEE Main & Advanced Coaching Gurgaon',
+                  'Best IIT JEE Coaching in Gurgaon',
+                  'Best NEET Coaching in Gurgaon',
+                  'Best IIT JEE Coaching in Sector 52 Gurgaon',
+                  'Best NEET Coaching in Sector 52 Gurgaon',
+                  'Top IIT JEE Coaching Institute Ardee City',
+                  'JEE Main & Advanced Coaching Gurgaon',
+                ].map((kw, idx) => (
+                  <div 
+                    key={idx}
+                    className="bg-white border-2 border-slate-200/90 hover:border-indigo-500 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-extrabold text-slate-900 shadow-2xs hover:shadow-md transition-all flex items-center gap-2 shrink-0 cursor-default"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                    <span>{kw}</span>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Row 2: Rightward Marquee (Reverse) */}
+            <div className="flex overflow-hidden group">
+              <div className="flex shrink-0 animate-marquee-reverse items-center gap-3">
+                {[
+                  'NEET UG Medical Coaching Gurgaon',
+                  'Class 11 & 12 Integrated Coaching Gurgaon',
+                  'Class 12 Pass Dropper Ranker Batch Gurgaon',
+                  'Class 9th & 10th Foundation Coaching Gurgaon',
+                  'Ex-FIITJEE & VMC HOD Coaching Gurgaon',
+                  'Chemistry classes by BM sir Gurgaon',
+                  'NEET UG Medical Coaching Gurgaon',
+                  'Class 11 & 12 Integrated Coaching Gurgaon',
+                  'Class 12 Pass Dropper Ranker Batch Gurgaon',
+                  'Class 9th & 10th Foundation Coaching Gurgaon',
+                  'Ex-FIITJEE & VMC HOD Coaching Gurgaon',
+                  'Chemistry classes by BM sir Gurgaon',
+                ].map((kw, idx) => (
+                  <div 
+                    key={idx}
+                    className="bg-indigo-950 text-white border-2 border-indigo-800 hover:border-cyan-400 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-extrabold shadow-md transition-all flex items-center gap-2 shrink-0 cursor-default"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                    <span>{kw}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </ScrollReveal>
 

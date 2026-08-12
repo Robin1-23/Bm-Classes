@@ -176,17 +176,17 @@ export default function ResultsSection() {
           </p>
         </ScrollReveal>
 
-        {/* AIR Rank Trophies */}
+        {/* AIR Rank Trophies: 2 Columns on Mobile, Flex Wrap on Desktop */}
         <ScrollReveal delay={150} direction="up">
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-14 sm:mb-18">
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap justify-center gap-2.5 sm:gap-3.5 mb-14 sm:mb-18 max-w-4xl mx-auto">
             {ranks.map((rank, idx) => (
               <div 
                 key={idx}
-                className="bg-zinc-950 text-white px-5 sm:px-6 py-3 rounded-2xl font-heading font-black text-xs sm:text-sm tracking-wide flex items-center gap-2.5 border-2 border-zinc-800 hover:border-cyan-400 shadow-md hover:scale-105 transition-all cursor-default"
+                className="bg-zinc-950 text-white px-3 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-heading font-black text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 border-2 border-zinc-800 hover:border-cyan-400 shadow-md hover:scale-105 transition-all cursor-default text-center"
               >
-                <Trophy className="w-4 h-4 text-cyan-400" />
-                <span>JEE ADVANCED</span>
-                <span className="text-cyan-300 font-bold">{rank}</span>
+                <Trophy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0" />
+                <span className="text-zinc-400 text-[10px] sm:text-xs">JEE ADV</span>
+                <span className="text-cyan-300 font-extrabold">{rank}</span>
               </div>
             ))}
           </div>
