@@ -50,7 +50,7 @@ export default function FacultySection({ onOpenRegister }) {
                     <div className="flex items-center justify-between pb-3.5 border-b border-slate-200/70 mb-4">
                       <div className="relative">
                         {mentor.image ? (
-                          <div className="w-16 h-16 rounded-full overflow-hidden shadow-lg border-2 border-white ring-4 ring-indigo-500/15 group-hover:scale-105 transition-all duration-300 bg-slate-950">
+                          <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden shadow-xl border-2 border-white ring-4 ring-indigo-500/20 group-hover:scale-105 transition-all duration-300 bg-slate-950">
                             <img 
                               src={mentor.image} 
                               alt={mentor.name} 
@@ -58,11 +58,11 @@ export default function FacultySection({ onOpenRegister }) {
                             />
                           </div>
                         ) : (
-                          <div className="w-16 h-16 rounded-full bg-slate-950 text-white font-heading font-black text-xl flex items-center justify-center shadow-lg border-2 border-white ring-4 ring-indigo-500/15 group-hover:scale-105 transition-transform">
+                          <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full bg-slate-950 text-white font-heading font-black text-2xl flex items-center justify-center shadow-xl border-2 border-white ring-4 ring-indigo-500/20 group-hover:scale-105 transition-transform">
                             {mentor.initials}
                           </div>
                         )}
-                        <span className="absolute bottom-0 right-0 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full shadow-xs"></span>
+                        <span className="absolute bottom-0.5 right-0.5 w-4.5 h-4.5 bg-emerald-500 border-2 border-white rounded-full shadow-xs"></span>
                       </div>
 
                       <span className={`inline-flex items-center gap-1 ${theme.badge} px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider shadow-xs`}>
