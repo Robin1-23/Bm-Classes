@@ -242,7 +242,23 @@ export default function RootLayout({ children }) {
         name: 'What coaching courses are offered at BmClasses Gurgaon?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'BmClasses offers Class 9th & 10th Foundation/Olympiad batches, Class 11th 2-Year JEE & NEET integrated batches, Class 12th 1-Year Pinnacle batches, and XII Pass / Dropper Intensive Ranker batches.',
+          text: 'BmClasses offers Class 6th, 7th & 8th Science foundation, Class 9th & 10th Foundation/Olympiad batches, Class 11th 2-Year JEE & NEET integrated batches, Class 12th 1-Year Pinnacle batches, and XII Pass / Dropper Intensive Ranker batches.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Do Senior Ex-HODs teach every single lecture at BmClasses?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'At BM Classes, 100% of lectures, doubt-solving sessions, and test reviews are conducted personally by BM Sir, Konika Ma\'am & Chumki Ma\'am. We maintain a strict zero junior assistant policy.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Are 1-on-1 personalized & online classes available for Class 6th, 7th & 8th Science?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes! Chumki Ma\'am (22 Years Exp — 18 Yrs FIITJEE, 2 Yrs NIIT e-Gurucool, 2 Yrs PMT OASIS) conducts specialized 1-on-1 personalized and micro-batch online/offline Science classes for Class 6th, 7th & 8th students.',
         },
       },
       {
