@@ -15,10 +15,10 @@ export default function FacultySection({ onOpenRegister }) {
   const videoRef = useRef(null);
 
   const cardThemes = [
-    { bg: 'bg-[#f8fafc]', border: 'border-slate-200/90 hover:border-indigo-500', badge: 'bg-indigo-600 text-white', videoUrl: '/videos/learning1.mp4', sampleTitle: 'BM Sir Physics Reel' },
-    { bg: 'bg-[#f0fdf4]', border: 'border-emerald-200/90 hover:border-emerald-500', badge: 'bg-emerald-600 text-white', videoUrl: '/videos/learning2.mp4', sampleTitle: 'Konika Mam Chemistry Reel' },
-    { bg: 'bg-[#eef2ff]', border: 'border-indigo-200/90 hover:border-indigo-500', badge: 'bg-indigo-600 text-white', videoUrl: '/videos/learn4.mp4', sampleTitle: 'Math HOD Pedagogy Reel' },
-    { bg: 'bg-[#faf5ff]', border: 'border-purple-200/90 hover:border-purple-500', badge: 'bg-purple-600 text-white', videoUrl: '/videos/learn3.mp4', sampleTitle: 'Biology HOD Micro-Batch Reel' },
+    { bg: 'bg-[#f8fafc]', border: 'border-slate-200/90 hover:border-indigo-500', badge: 'bg-indigo-600 text-white', videoUrl: '/videos/learn3.mp4', sampleTitle: 'BM Sir Chemistry Teaching Reel' },
+    { bg: 'bg-[#f0fdf4]', border: 'border-emerald-200/90 hover:border-emerald-500', badge: 'bg-emerald-600 text-white', videoUrl: '/videos/learning1.mp4', sampleTitle: 'Konika Mam Biology Teaching Reel' },
+    { bg: 'bg-[#eef2ff]', border: 'border-indigo-200/90 hover:border-indigo-500', badge: 'bg-indigo-600 text-white', videoUrl: '/videos/learn4.mp4', sampleTitle: 'BM Sir Chemistry Strategy Reel' },
+    { bg: 'bg-[#faf5ff]', border: 'border-purple-200/90 hover:border-purple-500', badge: 'bg-purple-600 text-white', videoUrl: '/videos/learning2.mp4', sampleTitle: 'Konika Mam Classroom Reel' },
   ];
 
   return (
