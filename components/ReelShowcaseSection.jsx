@@ -60,41 +60,41 @@ const REELS = [
   },
   {
     id: 5,
-    title: 'Chemistry Problem Solving Hacks',
-    faculty: 'BM SIR',
-    role: 'HOD Chemistry (20+ Yrs Exp)',
+    title: 'Biology & Chemistry Concept Hacks',
+    faculty: 'KONIKA MAM',
+    role: 'Head of Biology & Chemistry (20 Yrs Exp)',
     videoUrl: '/videos/learn5.mp4',
-    badgeColor: 'from-cyan-500 to-blue-600',
-    borderColor: 'border-cyan-400/40',
-    accentText: 'text-cyan-400',
-    btnColor: 'bg-cyan-400 text-slate-950 hover:bg-cyan-300',
-    tag: 'CHEMISTRY',
+    badgeColor: 'from-pink-500 to-purple-600',
+    borderColor: 'border-pink-400/40',
+    accentText: 'text-pink-400',
+    btnColor: 'bg-pink-500 text-white hover:bg-pink-400',
+    tag: 'KONIKA MAM',
     duration: '0:38',
   },
   {
     id: 6,
-    title: 'Class 6, 7 & 8 Science Concepts',
-    faculty: 'CHUMKI MAM',
-    role: 'Science Lead (22 Yrs Exp)',
+    title: 'Organic & Physical Chemistry Hacks',
+    faculty: 'BM SIR',
+    role: 'Ex-FIITJEE & VMC HOD Chemistry (20+ Yrs Exp)',
     videoUrl: '/videos/learn6.mp4',
-    badgeColor: 'from-purple-500 to-pink-600',
-    borderColor: 'border-purple-400/40',
-    accentText: 'text-purple-400',
-    btnColor: 'bg-purple-500 text-white hover:bg-purple-400',
-    tag: 'SCIENCE 6-8',
+    badgeColor: 'from-cyan-500 to-indigo-600',
+    borderColor: 'border-cyan-400/40',
+    accentText: 'text-cyan-400',
+    btnColor: 'bg-cyan-400 text-slate-950 hover:bg-cyan-300',
+    tag: 'BM SIR',
     duration: '0:34',
   },
   {
     id: 7,
-    title: 'Interactive Classroom Masterclass',
+    title: 'JEE Advanced Chemistry Problem Solving',
     faculty: 'BM SIR',
-    role: 'Senior Ex-HOD Mentorship',
+    role: 'Ex-Academic Head VMC & Ex-FIITJEE',
     videoUrl: '/videos/learn7.mp4',
     badgeColor: 'from-amber-500 to-orange-600',
     borderColor: 'border-amber-400/40',
     accentText: 'text-amber-400',
     btnColor: 'bg-amber-400 text-slate-950 hover:bg-amber-300',
-    tag: 'CLASSROOM',
+    tag: 'BM SIR',
     duration: '0:42',
   },
 ];
@@ -218,13 +218,8 @@ export default function ReelShowcaseSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-black/60 pointer-events-none"></div>
                 </div>
 
-                {/* Top Badge Overlay */}
-                <div className="relative z-10 p-4 flex items-center justify-between">
-                  <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/90 border ${reel.borderColor} backdrop-blur-md text-[11px] font-black text-white`}>
-                    <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${reel.badgeColor} animate-pulse`}></div>
-                    <span>{reel.tag}</span>
-                  </div>
-
+                {/* Top Overlay: Duration Only */}
+                <div className="relative z-10 p-4 flex items-center justify-end">
                   <span className="text-[11px] font-black text-zinc-300 bg-black/70 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/10">
                     {reel.duration}
                   </span>
