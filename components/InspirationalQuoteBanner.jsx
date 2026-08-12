@@ -17,13 +17,6 @@ export default function InspirationalQuoteBanner() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10 text-center">
         
-        <ScrollReveal delay={100} direction="down">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-black uppercase tracking-wider mb-6 shadow-sm">
-            <span className="text-base leading-none">🧠</span>
-            <span>MOTIVATION FOR JEE & NEET ASPIRANTS</span>
-          </div>
-        </ScrollReveal>
-
         <ScrollReveal delay={150} direction="up">
           <h2 className="font-serif italic text-2xl sm:text-4xl lg:text-5xl font-normal text-amber-100 tracking-tight leading-tight sm:leading-snug max-w-4xl mx-auto mb-6">
             “Arise, awake, and stop not till the goal is reached.”
