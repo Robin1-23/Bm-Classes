@@ -66,14 +66,9 @@ export default function Header({ onOpenRegister }) {
               />
             </div>
 
-            <div className="flex flex-col">
-              <span className="font-heading font-black text-base sm:text-lg tracking-tight text-white group-hover:text-cyan-300 transition-colors leading-none">
-                BM CLASSES
-              </span>
-              <span className="text-[9px] font-black tracking-widest text-cyan-400 uppercase mt-0.5">
-                EX-HOD ACADEMY
-              </span>
-            </div>
+            <span className="font-heading font-black text-lg sm:text-xl tracking-[0.04em] uppercase text-white group-hover:text-cyan-300 transition-colors drop-shadow-sm">
+              BM CLASSES
+            </span>
           </Link>
 
           {/* Center: Desktop Nav Capsule with Pure White Text (Increased Font Size) */}
