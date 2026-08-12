@@ -59,7 +59,7 @@ export default function WhySection({ hidePedagogy = false }) {
       subtitle: 'Who is standing at the board every single day?',
       bmclasses: {
         headline: '100% Taught Directly by Ex-HODs',
-        details: 'Dhirendra Pratap Singh (Ex-FIITJEE HOD) & Bighnaraj Mishra (Ex-VMC HOD) teach every single lecture.',
+        details: 'BM Sir (Ex-VMC HOD), Konika Ma’am & Chumki Ma’am (Ex-FIITJEE) teach every single lecture.',
         attentionScore: 98,
         doubtSpeed: 'Same-Day Board Resolution',
         badge: 'EX-FIITJEE & VMC HODs',

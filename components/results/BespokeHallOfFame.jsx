@@ -18,7 +18,7 @@ export default function BespokeHallOfFame() {
       badgeBg: 'bg-cyan-400 text-black',
       bullets: [
         '1-on-1 Math pattern twist mentorship',
-        'Direct guidance under Director Dhirendra Sir',
+        'Direct guidance under Senior Ex-HOD Mentors',
         'Mastered 45-second question symmetry',
       ],
       school: 'DPS Gurgaon Sec 45',

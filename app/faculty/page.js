@@ -16,7 +16,7 @@ export default function FacultyPage() {
       <PageHeader 
         badgeText="100% EX-FIITJEE & VMC HODs"
         title="Learn Directly from Legendary Subject Leads"
-        subtitle="No junior teaching assistants or swapped faculties. Dhirendra Pratap Singh and Bighnaraj Mishra teach every single lecture."
+        subtitle="No junior teaching assistants or swapped faculties. BM Sir, Konika Ma’am & Chumki Ma’am teach every single lecture."
         breadcrumb="Ex-HOD Faculty"
       />
       <FacultyIntroVideoCard 

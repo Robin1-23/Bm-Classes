@@ -46,7 +46,7 @@ export default function BespokeProgramRoadmap() {
         'Weekly Full-Length CBT Mocks with AI Telemetry',
         'Question-wise time & negative marking reduction',
         'Personalized weak-topic revision roadmaps',
-        '1-on-1 strategy calls with Director Dhirendra Sir',
+        '1-on-1 strategy calls with Senior Ex-HOD Mentors',
       ],
     },
   ];

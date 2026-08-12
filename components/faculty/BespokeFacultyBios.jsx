@@ -10,24 +10,7 @@ export default function BespokeFacultyBios() {
 
   const mentors = [
     {
-      name: 'Dhirendra Pratap Singh',
-      role: 'Director & HOD Mathematics',
-      pedagogyFocus: 'JEE Advanced Math & Structural Symmetry',
-      experience: '15+ Yrs Exp',
-      exRole: 'Ex-HOD FIITJEE Gurgaon',
-      education: 'IIT Graduate Alumni',
-      topRanks: 'AIR 22, AIR 52, AIR 114',
-      badgeBg: 'bg-indigo-600 text-white',
-      bio: '15+ years cracking JEE Advanced math. Trains students to spot hidden structural symmetry in unseen exam questions within 45 seconds.',
-      methods: [
-        'Curates 15 high-yield Advanced Qs per chapter',
-        'Elimination techniques for multi-correct Qs',
-        'Weekly 1-on-1 math speed telemetry reviews',
-      ],
-      quote: '"Math in JEE Advanced is about recognizing structural symmetry in unseen questions in 45 seconds."',
-    },
-    {
-      name: 'Bighnaraj Mishra',
+      name: 'Bighnaraj Mishra (BM Sir)',
       role: 'Senior HOD Chemistry',
       pedagogyFocus: 'Organic Mechanisms & Inorganic Mnemonics',
       experience: '20+ Yrs Exp',
@@ -44,21 +27,38 @@ export default function BespokeFacultyBios() {
       quote: '"Organic chemistry clicks the moment you understand electron flow. Stop memorizing reaction tables."',
     },
     {
-      name: 'Abhimanyu Jangra',
-      role: 'Senior Physics Faculty Lead',
-      pedagogyFocus: 'Classical Mechanics & Electrodynamics',
-      experience: '12+ Yrs Exp',
-      exRole: 'Ex-FIITJEE Senior Faculty',
-      education: 'NIT Graduate Alumni',
-      topRanks: 'AIR 350, AIR 1146',
-      badgeBg: 'bg-emerald-500 text-white',
-      bio: '12+ years building physical intuition. Trains students to visualize 3D physics scenarios before applying calculus or vector algebra.',
+      name: 'Konika Ma\'am',
+      role: 'Head of Biology',
+      pedagogyFocus: 'NEET UG Botany & Zoology NCERT Mastery',
+      experience: '20 Yrs Exp',
+      exRole: 'Ex-FIITJEE & DPS Faculty',
+      education: 'Senior Bio Specialist',
+      topRanks: '350+ NEET Bio Specialist',
+      badgeBg: 'bg-emerald-600 text-white',
+      bio: '20 years guiding NEET aspirants. Line-by-line NCERT diagram breakdowns and high-yield Botany & Zoology conceptual clarity.',
       methods: [
-        '3D multi-body vector diagram techniques',
-        'High-yield numerical problem solving',
-        'Same-day board resolution for complex physics',
+        'Line-by-line NCERT biology diagram mastery',
+        'High-speed NEET Botany & Zoology mock drills',
+        'Zero-error assertion & reasoning training',
       ],
-      quote: '"Physics is physical intuition backed by mathematical precision. If you cannot visualize motion, formulas won’t save you."',
+      quote: '"360/360 in NEET Biology comes from mastering NCERT diagrams line by line without skipping context."',
+    },
+    {
+      name: 'Chumki Ma\'am',
+      role: 'Science Lead (Class 6th, 7th & 8th)',
+      pedagogyFocus: 'Class 6, 7 & 8 Science & 1-on-1 Online Batches',
+      experience: '22 Yrs Exp',
+      exRole: '18 Yrs FIITJEE · 2 Yrs NIIT · 2 Yrs PMT OASIS',
+      education: 'Senior Science Educator',
+      topRanks: 'Foundation & Junior Science Lead',
+      badgeBg: 'bg-pink-600 text-white',
+      bio: '22 years teaching experience (18 Years at FIITJEE, 2 Years at NIIT e-Gurucool, 2 Years at PMT OASIS). Offers small batch and 1-on-1 personalized online and offline classes for Class 6th, 7th & 8th Science.',
+      methods: [
+        'Dedicated 1-on-1 personalized online classes',
+        'Micro-batch foundation concept building',
+        'Interactive 3D science experiment visualizations',
+      ],
+      quote: '"A strong science foundation in Class 6th to 8th unlocks effortless success in Class 11th JEE & NEET."',
     },
   ];
 
@@ -75,7 +75,7 @@ export default function BespokeFacultyBios() {
             Learn Directly from Senior Ex-HODs
           </h2>
           <p className="text-slate-600 text-xs sm:text-sm font-medium mt-1">
-            Zero junior TAs. Zero demo swaps. Dhirendra Sir & Mishra Sir teach 100% of lectures.
+            Zero junior TAs. Zero demo swaps. BM Sir, Konika Ma’am & Chumki Ma’am teach 100% of lectures.
           </p>
         </ScrollReveal>
 

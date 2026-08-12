@@ -36,10 +36,10 @@ export default function FacultyLayout({ children }) {
         position: 1,
         item: {
           '@type': 'Person',
-          name: 'Senior Physics Ex-HOD',
-          jobTitle: 'HOD Physics & Founder Mentor',
+          name: 'Bighnaraj Mishra (BM Sir)',
+          jobTitle: 'Senior HOD Chemistry',
           worksFor: { '@type': 'EducationalOrganization', name: 'BmClasses Gurgaon' },
-          description: 'Ex-HOD FIITJEE with 20+ years experience producing AIR 18, 22, 52 top ranks in JEE Advanced Physics.',
+          description: 'Ex-HOD VMC with 20+ years experience specializing in Organic & Physical Chemistry for JEE & NEET.',
         },
       },
       {
@@ -47,10 +47,10 @@ export default function FacultyLayout({ children }) {
         position: 2,
         item: {
           '@type': 'Person',
-          name: 'Senior Chemistry Ex-HOD',
-          jobTitle: 'HOD Chemistry & Co-Founder Mentor',
+          name: 'Konika Ma\'am',
+          jobTitle: 'Head of Biology',
           worksFor: { '@type': 'EducationalOrganization', name: 'BmClasses Gurgaon' },
-          description: 'Ex-HOD VMC with 18+ years experience specializing in Organic & Physical Chemistry for JEE & NEET.',
+          description: 'Senior Biology Specialist with 20 years experience in NEET UG Botany & Zoology.',
         },
       },
       {
@@ -58,10 +58,10 @@ export default function FacultyLayout({ children }) {
         position: 3,
         item: {
           '@type': 'Person',
-          name: 'Senior Mathematics Ex-HOD',
-          jobTitle: 'HOD Mathematics',
+          name: 'Chumki Ma\'am',
+          jobTitle: 'Science Lead (Class 6th, 7th & 8th)',
           worksFor: { '@type': 'EducationalOrganization', name: 'BmClasses Gurgaon' },
-          description: 'Ex-HOD FIITJEE with 19+ years experience mentoring 1000+ IITians in Calculus & Algebra.',
+          description: '22 years experience (18 Yrs FIITJEE, 2 Yrs NIIT e-Gurucool, 2 Yrs PMT OASIS) offering online & 1-on-1 classes for Class 6th, 7th & 8th Science.',
         },
       },
     ],
