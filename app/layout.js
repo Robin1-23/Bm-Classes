@@ -246,9 +246,9 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Calistoga&family=Chonburi&family=Geist:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" 
           rel="stylesheet" 
         />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="icon" href="/icon.png" type="image/png" />
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.png" type="image/png" sizes="192x192" />
+        <link rel="apple-touch-icon" href="/icon.png" />
         <meta name="google-site-verification" content="Fq-s47d0ftSJBLa5q6IbNPpc3H-HVjL3E2FqVasZaZg" />
 
         {/* JSON-LD Master Organization & FAQ Schemas */}
