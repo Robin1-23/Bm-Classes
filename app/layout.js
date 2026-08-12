@@ -6,10 +6,10 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bm-classes.com'
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Best IIT JEE Coaching in Gurgaon | Best NEET Coaching in Gurgaon | BmClasses',
-    template: '%s | BmClasses Gurgaon',
+    default: 'BM Classes Gurgaon | Best IIT JEE Coaching & Best NEET Coaching',
+    template: '%s | BM Classes Gurgaon',
   },
-  description: 'BmClasses is the #1 Best IIT JEE Coaching in Gurgaon & Best NEET Coaching in Gurgaon for Class 9th, 10th, 11th, 12th & Droppers. Taught 100% directly by Senior Ex-HODs of FIITJEE & VMC in 10-15 student micro-batches in Sector 52 & Ardee City.',
+  description: 'BM Classes Gurgaon (BmClasses) is the #1 Best IIT JEE Coaching & Best NEET Coaching Institute in Gurgaon. Taught 100% directly by Senior Ex-HODs of FIITJEE & VMC in 10-15 student micro-batches in Sector 52 & Ardee City. Class 9, 10, 11, 12 & Droppers.',
   keywords: [
     // Exact Target Search Phrases
     'iit jee coaching in gurgaon',
