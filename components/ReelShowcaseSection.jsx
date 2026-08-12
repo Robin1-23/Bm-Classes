@@ -167,15 +167,9 @@ export default function ReelShowcaseSection() {
             </ScrollReveal>
 
             <ScrollReveal delay={150} direction="up">
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight mb-3">
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
                 See Our Faculty <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent">Teaching Live</span>
               </h2>
-            </ScrollReveal>
-
-            <ScrollReveal delay={200} direction="up">
-              <p className="text-zinc-400 text-sm sm:text-base font-medium leading-relaxed">
-                Swipe left/right or click navigation arrows to explore all 7 classroom teaching reels.
-              </p>
             </ScrollReveal>
           </div>
 
