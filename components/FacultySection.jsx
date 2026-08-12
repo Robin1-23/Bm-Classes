@@ -37,13 +37,13 @@ export default function FacultySection({ onOpenRegister }) {
           subtitle="Zero junior teaching assistants. Learn 100% directly from Ex-HODs of FIITJEE & VMC."
         />
 
-        {/* FACULTY CARDS WITH 3D SHADOW & VERY LIGHT BACKGROUNDS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-lg sm:max-w-none mx-auto">
+        {/* FACULTY CARDS WITH EQUAL 3-COLUMN GRID & BALANCED SPACING */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
           {MENTORS_DATA.map((mentor, idx) => {
             const theme = cardThemes[idx % cardThemes.length];
             return (
               <ScrollReveal key={idx} delay={100 * (idx + 1)} direction="up">
-                <div className={`${theme.bg} ${theme.border} border-2 rounded-3xl p-5 sm:p-5 flex flex-col justify-between shadow-[0_12px_28px_-6px_rgba(15,23,42,0.08),0_8px_12px_-4px_rgba(15,23,42,0.04)] hover:shadow-[0_22px_45px_-10px_rgba(99,102,241,0.22)] hover:-translate-y-2.5 transition-all duration-300 h-full group relative overflow-hidden`}>
+                <div className={`${theme.bg} ${theme.border} border-2 rounded-3xl p-6 sm:p-7 flex flex-col justify-between shadow-[0_12px_28px_-6px_rgba(15,23,42,0.08),0_8px_12px_-4px_rgba(15,23,42,0.04)] hover:shadow-[0_22px_45px_-10px_rgba(99,102,241,0.22)] hover:-translate-y-2.5 transition-all duration-300 h-full group relative overflow-hidden`}>
                   
                   <div>
                     {/* Top Avatar & Experience Row */}
@@ -98,7 +98,7 @@ export default function FacultySection({ onOpenRegister }) {
                     </div>
 
                     {/* Pedagogy Insight */}
-                    <div className="bg-white border-l-3 border-indigo-600 p-2.5 rounded-r-xl mb-4 shadow-2xs">
+                    <div className="bg-white border-l-3 border-indigo-600 p-3 rounded-r-xl mb-4 shadow-2xs min-h-[68px] flex flex-col justify-center">
                       <div className="text-[9px] font-black uppercase tracking-wider text-indigo-600 mb-0.5">
                         Pedagogy Insight
                       </div>
