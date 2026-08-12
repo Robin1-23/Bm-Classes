@@ -50,7 +50,7 @@ export default function FacultySection({ onOpenRegister }) {
                     <div className="flex items-center justify-between pb-3.5 border-b border-slate-200/70 mb-4">
                       <div className="relative">
                         {mentor.image ? (
-                          <div className="w-13 h-13 rounded-2xl overflow-hidden shadow-md border-2 border-white group-hover:scale-105 transition-transform bg-slate-950">
+                          <div className="w-16 h-16 rounded-full overflow-hidden shadow-lg border-2 border-white ring-4 ring-indigo-500/15 group-hover:scale-105 transition-all duration-300 bg-slate-950">
                             <img 
                               src={mentor.image} 
                               alt={mentor.name} 
@@ -58,11 +58,11 @@ export default function FacultySection({ onOpenRegister }) {
                             />
                           </div>
                         ) : (
-                          <div className="w-12 h-12 rounded-2xl bg-slate-950 text-white font-heading font-black text-lg flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+                          <div className="w-16 h-16 rounded-full bg-slate-950 text-white font-heading font-black text-xl flex items-center justify-center shadow-lg border-2 border-white ring-4 ring-indigo-500/15 group-hover:scale-105 transition-transform">
                             {mentor.initials}
                           </div>
                         )}
-                        <span className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full"></span>
+                        <span className="absolute bottom-0 right-0 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full shadow-xs"></span>
                       </div>
 
                       <span className={`inline-flex items-center gap-1 ${theme.badge} px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider shadow-xs`}>

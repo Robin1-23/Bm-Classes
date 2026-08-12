@@ -92,7 +92,7 @@ export default function BespokeFacultyBios() {
                   <div className="lg:col-span-4 space-y-3">
                     <div className="flex items-center gap-3">
                       {m.image ? (
-                        <div className="w-14 h-14 rounded-2xl overflow-hidden shadow-md border-2 border-white bg-slate-950 shrink-0">
+                        <div className="w-16 h-16 rounded-full overflow-hidden shadow-lg border-2 border-white ring-4 ring-indigo-500/15 bg-slate-950 shrink-0">
                           <img 
                             src={m.image} 
                             alt={m.name} 
@@ -100,7 +100,7 @@ export default function BespokeFacultyBios() {
                           />
                         </div>
                       ) : (
-                        <div className="w-12 h-12 rounded-2xl bg-slate-950 text-cyan-300 font-heading font-black text-lg flex items-center justify-center shadow-xs shrink-0">
+                        <div className="w-16 h-16 rounded-full bg-slate-950 text-cyan-300 font-heading font-black text-xl flex items-center justify-center shadow-lg border-2 border-white ring-4 ring-indigo-500/15 shrink-0">
                           {m.name.split(' ').map(n => n[0]).join('')}
                         </div>
                       )}
