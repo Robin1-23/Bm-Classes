@@ -165,43 +165,6 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
                     e.target.src = '/hero_students_celebrating.jpg';
                   }}
                 />
-
-                {/* Dark Vignette Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent pointer-events-none"></div>
-
-                {/* Floating Top-Right Badge: Ex-HOD Mentorship */}
-                <div className="absolute top-3 right-3 bg-[#070a13]/90 backdrop-blur-xl border border-cyan-400/50 text-white px-3 sm:px-4 py-2 rounded-2xl shadow-xl flex items-center gap-2.5">
-                  <div className="w-7 sm:w-8 h-7 sm:h-8 rounded-xl bg-gradient-to-tr from-cyan-400 to-teal-300 text-slate-950 font-black flex items-center justify-center text-xs shrink-0 shadow-md">
-                    <Award className="w-4 h-4 text-slate-950" />
-                  </div>
-                  <div>
-                    <div className="text-[10px] sm:text-xs font-black text-white leading-tight">100% Ex-HOD Faculty</div>
-                    <div className="text-[9px] sm:text-[10px] text-cyan-300 font-extrabold leading-tight">FIITJEE & VMC Masters</div>
-                  </div>
-                </div>
-
-                {/* Floating Bottom Live Rank Badge */}
-                <div className="absolute bottom-3 left-3 right-3 bg-[#060911]/95 backdrop-blur-2xl text-white border border-slate-700/90 p-3 sm:p-4 rounded-2xl shadow-2xl flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 sm:w-10 h-9 sm:h-10 rounded-xl bg-amber-400/10 border border-amber-400/30 text-amber-400 flex items-center justify-center shrink-0 shadow-xs">
-                      <Trophy className="w-4 sm:w-5 h-4 sm:h-5 text-amber-400" />
-                    </div>
-                    <div>
-                      <div className="text-xs sm:text-sm font-black text-white leading-tight">
-                        Top Ranks Proven
-                      </div>
-                      <div className="text-[10px] sm:text-[11px] text-cyan-300 font-extrabold leading-tight mt-0.5">
-                        AIR 18, AIR 22, AIR 52 & AIR 102 Ranks
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="hidden xs:flex flex-col items-end shrink-0 border-l border-slate-800 pl-3">
-                    <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Student Cap</span>
-                    <span className="text-xs font-black text-emerald-400">10-15 Max</span>
-                  </div>
-                </div>
-
               </div>
             </div>
 
