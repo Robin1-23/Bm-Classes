@@ -172,7 +172,7 @@ export default function ReelShowcaseSection() {
                 </div>
 
                 {/* Bottom Info & CTA */}
-                <div className="relative z-10 p-5 bg-gradient-to-t from-slate-950 via-slate-950/95 to-transparent flex flex-col gap-2">
+                <div className="relative z-10 p-5 bg-gradient-to-t from-slate-950 via-slate-950/95 to-transparent flex flex-col gap-1.5">
                   <div className="text-[11px] font-black uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
                     <UserCheck className="w-3.5 h-3.5 text-cyan-400" />
                     <span>{reel.faculty}</span>
@@ -181,10 +181,6 @@ export default function ReelShowcaseSection() {
                   <h3 className="font-heading text-base font-black text-white leading-snug group-hover:text-cyan-300 transition-colors">
                     {reel.title}
                   </h3>
-
-                  <p className="text-xs text-zinc-400 font-bold line-clamp-2 leading-relaxed">
-                    {reel.subtitle}
-                  </p>
 
                   <div className="mt-2 pt-3 border-t border-zinc-800/80 flex items-center justify-between text-xs font-black text-white group-hover:text-cyan-300">
                     <span className="flex items-center gap-1.5">
@@ -269,7 +265,6 @@ export default function ReelShowcaseSection() {
             <div className="p-4 sm:p-5 bg-gradient-to-t from-slate-950 via-slate-950/95 to-slate-950/80 border-t border-zinc-800 relative z-30 flex flex-col gap-3">
               <div>
                 <div className="text-sm font-black text-white">{activeReel.title}</div>
-                <div className="text-xs text-cyan-300 font-extrabold mt-0.5">{activeReel.subtitle}</div>
               </div>
 
               <button
