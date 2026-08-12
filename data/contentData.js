@@ -49,6 +49,7 @@ export const MENTORS_DATA = [
   {
     id: 'konika-maam',
     initials: 'KM',
+    image: '/konika_mam.jpg',
     name: 'Konika Ma\'am',
     role: 'Head of Biology',
     exp: '20 Yrs Exp',

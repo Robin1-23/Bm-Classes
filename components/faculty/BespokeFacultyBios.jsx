@@ -29,6 +29,7 @@ export default function BespokeFacultyBios() {
     },
     {
       name: 'Konika Ma\'am',
+      image: '/konika_mam.jpg',
       role: 'Head of Biology',
       pedagogyFocus: 'NEET UG Botany & Zoology NCERT Mastery',
       experience: '20 Yrs Exp',
