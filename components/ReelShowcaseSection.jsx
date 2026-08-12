@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
-import { Play, X, Volume2, VolumeX, Sparkles, ArrowRight, Award, ShieldCheck, Trophy, Flame, UserCheck } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { Play, X, Volume2, VolumeX, Sparkles, ArrowRight, Award, UserCheck, ChevronLeft, ChevronRight } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 import { useModal } from '@/context/ModalContext';
 
@@ -58,6 +58,45 @@ const REELS = [
     tag: 'KONIKA MAM',
     duration: '0:32',
   },
+  {
+    id: 5,
+    title: 'Chemistry Problem Solving Hacks',
+    faculty: 'BM SIR',
+    role: 'HOD Chemistry (20+ Yrs Exp)',
+    videoUrl: '/videos/learn5.mp4',
+    badgeColor: 'from-cyan-500 to-blue-600',
+    borderColor: 'border-cyan-400/40',
+    accentText: 'text-cyan-400',
+    btnColor: 'bg-cyan-400 text-slate-950 hover:bg-cyan-300',
+    tag: 'CHEMISTRY',
+    duration: '0:38',
+  },
+  {
+    id: 6,
+    title: 'Class 6, 7 & 8 Science Concepts',
+    faculty: 'CHUMKI MAM',
+    role: 'Science Lead (22 Yrs Exp)',
+    videoUrl: '/videos/learn6.mp4',
+    badgeColor: 'from-purple-500 to-pink-600',
+    borderColor: 'border-purple-400/40',
+    accentText: 'text-purple-400',
+    btnColor: 'bg-purple-500 text-white hover:bg-purple-400',
+    tag: 'SCIENCE 6-8',
+    duration: '0:34',
+  },
+  {
+    id: 7,
+    title: 'Interactive Classroom Masterclass',
+    faculty: 'BM SIR',
+    role: 'Senior Ex-HOD Mentorship',
+    videoUrl: '/videos/leaarn7.mp4',
+    badgeColor: 'from-amber-500 to-orange-600',
+    borderColor: 'border-amber-400/40',
+    accentText: 'text-amber-400',
+    btnColor: 'bg-amber-400 text-slate-950 hover:bg-amber-300',
+    tag: 'CLASSROOM',
+    duration: '0:42',
+  },
 ];
 
 export default function ReelShowcaseSection() {
@@ -66,6 +105,19 @@ export default function ReelShowcaseSection() {
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(false);
   const modalVideoRef = useRef(null);
+  const carouselRef = useRef(null);
+
+  const scrollLeft = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({ left: -320, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({ left: 320, behavior: 'smooth' });
+    }
+  };
 
   const handleOpenReel = (reel) => {
     setActiveReel(reel);
@@ -104,35 +156,59 @@ export default function ReelShowcaseSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
-          <ScrollReveal delay={100} direction="down">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/30 text-cyan-300 text-xs font-black uppercase tracking-wider mb-4 shadow-sm">
-              <Sparkles className="w-4 h-4 text-cyan-400" />
-              <span>TEACHING METHODOLOGY IN ACTION</span>
-            </div>
-          </ScrollReveal>
+        {/* Section Header with Left/Right Laptop Control Arrows */}
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12 sm:mb-16">
+          <div className="text-center md:text-left max-w-2xl">
+            <ScrollReveal delay={100} direction="down">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/30 text-cyan-300 text-xs font-black uppercase tracking-wider mb-4 shadow-sm">
+                <Sparkles className="w-4 h-4 text-cyan-400" />
+                <span>TEACHING METHODOLOGY IN ACTION (7 REELS)</span>
+              </div>
+            </ScrollReveal>
 
-          <ScrollReveal delay={150} direction="up">
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight mb-4">
-              See BM Sir & Konika Mam <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent">Teaching Live</span>
-            </h2>
-          </ScrollReveal>
+            <ScrollReveal delay={150} direction="up">
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight mb-3">
+                See Our Faculty <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent">Teaching Live</span>
+              </h2>
+            </ScrollReveal>
 
-          <ScrollReveal delay={200} direction="up">
-            <p className="text-zinc-400 text-sm sm:text-base lg:text-lg font-medium leading-relaxed max-w-2xl mx-auto">
-              Watch 30-second classroom teaching clips to experience how our Senior Ex-HODs make complex JEE & NEET concepts crystal clear in 10-15 student micro-batches.
-            </p>
-          </ScrollReveal>
+            <ScrollReveal delay={200} direction="up">
+              <p className="text-zinc-400 text-sm sm:text-base font-medium leading-relaxed">
+                Swipe left/right or click navigation arrows to explore all 7 classroom teaching reels.
+              </p>
+            </ScrollReveal>
+          </div>
+
+          {/* Desktop Laptop Navigation Arrows */}
+          <div className="hidden sm:flex items-center gap-3 shrink-0">
+            <button
+              onClick={scrollLeft}
+              aria-label="Scroll left reels"
+              className="w-12 h-12 rounded-2xl bg-zinc-900 hover:bg-cyan-400 text-white hover:text-slate-950 border border-zinc-800 hover:border-cyan-400 flex items-center justify-center transition-all duration-300 cursor-pointer shadow-lg group"
+            >
+              <ChevronLeft className="w-6 h-6 group-hover:-translate-x-0.5 transition-transform" />
+            </button>
+            <button
+              onClick={scrollRight}
+              aria-label="Scroll right reels"
+              className="w-12 h-12 rounded-2xl bg-zinc-900 hover:bg-cyan-400 text-white hover:text-slate-950 border border-zinc-800 hover:border-cyan-400 flex items-center justify-center transition-all duration-300 cursor-pointer shadow-lg group"
+            >
+              <ChevronRight className="w-6 h-6 group-hover:translate-x-0.5 transition-transform" />
+            </button>
+          </div>
         </div>
 
-        {/* 4 Reel Cards Grid (9:16 Aspect Ratio) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {REELS.map((reel, index) => (
-            <ScrollReveal key={reel.id} delay={200 + index * 100} direction="up">
+        {/* SWIPEABLE CAROUSEL CONTAINER (MARQUEE TOUCH SWIPE & DESKTOP ARROW SUPPORT) */}
+        <div className="relative group/carousel">
+          <div 
+            ref={carouselRef}
+            className="flex gap-5 sm:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-6 pt-2 px-1 scroll-smooth"
+          >
+            {REELS.map((reel, index) => (
               <div 
+                key={reel.id}
                 onClick={() => handleOpenReel(reel)}
-                className={`group relative bg-zinc-950 rounded-3xl overflow-hidden border ${reel.borderColor} hover:border-cyan-400/80 transition-all duration-500 shadow-2xl hover:shadow-cyan-500/20 cursor-pointer flex flex-col h-[460px] sm:h-[480px]`}
+                className={`snap-start shrink-0 w-[280px] sm:w-[310px] group/card relative bg-zinc-950 rounded-3xl overflow-hidden border ${reel.borderColor} hover:border-cyan-400/80 transition-all duration-500 shadow-2xl hover:shadow-cyan-500/20 cursor-pointer flex flex-col h-[460px] sm:h-[480px]`}
               >
                 {/* Background Video Preview (Silent Loop) */}
                 <div className="absolute inset-0 z-0 overflow-hidden bg-zinc-900">
@@ -142,7 +218,7 @@ export default function ReelShowcaseSection() {
                     loop 
                     playsInline
                     autoPlay
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-65 group-hover:opacity-85"
+                    className="w-full h-full object-cover object-center group-hover/card:scale-105 transition-transform duration-700 opacity-65 group-hover/card:opacity-85"
                   />
                   {/* Dark Vignette Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-black/60 pointer-events-none"></div>
@@ -162,7 +238,7 @@ export default function ReelShowcaseSection() {
 
                 {/* Center Play Button Icon */}
                 <div className="relative z-10 flex-1 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-white/20 border-2 border-white/50 text-white flex items-center justify-center backdrop-blur-md group-hover:scale-115 group-hover:bg-cyan-400 group-hover:text-slate-950 group-hover:border-cyan-400 transition-all duration-300 shadow-2xl pl-1">
+                  <div className="w-16 h-16 rounded-full bg-white/20 border-2 border-white/50 text-white flex items-center justify-center backdrop-blur-md group-hover/card:scale-115 group-hover/card:bg-cyan-400 group-hover/card:text-slate-950 group-hover/card:border-cyan-400 transition-all duration-300 shadow-2xl pl-1">
                     <Play className="w-7 h-7 fill-current" />
                   </div>
                 </div>
@@ -174,18 +250,29 @@ export default function ReelShowcaseSection() {
                     <span>{reel.faculty}</span>
                   </div>
 
-                  <div className="mt-1 pt-2 border-t border-zinc-800/80 flex items-center justify-between text-xs font-black text-white group-hover:text-cyan-300">
+                  <div className="mt-1 pt-2 border-t border-zinc-800/80 flex items-center justify-between text-xs font-black text-white group-hover/card:text-cyan-300">
                     <span className="flex items-center gap-1.5">
                       <Play className="w-3.5 h-3.5 fill-current text-cyan-400" />
                       <span>Watch Teaching Reel</span>
                     </span>
-                    <ArrowRight className="w-4 h-4 text-cyan-400 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 text-cyan-400 group-hover/card:translate-x-1 transition-transform" />
                   </div>
                 </div>
 
               </div>
-            </ScrollReveal>
-          ))}
+            ))}
+          </div>
+
+          {/* Swipe Indicator Bar */}
+          <div className="flex items-center justify-between text-xs font-semibold text-zinc-500 mt-2 px-2">
+            <span className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+              <span>Swipe left or use arrows to view all 7 teaching reels</span>
+            </span>
+            <div className="flex items-center gap-1 font-mono text-[11px] text-cyan-400">
+              <span>7 Reels Total</span>
+            </div>
+          </div>
         </div>
 
       </div>
