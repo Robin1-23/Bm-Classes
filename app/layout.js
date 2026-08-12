@@ -6,43 +6,45 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bm-classes.com'
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'BmClasses Gurgaon | Best JEE Main, JEE Advanced & NEET Coaching Institute',
+    default: 'Best IIT JEE Coaching in Gurgaon | Best NEET Coaching in Gurgaon | BmClasses',
     template: '%s | BmClasses Gurgaon',
   },
-  description: 'Gurgaon’s #1 coaching institute for IIT JEE Main, JEE Advanced, NEET UG & Class 9th, 10th, 11th, 12th, Droppers. Taught 100% directly by Senior Ex-HODs of FIITJEE & VMC in 10-15 student micro-batches in Sector 52 & Ardee City. AIR 18, 22, 52 top ranks.',
+  description: 'BmClasses is the #1 Best IIT JEE Coaching in Gurgaon & Best NEET Coaching in Gurgaon for Class 9th, 10th, 11th, 12th & Droppers. Taught 100% directly by Senior Ex-HODs of FIITJEE & VMC in 10-15 student micro-batches in Sector 52 & Ardee City.',
   keywords: [
-    // Brand Keywords
+    // Exact Target Search Phrases
+    'iit jee coaching in gurgaon',
+    'best iit jee coaching in gurgaon',
+    'neet coaching in gurgaon',
+    'best neet coaching in gurgaon',
+    'top iit jee coaching in gurgaon',
+    'top neet coaching in gurgaon',
+    'best coaching institute in gurgaon for iit jee',
+    'best coaching institute in gurgaon for neet',
+    'jee main coaching in gurgaon',
+    'jee advanced coaching in gurgaon',
+    'best coaching institute in gurgaon for jee main and advanced',
+    'best coaching for class 11 in gurgaon',
+    'best coaching for class 12 in gurgaon',
+    'best dropper batch for jee in gurgaon',
+    'best repeater batch for neet in gurgaon',
+
+    // Hyperlocal Location Keywords
+    'best iit jee coaching in sector 52 gurgaon',
+    'best neet coaching in sector 52 gurgaon',
+    'best coaching in ardee city gurgaon',
+    'best coaching in sector 45 gurgaon',
+    'best coaching in sector 47 gurgaon',
+    'coaching institute in gurgaon sector 52',
+
+    // Brand & Competitor Alternatives
     'BmClasses Gurgaon',
     'Bm Classes Gurgaon',
     'Bm Classes Sector 52',
     'Bm Classes Ardee City',
     'BM Classes HODs',
-    'BM Classes Gurgaon Fee Structure',
-
-    // Core Intent Keywords
-    'Best JEE Coaching Gurgaon',
-    'Best IIT JEE Coaching Sector 52 Gurgaon',
-    'Top NEET UG Coaching Institute Gurgaon',
-    'Coaching Institute in Gurgaon Sector 52',
-    'Best Coaching Institute in Ardee City Gurgaon',
     'FIITJEE Alternative in Gurgaon',
     'VMC Alternative in Gurgaon',
     'Allen Alternative in Gurgaon',
-
-    // Grade & Class Keywords
-    'Class 9th Foundation Coaching Gurgaon',
-    'Class 10th Board & Olympiad Coaching Gurgaon',
-    'Class 11th JEE 2 Year Integrated Batch Gurgaon',
-    'Class 12th JEE Main & Advanced Pinnacle Batch Gurgaon',
-    'Class 12 Pass Dropper Intensive Ranker Batch Gurgaon',
-    'Class 11 & 12 NEET Medical Excellence Batch Gurgaon',
-    'JEE Coaching for Droppers in Gurgaon',
-    'NEET Coaching for Repeaters in Gurgaon',
-
-    // Subject & Hyperlocal Keywords
-    'Ex FIITJEE HOD Physics Chemistry Maths Coaching Gurgaon',
-    'Ex VMC HOD IIT JEE Coaching Gurgaon',
-    'Micro-Batch JEE Coaching Gurgaon',
     'Small Batch IIT Coaching Sector 52',
     'Golf Course Extension Road JEE Coaching',
     'DLF Phase 4 5 IIT JEE Institute Gurgaon',

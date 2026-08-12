@@ -3,16 +3,18 @@ import React from 'react';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bm-classes.com';
 
 export const metadata = {
-  title: 'Why BmClasses Gurgaon | Ex-FIITJEE & VMC HODs vs Mass Coaching Factories',
-  description: 'Discover why BmClasses is Gurgaon’s #1 choice for JEE & NEET. 100% direct Ex-HOD teaching, 10-15 capped batch size, zero junior assistant teachers, and proven top ranks AIR 18, 22, 52.',
+  title: 'Why BmClasses is the Best IIT JEE & NEET Coaching Institute in Gurgaon',
+  description: 'Discover why BmClasses is ranked the best IIT JEE coaching and best NEET coaching in Gurgaon. 100% direct Ex-HOD teaching, 10-15 capped batch size, zero dummy faculty, and proven top ranks AIR 18, 22, 52.',
   keywords: [
-    'Why BmClasses Gurgaon',
-    'Best Micro Batch JEE Coaching Gurgaon',
-    'Ex FIITJEE HOD Coaching Gurgaon',
-    'Ex VMC HOD Coaching Gurgaon',
-    'Personalized JEE Coaching Sector 52',
-    'Coaching Institute Small Batch Gurgaon',
-    'Top IIT JEE Coaching Methodology',
+    'best iit jee coaching in gurgaon',
+    'best neet coaching in gurgaon',
+    'iit jee coaching in gurgaon',
+    'neet coaching in gurgaon',
+    'best coaching institute in gurgaon for iit jee',
+    'best coaching institute in gurgaon for neet',
+    'top iit jee coaching in gurgaon',
+    'top neet coaching in gurgaon',
+    'micro batch iit jee coaching gurgaon',
   ],
   alternates: {
     canonical: `${siteUrl}/why-us`,

@@ -3,15 +3,17 @@ import React from 'react';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bm-classes.com';
 
 export const metadata = {
-  title: 'Contact BmClasses Gurgaon | Visit Sector 52 Ardee City Center & Meet Ex-HODs',
-  description: 'Book a 1-on-1 diagnostic counseling session with Senior Ex-HODs at B 38, Ground Floor, Ardee City, Sector 52, Gurgaon. Call +91 98998 18241 or visit center.',
+  title: 'Best IIT JEE & NEET Coaching Center in Sector 52 Gurgaon | Contact BmClasses',
+  description: 'Visit the best IIT JEE coaching and best NEET coaching institute in Gurgaon Sector 52 & Ardee City. Book 1-on-1 diagnostic counseling with Senior Ex-HODs at B 38 Ground Floor Ardee City. Call +91 98998 18241.',
   keywords: [
-    'Contact BmClasses Gurgaon',
-    'BmClasses Sector 52 Address',
-    'BmClasses Ardee City Center Location',
-    'JEE Coaching Phone Number Gurgaon',
-    'NEET Coaching Center Near Sector 52 Metro',
-    'Book Diagnostic Session BmClasses',
+    'iit jee coaching in gurgaon',
+    'best iit jee coaching in gurgaon',
+    'neet coaching in gurgaon',
+    'best neet coaching in gurgaon',
+    'best iit jee coaching in sector 52 gurgaon',
+    'best neet coaching in sector 52 gurgaon',
+    'best coaching in ardee city gurgaon',
+    'coaching institute in gurgaon sector 52',
   ],
   alternates: {
     canonical: `${siteUrl}/contact`,
