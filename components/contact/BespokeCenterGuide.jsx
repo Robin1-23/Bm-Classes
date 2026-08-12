@@ -124,15 +124,15 @@ export default function BespokeCenterGuide() {
             <div className="lg:col-span-6 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-800/40 text-cyan-400 text-xs font-black uppercase tracking-wider">
                 <Navigation className="w-3.5 h-3.5 text-cyan-400" />
-                <span>GURGAON STUDIO DIRECTIONS</span>
+                <span>GURGAON CENTER DIRECTIONS</span>
               </div>
 
               <h3 className="font-heading text-2xl sm:text-3xl font-black text-white tracking-tight">
-                How to Reach <span className="font-serif italic font-normal text-cyan-300">BmClasses Ardee City</span>
+                How to Reach <span className="font-serif italic font-normal text-cyan-300">Chemistry classes by BM sir</span>
               </h3>
 
               <p className="text-zinc-300 text-xs sm:text-sm font-medium leading-relaxed">
-                Ground Floor, B 38, Ardee City, Sector 52 Gurgaon. Easy access with dedicated parent parking.
+                House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon. Easy access with dedicated parent parking.
               </p>
 
               <div className="pt-2">
