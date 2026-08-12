@@ -142,34 +142,26 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
 
         </div>
 
-        {/* Right Graphic / Student Visual (Bigger, Filled & Ultra-Premium) */}
-        <div className="lg:col-span-5 relative w-full min-h-[340px] xs:min-h-[420px] sm:min-h-[500px] lg:min-h-[560px] flex items-center justify-center mt-6 lg:mt-0">
-          
-          <ScrollReveal delay={300} direction="left" className="w-full relative flex items-center justify-center">
-            {/* Ambient Background Blur Sphere */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/25 via-purple-500/20 to-cyan-400/25 rounded-3xl sm:rounded-[40px] blur-2xl pointer-events-none"></div>
+        {/* Right Graphic / Student Visual (Clean, Minimal & Ultra-Premium) */}
+        <div className="lg:col-span-5 relative w-full flex items-center justify-center mt-6 lg:mt-0">
+          <ScrollReveal delay={300} direction="left" className="w-full relative">
+            {/* Subtle Soft Ambient Depth Glow */}
+            <div className="absolute -inset-2 bg-gradient-to-tr from-indigo-500/15 via-purple-500/10 to-indigo-600/10 rounded-3xl blur-2xl pointer-events-none"></div>
 
-            {/* Glowing Accent Arch Card */}
-            <div className="absolute inset-0 bg-gradient-to-b from-indigo-600 via-purple-700 to-[#070a13] rounded-3xl sm:rounded-[36px] p-2 xs:p-3 sm:p-4 shadow-2xl shadow-indigo-950/50 border border-indigo-400/30"></div>
-
-            {/* Main Visual Image (Full-Width, High Resolution) */}
-            <div className="relative z-10 w-full p-2 xs:p-3 sm:p-4">
-              <div className="relative overflow-hidden rounded-2xl sm:rounded-[28px] shadow-2xl border-2 border-white/20 group">
-                <img 
-                  src="/CELEBRATION_PHOTO.jpg" 
-                  alt="BM CLASSES Celebrating Top Rank Students" 
-                  loading="eager"
-                  decoding="async"
-                  className="w-full h-[320px] xs:h-[400px] sm:h-[480px] lg:h-[520px] object-cover object-top sm:object-center group-hover:scale-105 transition-transform duration-700"
-                  onError={(e) => {
-                    e.target.src = '/hero_students_celebrating.jpg';
-                  }}
-                />
-              </div>
+            {/* Clean, Minimalist Frame */}
+            <div className="relative z-10 overflow-hidden rounded-2xl sm:rounded-3xl shadow-2xl shadow-slate-950/10 border border-slate-200/90 bg-white p-1.5 sm:p-2 group">
+              <img 
+                src="/CELEBRATION_PHOTO.jpg" 
+                alt="BM CLASSES Celebrating Top Rank Students" 
+                loading="eager"
+                decoding="async"
+                className="w-full h-[320px] xs:h-[400px] sm:h-[480px] lg:h-[520px] object-cover object-top sm:object-center rounded-xl sm:rounded-2xl group-hover:scale-[1.015] transition-transform duration-700"
+                onError={(e) => {
+                  e.target.src = '/hero_students_celebrating.jpg';
+                }}
+              />
             </div>
-
           </ScrollReveal>
-
         </div>
 
       </div>
