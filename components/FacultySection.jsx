@@ -1,7 +1,7 @@
 'use client';
 
-import React from 'react';
-import { MessageCircle, ShieldCheck, Sparkles, CheckCircle2, ArrowRight } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { MessageCircle, ShieldCheck, Sparkles, CheckCircle2, ArrowRight, Play, X, Volume2, VolumeX, Award } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { MENTORS_DATA } from '@/data/contentData';
@@ -10,12 +10,15 @@ import { useModal } from '@/context/ModalContext';
 export default function FacultySection({ onOpenRegister }) {
   const modal = useModal();
   const handleRegister = onOpenRegister || modal.openRegister;
+  const [activeVideo, setActiveVideo] = useState(null);
+  const [isMuted, setIsMuted] = useState(false);
+  const videoRef = useRef(null);
 
   const cardThemes = [
-    { bg: 'bg-[#f8fafc]', border: 'border-slate-200/90 hover:border-indigo-500', badge: 'bg-indigo-600 text-white' },
-    { bg: 'bg-[#f0fdf4]', border: 'border-emerald-200/90 hover:border-emerald-500', badge: 'bg-emerald-600 text-white' },
-    { bg: 'bg-[#eef2ff]', border: 'border-indigo-200/90 hover:border-indigo-500', badge: 'bg-indigo-600 text-white' },
-    { bg: 'bg-[#faf5ff]', border: 'border-purple-200/90 hover:border-purple-500', badge: 'bg-purple-600 text-white' },
+    { bg: 'bg-[#f8fafc]', border: 'border-slate-200/90 hover:border-indigo-500', badge: 'bg-indigo-600 text-white', videoUrl: '/videos/learning1.mp4', sampleTitle: 'BM Sir Physics Reel' },
+    { bg: 'bg-[#f0fdf4]', border: 'border-emerald-200/90 hover:border-emerald-500', badge: 'bg-emerald-600 text-white', videoUrl: '/videos/learning2.mp4', sampleTitle: 'Konika Mam Chemistry Reel' },
+    { bg: 'bg-[#eef2ff]', border: 'border-indigo-200/90 hover:border-indigo-500', badge: 'bg-indigo-600 text-white', videoUrl: '/videos/learn4.mp4', sampleTitle: 'Math HOD Pedagogy Reel' },
+    { bg: 'bg-[#faf5ff]', border: 'border-purple-200/90 hover:border-purple-500', badge: 'bg-purple-600 text-white', videoUrl: '/videos/learn3.mp4', sampleTitle: 'Biology HOD Micro-Batch Reel' },
   ];
 
   return (
@@ -74,6 +77,17 @@ export default function FacultySection({ onOpenRegister }) {
                       </p>
                     </div>
 
+                    {/* Teaching Reel Video Trigger Button */}
+                    <button
+                      onClick={() => setActiveVideo({ mentor, theme })}
+                      className="w-full mb-4 bg-gradient-to-r from-indigo-900 to-slate-900 hover:from-indigo-800 hover:to-slate-800 text-white font-extrabold text-xs py-2.5 px-3 rounded-2xl border border-indigo-400/30 shadow-md flex items-center justify-center gap-2 transition-all cursor-pointer group/vid"
+                    >
+                      <div className="w-5 h-5 rounded-full bg-cyan-400 text-slate-950 flex items-center justify-center pl-0.5 shrink-0 group-hover/vid:scale-110 transition-transform">
+                        <Play className="w-3 h-3 fill-slate-950" />
+                      </div>
+                      <span className="text-cyan-300 group-hover/vid:text-white transition-colors">▶ Watch 30s Teaching Sample</span>
+                    </button>
+
                     {/* Highlights Bullet List */}
                     <div className="space-y-1.5 mb-4">
                       {mentor.highlights.map((item, hIdx) => (
@@ -114,6 +128,82 @@ export default function FacultySection({ onOpenRegister }) {
         </div>
 
       </div>
+
+      {/* Reel Video Player Modal */}
+      {activeVideo && (
+        <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-2xl flex items-center justify-center p-2 sm:p-4">
+          <div className="relative w-full max-w-sm sm:max-w-md h-[88vh] max-h-[780px] bg-slate-950 rounded-3xl overflow-hidden shadow-2xl border border-zinc-800 flex flex-col">
+            
+            {/* Top Modal Bar */}
+            <div className="absolute top-0 left-0 right-0 z-30 p-4 bg-gradient-to-b from-black/90 via-black/50 to-transparent flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="w-9 h-9 rounded-2xl bg-cyan-400 text-slate-950 flex items-center justify-center font-black text-xs shadow-md">
+                  {activeVideo.mentor.initials}
+                </div>
+                <div>
+                  <div className="text-xs font-black text-white flex items-center gap-1.5">
+                    <span>{activeVideo.mentor.name}</span>
+                    <span className="text-[9px] px-1.5 py-0.2 rounded bg-cyan-400/20 text-cyan-300 font-extrabold border border-cyan-400/30">
+                      TEACHING REEL
+                    </span>
+                  </div>
+                  <div className="text-[10px] text-zinc-300 font-bold">{activeVideo.mentor.role}</div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => setIsMuted(!isMuted)}
+                  className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-colors cursor-pointer border border-white/10"
+                >
+                  {isMuted ? <VolumeX className="w-4 h-4 text-red-400" /> : <Volume2 className="w-4 h-4 text-cyan-400" />}
+                </button>
+                <button
+                  onClick={() => setActiveVideo(null)}
+                  className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-colors cursor-pointer border border-white/10"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+            </div>
+
+            {/* Video Player */}
+            <div className="relative flex-1 bg-black flex items-center justify-center overflow-hidden">
+              <video
+                ref={videoRef}
+                src={activeVideo.theme.videoUrl}
+                autoPlay
+                playsInline
+                loop
+                muted={isMuted}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Bottom Modal CTA Bar */}
+            <div className="p-4 sm:p-5 bg-gradient-to-t from-slate-950 via-slate-950/95 to-slate-950/80 border-t border-zinc-800 relative z-30 flex flex-col gap-3">
+              <div>
+                <div className="text-sm font-black text-white">{activeVideo.mentor.name} — Teaching Sample</div>
+                <div className="text-xs text-cyan-300 font-extrabold mt-0.5">{activeVideo.mentor.subject}</div>
+              </div>
+
+              <button
+                onClick={() => {
+                  const mName = activeVideo.mentor.name;
+                  setActiveVideo(null);
+                  if (handleRegister) handleRegister(mName);
+                }}
+                className="w-full bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black py-3.5 rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2 text-xs sm:text-sm cursor-pointer"
+              >
+                <span>Book Free Trial Batch with {activeVideo.mentor.name}</span>
+                <ArrowRight className="w-4 h-4 text-slate-950" />
+              </button>
+            </div>
+
+          </div>
+        </div>
+      )}
+
     </section>
   );
 }
