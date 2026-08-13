@@ -63,16 +63,16 @@ export const MENTORS_DATA = [
     initials: 'CM',
     image: '/chumki_mam.jpeg',
     name: 'Chumki Ma\'am',
-    role: 'Science Lead (Class 6th, 7th & 8th)',
+    role: 'Science Lead (Online & 1-on-1)',
     exp: '22 Yrs Exp',
-    subject: 'Class 6th, 7th & 8th Science (Online & 1-on-1)',
+    subject: 'Science teacher online mode(9th-12th) & 1-on-1',
     badgeBg: 'bg-pink-400 text-slate-950',
     highlights: [
       '18 Yrs Senior Faculty at FIITJEE',
       '2 Yrs Faculty at NIIT e-Gurucool',
       '2 Yrs Faculty at PMT OASIS',
     ],
-    tagline: 'Online & offline micro-batches & 1-on-1 personalized classes for Class 6th, 7th & 8th Science.',
+    tagline: 'Online mode (9th-12th) & 1-on-1 personalized Science classes.',
   },
 ];
 

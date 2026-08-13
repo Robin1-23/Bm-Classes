@@ -48,20 +48,20 @@ export default function BespokeFacultyBios() {
     {
       name: 'Chumki Ma\'am',
       image: '/chumki_mam.jpeg',
-      role: 'Science Lead (Class 6th, 7th & 8th)',
-      pedagogyFocus: 'Class 6, 7 & 8 Science & 1-on-1 Online Batches',
+      role: 'Science Lead (Online & 1-on-1)',
+      pedagogyFocus: 'Science teacher online mode(9th-12th) & 1-on-1',
       experience: '22 Yrs Exp',
       exRole: '18 Yrs FIITJEE · 2 Yrs NIIT · 2 Yrs PMT OASIS',
       education: 'Senior Science Educator',
-      topRanks: 'Foundation & Junior Science Lead',
+      topRanks: 'Online & 1-on-1 Science Lead',
       badgeBg: 'bg-pink-600 text-white',
-      bio: '22 years teaching experience (18 Years at FIITJEE, 2 Years at NIIT e-Gurucool, 2 Years at PMT OASIS). Offers small batch and 1-on-1 personalized online and offline classes for Class 6th, 7th & 8th Science.',
+      bio: '22 years teaching experience (18 Years at FIITJEE, 2 Years at NIIT e-Gurucool, 2 Years at PMT OASIS). Offers online mode (9th-12th) & 1-on-1 personalized Science classes.',
       methods: [
         'Dedicated 1-on-1 personalized online classes',
-        'Micro-batch foundation concept building',
+        'Online mode (9th-12th) concept building',
         'Interactive 3D science experiment visualizations',
       ],
-      quote: '"A strong science foundation in Class 6th to 8th unlocks effortless success in Class 11th JEE & NEET."',
+      quote: '"A strong science foundation in Class 9th to 12th unlocks effortless success in competitive exams."',
     },
   ];
 
