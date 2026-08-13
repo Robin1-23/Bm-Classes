@@ -67,7 +67,7 @@ export default function Header({ onOpenRegister }) {
             </div>
 
             <span 
-              className="text-xl sm:text-2xl font-black text-white group-hover:text-cyan-300 transition-colors drop-shadow-md tracking-tight uppercase"
+              className="text-xl sm:text-2xl font-black text-white drop-shadow-md tracking-tight uppercase"
               style={{ fontFamily: "'Archivo Black', 'Impact', sans-serif" }}
             >
               BM CLASSES
