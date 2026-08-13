@@ -96,7 +96,7 @@ export default function Header({ onOpenRegister }) {
             {/* Desktop Apply Now Button */}
             <button 
               onClick={() => handleRegister()}
-              className="hidden xl:flex bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400 hover:from-cyan-300 hover:to-indigo-300 text-slate-950 font-black text-xs px-3.5 sm:px-4.5 py-2 rounded-2xl items-center gap-1.5 shadow-lg shadow-cyan-950/60 hover:scale-[1.03] transition-all cursor-pointer"
+              className="hidden xl:flex bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black text-xs px-3.5 sm:px-4.5 py-2.5 rounded-2xl items-center gap-1.5 shadow-md shadow-cyan-950/40 hover:scale-[1.02] transition-all cursor-pointer"
             >
               <Sparkles className="w-3.5 h-3.5 text-slate-950" />
               <span>Apply Now</span>
