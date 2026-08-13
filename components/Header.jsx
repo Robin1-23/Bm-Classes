@@ -66,7 +66,7 @@ export default function Header({ onOpenRegister }) {
               />
             </div>
 
-            <span className="font-heading font-black text-lg sm:text-xl tracking-[0.04em] uppercase text-white group-hover:text-cyan-300 transition-colors drop-shadow-sm">
+            <span className="font-allen text-lg sm:text-xl tracking-tight uppercase text-white group-hover:text-cyan-300 transition-colors drop-shadow-md">
               BM CLASSES
             </span>
           </Link>
