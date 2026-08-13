@@ -79,6 +79,14 @@ export const metadata = {
   alternates: {
     canonical: '/',
   },
+  icons: {
+    icon: [
+      { url: '/icon.png', type: 'image/png' },
+      { url: '/logo.jpg', type: 'image/jpeg' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
   openGraph: {
     title: 'BmClasses Gurgaon | Best JEE Main, JEE Advanced & NEET Coaching',
     description: '100% taught directly by Senior Ex-HODs of FIITJEE & VMC in 10-15 student micro-batches in Gurgaon Sector 52 & Ardee City. AIR 18, AIR 22, AIR 52 proven ranks.',
