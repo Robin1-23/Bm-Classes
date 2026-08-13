@@ -1,14 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Chakra+Petch:wght@700;900&family=Geist:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
 
-.font-allen {
-  font-family: 'Archivo Black', 'Black Han Sans', 'Chakra Petch', sans-serif;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .font-allen {
+    font-family: 'Archivo Black', 'Impact', 'Black Han Sans', 'Chakra Petch', sans-serif !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    letter-spacing: -0.02em !important;
+  }
+}
 
 @layer base {
   html {

@@ -79,7 +79,12 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
                   className="w-full h-full object-contain" 
                 />
               </div>
-              <span className="text-xl sm:text-2xl font-allen tracking-tight">BM CLASSES</span>
+              <span 
+                className="text-xl sm:text-2xl font-black tracking-tight text-white uppercase"
+                style={{ fontFamily: "'Archivo Black', 'Impact', sans-serif" }}
+              >
+                BM CLASSES
+              </span>
             </Link>
 
             <div className="text-xs font-black text-cyan-400 uppercase tracking-widest mb-4">
