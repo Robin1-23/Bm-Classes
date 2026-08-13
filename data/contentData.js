@@ -65,14 +65,14 @@ export const MENTORS_DATA = [
     name: 'Chumki Ma\'am',
     role: 'Science Lead (Online & 1-on-1)',
     exp: '22 Yrs Exp',
-    subject: 'Science teacher online mode(9th-12th) & 1-on-1',
+    subject: 'Science Teacher | Online (9th–12th) + 1-on-1',
     badgeBg: 'bg-pink-400 text-slate-950',
     highlights: [
       '18 Yrs Senior Faculty at FIITJEE',
       '2 Yrs Faculty at NIIT e-Gurucool',
       '2 Yrs Faculty at PMT OASIS',
     ],
-    tagline: 'Online mode (9th-12th) & 1-on-1 personalized Science classes.',
+    tagline: 'Science Teacher | Online (9th–12th) + 1-on-1 personalized classes.',
   },
 ];
 

@@ -255,10 +255,10 @@ export default function RootLayout({ children }) {
       },
       {
         '@type': 'Question',
-        name: 'Are online mode (9th-12th) & 1-on-1 personalized Science classes available?',
+        name: 'Are Online (9th–12th) & 1-on-1 personalized Science classes available?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Yes! Chumki Ma\'am (22 Years Exp — 18 Yrs FIITJEE, 2 Yrs NIIT e-Gurucool, 2 Yrs PMT OASIS) conducts specialized online mode (9th-12th) & 1-on-1 personalized Science classes.',
+          text: 'Yes! Chumki Ma\'am (22 Years Exp — 18 Yrs FIITJEE, 2 Yrs NIIT e-Gurucool, 2 Yrs PMT OASIS) is our Senior Science Teacher offering Online (9th–12th) + 1-on-1 personalized classes.',
         },
       },
       {

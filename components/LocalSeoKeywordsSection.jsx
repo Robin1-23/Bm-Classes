@@ -26,8 +26,8 @@ const LOCAL_FAQS = [
     answer: 'At BM Classes, 100% of lectures, doubt-solving sessions, and test reviews are conducted personally by BM Sir, Konika Ma\'am & Chumki Ma\'am. We maintain a strict zero junior assistant policy.',
   },
   {
-    question: 'Are online mode (9th-12th) & 1-on-1 personalized Science classes available?',
-    answer: 'Yes! Chumki Ma\'am (22 Years Exp — 18 Yrs FIITJEE, 2 Yrs NIIT e-Gurucool, 2 Yrs PMT OASIS) conducts specialized online mode (9th-12th) & 1-on-1 personalized Science classes to build a rock-solid foundation.',
+    question: 'Are Online (9th–12th) & 1-on-1 personalized Science classes available?',
+    answer: 'Yes! Chumki Ma\'am (22 Years Exp — 18 Yrs FIITJEE, 2 Yrs NIIT e-Gurucool, 2 Yrs PMT OASIS) is our Senior Science Teacher offering Online (9th–12th) + 1-on-1 personalized classes.',
   },
   {
     question: 'Why does BM Classes strictly cap batch sizes at 10–15 students max?',
