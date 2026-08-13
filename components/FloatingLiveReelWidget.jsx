@@ -189,21 +189,16 @@ export default function FloatingLiveReelWidget() {
 
         {/* Bottom Title Bar */}
         <div className="p-2 bg-slate-950 border-t border-slate-800">
-          <div className="flex items-center justify-between text-[9px] text-cyan-400 font-extrabold mb-0.5">
+          <div className="text-[9px] text-cyan-400 font-extrabold mb-0.5">
             <span>{currentReel.faculty}</span>
-            <span className="flex items-center gap-1 text-zinc-400 text-[8px]">
-              <RefreshCw className="w-2 h-2 animate-spin text-cyan-400" />
-              Auto-shuffle
-            </span>
           </div>
 
           <p className="text-[11px] font-bold text-white leading-tight line-clamp-1 group-hover:text-cyan-300 transition-colors">
             {currentReel.title}
           </p>
 
-          <div className="mt-1 pt-1 border-t border-slate-800/80 flex items-center justify-between text-[8.5px] font-black text-slate-300">
+          <div className="mt-1 pt-1 border-t border-slate-800/80 text-[8.5px] font-black text-slate-300 text-center">
             <span className="text-cyan-400 uppercase tracking-wider">Tap to Expand</span>
-            <span className="text-emerald-400">Classroom Reel ➔</span>
           </div>
         </div>
 
