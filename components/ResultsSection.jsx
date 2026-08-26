@@ -72,6 +72,17 @@ const REVIEWS_VIDEO_DATA = [
     borderColor: 'border-indigo-400/40',
     duration: '0:42',
   },
+  {
+    id: 7,
+    name: 'Class 12th Pinnacle Student',
+    exam: 'JEE & NEET High Score Success Story',
+    badge: 'STUDENT REVIEW',
+    file: '/videos/review7.mp4',
+    quote: 'First-principles teaching and zero-backlog doubt solving helped me excel.',
+    badgeBg: 'from-cyan-500 to-emerald-600',
+    borderColor: 'border-cyan-400/40',
+    duration: '0:36',
+  },
 ];
 
 const WRITTEN_REVIEWS = [
