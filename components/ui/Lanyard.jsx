@@ -86,11 +86,11 @@ function LanyardContent({
         gl={{ alpha: transparent, powerPreference: 'high-performance', antialias: true }}
         onCreated={({ gl }) => gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)}
       >
-        {/* Fast zero-network local lighting */}
-        <ambientLight intensity={1.6} />
-        <directionalLight position={[5, 5, 5]} intensity={1.8} />
-        <directionalLight position={[-5, 5, 2]} intensity={1.0} />
-        <pointLight position={[0, -2, 4]} intensity={0.6} />
+        {/* High contrast, vivid key & fill lighting */}
+        <ambientLight intensity={2.2} />
+        <directionalLight position={[0, 5, 10]} intensity={2.0} />
+        <directionalLight position={[-5, 2, 5]} intensity={1.2} />
+        <directionalLight position={[5, -2, 4]} intensity={0.8} />
 
         <Suspense fallback={null}>
           <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
@@ -151,7 +151,7 @@ function Band({
   const frontTex = useTexture(frontImage || '/CELEBRATION_PHOTO.jpg');
   const backTex = useTexture(backImage || frontImage || '/CELEBRATION_PHOTO.jpg');
 
-  // Fast single full-size texture map for card faces
+  // Fast single full-size texture map for card faces with HIGH CONTRAST
   const [frontTextureMap, backTextureMap] = useMemo(() => {
     const createFaceCanvas = (texImage) => {
       if (!texImage) return null;
@@ -163,10 +163,11 @@ function Band({
       const ctx = canvas.getContext('2d');
       if (!ctx) return null;
 
-      ctx.fillStyle = '#ffffff';
+      ctx.fillStyle = '#0f172a';
       ctx.fillRect(0, 0, W, H);
 
-      ctx.filter = 'contrast(1.22) brightness(1.05) saturate(1.12)';
+      // Deep High-Contrast & Color Vibrancy Filter
+      ctx.filter = 'contrast(1.48) brightness(1.04) saturate(1.25)';
 
       const scale = Math.max(W / texImage.width, H / texImage.height);
       const dw = texImage.width * scale;
@@ -179,7 +180,7 @@ function Band({
 
       const tex = new THREE.CanvasTexture(canvas);
       tex.colorSpace = THREE.SRGBColorSpace;
-      tex.anisotropy = 8;
+      tex.anisotropy = 16;
       tex.needsUpdate = true;
       return tex;
     };
@@ -192,18 +193,18 @@ function Band({
   const cardMaterials = useMemo(() => {
     const side = new THREE.MeshStandardMaterial({
       color: 0xffffff,
-      roughness: 0.3,
+      roughness: 0.2,
       metalness: 0.1,
     });
     const front = new THREE.MeshStandardMaterial({
       map: frontTextureMap,
-      roughness: 0.4,
-      metalness: 0.05,
+      roughness: 0.15,
+      metalness: 0.0,
     });
     const back = new THREE.MeshStandardMaterial({
       map: backTextureMap,
-      roughness: 0.4,
-      metalness: 0.05,
+      roughness: 0.15,
+      metalness: 0.0,
     });
     return [side, side, side, side, front, back];
   }, [frontTextureMap, backTextureMap]);

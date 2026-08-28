@@ -169,24 +169,17 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
 
         </div>
 
-        {/* Right Graphic / Interactive 3D Lanyard Card with Hero Celebration Photo */}
-        <div className="lg:col-span-5 relative w-full flex items-center justify-center mt-6 lg:mt-0">
-          <ScrollReveal delay={300} direction="left" className="w-full relative group">
-            
-            {/* Soft Ambient Floor Reflection Glow */}
-            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-4/5 h-28 bg-gradient-to-tr from-indigo-500/15 via-purple-500/15 to-cyan-400/15 rounded-full blur-2xl pointer-events-none transition-opacity duration-500 group-hover:opacity-100 opacity-70"></div>
-
-            {/* Interactive 3D Physics Lanyard Component */}
-            <div className="relative z-10 w-full overflow-hidden rounded-[30px] shadow-[0_25px_60px_-15px_rgba(15,23,42,0.12)] border border-slate-200/80 bg-white/40 backdrop-blur-md p-1 sm:p-2">
-              <Lanyard
-                position={[0, 0, 20]}
-                gravity={[0, -40, 0]}
-                frontImage="/CELEBRATION_PHOTO.jpg"
-                backImage="/CELEBRATION_PHOTO.jpg"
-                imageFit="cover"
-                lanyardWidth={1}
-              />
-            </div>
+        {/* Right Graphic / Seamless 3D Interactive Lanyard */}
+        <div className="lg:col-span-5 relative w-full flex items-center justify-center mt-4 lg:mt-0">
+          <ScrollReveal delay={300} direction="left" className="w-full relative">
+            <Lanyard
+              position={[0, 0, 20]}
+              gravity={[0, -40, 0]}
+              frontImage="/CELEBRATION_PHOTO.jpg"
+              backImage="/CELEBRATION_PHOTO.jpg"
+              imageFit="cover"
+              lanyardWidth={1}
+            />
           </ScrollReveal>
         </div>
 
