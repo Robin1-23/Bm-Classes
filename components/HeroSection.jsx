@@ -94,10 +94,10 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
             </div>
           </ScrollReveal>
 
-          {/* Subheading Copy */}
+          {/* Subheading Copy (Short & Punchy) */}
           <ScrollReveal delay={250} direction="up">
-            <p className="text-slate-600 font-medium text-lg sm:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
-              Gurgaon’s Premier IIT JEE Coaching & NEET Coaching Institute. Taught 100% directly by Senior Ex-HODs (BM Sir & Konika Ma'am).
+            <p className="text-slate-700 font-semibold text-lg sm:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
+              Gurgaon’s premier IIT JEE & NEET academy. Taught 100% directly by Senior Ex-HODs.
             </p>
           </ScrollReveal>
 
@@ -157,16 +157,21 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
 
         </div>
 
-        {/* Right Graphic / Student Celebration Photo (Clean Minimal Style) */}
+        {/* Right Graphic / Student Celebration Photo (Cool & Beautiful Clean Frame) */}
         <div className="lg:col-span-5 relative w-full flex items-center justify-center mt-6 lg:mt-0">
-          <ScrollReveal delay={300} direction="left" className="w-full relative">
-            <div className="relative z-10 overflow-hidden rounded-3xl shadow-xl border border-slate-200/80 bg-white p-2.5">
+          <ScrollReveal delay={300} direction="left" className="w-full relative group">
+            
+            {/* Soft Ambient Floor Reflection Glow */}
+            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-4/5 h-28 bg-gradient-to-tr from-indigo-500/15 via-purple-500/15 to-cyan-400/15 rounded-full blur-2xl pointer-events-none transition-opacity duration-500 group-hover:opacity-100 opacity-70"></div>
+
+            {/* Pristine Glass & Shadow Frame */}
+            <div className="relative z-10 overflow-hidden rounded-[30px] shadow-[0_25px_60px_-15px_rgba(15,23,42,0.18),0_10px_25px_-5px_rgba(0,0,0,0.06)] border-2 border-white bg-white p-2.5 transition-all duration-500 group-hover:-translate-y-1.5 group-hover:shadow-[0_35px_75px_-15px_rgba(15,23,42,0.22)]">
               <img 
                 src="/CELEBRATION_PHOTO.jpg" 
                 alt="BM CLASSES Top Rank Student Celebration" 
                 loading="eager"
                 decoding="async"
-                className="w-full h-[360px] xs:h-[420px] sm:h-[480px] lg:h-[530px] object-cover object-center rounded-2xl"
+                className="w-full h-[360px] xs:h-[420px] sm:h-[480px] lg:h-[530px] object-cover object-center rounded-[20px]"
                 onError={(e) => {
                   e.target.src = '/hero_students_celebrating.jpg';
                 }}
