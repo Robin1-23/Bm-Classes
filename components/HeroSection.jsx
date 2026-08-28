@@ -5,8 +5,20 @@ import Link from 'next/link';
 import { Award, ShieldCheck, Trophy, Sparkles, GraduationCap, Flame, ArrowRight, CheckCircle2, Star } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 import { useModal } from '@/context/ModalContext';
-
 import FoldText from '@/components/ui/FoldText';
+import dynamic from 'next/dynamic';
+
+const Lanyard = dynamic(() => import('@/components/ui/Lanyard'), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-[480px] lg:h-[530px] flex items-center justify-center bg-slate-50/50 rounded-[30px] border border-slate-200/80 shadow-xs">
+      <div className="text-xs font-black text-slate-400 animate-pulse flex items-center gap-2">
+        <Sparkles className="w-4 h-4 text-indigo-500 animate-spin" />
+        <span>Loading Interactive 3D Card...</span>
+      </div>
+    </div>
+  ),
+});
 
 export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
   const modal = useModal();
@@ -157,24 +169,22 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
 
         </div>
 
-        {/* Right Graphic / Student Celebration Photo (Cool & Beautiful Clean Frame) */}
+        {/* Right Graphic / Interactive 3D Lanyard Card with Hero Celebration Photo */}
         <div className="lg:col-span-5 relative w-full flex items-center justify-center mt-6 lg:mt-0">
           <ScrollReveal delay={300} direction="left" className="w-full relative group">
             
             {/* Soft Ambient Floor Reflection Glow */}
             <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-4/5 h-28 bg-gradient-to-tr from-indigo-500/15 via-purple-500/15 to-cyan-400/15 rounded-full blur-2xl pointer-events-none transition-opacity duration-500 group-hover:opacity-100 opacity-70"></div>
 
-            {/* Pristine Glass & Shadow Frame */}
-            <div className="relative z-10 overflow-hidden rounded-[30px] shadow-[0_25px_60px_-15px_rgba(15,23,42,0.18),0_10px_25px_-5px_rgba(0,0,0,0.06)] border-2 border-white bg-white p-2.5 transition-all duration-500 group-hover:-translate-y-1.5 group-hover:shadow-[0_35px_75px_-15px_rgba(15,23,42,0.22)]">
-              <img 
-                src="/CELEBRATION_PHOTO.jpg" 
-                alt="BM CLASSES Top Rank Student Celebration" 
-                loading="eager"
-                decoding="async"
-                className="w-full h-[360px] xs:h-[420px] sm:h-[480px] lg:h-[530px] object-cover object-center rounded-[20px]"
-                onError={(e) => {
-                  e.target.src = '/hero_students_celebrating.jpg';
-                }}
+            {/* Interactive 3D Physics Lanyard Component */}
+            <div className="relative z-10 w-full overflow-hidden rounded-[30px] shadow-[0_25px_60px_-15px_rgba(15,23,42,0.12)] border border-slate-200/80 bg-white/40 backdrop-blur-md p-1 sm:p-2">
+              <Lanyard
+                position={[0, 0, 20]}
+                gravity={[0, -40, 0]}
+                frontImage="/CELEBRATION_PHOTO.jpg"
+                backImage="/CELEBRATION_PHOTO.jpg"
+                imageFit="cover"
+                lanyardWidth={1}
               />
             </div>
           </ScrollReveal>
