@@ -2,7 +2,7 @@
 'use client';
 import React, { Component, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, extend, useFrame } from '@react-three/fiber';
-import { useTexture, Environment, Lightformer } from '@react-three/drei';
+import { useTexture } from '@react-three/drei';
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier';
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 import * as THREE from 'three';
@@ -82,11 +82,16 @@ function LanyardContent({
     <div className="lanyard-wrapper">
       <Canvas
         camera={{ position: effectivePosition, fov: effectiveFov }}
-        dpr={[1, isMobile ? 1.5 : 2]}
-        gl={{ alpha: transparent }}
+        dpr={isMobile ? 1 : 1.25}
+        gl={{ alpha: transparent, powerPreference: 'high-performance', antialias: true }}
         onCreated={({ gl }) => gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)}
       >
-        <ambientLight intensity={Math.PI} />
+        {/* Fast zero-network local lighting */}
+        <ambientLight intensity={1.6} />
+        <directionalLight position={[5, 5, 5]} intensity={1.8} />
+        <directionalLight position={[-5, 5, 2]} intensity={1.0} />
+        <pointLight position={[0, -2, 4]} intensity={0.6} />
+
         <Suspense fallback={null}>
           <Physics gravity={gravity} timeStep={isMobile ? 1 / 30 : 1 / 60}>
             <Band
@@ -99,36 +104,6 @@ function LanyardContent({
             />
           </Physics>
         </Suspense>
-        <Environment blur={0.75}>
-          <Lightformer
-            intensity={2}
-            color="white"
-            position={[0, -1, 5]}
-            rotation={[0, 0, Math.PI / 3]}
-            scale={[100, 0.1, 1]}
-          />
-          <Lightformer
-            intensity={3}
-            color="white"
-            position={[-1, -1, 1]}
-            rotation={[0, 0, Math.PI / 3]}
-            scale={[100, 0.1, 1]}
-          />
-          <Lightformer
-            intensity={3}
-            color="white"
-            position={[1, 1, 1]}
-            rotation={[0, 0, Math.PI / 3]}
-            scale={[100, 0.1, 1]}
-          />
-          <Lightformer
-            intensity={10}
-            color="white"
-            position={[-10, 0, 14]}
-            rotation={[0, Math.PI / 2, Math.PI / 3]}
-            scale={[100, 10, 1]}
-          />
-        </Environment>
       </Canvas>
     </div>
   );
@@ -176,7 +151,7 @@ function Band({
   const frontTex = useTexture(frontImage || '/CELEBRATION_PHOTO.jpg');
   const backTex = useTexture(backImage || frontImage || '/CELEBRATION_PHOTO.jpg');
 
-  // Generate HIGH-CONTRAST SINGLE FULL-SIZE texture map for card faces
+  // Fast single full-size texture map for card faces
   const [frontTextureMap, backTextureMap] = useMemo(() => {
     const createFaceCanvas = (texImage) => {
       if (!texImage) return null;
@@ -191,7 +166,6 @@ function Band({
       ctx.fillStyle = '#ffffff';
       ctx.fillRect(0, 0, W, H);
 
-      // Enhance Image Contrast, Sharpness & Color Vibrancy
       ctx.filter = 'contrast(1.22) brightness(1.05) saturate(1.12)';
 
       const scale = Math.max(W / texImage.width, H / texImage.height);
@@ -205,7 +179,7 @@ function Band({
 
       const tex = new THREE.CanvasTexture(canvas);
       tex.colorSpace = THREE.SRGBColorSpace;
-      tex.anisotropy = 16;
+      tex.anisotropy = 8;
       tex.needsUpdate = true;
       return tex;
     };
@@ -216,28 +190,23 @@ function Band({
   }, [frontTex?.image, backTex?.image]);
 
   const cardMaterials = useMemo(() => {
-    const side = new THREE.MeshPhysicalMaterial({
+    const side = new THREE.MeshStandardMaterial({
       color: 0xffffff,
       roughness: 0.3,
       metalness: 0.1,
     });
-    const front = new THREE.MeshPhysicalMaterial({
+    const front = new THREE.MeshStandardMaterial({
       map: frontTextureMap,
-      clearcoat: isMobile ? 0.3 : 1,
-      clearcoatRoughness: 0.15,
-      roughness: 0.35,
+      roughness: 0.4,
       metalness: 0.05,
     });
-    const back = new THREE.MeshPhysicalMaterial({
+    const back = new THREE.MeshStandardMaterial({
       map: backTextureMap,
-      clearcoat: isMobile ? 0.3 : 1,
-      clearcoatRoughness: 0.15,
-      roughness: 0.35,
+      roughness: 0.4,
       metalness: 0.05,
     });
-    // BoxGeometry face order: +X, -X, +Y, -Y, +Z (Front), -Z (Back)
     return [side, side, side, side, front, back];
-  }, [frontTextureMap, backTextureMap, isMobile]);
+  }, [frontTextureMap, backTextureMap]);
 
   const [curve] = useState(
     () =>
@@ -345,3 +314,7 @@ function Band({
     </>
   );
 }
+
+// Preload textures in parallel at module initialization for instant loading
+useTexture.preload('/lanyard.png');
+useTexture.preload('/CELEBRATION_PHOTO.jpg');
