@@ -24,11 +24,32 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
   const modal = useModal();
   const handleRegister = onOpenRegister || modal.openRegister;
   const [mobileNum, setMobileNum] = useState('');
+  const [heroError, setHeroError] = useState('');
 
   const handleQuickSubmit = (e) => {
     e.preventDefault();
-    if (handleRegister) {
-      handleRegister('Hero Quick Application', mobileNum);
+    const val = mobileNum.trim();
+    if (!val) {
+      setHeroError('Please enter your 10-digit mobile number or email address.');
+      return;
+    }
+
+    if (val.includes('@')) {
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(val)) {
+        setHeroError('Please enter a valid email address (e.g. name@domain.com).');
+        return;
+      }
+      setHeroError('');
+      if (handleRegister) handleRegister('Hero Quick Application', val);
+    } else {
+      const digits = val.replace(/\D/g, '');
+      if (digits.length !== 10 || !/^[6-9]\d{9}$/.test(digits)) {
+        setHeroError('Please enter a valid 10-digit mobile number starting with 6-9.');
+        return;
+      }
+      setHeroError('');
+      if (handleRegister) handleRegister('Hero Quick Application', digits);
     }
   };
 
@@ -116,12 +137,17 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
           {/* Amplemarket Style Quick Application Form Capsule */}
           <ScrollReveal delay={300} direction="up">
             <form onSubmit={handleQuickSubmit} className="max-w-md mx-auto lg:mx-0 mb-6">
-              <div className="flex flex-col sm:flex-row items-center gap-2 p-1.5 bg-slate-50 border border-slate-200 rounded-full shadow-xs hover:border-slate-300 transition-colors">
+              <div className={`flex flex-col sm:flex-row items-center gap-2 p-1.5 bg-slate-50 border ${
+                heroError ? 'border-amber-500 ring-2 ring-amber-400' : 'border-slate-200'
+              } rounded-full shadow-xs hover:border-slate-300 transition-colors`}>
                 <input
-                  type="tel"
-                  placeholder="Enter Student Mobile Number"
+                  type="text"
+                  placeholder="Enter 10-digit phone or email"
                   value={mobileNum}
-                  onChange={(e) => setMobileNum(e.target.value)}
+                  onChange={(e) => {
+                    setMobileNum(e.target.value);
+                    if (heroError) setHeroError('');
+                  }}
                   className="w-full bg-transparent px-5 py-3 text-sm font-extrabold text-slate-950 placeholder-slate-400 focus:outline-none rounded-full"
                 />
                 <button
@@ -132,6 +158,11 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
                   <ArrowRight className="w-4 h-4 text-cyan-300" />
                 </button>
               </div>
+              {heroError && (
+                <p className="text-amber-600 text-xs font-bold mt-2 ml-4 animate-pulse">
+                  ⚠️ {heroError}
+                </p>
+              )}
             </form>
           </ScrollReveal>
 
