@@ -17,17 +17,17 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
     : PROGRAMS_DATA.filter(p => p.categoryTypes && p.categoryTypes.includes(activeTab));
 
   return (
-    <section className="bg-[#f2f4f7] text-slate-900 py-20 sm:py-28 relative overflow-hidden border-b border-slate-200/80" id="programs">
+    <section className="bg-[#faf6f0] text-slate-900 py-20 sm:py-28 relative overflow-hidden border-b border-[#ede6dd]" id="programs">
       
-      {/* Background Subtle Gradient Blobs */}
-      <div className="absolute top-1/4 right-5 w-96 h-96 bg-indigo-100/50 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-10 left-5 w-96 h-96 bg-cyan-100/50 rounded-full blur-3xl pointer-events-none"></div>
+      {/* Background Ambient Warm Cream Glow Blobs */}
+      <div className="absolute top-1/4 right-5 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-10 left-5 w-96 h-96 bg-orange-100/30 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Section Header */}
         <ScrollReveal delay={100} direction="down" className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/90 text-indigo-700 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#e8dfd5] text-indigo-700 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
             <FoldText
               text="ACADEMIC PROGRAMS"
@@ -76,7 +76,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                 className={`px-5 py-2.5 rounded-full text-xs font-black transition-all cursor-pointer ${
                   activeTab === tab.id
                     ? 'bg-slate-950 text-white shadow-lg border border-slate-800 scale-105'
-                    : 'bg-white text-slate-700 border border-slate-200/90 hover:border-slate-400 hover:bg-slate-50 shadow-xs'
+                    : 'bg-white text-slate-700 border border-[#e8dfd5] hover:border-indigo-300 hover:bg-white shadow-xs'
                 }`}
               >
                 {tab.label}
