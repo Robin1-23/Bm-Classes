@@ -40,14 +40,25 @@ export default function Modals({
 
   useEffect(() => {
     if (prefilledPhone && registerOpen) {
-      const cleanPhone = prefilledPhone.replace(/\D/g, '').slice(0, 10);
-      setPhoneNumber(cleanPhone);
-      if (cleanPhone.length > 0 && cleanPhone.length < 10) {
-        setPhoneError('Mobile number must be exactly 10 digits.');
-      } else if (cleanPhone.length === 10 && !/^[6-9]\d{9}$/.test(cleanPhone)) {
-        setPhoneError('Please enter a valid 10-digit mobile number starting with 6-9.');
+      const val = prefilledPhone.trim();
+      if (val.includes('@')) {
+        setEmail(val);
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(val)) {
+          setEmailError('Please enter a valid email address.');
+        } else {
+          setEmailError('');
+        }
       } else {
-        setPhoneError('');
+        const cleanPhone = val.replace(/\D/g, '').slice(0, 10);
+        setPhoneNumber(cleanPhone);
+        if (cleanPhone.length > 0 && cleanPhone.length < 10) {
+          setPhoneError('Mobile number must be exactly 10 digits.');
+        } else if (cleanPhone.length === 10 && !/^[6-9]\d{9}$/.test(cleanPhone)) {
+          setPhoneError('Please enter a valid 10-digit mobile number starting with 6-9.');
+        } else {
+          setPhoneError('');
+        }
       }
     }
   }, [prefilledPhone, registerOpen]);

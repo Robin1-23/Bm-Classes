@@ -8,14 +8,37 @@ import { useModal } from '@/context/ModalContext';
 
 export default function Footer({ onOpenRegister, onOpenLogin }) {
   const modal = useModal();
-  const [email, setEmail] = useState('');
+  const [contactInput, setContactInput] = useState('');
+  const [inputError, setInputError] = useState('');
 
   const handleRegister = onOpenRegister || modal.openRegister;
   const whatsappUrl = "https://wa.me/919899818241?text=Hi%20BmClasses%2C%20I%20would%20like%20to%20know%20more%20about%20your%20coaching%20programs.";
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleRegister();
+    const val = contactInput.trim();
+    if (!val) {
+      setInputError('Please enter your 10-digit mobile number or email address.');
+      return;
+    }
+
+    if (val.includes('@')) {
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(val)) {
+        setInputError('Please enter a valid email address (e.g. name@domain.com).');
+        return;
+      }
+      setInputError('');
+      handleRegister(null, val);
+    } else {
+      const digits = val.replace(/\D/g, '');
+      if (digits.length !== 10 || !/^[6-9]\d{9}$/.test(digits)) {
+        setInputError('Please enter a valid 10-digit mobile number starting with 6-9.');
+        return;
+      }
+      setInputError('');
+      handleRegister(null, digits);
+    }
   };
 
   return (
@@ -43,22 +66,33 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
           </p>
 
           {/* Email / Mobile Quick Action Form */}
-          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
-            <input
-              type="text"
-              placeholder="Enter your phone or email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full sm:w-72 bg-white/20 text-white placeholder-purple-200 border border-white/30 rounded-2xl px-5 py-3.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-amber-300 transition-all"
-              required
-            />
-            <button
-              type="submit"
-              className="w-full sm:w-auto bg-[#f5a623] hover:bg-[#e09516] text-slate-950 font-black text-sm px-7 py-3.5 rounded-2xl shadow-lg transition-transform hover:scale-[1.02] cursor-pointer whitespace-nowrap"
-            >
-              Contact Me
-            </button>
-          </form>
+          <div className="max-w-md mx-auto">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <input
+                type="text"
+                placeholder="Enter 10-digit phone or email"
+                value={contactInput}
+                onChange={(e) => {
+                  setContactInput(e.target.value);
+                  if (inputError) setInputError('');
+                }}
+                className={`w-full sm:w-72 bg-white/20 text-white placeholder-purple-200 border ${
+                  inputError ? 'border-amber-300 ring-2 ring-amber-300' : 'border-white/30'
+                } rounded-2xl px-5 py-3.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-amber-300 transition-all`}
+              />
+              <button
+                type="submit"
+                className="w-full sm:w-auto bg-[#f5a623] hover:bg-[#e09516] text-slate-950 font-black text-sm px-7 py-3.5 rounded-2xl shadow-lg transition-transform hover:scale-[1.02] cursor-pointer whitespace-nowrap"
+              >
+                Contact Me
+              </button>
+            </form>
+            {inputError && (
+              <p className="text-amber-300 text-xs font-bold mt-2.5 text-center animate-pulse">
+                ⚠️ {inputError}
+              </p>
+            )}
+          </div>
         </div>
 
         {/* BOTTOM 4-COLUMN FOOTER LINKS */}
