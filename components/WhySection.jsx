@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Target, TrendingUp, Users, CheckCircle2, Sparkles, Zap, ShieldCheck, Gauge, ArrowRight, Layers } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
+import FoldText from '@/components/ui/FoldText';
 
 export default function WhySection({ hidePedagogy = false }) {
   const [selectedDimension, setSelectedDimension] = useState(0);
@@ -165,7 +166,17 @@ export default function WhySection({ hidePedagogy = false }) {
         <ScrollReveal delay={100} direction="up" className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-800/40 text-cyan-400 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
             <Sparkles className="w-4 h-4 text-cyan-400" />
-            <span>PEDAGOGY DIFFERENCE</span>
+            <FoldText
+              text="PEDAGOGY DIFFERENCE"
+              splitBy="char"
+              hinge="top"
+              trigger="scroll"
+              duration={0.45}
+              stagger={0.015}
+              fontSize="12px"
+              fontWeight={900}
+              color="#22d3ee"
+            />
           </div>
           
           <h2 className="font-heading text-3xl sm:text-5xl font-black text-white tracking-tight leading-[1.15]">

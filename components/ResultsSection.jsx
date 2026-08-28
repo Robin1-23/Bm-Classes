@@ -3,6 +3,7 @@
 import React, { useState, useRef } from 'react';
 import { Sparkles, Trophy, Star, Play, X, Volume2, VolumeX, ArrowRight, ChevronLeft, ChevronRight, UserCheck, Award } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
+import FoldText from '@/components/ui/FoldText';
 import { useModal } from '@/context/ModalContext';
 
 const REVIEWS_VIDEO_DATA = [
@@ -175,7 +176,17 @@ export default function ResultsSection() {
         <ScrollReveal delay={100} direction="up" className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-800/40 text-cyan-400 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-            <span>REAL GOOGLE REVIEWS & STUDENT RANKERS</span>
+            <FoldText
+              text="REAL GOOGLE REVIEWS & STUDENT RANKERS"
+              splitBy="char"
+              hinge="top"
+              trigger="scroll"
+              duration={0.45}
+              stagger={0.015}
+              fontSize="12px"
+              fontWeight={900}
+              color="#22d3ee"
+            />
           </div>
           
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-[1.15]">

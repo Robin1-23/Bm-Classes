@@ -3,6 +3,7 @@
 import React, { useState, useRef } from 'react';
 import { Play, X, Volume2, VolumeX, Sparkles, ArrowRight, Award, UserCheck, ChevronLeft, ChevronRight } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
+import FoldText from '@/components/ui/FoldText';
 import { useModal } from '@/context/ModalContext';
 
 const REELS = [
@@ -162,7 +163,17 @@ export default function ReelShowcaseSection() {
             <ScrollReveal delay={100} direction="down">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/30 text-cyan-300 text-xs font-black uppercase tracking-wider mb-4 shadow-sm">
                 <Sparkles className="w-4 h-4 text-cyan-400" />
-                <span>TEACHING METHODOLOGY IN ACTION (7 REELS)</span>
+                <FoldText
+                  text="HYBRID LEARNING"
+                  splitBy="char"
+                  hinge="top"
+                  trigger="scroll"
+                  duration={0.45}
+                  stagger={0.015}
+                  fontSize="12px"
+                  fontWeight={900}
+                  color="#67e8f9"
+                />
               </div>
             </ScrollReveal>
 

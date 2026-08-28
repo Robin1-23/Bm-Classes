@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Calendar, CheckCircle2, ShieldCheck, ArrowRight, Lock, Users, Sparkles } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 import { useModal } from '@/context/ModalContext';
+import FoldText from '@/components/ui/FoldText';
 
 export default function BespokeProgramRoadmap() {
   const [activePhase, setActivePhase] = useState(0);
@@ -102,7 +103,17 @@ export default function BespokeProgramRoadmap() {
           <ScrollReveal delay={100} direction="up" className="text-center max-w-2xl mx-auto mb-10">
             <span className="text-xs font-black tracking-widest uppercase text-cyan-400 bg-cyan-950/60 border border-cyan-800/40 px-3.5 py-1.5 rounded-full inline-flex items-center gap-2">
               <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-              <span>PEDAGOGY ROADMAP</span>
+              <FoldText
+                text="CLEAR ADMISSION FLOW"
+                splitBy="char"
+                hinge="top"
+                trigger="scroll"
+                duration={0.45}
+                stagger={0.015}
+                fontSize="12px"
+                fontWeight={900}
+                color="#22d3ee"
+              />
             </span>
             <h2 className="font-heading text-2xl sm:text-4xl font-black text-white mt-3 tracking-tight">
               The 3-Phase <span className="font-serif italic font-normal text-cyan-300">Academic Framework</span>

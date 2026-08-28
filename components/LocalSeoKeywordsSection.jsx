@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { MapPin, ShieldCheck, ChevronDown, Sparkles, CheckCircle2, Award, Star } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
+import FoldText from '@/components/ui/FoldText';
 
 const LOCAL_FAQS = [
   {
@@ -55,7 +56,17 @@ export default function LocalSeoKeywordsSection() {
           <ScrollReveal delay={100} direction="down">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
               <MapPin className="w-3.5 h-3.5 text-indigo-600" />
-              <span>GURGAON #1 RANKED IIT JEE & NEET ACADEMY</span>
+              <FoldText
+                text="GURGAON #1 RANKED IIT JEE & NEET ACADEMY"
+                splitBy="char"
+                hinge="top"
+                trigger="scroll"
+                duration={0.45}
+                stagger={0.015}
+                fontSize="12px"
+                fontWeight={900}
+                color="#4338ca"
+              />
             </div>
           </ScrollReveal>
 

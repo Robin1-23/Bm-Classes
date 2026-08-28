@@ -5,6 +5,7 @@ import { Sparkles, ArrowRight, ShieldCheck, CheckCircle2, Zap, Target, Stethosco
 import ScrollReveal from '@/components/ScrollReveal';
 import { PROGRAMS_DATA } from '@/data/contentData';
 import { useModal } from '@/context/ModalContext';
+import FoldText from '@/components/ui/FoldText';
 
 export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
   const modal = useModal();
@@ -28,7 +29,17 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
         <ScrollReveal delay={100} direction="down" className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/90 text-indigo-700 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
-            <span>ACADEMIC PROGRAMS</span>
+            <FoldText
+              text="ACADEMIC PROGRAMS"
+              splitBy="char"
+              hinge="top"
+              trigger="scroll"
+              duration={0.45}
+              stagger={0.015}
+              fontSize="12px"
+              fontWeight={900}
+              color="#4338ca"
+            />
           </div>
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight leading-tight">
             Courses Built for <span className="font-black text-slate-950">Top AIR Ranks</span>

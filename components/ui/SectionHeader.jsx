@@ -1,6 +1,9 @@
+'use client';
+
 import React from 'react';
 import { Sparkles } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
+import FoldText from '@/components/ui/FoldText';
 
 export default function SectionHeader({
   badgeText,
@@ -19,7 +22,17 @@ export default function SectionHeader({
             : 'bg-indigo-50 border border-indigo-200/80 text-indigo-700'
         }`}>
           <BadgeIcon className={`w-3.5 h-3.5 ${dark ? 'text-cyan-300' : 'text-indigo-600'}`} />
-          <span>{badgeText}</span>
+          <FoldText
+            text={badgeText}
+            splitBy="char"
+            hinge="top"
+            trigger="scroll"
+            duration={0.45}
+            stagger={0.015}
+            fontSize="12px"
+            fontWeight={900}
+            color={dark ? '#67e8f9' : '#4338ca'}
+          />
         </div>
       )}
       
