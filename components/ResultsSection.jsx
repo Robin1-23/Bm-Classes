@@ -165,17 +165,18 @@ export default function ResultsSection() {
   };
 
   return (
-    <section className="bg-black text-white py-20 sm:py-28 border-b border-zinc-900 relative overflow-hidden" id="results">
+    <section className="bg-[#faf6f0] text-slate-950 py-20 sm:py-28 border-b border-[#ede6dd] relative overflow-hidden" id="results">
       
-      {/* Ambient Glow */}
-      <div className="absolute top-1/3 left-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      {/* Background Ambient Warm Cream Glows */}
+      <div className="absolute top-1/3 left-10 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-orange-100/30 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Header */}
         <ScrollReveal delay={100} direction="up" className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-cyan-950/60 border border-cyan-800/40 text-cyan-400 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#e8dfd5] text-indigo-700 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
             <FoldText
               text="REAL GOOGLE REVIEWS & STUDENT RANKERS"
               splitBy="char"
@@ -185,7 +186,7 @@ export default function ResultsSection() {
               stagger={0.015}
               fontSize="12px"
               fontWeight={900}
-              color="#22d3ee"
+              color="#4338ca"
             />
           </div>
           
@@ -200,11 +201,11 @@ export default function ResultsSection() {
               stagger={0.04}
               fontSize="clamp(1.75rem, 4vw, 3rem)"
               fontWeight={900}
-              color="#ffffff"
+              color="#020617"
             />
           </h2>
           
-          <p className="text-zinc-300 text-base sm:text-lg mt-3 font-medium leading-relaxed max-w-2xl mx-auto">
+          <p className="text-slate-600 text-base sm:text-lg mt-3 font-semibold leading-relaxed max-w-2xl mx-auto">
             Authentic Google reviews from Gurgaon parents and top JEE & NEET rankers.
           </p>
         </ScrollReveal>
@@ -215,11 +216,11 @@ export default function ResultsSection() {
             {ranks.map((rank, idx) => (
               <div 
                 key={idx}
-                className="bg-zinc-950 text-white px-3 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-heading font-black text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 border-2 border-zinc-800 hover:border-cyan-400 shadow-md hover:scale-105 transition-all cursor-default text-center"
+                className="bg-white text-slate-950 px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-heading font-black text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 border border-[#e8dfd5] shadow-xs hover:border-indigo-400 hover:scale-105 transition-all cursor-default text-center"
               >
-                <Trophy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0" />
-                <span className="text-zinc-400 text-[10px] sm:text-xs">JEE ADV</span>
-                <span className="text-cyan-300 font-extrabold">{rank}</span>
+                <Trophy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500 shrink-0" />
+                <span className="text-slate-500 text-[10px] sm:text-xs">JEE ADV</span>
+                <span className="text-indigo-600 font-black">{rank}</span>
               </div>
             ))}
           </div>
@@ -234,35 +235,35 @@ export default function ResultsSection() {
             {[...WRITTEN_REVIEWS, ...WRITTEN_REVIEWS].map((rev, idx) => (
               <div 
                 key={idx}
-                className="w-[310px] sm:w-[380px] lg:w-[410px] bg-zinc-950 text-white border-2 border-zinc-800 hover:border-cyan-400 rounded-3xl p-6 sm:p-7 shadow-[0_15px_35px_-5px_rgba(0,0,0,0.8)] hover:shadow-[0_25px_50px_-10px_rgba(34,211,238,0.2)] hover:-translate-y-2.5 transition-all duration-300 flex flex-col justify-between shrink-0 group cursor-pointer relative"
+                className="w-[310px] sm:w-[380px] lg:w-[410px] bg-white text-slate-950 border border-[#e8dfd5] hover:border-indigo-400 rounded-3xl p-6 sm:p-7 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_45px_-10px_rgba(99,102,241,0.15)] hover:-translate-y-2.5 transition-all duration-300 flex flex-col justify-between shrink-0 group cursor-pointer relative"
               >
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-zinc-800">
+                  <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100">
                     <div className="flex items-center gap-1 text-amber-400">
                       {[...Array(5)].map((_, i) => (
                         <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
-                    <span className="text-[10px] font-black bg-cyan-950/60 text-cyan-400 border border-cyan-800/40 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                    <span className="text-[10px] font-black bg-[#f5efe6] text-slate-800 border border-[#e2d8cc] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                       Google Review
                     </span>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-zinc-200 leading-relaxed font-medium italic mb-6">
+                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium italic mb-6">
                     "{rev.quote}"
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-zinc-800 flex items-center justify-between">
+                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                   <div>
-                    <div className="font-heading font-black text-white text-sm group-hover:text-cyan-300 transition-colors">
+                    <div className="font-heading font-black text-slate-950 text-sm group-hover:text-indigo-600 transition-colors">
                       {rev.author}
                     </div>
-                    <div className="text-[11px] font-bold text-cyan-400 mt-0.5">
+                    <div className="text-[11px] font-bold text-slate-600 mt-0.5">
                       {rev.sub}
                     </div>
                   </div>
-                  <span className="text-zinc-400 text-xs font-mono font-bold">5.0 ★</span>
+                  <span className="text-slate-500 text-xs font-mono font-bold">5.0 ★</span>
                 </div>
               </div>
             ))}
@@ -276,13 +277,13 @@ export default function ResultsSection() {
         {/* Section Header with Left/Right Laptop Control Arrows */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-10 sm:mb-12">
           <div className="text-center md:text-left max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/30 text-cyan-300 text-xs font-black uppercase tracking-wider mb-3 shadow-sm">
-              <Trophy className="w-4 h-4 text-cyan-400" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-black uppercase tracking-wider mb-3 shadow-xs">
+              <Trophy className="w-4 h-4 text-indigo-600" />
               <span>STUDENT RANKER REELS (6 REELS)</span>
             </div>
 
-            <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight">
-              Watch Student <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent">Video Reviews</span>
+            <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 tracking-tight leading-tight">
+              Watch Student <span className="text-indigo-600">Video Reviews</span>
             </h3>
           </div>
 
@@ -291,14 +292,14 @@ export default function ResultsSection() {
             <button
               onClick={scrollLeft}
               aria-label="Scroll left reviews"
-              className="w-12 h-12 rounded-2xl bg-zinc-900 hover:bg-cyan-400 text-white hover:text-slate-950 border border-zinc-800 hover:border-cyan-400 flex items-center justify-center transition-all duration-300 cursor-pointer shadow-lg group"
+              className="w-12 h-12 rounded-full bg-slate-100 hover:bg-slate-950 text-slate-800 hover:text-white border border-slate-200 flex items-center justify-center transition-all duration-300 cursor-pointer shadow-xs group"
             >
               <ChevronLeft className="w-6 h-6 group-hover:-translate-x-0.5 transition-transform" />
             </button>
             <button
               onClick={scrollRight}
               aria-label="Scroll right reviews"
-              className="w-12 h-12 rounded-2xl bg-zinc-900 hover:bg-cyan-400 text-white hover:text-slate-950 border border-zinc-800 hover:border-cyan-400 flex items-center justify-center transition-all duration-300 cursor-pointer shadow-lg group"
+              className="w-12 h-12 rounded-full bg-slate-100 hover:bg-slate-950 text-slate-800 hover:text-white border border-slate-200 flex items-center justify-center transition-all duration-300 cursor-pointer shadow-xs group"
             >
               <ChevronRight className="w-6 h-6 group-hover:translate-x-0.5 transition-transform" />
             </button>
