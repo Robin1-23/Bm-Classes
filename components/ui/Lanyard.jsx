@@ -309,8 +309,6 @@ function Band({
             )}
           >
             <mesh geometry={cardGeo} material={cardMaterials} />
-            <mesh geometry={clipGeo} material={metalMat} />
-            <mesh geometry={clampGeo} material={metalMat} />
           </group>
         </RigidBody>
       </group>
