@@ -208,10 +208,10 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
       </div>
 
       {/* Marquee Credential Belt */}
-      <div className="bg-slate-950 py-4 sm:py-5 relative z-30 shadow-xl border-t border-slate-900 overflow-hidden mt-12 sm:mt-16">
+      <div className="bg-slate-50/80 border-y border-slate-200/80 py-4 sm:py-5 relative z-30 overflow-hidden mt-12 sm:mt-16">
         
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-slate-950 to-transparent z-20"></div>
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-slate-950 to-transparent z-20"></div>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-slate-50 to-transparent z-20"></div>
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-slate-50 to-transparent z-20"></div>
 
         <div className="animate-marquee flex items-center gap-4 sm:gap-8 px-4">
           {marqueeItems.map((item, idx) => {
@@ -219,22 +219,22 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
             return (
               <div 
                 key={idx}
-                className="flex items-center gap-3 bg-slate-900 border border-slate-800 px-5 py-2.5 rounded-xl text-white shrink-0 hover:bg-slate-850 transition-all cursor-pointer"
+                className="flex items-center gap-3 bg-white border border-slate-200/90 shadow-xs px-5 py-2.5 rounded-xl text-slate-950 shrink-0 hover:border-slate-300 transition-all cursor-pointer"
               >
-                <div className="w-9 h-9 rounded-lg bg-indigo-600 text-white flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-lg bg-indigo-600 text-white flex items-center justify-center shrink-0 shadow-xs">
                   <IconComp className="w-4 h-4 text-white" />
                 </div>
 
                 <div>
                   <div className="flex items-center gap-2">
-                    <span className="font-heading font-black text-xs sm:text-sm tracking-wide text-white">
+                    <span className="font-heading font-black text-xs sm:text-sm tracking-wide text-slate-950">
                       {item.title}
                     </span>
-                    <span className="text-[9px] bg-slate-800 text-slate-300 font-bold px-1.5 py-0.5 rounded border border-slate-700">
+                    <span className="text-[9px] bg-slate-100 text-slate-700 font-bold px-1.5 py-0.5 rounded border border-slate-200">
                       {item.metric}
                     </span>
                   </div>
-                  <div className="text-[10px] text-slate-400 font-bold mt-0.5">
+                  <div className="text-[10px] text-slate-500 font-bold mt-0.5">
                     {item.sub}
                   </div>
                 </div>
