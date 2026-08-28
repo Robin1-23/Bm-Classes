@@ -14,9 +14,6 @@ extend({ MeshLineGeometry, MeshLineMaterial });
 const BLANK_PIXEL =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==';
 
-const FRONT_UV_RECT = { x: 0, y: 0, w: 0.5, h: 0.755 };
-const BACK_UV_RECT = { x: 0.5, y: 0, w: 0.5, h: 0.757 };
-
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
@@ -156,7 +153,7 @@ function Band({
     dir = new THREE.Vector3();
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
 
-  // Procedural Geometries & Materials (No GLTF fetch required!)
+  // 3D Box Geometry (width: 1.6, height: 2.25, depth: 0.02)
   const cardGeo = useMemo(() => new THREE.BoxGeometry(1.6, 2.25, 0.02), []);
   const clipGeo = useMemo(() => {
     const g = new THREE.CylinderGeometry(0.12, 0.12, 0.2, 16);
@@ -167,52 +164,67 @@ function Band({
   const metalMat = useMemo(() => new THREE.MeshStandardMaterial({ color: 0xdddddd, metalness: 0.9, roughness: 0.2 }), []);
 
   const texture = useTexture(lanyardImage || '/lanyard.png');
-  const frontTex = useTexture(frontImage || BLANK_PIXEL);
-  const backTex = useTexture(backImage || BLANK_PIXEL);
+  const frontTex = useTexture(frontImage || '/CELEBRATION_PHOTO.jpg');
+  const backTex = useTexture(backImage || frontImage || '/CELEBRATION_PHOTO.jpg');
 
-  const cardMap = useMemo(() => {
-    if (!frontImage && !backImage) return null;
+  // Generate SINGLE FULL-SIZE texture map for front and back card faces
+  const [frontTextureMap, backTextureMap] = useMemo(() => {
+    const createFaceCanvas = (texImage) => {
+      if (!texImage) return null;
+      const W = 1024;
+      const H = 1024;
+      const canvas = document.createElement('canvas');
+      canvas.width = W;
+      canvas.height = H;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return null;
 
-    const W = 1024;
-    const H = 1024;
-    const canvas = document.createElement('canvas');
-    canvas.width = W;
-    canvas.height = H;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return null;
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, W, H);
 
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, W, H);
+      const scale = Math.max(W / texImage.width, H / texImage.height);
+      const dw = texImage.width * scale;
+      const dh = texImage.height * scale;
+      const dx = (W - dw) / 2;
+      const dy = (H - dh) / 2;
 
-    const drawFitted = (img, rect) => {
-      if (!img) return;
-      const rx = rect.x * W;
-      const ry = rect.y * H;
-      const rw = rect.w * W;
-      const rh = rect.h * H;
-      const pick = imageFit === 'contain' ? Math.min : Math.max;
-      const scale = pick(rw / img.width, rh / img.height);
-      const dw = img.width * scale;
-      const dh = img.height * scale;
-      const dx = rx + (rw - dw) / 2;
-      const dy = ry + (rh - dh) / 2;
-      ctx.save();
-      ctx.beginPath();
-      ctx.rect(rx, ry, rw, rh);
-      ctx.clip();
-      ctx.drawImage(img, dx, dy, dw, dh);
-      ctx.restore();
+      ctx.drawImage(texImage, dx, dy, dw, dh);
+
+      const tex = new THREE.CanvasTexture(canvas);
+      tex.colorSpace = THREE.SRGBColorSpace;
+      tex.anisotropy = 16;
+      tex.needsUpdate = true;
+      return tex;
     };
 
-    if (frontImage && frontTex?.image) drawFitted(frontTex.image, FRONT_UV_RECT);
-    if (backImage && backTex?.image) drawFitted(backTex.image, BACK_UV_RECT);
+    const front = frontTex?.image ? createFaceCanvas(frontTex.image) : null;
+    const back = backTex?.image ? createFaceCanvas(backTex.image) : front;
+    return [front, back];
+  }, [frontTex?.image, backTex?.image]);
 
-    const composite = new THREE.CanvasTexture(canvas);
-    composite.colorSpace = THREE.SRGBColorSpace;
-    composite.anisotropy = 16;
-    composite.needsUpdate = true;
-    return composite;
-  }, [frontImage, backImage, imageFit, frontTex, backTex]);
+  const cardMaterials = useMemo(() => {
+    const side = new THREE.MeshPhysicalMaterial({
+      color: 0xffffff,
+      roughness: 0.3,
+      metalness: 0.1,
+    });
+    const front = new THREE.MeshPhysicalMaterial({
+      map: frontTextureMap,
+      clearcoat: isMobile ? 0 : 1,
+      clearcoatRoughness: 0.15,
+      roughness: 0.4,
+      metalness: 0.1,
+    });
+    const back = new THREE.MeshPhysicalMaterial({
+      map: backTextureMap,
+      clearcoat: isMobile ? 0 : 1,
+      clearcoatRoughness: 0.15,
+      roughness: 0.4,
+      metalness: 0.1,
+    });
+    // BoxGeometry face order: +X, -X, +Y, -Y, +Z (Front), -Z (Back)
+    return [side, side, side, side, front, back];
+  }, [frontTextureMap, backTextureMap, isMobile]);
 
   const [curve] = useState(
     () =>
@@ -299,16 +311,7 @@ function Band({
               drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current?.translation() || new THREE.Vector3())))
             )}
           >
-            <mesh geometry={cardGeo}>
-              <meshPhysicalMaterial
-                map={cardMap}
-                map-anisotropy={16}
-                clearcoat={isMobile ? 0 : 1}
-                clearcoatRoughness={0.15}
-                roughness={0.9}
-                metalness={0.8}
-              />
-            </mesh>
+            <mesh geometry={cardGeo} material={cardMaterials} />
             <mesh geometry={clipGeo} material={metalMat} />
             <mesh geometry={clampGeo} material={metalMat} />
           </group>
