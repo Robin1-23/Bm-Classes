@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unknown-property */
 'use client';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import React, { Component, useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, extend, useFrame } from '@react-three/fiber';
 import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei';
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier';
@@ -10,19 +10,49 @@ import './Lanyard.css';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
 
-// 1x1 transparent pixel — lets useTexture be called unconditionally when a
-// front/back image isn't supplied.
+// 1x1 transparent pixel
 const BLANK_PIXEL =
   'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==';
 
-// The card model's front face is UV-mapped to the LEFT half of the texture
-// atlas and the back face to the RIGHT half (measured from card.glb). Each
-// custom image is composited into its own half so the two faces render
-// independently, aspect-preserving (no stretching).
 const FRONT_UV_RECT = { x: 0, y: 0, w: 0.5, h: 0.755 };
 const BACK_UV_RECT = { x: 0.5, y: 0, w: 0.5, h: 0.757 };
 
-export default function Lanyard({
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+  componentDidCatch(error, errorInfo) {
+    console.warn('Lanyard 3D ErrorBoundary caught error:', error, errorInfo);
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="relative z-10 overflow-hidden rounded-[30px] shadow-xl border-2 border-white bg-white p-2.5">
+          <img 
+            src="/CELEBRATION_PHOTO.jpg" 
+            alt="BM CLASSES Top Rank Student Celebration" 
+            className="w-full h-[450px] object-cover rounded-[20px]"
+          />
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
+export default function Lanyard(props) {
+  return (
+    <ErrorBoundary>
+      <LanyardContent {...props} />
+    </ErrorBoundary>
+  );
+}
+
+function LanyardContent({
   position = [0, 0, 30],
   gravity = [0, -40, 0],
   fov = 20,
@@ -120,33 +150,54 @@ function Band({
     rot = new THREE.Vector3(),
     dir = new THREE.Vector3();
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
-  const { nodes, materials } = useGLTF('/card.glb');
+
+  const gltf = useGLTF('/card.glb');
+  const nodes = gltf?.nodes || {};
+  const materials = gltf?.materials || {};
+
+  const cardGeo = useMemo(() => {
+    if (nodes?.card?.geometry) return nodes.card.geometry;
+    return new THREE.BoxGeometry(1.6, 2.25, 0.02);
+  }, [nodes]);
+
+  const clipGeo = useMemo(() => {
+    if (nodes?.clip?.geometry) return nodes.clip.geometry;
+    const g = new THREE.CylinderGeometry(0.12, 0.12, 0.2, 16);
+    g.rotateX(Math.PI / 2);
+    return g;
+  }, [nodes]);
+
+  const clampGeo = useMemo(() => {
+    if (nodes?.clamp?.geometry) return nodes.clamp.geometry;
+    return new THREE.BoxGeometry(0.3, 0.15, 0.08);
+  }, [nodes]);
+
   const texture = useTexture(lanyardImage || '/lanyard.png');
-  // useTexture must be called unconditionally; use a blank pixel when an image
-  // isn't supplied for a given face, then skip compositing it below.
   const frontTex = useTexture(frontImage || BLANK_PIXEL);
   const backTex = useTexture(backImage || BLANK_PIXEL);
 
-  // Composite the front/back images into the card's texture atlas (front = left
-  // half, back = right half). Each image is drawn aspect-preserving (no stretch).
   const cardMap = useMemo(() => {
     const baseMap = materials?.base?.map;
-    if (!baseMap) return null;
-    if (!frontImage && !backImage) return baseMap;
+    if (!frontImage && !backImage) return baseMap || null;
 
-    const baseImg = baseMap.image;
-    if (!baseImg) return baseMap;
-    const W = baseImg.width || 1024;
-    const H = baseImg.height || 1024;
+    const baseImg = baseMap?.image;
+    const W = baseImg?.width || 1024;
+    const H = baseImg?.height || 1024;
     const canvas = document.createElement('canvas');
     canvas.width = W;
     canvas.height = H;
     const ctx = canvas.getContext('2d');
-    if (!ctx) return baseMap;
-    // Keep the original baked atlas for the card edges and any untouched face.
-    ctx.drawImage(baseImg, 0, 0, W, H);
+    if (!ctx) return baseMap || null;
+
+    if (baseImg) {
+      ctx.drawImage(baseImg, 0, 0, W, H);
+    } else {
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0, 0, W, H);
+    }
 
     const drawFitted = (img, rect) => {
+      if (!img) return;
       const rx = rect.x * W;
       const ry = rect.y * H;
       const rw = rect.w * W;
@@ -165,12 +216,12 @@ function Band({
       ctx.restore();
     };
 
-    if (frontImage && frontTex.image) drawFitted(frontTex.image, FRONT_UV_RECT);
-    if (backImage && backTex.image) drawFitted(backTex.image, BACK_UV_RECT);
+    if (frontImage && frontTex?.image) drawFitted(frontTex.image, FRONT_UV_RECT);
+    if (backImage && backTex?.image) drawFitted(backTex.image, BACK_UV_RECT);
 
     const composite = new THREE.CanvasTexture(canvas);
     composite.colorSpace = THREE.SRGBColorSpace;
-    composite.flipY = baseMap.flipY;
+    if (baseMap) composite.flipY = baseMap.flipY;
     composite.anisotropy = 16;
     composite.needsUpdate = true;
     return composite;
@@ -219,15 +270,21 @@ function Band({
       curve.points[1].copy(j2.current.lerped);
       curve.points[2].copy(j1.current.lerped);
       curve.points[3].copy(fixed.current.translation());
-      band.current.geometry.setPoints(curve.getPoints(isMobile ? 16 : 32));
-      ang.copy(card.current.angvel());
-      rot.copy(card.current.rotation());
-      card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z });
+      if (band.current?.geometry) {
+        band.current.geometry.setPoints(curve.getPoints(isMobile ? 16 : 32));
+      }
+      if (card.current) {
+        ang.copy(card.current.angvel());
+        rot.copy(card.current.rotation());
+        card.current.setAngvel({ x: ang.x, y: ang.y - rot.y * 0.25, z: ang.z });
+      }
     }
   });
 
   curve.curveType = 'chordal';
-  texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+  if (texture) {
+    texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+  }
 
   return (
     <>
@@ -249,13 +306,13 @@ function Band({
             position={[0, -1.2, -0.05]}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}
-            onPointerUp={e => (e.target.releasePointerCapture(e.pointerId), drag(false))}
+            onPointerUp={e => (e.target?.releasePointerCapture?.(e.pointerId), drag(false))}
             onPointerDown={e => (
-              e.target.setPointerCapture(e.pointerId),
-              drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())))
+              e.target?.setPointerCapture?.(e.pointerId),
+              drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current?.translation() || new THREE.Vector3())))
             )}
           >
-            <mesh geometry={nodes.card.geometry}>
+            <mesh geometry={cardGeo}>
               <meshPhysicalMaterial
                 map={cardMap}
                 map-anisotropy={16}
@@ -265,8 +322,8 @@ function Band({
                 metalness={0.8}
               />
             </mesh>
-            <mesh geometry={nodes.clip.geometry} material={materials?.metal} material-roughness={0.3} />
-            <mesh geometry={nodes.clamp.geometry} material={materials?.metal} />
+            <mesh geometry={clipGeo} material={materials?.metal || new THREE.MeshStandardMaterial({ color: 0xcccccc, metalness: 0.9 })} />
+            <mesh geometry={clampGeo} material={materials?.metal || new THREE.MeshStandardMaterial({ color: 0xcccccc, metalness: 0.9 })} />
           </group>
         </RigidBody>
       </group>
