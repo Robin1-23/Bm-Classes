@@ -38,6 +38,7 @@ export default function Header({ onOpenRegister }) {
   const navItems = [
     { label: 'Why Us', href: '/why-us' },
     { label: 'Courses', href: '/programs' },
+    { label: 'Faculty', href: '/faculty' },
     { label: 'Reviews', href: '/results' },
     { label: 'Contact Us', href: '/contact' },
   ];
@@ -46,46 +47,43 @@ export default function Header({ onOpenRegister }) {
 
   return (
     <>
-      {/* Fixed Sticky Outer Container */}
-      <header className="fixed top-0 inset-x-0 z-50 w-full px-2 sm:px-4 py-2 sm:py-3 transition-all duration-300 pointer-events-none">
+      {/* Fixed Outer Container */}
+      <header className="fixed top-0 inset-x-0 z-50 w-full px-3 sm:px-6 py-3 transition-all duration-300 pointer-events-none">
         
-        {/* Pitch Dark Black Floating Glassmorphism Island Container */}
-        <div className={`max-w-7xl mx-auto rounded-2xl sm:rounded-3xl border transition-all duration-300 px-3 sm:px-5 py-2 sm:py-2.5 flex items-center justify-between gap-3 relative pointer-events-auto ${
+        {/* Floating Glassmorphism Navbar Island */}
+        <div className={`max-w-7xl mx-auto rounded-full border transition-all duration-300 px-4 sm:px-6 py-2.5 flex items-center justify-between gap-4 pointer-events-auto ${
           scrolled 
-            ? 'bg-black/95 backdrop-blur-2xl border-cyan-500/40 shadow-2xl shadow-cyan-950/80' 
-            : 'bg-black/90 backdrop-blur-xl border-zinc-800 shadow-2xl'
+            ? 'bg-white/90 backdrop-blur-2xl border-slate-200/90 shadow-[0_10px_35px_-5px_rgba(15,23,42,0.1)]' 
+            : 'bg-white/80 backdrop-blur-xl border-slate-200/80 shadow-[0_6px_20px_-5px_rgba(0,0,0,0.05)]'
         }`}>
 
-          {/* Left Side: Official BM Classes Logo Image */}
-          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white p-0.5 overflow-hidden shadow-xl border border-cyan-400/40 group-hover:scale-105 transition-transform shrink-0">
+          {/* Left Side: Brand Logo & Title */}
+          <Link href="/" className="flex items-center gap-2.5 group shrink-0">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-950 p-0.5 overflow-hidden shadow-xs border border-slate-200 group-hover:scale-105 transition-transform shrink-0">
               <img 
                 src="/logo.jpg" 
                 alt="BM Classes Gurgaon" 
-                className="w-full h-full object-contain" 
+                className="w-full h-full object-cover rounded-full" 
               />
             </div>
 
-            <span 
-              className="text-xl sm:text-2xl font-black text-white drop-shadow-md tracking-tight uppercase"
-              style={{ fontFamily: "'Archivo Black', 'Impact', sans-serif" }}
-            >
+            <span className="text-base sm:text-lg font-heading font-black text-slate-950 tracking-tight uppercase">
               BM CLASSES
             </span>
           </Link>
 
-          {/* Center: Desktop Nav Capsule with Pure White Text (Increased Font Size) */}
-          <nav className="hidden xl:flex items-center gap-6 bg-[#0a0a0a] border border-zinc-800 rounded-full px-6 py-2 text-sm font-extrabold text-white shadow-inner">
+          {/* Center: Desktop Nav Items */}
+          <nav className="hidden lg:flex items-center gap-1 bg-slate-100/80 border border-slate-200/80 rounded-full px-3 py-1.5">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`transition-all duration-200 relative ${
+                  className={`text-xs font-black tracking-wide transition-all duration-200 px-3.5 py-1.5 rounded-full ${
                     isActive
-                      ? 'text-white font-black bg-white/15 border border-white/30 px-3.5 py-1 rounded-full shadow-xs'
-                      : 'text-white hover:text-cyan-300 hover:scale-105'
+                      ? 'bg-slate-950 text-white shadow-xs'
+                      : 'text-slate-700 hover:text-slate-950 hover:bg-white/80'
                   }`}
                 >
                   {item.label}
@@ -94,25 +92,24 @@ export default function Header({ onOpenRegister }) {
             })}
           </nav>
 
-          {/* Right Side: Desktop Action Buttons & Mobile/Tablet Hamburger Icon */}
+          {/* Right Side: Desktop Action Button & Mobile Menu Icon */}
           <div className="flex items-center gap-2 shrink-0">
-            {/* Desktop Apply Now Button */}
             <button 
               onClick={() => handleRegister()}
-              className="hidden xl:flex bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black text-xs px-3.5 sm:px-4.5 py-2.5 rounded-2xl items-center gap-1.5 shadow-md shadow-cyan-950/40 hover:scale-[1.02] transition-all cursor-pointer"
+              className="hidden lg:flex bg-indigo-600 hover:bg-indigo-700 text-white font-black text-xs px-5 py-2.5 rounded-full items-center gap-1.5 shadow-sm transition-all cursor-pointer"
             >
-              <Sparkles className="w-3.5 h-3.5 text-slate-950" />
+              <Sparkles className="w-3.5 h-3.5 text-white" />
               <span>Apply Now</span>
-              <ArrowRight className="w-3.5 h-3.5 text-slate-950" />
+              <ArrowRight className="w-3.5 h-3.5 text-white" />
             </button>
 
-            {/* Mobile & Tablet Hamburger Toggle Icon */}
+            {/* Mobile / Tablet Hamburger Toggle */}
             <button 
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="xl:hidden p-2.5 rounded-xl bg-black border border-zinc-800 text-white hover:text-cyan-300 transition-colors cursor-pointer shadow-sm"
+              className="lg:hidden p-2.5 rounded-full bg-slate-100 border border-slate-200 text-slate-900 hover:bg-slate-200 transition-colors cursor-pointer shadow-2xs"
               aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X className="w-5 h-5 text-cyan-400" /> : <Menu className="w-5 h-5 text-white" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 text-slate-950" /> : <Menu className="w-5 h-5 text-slate-950" />}
             </button>
           </div>
 
@@ -120,36 +117,36 @@ export default function Header({ onOpenRegister }) {
 
       </header>
 
-      {/* Mobile & Tablet Drawer Overlay */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden">
+        <div className="lg:hidden">
           <div 
-            className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 transition-opacity"
+            className="fixed inset-0 bg-slate-950/60 backdrop-blur-md z-50 transition-opacity"
             onClick={() => setMobileMenuOpen(false)}
           ></div>
 
-          <div className="fixed inset-x-2 top-2 z-50 bg-black border border-zinc-800 shadow-2xl p-5 flex flex-col gap-4 text-white max-h-[90vh] overflow-y-auto rounded-3xl">
+          <div className="fixed inset-x-3 top-3 z-50 bg-white border border-slate-200/90 shadow-2xl p-6 flex flex-col gap-4 text-slate-950 max-h-[90vh] overflow-y-auto rounded-3xl">
             
-            <div className="pb-3 border-b border-zinc-800 flex items-center justify-between">
+            <div className="pb-3.5 border-b border-slate-100 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-lg bg-zinc-900 border border-zinc-800 text-cyan-400 font-black flex items-center justify-center text-xs">
+                <div className="w-7 h-7 rounded-full bg-slate-950 text-white font-black flex items-center justify-center text-xs">
                   BM
                 </div>
-                <span className="text-xs font-black uppercase tracking-widest text-white">
-                  BM CLASSES Navigation
+                <span className="text-xs font-black uppercase tracking-wider text-slate-950">
+                  Navigation
                 </span>
               </div>
 
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-8 h-8 rounded-full bg-zinc-900 text-white flex items-center justify-center transition-colors cursor-pointer border border-zinc-800"
+                className="w-8 h-8 rounded-full bg-slate-100 text-slate-950 flex items-center justify-center transition-colors cursor-pointer border border-slate-200"
                 aria-label="Close navigation menu"
               >
-                <X className="w-4 h-4 text-white" />
+                <X className="w-4 h-4 text-slate-950" />
               </button>
             </div>
 
-            <nav className="flex flex-col gap-2 font-black text-base">
+            <nav className="flex flex-col gap-1.5 font-black text-sm">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;
                 return (
@@ -157,16 +154,16 @@ export default function Header({ onOpenRegister }) {
                     key={item.href}
                     href={item.href} 
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`py-2.5 px-3.5 rounded-xl transition-colors flex items-center justify-between ${
+                    className={`py-3 px-4 rounded-2xl transition-all flex items-center justify-between ${
                       isActive
-                        ? 'bg-white/20 text-white font-black border border-white/30 shadow-md'
-                        : 'hover:bg-zinc-900 hover:text-cyan-300 text-white'
+                        ? 'bg-slate-950 text-white font-black shadow-xs'
+                        : 'hover:bg-slate-100 text-slate-800'
                     }`}
                   >
                     <span>{item.label}</span>
                     {isActive && (
-                      <span className="text-[9px] bg-white text-black px-2 py-0.5 rounded font-black">
-                        Active Page
+                      <span className="text-[10px] bg-white/20 text-white px-2 py-0.5 rounded-full font-bold">
+                        Active
                       </span>
                     )}
                   </Link>
@@ -174,21 +171,32 @@ export default function Header({ onOpenRegister }) {
               })}
             </nav>
 
-            <div className="pt-4 border-t border-zinc-800 flex flex-col gap-2.5">
+            <div className="pt-4 border-t border-slate-100 flex flex-col gap-2.5">
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  handleRegister();
+                }}
+                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-black py-3.5 rounded-full flex items-center justify-center gap-2 text-xs shadow-sm cursor-pointer"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-white" />
+                <span>Apply Now for Admission</span>
+              </button>
+
               <a 
                 href="tel:+919899818241" 
-                className="w-full bg-zinc-900 border border-zinc-800 text-white text-center font-bold py-3 rounded-xl flex items-center justify-center gap-2 text-sm shadow-md"
+                className="w-full bg-slate-100 border border-slate-200/90 text-slate-900 text-center font-bold py-3 rounded-full flex items-center justify-center gap-2 text-xs"
               >
-                <Phone className="w-4 h-4 text-cyan-400" /> Call +91 98998 18241
+                <Phone className="w-3.5 h-3.5 text-indigo-600" /> Call +91 98998 18241
               </a>
 
               <a 
                 href={whatsappUrl} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="w-full bg-emerald-700 text-white text-center font-bold py-3 rounded-xl flex items-center justify-center gap-2 text-sm shadow-md"
+                className="w-full bg-emerald-600 text-white text-center font-bold py-3 rounded-full flex items-center justify-center gap-2 text-xs shadow-xs"
               >
-                <WhatsAppIcon className="w-4 h-4 text-emerald-200" /> WhatsApp Desk
+                <WhatsAppIcon className="w-3.5 h-3.5 text-white" /> WhatsApp Desk
               </a>
             </div>
 
