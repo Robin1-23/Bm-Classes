@@ -115,8 +115,19 @@ export default function BespokeProgramRoadmap() {
                 color="#22d3ee"
               />
             </span>
-            <h2 className="font-heading text-2xl sm:text-4xl font-black text-white mt-3 tracking-tight">
-              The 3-Phase <span className="font-serif italic font-normal text-cyan-300">Academic Framework</span>
+            <h2 className="font-heading tracking-tight mt-3">
+              <span className="sr-only">Simple 5-step journey to your target rank.</span>
+              <FoldText
+                text="Simple 5-step journey to your target rank."
+                splitBy="word"
+                hinge="top"
+                trigger="scroll"
+                duration={0.6}
+                stagger={0.04}
+                fontSize="clamp(1.75rem, 4vw, 2.5rem)"
+                fontWeight={900}
+                color="#ffffff"
+              />
             </h2>
           </ScrollReveal>
 

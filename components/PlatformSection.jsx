@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Sparkles, Zap } from 'lucide-react';
+import FoldText from '@/components/ui/FoldText';
 
 export default function PlatformSection() {
   return (
@@ -16,11 +17,32 @@ export default function PlatformSection() {
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
-            <span>HYBRID LEARNING</span>
+            <FoldText
+              text="HYBRID LEARNING"
+              splitBy="char"
+              hinge="top"
+              trigger="scroll"
+              duration={0.45}
+              stagger={0.015}
+              fontSize="12px"
+              fontWeight={900}
+              color="#4338ca"
+            />
           </div>
           
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-slate-950 tracking-tight leading-[1.15]">
-            Classroom depth + AI test telemetry<span className="text-indigo-600">.</span>
+          <h2 className="font-heading leading-[1.15] tracking-tight mt-1 mb-2">
+            <span className="sr-only">Classroom depth + AI test telemetry.</span>
+            <FoldText
+              text="Classroom depth + AI test telemetry."
+              splitBy="word"
+              hinge="top"
+              trigger="scroll"
+              duration={0.6}
+              stagger={0.04}
+              fontSize="clamp(1.75rem, 4vw, 3rem)"
+              fontWeight={900}
+              color="#020617"
+            />
           </h2>
           
           <p className="text-slate-600 text-base sm:text-lg mt-4 font-medium leading-relaxed">

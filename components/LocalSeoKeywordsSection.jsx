@@ -71,8 +71,19 @@ export default function LocalSeoKeywordsSection() {
           </ScrollReveal>
 
           <ScrollReveal delay={150} direction="up">
-            <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight leading-tight mb-4">
-              Best IIT JEE Coaching & Best NEET Coaching in <span className="text-indigo-600">Gurgaon Sector 52</span>
+            <h2 className="font-heading tracking-tight leading-tight mb-4">
+              <span className="sr-only">Best IIT JEE Coaching & Best NEET Coaching in Gurgaon Sector 52</span>
+              <FoldText
+                text="Best IIT JEE Coaching & Best NEET Coaching in Gurgaon Sector 52"
+                splitBy="word"
+                hinge="top"
+                trigger="scroll"
+                duration={0.6}
+                stagger={0.04}
+                fontSize="clamp(1.75rem, 4vw, 3rem)"
+                fontWeight={900}
+                color="#020617"
+              />
             </h2>
           </ScrollReveal>
 

@@ -178,8 +178,19 @@ export default function ReelShowcaseSection() {
             </ScrollReveal>
 
             <ScrollReveal delay={150} direction="up">
-              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
-                See Our Faculty <span className="bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent">Teaching Live</span>
+              <h2 className="font-heading tracking-tight leading-tight">
+                <span className="sr-only">See Our Faculty Teaching Live</span>
+                <FoldText
+                  text="See Our Faculty Teaching Live"
+                  splitBy="word"
+                  hinge="top"
+                  trigger="scroll"
+                  duration={0.6}
+                  stagger={0.04}
+                  fontSize="clamp(1.75rem, 4vw, 3rem)"
+                  fontWeight={900}
+                  color="#ffffff"
+                />
               </h2>
             </ScrollReveal>
           </div>

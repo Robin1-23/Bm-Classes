@@ -41,8 +41,19 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
               color="#4338ca"
             />
           </div>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight leading-tight">
-            Courses Built for <span className="font-black text-slate-950">Top AIR Ranks</span>
+          <h2 className="font-heading leading-tight tracking-tight mt-1 mb-2">
+            <span className="sr-only">Courses Built for Top AIR Ranks</span>
+            <FoldText
+              text="Courses Built for Top AIR Ranks"
+              splitBy="word"
+              hinge="top"
+              trigger="scroll"
+              duration={0.6}
+              stagger={0.04}
+              fontSize="clamp(1.75rem, 4vw, 3rem)"
+              fontWeight={900}
+              color="#020617"
+            />
           </h2>
           <p className="text-slate-600 text-xs sm:text-sm font-medium mt-2">
             100% Ex-HOD taught micro-batches (Capped 10–15 students max) with same-day board doubt resolution.

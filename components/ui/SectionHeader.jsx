@@ -37,11 +37,19 @@ export default function SectionHeader({
       )}
       
       {title && (
-        <h2 className={`font-heading text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-[1.15] ${
-          dark ? 'text-white' : 'text-slate-950'
-        }`}>
-          {title}
-          <span className={dark ? 'text-cyan-300' : 'text-indigo-600'}>.</span>
+        <h2 className="font-heading leading-[1.15] tracking-tight mt-1 mb-2">
+          <span className="sr-only">{title}</span>
+          <FoldText
+            text={title}
+            splitBy="word"
+            hinge="top"
+            trigger="scroll"
+            duration={0.6}
+            stagger={0.04}
+            fontSize="clamp(1.75rem, 4vw, 3rem)"
+            fontWeight={900}
+            color={dark ? '#ffffff' : '#020617'}
+          />
         </h2>
       )}
       

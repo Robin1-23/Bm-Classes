@@ -179,8 +179,19 @@ export default function WhySection({ hidePedagogy = false }) {
             />
           </div>
           
-          <h2 className="font-heading text-3xl sm:text-5xl font-black text-white tracking-tight leading-[1.15]">
-            Conceptual Depth Over <span className="font-serif italic font-normal text-cyan-300">Mechanical Drills</span>
+          <h2 className="font-heading tracking-tight leading-[1.15] mt-1 mb-2">
+            <span className="sr-only">Conceptual Depth Over Mechanical Drills</span>
+            <FoldText
+              text="Conceptual Depth Over Mechanical Drills"
+              splitBy="word"
+              hinge="top"
+              trigger="scroll"
+              duration={0.6}
+              stagger={0.04}
+              fontSize="clamp(1.75rem, 4vw, 3rem)"
+              fontWeight={900}
+              color="#ffffff"
+            />
           </h2>
           
           <p className="text-zinc-300 text-base sm:text-lg mt-3 font-medium leading-relaxed max-w-xl mx-auto">
