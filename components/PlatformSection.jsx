@@ -6,7 +6,7 @@ import FoldText from '@/components/ui/FoldText';
 
 export default function PlatformSection() {
   return (
-    <section className="bg-[#faf8f5] pt-10 pb-20 sm:pt-12 sm:pb-28 border-b border-slate-200/80 relative overflow-hidden">
+    <section className="bg-white pt-10 pb-20 sm:pt-12 sm:pb-28 border-b border-slate-200/80 relative overflow-hidden">
       
       {/* Background Subtle Radial Accent */}
       <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:32px_32px] opacity-35 pointer-events-none"></div>

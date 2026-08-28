@@ -149,11 +149,11 @@ export default function ReelShowcaseSection() {
   };
 
   return (
-    <section className="py-20 sm:py-28 bg-[#04060c] text-white relative overflow-hidden border-b border-zinc-900">
+    <section className="py-20 sm:py-28 bg-white text-slate-950 relative overflow-hidden border-b border-slate-200/80">
       
       {/* Background Ambient Lighting Orbs */}
-      <div className="absolute top-0 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 left-10 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-0 right-10 w-96 h-96 bg-indigo-50/70 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-0 left-10 w-96 h-96 bg-slate-100/70 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
@@ -161,8 +161,8 @@ export default function ReelShowcaseSection() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12 sm:mb-16">
           <div className="text-center md:text-left max-w-2xl">
             <ScrollReveal delay={100} direction="down">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/30 text-cyan-300 text-xs font-black uppercase tracking-wider mb-4 shadow-sm">
-                <Sparkles className="w-4 h-4 text-cyan-400" />
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
+                <Sparkles className="w-4 h-4 text-indigo-600" />
                 <FoldText
                   text="HYBRID LEARNING"
                   splitBy="char"
@@ -172,7 +172,7 @@ export default function ReelShowcaseSection() {
                   stagger={0.015}
                   fontSize="12px"
                   fontWeight={900}
-                  color="#67e8f9"
+                  color="#4338ca"
                 />
               </div>
             </ScrollReveal>
@@ -189,7 +189,7 @@ export default function ReelShowcaseSection() {
                   stagger={0.04}
                   fontSize="clamp(1.75rem, 4vw, 3rem)"
                   fontWeight={900}
-                  color="#ffffff"
+                  color="#020617"
                 />
               </h2>
             </ScrollReveal>
@@ -200,14 +200,14 @@ export default function ReelShowcaseSection() {
             <button
               onClick={scrollLeft}
               aria-label="Scroll left reels"
-              className="w-12 h-12 rounded-2xl bg-zinc-900 hover:bg-cyan-400 text-white hover:text-slate-950 border border-zinc-800 hover:border-cyan-400 flex items-center justify-center transition-all duration-300 cursor-pointer shadow-lg group"
+              className="w-12 h-12 rounded-full bg-slate-100 hover:bg-slate-950 text-slate-800 hover:text-white border border-slate-200 flex items-center justify-center transition-all duration-300 cursor-pointer shadow-xs group"
             >
               <ChevronLeft className="w-6 h-6 group-hover:-translate-x-0.5 transition-transform" />
             </button>
             <button
               onClick={scrollRight}
               aria-label="Scroll right reels"
-              className="w-12 h-12 rounded-2xl bg-zinc-900 hover:bg-cyan-400 text-white hover:text-slate-950 border border-zinc-800 hover:border-cyan-400 flex items-center justify-center transition-all duration-300 cursor-pointer shadow-lg group"
+              className="w-12 h-12 rounded-full bg-slate-100 hover:bg-slate-950 text-slate-800 hover:text-white border border-slate-200 flex items-center justify-center transition-all duration-300 cursor-pointer shadow-xs group"
             >
               <ChevronRight className="w-6 h-6 group-hover:translate-x-0.5 transition-transform" />
             </button>
