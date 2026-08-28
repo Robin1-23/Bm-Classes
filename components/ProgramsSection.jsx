@@ -31,7 +31,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
             <span>ACADEMIC PROGRAMS</span>
           </div>
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight leading-tight">
-            Courses Built for <span className="font-serif italic font-normal text-indigo-700">Top AIR Ranks</span>
+            Courses Built for <span className="font-black text-slate-950">Top AIR Ranks</span>
           </h2>
           <p className="text-slate-600 text-xs sm:text-sm font-medium mt-2">
             100% Ex-HOD taught micro-batches (Capped 10–15 students max) with same-day board doubt resolution.

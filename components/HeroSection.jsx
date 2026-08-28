@@ -57,27 +57,21 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
         <div className="lg:col-span-7 pb-4 sm:pb-6 text-center lg:text-left">
           
           <ScrollReveal delay={100} direction="down">
-            <div className="inline-flex items-center gap-1.5 xs:gap-2 px-3 xs:px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-[10px] xs:text-xs font-black uppercase tracking-wider mb-4 sm:mb-6 shadow-xs">
-              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-indigo-600 shrink-0" />
+            <div className="inline-flex items-center gap-1.5 xs:gap-2 px-3 xs:px-4 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-cyan-300 text-[10px] xs:text-xs font-black uppercase tracking-wider mb-4 sm:mb-6 shadow-sm">
+              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 shrink-0" />
               <span>BM CLASSES — LEARN TODAY, LEAD TOMORROW</span>
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={200} direction="up">
             <h1 className="font-heading text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black text-slate-950 leading-[1.15] sm:leading-[1.1] tracking-tight mb-4 sm:mb-6">
-              Small batches.<br className="hidden sm:inline" />
-              <span className="font-serif italic font-normal text-indigo-600 pr-1">
-                Exceptional
-              </span>{' '}
-              <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-800 bg-clip-text text-transparent">
-                ranks.
-              </span>
+              Small batches. <span className="text-slate-950">Exceptional ranks.</span>
             </h1>
           </ScrollReveal>
 
           <ScrollReveal delay={250} direction="up">
-            <p className="text-lg sm:text-xl lg:text-2xl font-bold text-slate-800 max-w-xl mx-auto lg:mx-0 mb-5 tracking-tight leading-snug">
-              Gurgaon’s <span className="font-serif italic font-normal text-indigo-600 text-xl sm:text-2xl lg:text-3xl">Best IIT JEE Coaching & Best NEET Coaching</span> Institute.
+            <p className="text-lg sm:text-xl lg:text-2xl font-extrabold text-slate-900 max-w-xl mx-auto lg:mx-0 mb-5 tracking-tight leading-snug">
+              Gurgaon’s <span className="text-slate-950 font-black">Best IIT JEE Coaching & Best NEET Coaching</span> Institute.
             </p>
           </ScrollReveal>
 
