@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { MapPin, ShieldCheck, ChevronDown, Sparkles, CheckCircle2, Award, Star } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 import FoldText from '@/components/ui/FoldText';
+import CurvedLoop from '@/components/ui/CurvedLoop';
 
 const LOCAL_FAQS = [
   {
@@ -93,6 +94,18 @@ export default function LocalSeoKeywordsSection() {
             </p>
           </ScrollReveal>
         </div>
+
+        {/* React Bits Curved Loop Marquee Effect */}
+        <ScrollReveal delay={220} direction="up" className="mb-6 -mx-4 sm:-mx-6">
+          <CurvedLoop 
+            marqueeText="GURGAON #1 RANKED IIT JEE & NEET ACADEMY ✦ EX-HOD DIRECT TEACHING ✦ CAPPED 10-15 BATCH ✦ AIR 18 AIR 22 AIR 52 PROVEN ✦ "
+            speed={1.5}
+            curveAmount={35}
+            direction="left"
+            interactive={true}
+            className="fill-indigo-950 text-base sm:text-lg font-black tracking-widest uppercase"
+          />
+        </ScrollReveal>
 
         {/* Local Target Search Keywords — Dual-Row Smooth Marquee Ticker */}
         <ScrollReveal delay={250} direction="up" className="mb-16 -mx-4 sm:-mx-6">
