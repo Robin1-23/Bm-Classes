@@ -56,7 +56,7 @@ export default function PlatformSection() {
         {/* Left Feature Cards Column */}
         <div className="lg:col-span-7">
           <div className="space-y-4 sm:space-y-5">
-            <div className="flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-indigo-300 transition-colors">
+            <div className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-slate-200/90 shadow-[0_10px_25px_-5px_rgba(15,23,42,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(99,102,241,0.18)] hover:-translate-y-1.5 transition-all duration-300">
               <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white font-black text-xs flex items-center justify-center shrink-0 shadow-md">
                 01
               </div>
@@ -70,7 +70,7 @@ export default function PlatformSection() {
               </div>
             </div>
 
-            <div className="flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-indigo-300 transition-colors">
+            <div className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-slate-200/90 shadow-[0_10px_25px_-5px_rgba(15,23,42,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(99,102,241,0.18)] hover:-translate-y-1.5 transition-all duration-300">
               <div className="w-10 h-10 rounded-xl bg-cyan-400 text-slate-950 font-black text-xs flex items-center justify-center shrink-0 shadow-md">
                 02
               </div>
@@ -84,7 +84,7 @@ export default function PlatformSection() {
               </div>
             </div>
 
-            <div className="flex items-start gap-4 p-4 sm:p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:border-indigo-300 transition-colors">
+            <div className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-slate-200/90 shadow-[0_10px_25px_-5px_rgba(15,23,42,0.06)] hover:shadow-[0_20px_40px_-10px_rgba(99,102,241,0.18)] hover:-translate-y-1.5 transition-all duration-300">
               <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white font-black text-xs flex items-center justify-center shrink-0 shadow-md">
                 03
               </div>
@@ -100,8 +100,8 @@ export default function PlatformSection() {
           </div>
         </div>
 
-        {/* Right Platform Analytics Dashboard Card (Clean Minimalist Light Style) */}
-        <div className="lg:col-span-5 bg-white text-slate-950 border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-[0_15px_35px_-5px_rgba(15,23,42,0.08)] relative overflow-hidden">
+        {/* Right Platform Analytics Dashboard Card (Clean 3D Minimalist Light Style) */}
+        <div className="lg:col-span-5 bg-white text-slate-950 border-2 border-white ring-1 ring-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-[0_20px_50px_-10px_rgba(15,23,42,0.12),0_8px_20px_-6px_rgba(0,0,0,0.04)] hover:shadow-[0_30px_70px_-15px_rgba(99,102,241,0.22)] hover:-translate-y-2 transition-all duration-500 relative overflow-hidden group">
           
           <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-6 relative z-10">
             <div>

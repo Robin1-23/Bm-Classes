@@ -224,7 +224,7 @@ export default function ReelShowcaseSection() {
               <div 
                 key={reel.id}
                 onClick={() => handleOpenReel(reel)}
-                className={`snap-start shrink-0 w-[280px] sm:w-[310px] group/card relative bg-zinc-950 rounded-3xl overflow-hidden border ${reel.borderColor} hover:border-cyan-400/80 transition-all duration-500 shadow-2xl hover:shadow-cyan-500/20 cursor-pointer flex flex-col h-[460px] sm:h-[480px]`}
+                className={`snap-start shrink-0 w-[280px] sm:w-[310px] group/card relative bg-slate-950 rounded-3xl overflow-hidden border-2 border-white ring-1 ring-slate-200/80 shadow-[0_20px_45px_-10px_rgba(15,23,42,0.18)] hover:shadow-[0_30px_70px_-10px_rgba(99,102,241,0.3)] hover:-translate-y-2.5 transition-all duration-500 cursor-pointer flex flex-col h-[460px] sm:h-[480px]`}
               >
                 {/* Background Video Preview (Silent Loop) */}
                 <div className="absolute inset-0 z-0 overflow-hidden bg-zinc-900">
