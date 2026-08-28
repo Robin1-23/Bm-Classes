@@ -10,12 +10,18 @@ export function ModalProvider({ children }) {
   const [seatLockOpen, setSeatLockOpen] = useState(false);
   const [videoTitle, setVideoTitle] = useState(null);
   const [preselectedProgram, setPreselectedProgram] = useState('');
+  const [prefilledPhone, setPrefilledPhone] = useState('');
 
-  const openRegister = (programName) => {
+  const openRegister = (programName, phone) => {
     setLoginOpen(false);
     setSeatLockOpen(false);
     if (programName && typeof programName === 'string') {
       setPreselectedProgram(programName);
+    }
+    if (phone && typeof phone === 'string') {
+      setPrefilledPhone(phone);
+    } else {
+      setPrefilledPhone('');
     }
     setRegisterOpen(true);
   };
@@ -41,6 +47,7 @@ export function ModalProvider({ children }) {
     setLoginOpen(false);
     setSeatLockOpen(false);
     setVideoTitle(null);
+    setPrefilledPhone('');
   };
 
   return (
@@ -51,6 +58,7 @@ export function ModalProvider({ children }) {
         seatLockOpen,
         videoTitle,
         preselectedProgram,
+        prefilledPhone,
         openRegister,
         openLogin,
         openSeatLock,

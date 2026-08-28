@@ -14,7 +14,7 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
   const handleQuickSubmit = (e) => {
     e.preventDefault();
     if (handleRegister) {
-      handleRegister('Hero Quick Application');
+      handleRegister('Hero Quick Application', mobileNum);
     }
   };
 
@@ -142,15 +142,31 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
 
         </div>
 
-        {/* Right Graphic / Student Visual (Amplemarket Floor Glow Reflection + Current Website Image) */}
+        {/* Right Graphic / Student Visual with Tactile 3D Backing */}
         <div className="lg:col-span-5 relative w-full flex items-center justify-center mt-6 lg:mt-0">
           <ScrollReveal delay={300} direction="left" className="w-full relative">
             
-            {/* Amplemarket Style Purple/Cyan Floor Reflection Glow */}
-            <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-4/5 h-32 bg-gradient-to-tr from-indigo-500/20 via-purple-500/20 to-cyan-400/20 rounded-full blur-3xl pointer-events-none"></div>
+            {/* 3D Layer 1: Ambient Floor Reflection Glow */}
+            <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-4/5 h-36 bg-gradient-to-tr from-indigo-500/25 via-purple-500/25 to-cyan-400/25 rounded-full blur-3xl pointer-events-none"></div>
 
-            {/* Clean Minimalist Photo Container */}
-            <div className="relative z-10 overflow-hidden rounded-3xl shadow-xl border border-slate-200/80 bg-white p-2 group">
+            {/* 3D Layer 2: Tilted Backing Card Plate */}
+            <div className="absolute -inset-3 bg-gradient-to-tr from-indigo-600/20 via-purple-500/15 to-cyan-400/20 rounded-[36px] blur-md transform rotate-[-3deg] pointer-events-none"></div>
+            <div className="absolute -inset-1 bg-slate-900 rounded-[32px] transform rotate-[-2.5deg] shadow-2xl pointer-events-none opacity-95 border border-slate-800"></div>
+
+            {/* 3D Layer 3: Floating Badge Chip 1 (Top Left) */}
+            <div className="absolute -top-4 -left-4 z-20 bg-slate-950 text-white text-[11px] font-black px-4 py-2 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.3)] border border-cyan-400/40 flex items-center gap-2 transform -rotate-3 hover:scale-105 transition-transform hidden sm:flex">
+              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+              <span>🏆 AIR 18 & 22 Proven</span>
+            </div>
+
+            {/* 3D Layer 4: Floating Badge Chip 2 (Bottom Right) */}
+            <div className="absolute -bottom-4 -right-4 z-20 bg-white text-slate-950 text-[11px] font-black px-4 py-2 rounded-2xl shadow-[0_15px_30px_rgba(0,0,0,0.15)] border border-slate-200 flex items-center gap-2 transform rotate-2 hover:scale-105 transition-transform hidden sm:flex">
+              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span>⚡ 10-15 Student Cap</span>
+            </div>
+
+            {/* Main 3D Card Frame */}
+            <div className="relative z-10 overflow-hidden rounded-3xl shadow-[0_25px_60px_-15px_rgba(15,23,42,0.3)] border-2 border-white bg-white p-2 group transform hover:scale-[1.01] transition-all duration-500">
               <img 
                 src="/CELEBRATION_PHOTO.jpg" 
                 alt="BM CLASSES Top Rank Student Celebration" 

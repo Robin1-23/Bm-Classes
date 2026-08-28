@@ -14,7 +14,7 @@ import ScrollToTopButton from '@/components/ScrollToTopButton';
 
 function Shell({ children }) {
   const pathname = usePathname();
-  const { registerOpen, loginOpen, seatLockOpen, videoTitle, preselectedProgram, closeModals } = useModal();
+  const { registerOpen, loginOpen, seatLockOpen, videoTitle, preselectedProgram, prefilledPhone, closeModals } = useModal();
   const isAdmin = pathname?.startsWith('/admin');
 
   return (
@@ -30,6 +30,7 @@ function Shell({ children }) {
         loginOpen={loginOpen}
         videoTitle={videoTitle}
         preselectedProgram={preselectedProgram}
+        prefilledPhone={prefilledPhone}
         onClose={closeModals}
       />
       <SeatLockModal

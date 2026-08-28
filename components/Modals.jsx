@@ -10,6 +10,7 @@ export default function Modals({
   loginOpen,
   videoTitle,
   preselectedProgram,
+  prefilledPhone,
   onClose,
 }) {
   const [studentName, setStudentName] = useState('');
@@ -36,6 +37,20 @@ export default function Modals({
       }
     }
   }, [preselectedProgram, registerOpen]);
+
+  useEffect(() => {
+    if (prefilledPhone && registerOpen) {
+      const cleanPhone = prefilledPhone.replace(/\D/g, '').slice(0, 10);
+      setPhoneNumber(cleanPhone);
+      if (cleanPhone.length > 0 && cleanPhone.length < 10) {
+        setPhoneError('Mobile number must be exactly 10 digits.');
+      } else if (cleanPhone.length === 10 && !/^[6-9]\d{9}$/.test(cleanPhone)) {
+        setPhoneError('Please enter a valid 10-digit mobile number starting with 6-9.');
+      } else {
+        setPhoneError('');
+      }
+    }
+  }, [prefilledPhone, registerOpen]);
 
   // Phone input handler (only digits up to 10 characters)
   const handlePhoneChange = (e) => {
