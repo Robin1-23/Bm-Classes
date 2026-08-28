@@ -21,11 +21,11 @@ export default function FacultySection({ onOpenRegister }) {
   ];
 
   return (
-    <section className="bg-white py-16 sm:py-24 border-b border-slate-200/80 relative overflow-hidden" id="faculty">
+    <section className="bg-[#faf6f0] py-16 sm:py-24 border-b border-[#ede6dd] relative overflow-hidden" id="faculty">
       
-      {/* Background Soft Glows */}
-      <div className="absolute top-1/3 -left-20 w-80 h-80 bg-slate-100/60 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-10 -right-20 w-80 h-80 bg-indigo-50/50 rounded-full blur-3xl pointer-events-none"></div>
+      {/* Background Ambient Warm Cream Glows */}
+      <div className="absolute top-1/3 -left-20 w-80 h-80 bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-10 -right-20 w-80 h-80 bg-orange-100/30 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
@@ -43,7 +43,7 @@ export default function FacultySection({ onOpenRegister }) {
             const videoUrl = videoUrls[idx % videoUrls.length];
             return (
               <ScrollReveal key={idx} delay={100 * (idx + 1)} direction="up">
-                <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-7 flex flex-col justify-between shadow-[0_10px_30px_-5px_rgba(15,23,42,0.06)] hover:shadow-[0_20px_50px_-10px_rgba(15,23,42,0.12)] hover:border-slate-300 transition-all duration-300 h-full relative group">
+                <div className="bg-white border border-[#e8dfd5] rounded-3xl p-6 sm:p-7 flex flex-col justify-between shadow-[0_10px_30px_-5px_rgba(15,23,42,0.05)] hover:shadow-[0_20px_50px_-10px_rgba(15,23,42,0.1)] hover:border-indigo-400 transition-all duration-300 h-full relative group">
                   
                   <div>
                     {/* Top Avatar & Experience Row */}
@@ -108,7 +108,7 @@ export default function FacultySection({ onOpenRegister }) {
                     </div>
 
                     {/* Pedagogy Insight */}
-                    <div className="bg-slate-50 border-l-2 border-indigo-600 p-3.5 rounded-r-2xl mb-6 min-h-[64px] flex flex-col justify-center">
+                    <div className="bg-[#f5efe6] border-l-2 border-indigo-600 p-3.5 rounded-r-2xl mb-6 min-h-[64px] flex flex-col justify-center">
                       <div className="text-[10px] font-black uppercase tracking-wider text-indigo-600 mb-0.5">
                         Pedagogy Insight
                       </div>
