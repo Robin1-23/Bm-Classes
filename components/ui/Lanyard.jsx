@@ -75,10 +75,13 @@ function LanyardContent({
 
   if (!mounted) return <div className="lanyard-wrapper" />;
 
+  const effectivePosition = isMobile ? [0, 0, 24] : position;
+  const effectiveFov = isMobile ? 24 : fov;
+
   return (
     <div className="lanyard-wrapper">
       <Canvas
-        camera={{ position: position, fov: fov }}
+        camera={{ position: effectivePosition, fov: effectiveFov }}
         dpr={[1, isMobile ? 1.5 : 2]}
         gl={{ alpha: transparent }}
         onCreated={({ gl }) => gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)}
@@ -151,7 +154,13 @@ function Band({
     ang = new THREE.Vector3(),
     rot = new THREE.Vector3(),
     dir = new THREE.Vector3();
-  const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
+  const segmentProps = {
+    type: 'dynamic',
+    canSleep: true,
+    colliders: false,
+    angularDamping: isMobile ? 6 : 4,
+    linearDamping: isMobile ? 6 : 4
+  };
 
   // 3D Box Geometry (width: 1.6, height: 2.25, depth: 0.02)
   const cardGeo = useMemo(() => new THREE.BoxGeometry(1.6, 2.25, 0.02), []);
@@ -167,7 +176,7 @@ function Band({
   const frontTex = useTexture(frontImage || '/CELEBRATION_PHOTO.jpg');
   const backTex = useTexture(backImage || frontImage || '/CELEBRATION_PHOTO.jpg');
 
-  // Generate SINGLE FULL-SIZE texture map for front and back card faces
+  // Generate HIGH-CONTRAST SINGLE FULL-SIZE texture map for card faces
   const [frontTextureMap, backTextureMap] = useMemo(() => {
     const createFaceCanvas = (texImage) => {
       if (!texImage) return null;
@@ -182,6 +191,9 @@ function Band({
       ctx.fillStyle = '#ffffff';
       ctx.fillRect(0, 0, W, H);
 
+      // Enhance Image Contrast, Sharpness & Color Vibrancy
+      ctx.filter = 'contrast(1.22) brightness(1.05) saturate(1.12)';
+
       const scale = Math.max(W / texImage.width, H / texImage.height);
       const dw = texImage.width * scale;
       const dh = texImage.height * scale;
@@ -189,6 +201,7 @@ function Band({
       const dy = (H - dh) / 2;
 
       ctx.drawImage(texImage, dx, dy, dw, dh);
+      ctx.filter = 'none';
 
       const tex = new THREE.CanvasTexture(canvas);
       tex.colorSpace = THREE.SRGBColorSpace;
@@ -210,17 +223,17 @@ function Band({
     });
     const front = new THREE.MeshPhysicalMaterial({
       map: frontTextureMap,
-      clearcoat: isMobile ? 0 : 1,
+      clearcoat: isMobile ? 0.3 : 1,
       clearcoatRoughness: 0.15,
-      roughness: 0.4,
-      metalness: 0.1,
+      roughness: 0.35,
+      metalness: 0.05,
     });
     const back = new THREE.MeshPhysicalMaterial({
       map: backTextureMap,
-      clearcoat: isMobile ? 0 : 1,
+      clearcoat: isMobile ? 0.3 : 1,
       clearcoatRoughness: 0.15,
-      roughness: 0.4,
-      metalness: 0.1,
+      roughness: 0.35,
+      metalness: 0.05,
     });
     // BoxGeometry face order: +X, -X, +Y, -Y, +Z (Front), -Z (Back)
     return [side, side, side, side, front, back];
@@ -301,7 +314,7 @@ function Band({
         <RigidBody position={[2, 0, 0]} ref={card} {...segmentProps} type={dragged ? 'kinematicPosition' : 'dynamic'}>
           <CuboidCollider args={[0.8, 1.125, 0.01]} />
           <group
-            scale={2.25}
+            scale={isMobile ? 1.8 : 2.25}
             position={[0, -1.2, -0.05]}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}
@@ -326,7 +339,7 @@ function Band({
           useMap
           map={texture}
           repeat={[-4, 1]}
-          lineWidth={lanyardWidth}
+          lineWidth={isMobile ? 0.85 : lanyardWidth}
         />
       </mesh>
     </>
