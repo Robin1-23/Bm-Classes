@@ -28,7 +28,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
         <ScrollReveal delay={100} direction="down" className="text-center max-w-3xl mx-auto mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200/90 text-indigo-700 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
-            <span>ACADEMIC PROGRAMS BENTO</span>
+            <span>ACADEMIC PROGRAMS</span>
           </div>
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight leading-tight">
             Courses Built for <span className="font-serif italic font-normal text-indigo-700">Top AIR Ranks</span>
@@ -67,92 +67,92 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-7xl mx-auto">
           
           {/* ========================================================= */}
-          {/* BENTO CARD 1: DARK LUXURY HERO CARD (Spans 7 cols on lg)  */}
+          {/* BENTO CARD 1: LIGHT LUXURY HERO CARD (Spans 7 cols on lg) */}
           {/* ========================================================= */}
           <ScrollReveal delay={200} direction="up" className="lg:col-span-7 flex">
-            <div className="bg-[#090d16] text-white border border-slate-800 rounded-[28px] p-6 sm:p-9 relative overflow-hidden flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.35)] w-full group hover:border-cyan-400/80 transition-all duration-300">
+            <div className="bg-white text-slate-900 border-2 border-indigo-200/90 rounded-[28px] p-6 sm:p-9 relative overflow-hidden flex flex-col justify-between shadow-[0_15px_40px_rgba(99,102,241,0.06)] w-full group hover:border-indigo-500 transition-all duration-300">
               
-              {/* Top Glow & Subtle Dashboard Header */}
-              <div className="absolute -right-20 -top-20 w-80 h-80 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
+              {/* Top Soft Ambient Glow */}
+              <div className="absolute -right-20 -top-20 w-80 h-80 bg-indigo-100/60 rounded-full blur-3xl pointer-events-none"></div>
 
               <div>
                 {/* Header Pills Row */}
-                <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-800/80 mb-6 relative z-10">
+                <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-100 mb-6 relative z-10">
                   <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-2xl bg-cyan-400/10 border border-cyan-400/30 text-cyan-300 flex items-center justify-center font-black">
-                      <Target className="w-6 h-6 text-cyan-400" />
+                    <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-200/80 text-indigo-700 flex items-center justify-center font-black">
+                      <Target className="w-6 h-6 text-indigo-600" />
                     </div>
                     <div>
-                      <span className="text-[10px] font-black tracking-widest text-cyan-400 uppercase block">
+                      <span className="text-[10px] font-black tracking-widest text-indigo-700 uppercase block">
                         STARTS 6TH APRIL · FLAGSHIP
                       </span>
-                      <span className="text-xs font-extrabold text-slate-300">
+                      <span className="text-xs font-extrabold text-slate-600">
                         Classes 11th, 12th & XI Pass Droppers
                       </span>
                     </div>
                   </div>
 
-                  <span className="bg-cyan-400 text-slate-950 text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
-                    <Flame className="w-3.5 h-3.5 fill-slate-950" />
+                  <span className="bg-indigo-600 text-white text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
+                    <Flame className="w-3.5 h-3.5 fill-white text-white" />
                     <span>Capped 10–15 Batch</span>
                   </span>
                 </div>
 
                 {/* Card Title & Desc */}
-                <h3 className="font-heading text-2xl sm:text-3xl font-black text-white mb-3 group-hover:text-cyan-300 transition-colors relative z-10 leading-tight">
+                <h3 className="font-heading text-2xl sm:text-3xl font-black text-slate-950 mb-3 group-hover:text-indigo-600 transition-colors relative z-10 leading-tight">
                   Class 11th & 12th Integrated JEE Main, Advanced & NEET Master Program
                 </h3>
 
-                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6 font-medium max-w-xl relative z-10">
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-medium max-w-xl relative z-10">
                   Built for serious aspirants aiming for Top 500 AIR Ranks. Taught 100% directly by Senior Ex-HODs (BM Sir & Konika Ma'am) with first-principles derivation, 15 high-yield daily practice questions & same-day doubt solving.
                 </p>
 
                 {/* Neumorphic Mini-Stat Widgets Inside Hero Card */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-7 relative z-10">
-                  <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-3.5 text-left">
-                    <div className="text-[10px] font-extrabold text-cyan-400 uppercase tracking-wider">Batch Cap</div>
-                    <div className="text-base sm:text-lg font-black text-white mt-0.5">10–15 Max</div>
-                    <div className="text-[9.5px] font-semibold text-slate-400 mt-0.5">Zero Crowd Halls</div>
+                  <div className="bg-indigo-50/80 border border-indigo-100/90 rounded-2xl p-3.5 text-left">
+                    <div className="text-[10px] font-extrabold text-indigo-700 uppercase tracking-wider">Batch Cap</div>
+                    <div className="text-base sm:text-lg font-black text-slate-950 mt-0.5">10–15 Max</div>
+                    <div className="text-[9.5px] font-semibold text-slate-600 mt-0.5">Zero Crowd Halls</div>
                   </div>
 
-                  <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-3.5 text-left">
-                    <div className="text-[10px] font-extrabold text-emerald-400 uppercase tracking-wider">Faculty Guarantee</div>
-                    <div className="text-base sm:text-lg font-black text-white mt-0.5">100% Ex-HODs</div>
-                    <div className="text-[9.5px] font-semibold text-slate-400 mt-0.5">Zero Junior TAs</div>
+                  <div className="bg-emerald-50/80 border border-emerald-100/90 rounded-2xl p-3.5 text-left">
+                    <div className="text-[10px] font-extrabold text-emerald-800 uppercase tracking-wider">Faculty Guarantee</div>
+                    <div className="text-base sm:text-lg font-black text-slate-950 mt-0.5">100% Ex-HODs</div>
+                    <div className="text-[9.5px] font-semibold text-slate-600 mt-0.5">Zero Junior TAs</div>
                   </div>
 
-                  <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-3.5 text-left col-span-2 sm:col-span-1">
-                    <div className="text-[10px] font-extrabold text-amber-400 uppercase tracking-wider">Proven Ranks</div>
-                    <div className="text-base sm:text-lg font-black text-white mt-0.5">AIR 18 & 22</div>
-                    <div className="text-[9.5px] font-semibold text-slate-400 mt-0.5">JEE & NEET Top 500</div>
+                  <div className="bg-amber-50/80 border border-amber-100/90 rounded-2xl p-3.5 text-left col-span-2 sm:col-span-1">
+                    <div className="text-[10px] font-extrabold text-amber-800 uppercase tracking-wider">Proven Ranks</div>
+                    <div className="text-base sm:text-lg font-black text-slate-950 mt-0.5">AIR 18 & 22</div>
+                    <div className="text-[9.5px] font-semibold text-slate-600 mt-0.5">JEE & NEET Top 500</div>
                   </div>
                 </div>
 
                 {/* Faculty Portrait Avatars */}
-                <div className="flex items-center gap-3 p-3 rounded-2xl bg-slate-900/60 border border-slate-800/80 mb-6 relative z-10">
+                <div className="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-200/80 mb-6 relative z-10">
                   <div className="flex -space-x-3 overflow-hidden">
-                    <img src="/bm_sir.jpg" alt="BM Sir" className="inline-block h-10 w-10 rounded-full ring-2 ring-cyan-400 object-cover" />
-                    <img src="/konika_mam.jpg" alt="Konika Ma'am" className="inline-block h-10 w-10 rounded-full ring-2 ring-emerald-400 object-cover" />
+                    <img src="/bm_sir.jpg" alt="BM Sir" className="inline-block h-10 w-10 rounded-full ring-2 ring-indigo-500 object-cover" />
+                    <img src="/konika_mam.jpg" alt="Konika Ma'am" className="inline-block h-10 w-10 rounded-full ring-2 ring-emerald-500 object-cover" />
                   </div>
-                  <div className="text-xs font-extrabold text-slate-200">
-                    Direct Mentorship by <span className="text-cyan-400 font-black">BM Sir (Chemistry HOD)</span> & <span className="text-emerald-400 font-black">Konika Ma'am (Biology Head)</span>
+                  <div className="text-xs font-extrabold text-slate-700">
+                    Direct Mentorship by <span className="text-indigo-700 font-black">BM Sir (Chemistry HOD)</span> & <span className="text-emerald-700 font-black">Konika Ma'am (Biology Head)</span>
                   </div>
                 </div>
               </div>
 
               {/* Card Footer CTA */}
-              <div className="pt-4 border-t border-slate-800 relative z-10 flex items-center justify-between flex-wrap gap-4">
-                <div className="flex items-center gap-2 text-xs font-extrabold text-cyan-400">
-                  <ShieldCheck className="w-4 h-4 text-cyan-400" />
+              <div className="pt-4 border-t border-slate-100 relative z-10 flex items-center justify-between flex-wrap gap-4">
+                <div className="flex items-center gap-2 text-xs font-extrabold text-indigo-700">
+                  <ShieldCheck className="w-4 h-4 text-indigo-600" />
                   <span>Only 3 Seats Remaining for 2024–25 Session</span>
                 </div>
 
                 <button
                   onClick={() => handleRegister('Class 11th & 12th Integrated JEE & NEET')}
-                  className="bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black text-xs px-6 py-3.5 rounded-2xl transition-all shadow-lg hover:shadow-cyan-400/25 flex items-center gap-2 cursor-pointer ml-auto"
+                  className="bg-slate-950 hover:bg-indigo-600 text-white font-black text-xs px-6 py-3.5 rounded-2xl transition-all shadow-md flex items-center gap-2 cursor-pointer ml-auto"
                 >
                   <span>Apply Class 11th & 12th Batch</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 text-cyan-300" />
                 </button>
               </div>
 
