@@ -73,10 +73,24 @@ function LanyardContent({
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  if (!mounted) return <div className="lanyard-wrapper" />;
+  // Instant skeleton placeholder while WebGL mounts (0ms initial load delay!)
+  if (!mounted) {
+    return (
+      <div className="lanyard-wrapper flex items-center justify-center">
+        <div className="relative w-[260px] sm:w-[320px] h-[360px] sm:h-[430px] rounded-[24px] overflow-hidden shadow-2xl border-2 border-white bg-slate-900 animate-pulse">
+          <img
+            src="/CELEBRATION_PHOTO.jpg"
+            alt="BM Classes Top Rank Student Celebration"
+            className="w-full h-full object-cover filter contrast-[1.35] brightness-[1.04] saturate-[1.2]"
+          />
+        </div>
+      </div>
+    );
+  }
 
-  const effectivePosition = isMobile ? [0, 0, 24] : position;
-  const effectiveFov = isMobile ? 24 : fov;
+  // Camera settings for big, bold mobile framing
+  const effectivePosition = isMobile ? [0, 0, 18] : position;
+  const effectiveFov = isMobile ? 20 : fov;
 
   return (
     <div className="lanyard-wrapper">
@@ -284,7 +298,7 @@ function Band({
         <RigidBody position={[2, 0, 0]} ref={card} {...segmentProps} type={dragged ? 'kinematicPosition' : 'dynamic'}>
           <CuboidCollider args={[0.8, 1.125, 0.01]} />
           <group
-            scale={isMobile ? 1.8 : 2.25}
+            scale={isMobile ? 2.25 : 2.5}
             position={[0, -1.2, -0.05]}
             onPointerOver={() => hover(true)}
             onPointerOut={() => hover(false)}
@@ -309,7 +323,7 @@ function Band({
           useMap
           map={texture}
           repeat={[-4, 1]}
-          lineWidth={isMobile ? 0.85 : lanyardWidth}
+          lineWidth={isMobile ? 0.95 : lanyardWidth}
         />
       </mesh>
     </>
