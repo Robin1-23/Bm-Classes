@@ -70,7 +70,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
           {/* BENTO CARD 1: LIGHT LUXURY HERO CARD (Spans 7 cols on lg) */}
           {/* ========================================================= */}
           <ScrollReveal delay={200} direction="up" className="lg:col-span-7 flex">
-            <div className="bg-white text-slate-900 border-2 border-indigo-200/90 rounded-[28px] p-6 sm:p-9 relative overflow-hidden flex flex-col justify-between shadow-[0_15px_40px_rgba(99,102,241,0.06)] w-full group hover:border-indigo-500 transition-all duration-300">
+            <div className="bg-white text-slate-900 border-2 border-indigo-200/90 border-b-4 border-b-indigo-500/80 rounded-[28px] p-6 sm:p-9 relative overflow-hidden flex flex-col justify-between shadow-[0_15px_35px_-5px_rgba(99,102,241,0.1),0_8px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_25px_55px_-10px_rgba(99,102,241,0.25),0_12px_24px_rgba(0,0,0,0.06)] hover:border-b-indigo-600 hover:-translate-y-2 transition-all duration-300 w-full group">
               
               {/* Top Soft Ambient Glow */}
               <div className="absolute -right-20 -top-20 w-80 h-80 bg-indigo-100/60 rounded-full blur-3xl pointer-events-none"></div>
@@ -79,7 +79,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                 {/* Header Pills Row */}
                 <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-100 mb-6 relative z-10">
                   <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-200/80 text-indigo-700 flex items-center justify-center font-black">
+                    <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-200/80 text-indigo-700 flex items-center justify-center font-black shadow-xs">
                       <Target className="w-6 h-6 text-indigo-600" />
                     </div>
                     <div>
@@ -92,7 +92,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                     </div>
                   </div>
 
-                  <span className="bg-indigo-600 text-white text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-sm">
+                  <span className="bg-indigo-600 text-white text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-md">
                     <Flame className="w-3.5 h-3.5 fill-white text-white" />
                     <span>Capped 10–15 Batch</span>
                   </span>
@@ -103,25 +103,25 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                   Class 11th & 12th Integrated JEE Main, Advanced & NEET Master Program
                 </h3>
 
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-medium max-w-xl relative z-10">
-                  Built for serious aspirants aiming for Top 500 AIR Ranks. Taught 100% directly by Senior Ex-HODs (BM Sir & Konika Ma'am) with first-principles derivation, 15 high-yield daily practice questions & same-day doubt solving.
+                <p className="text-slate-700 text-xs sm:text-sm leading-relaxed mb-6 font-bold max-w-xl relative z-10 bg-indigo-50/50 p-3 rounded-xl border border-indigo-100/70">
+                  🎯 Target Top 500 AIR Ranks with 100% Ex-HOD direct teaching, 15 daily PYQ drills & zero-queue doubt solving.
                 </p>
 
                 {/* Neumorphic Mini-Stat Widgets Inside Hero Card */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-7 relative z-10">
-                  <div className="bg-indigo-50/80 border border-indigo-100/90 rounded-2xl p-3.5 text-left">
+                  <div className="bg-indigo-50/80 border border-indigo-100/90 rounded-2xl p-3.5 text-left shadow-xs">
                     <div className="text-[10px] font-extrabold text-indigo-700 uppercase tracking-wider">Batch Cap</div>
                     <div className="text-base sm:text-lg font-black text-slate-950 mt-0.5">10–15 Max</div>
                     <div className="text-[9.5px] font-semibold text-slate-600 mt-0.5">Zero Crowd Halls</div>
                   </div>
 
-                  <div className="bg-emerald-50/80 border border-emerald-100/90 rounded-2xl p-3.5 text-left">
+                  <div className="bg-emerald-50/80 border border-emerald-100/90 rounded-2xl p-3.5 text-left shadow-xs">
                     <div className="text-[10px] font-extrabold text-emerald-800 uppercase tracking-wider">Faculty Guarantee</div>
                     <div className="text-base sm:text-lg font-black text-slate-950 mt-0.5">100% Ex-HODs</div>
                     <div className="text-[9.5px] font-semibold text-slate-600 mt-0.5">Zero Junior TAs</div>
                   </div>
 
-                  <div className="bg-amber-50/80 border border-amber-100/90 rounded-2xl p-3.5 text-left col-span-2 sm:col-span-1">
+                  <div className="bg-amber-50/80 border border-amber-100/90 rounded-2xl p-3.5 text-left col-span-2 sm:col-span-1 shadow-xs">
                     <div className="text-[10px] font-extrabold text-amber-800 uppercase tracking-wider">Proven Ranks</div>
                     <div className="text-base sm:text-lg font-black text-slate-950 mt-0.5">AIR 18 & 22</div>
                     <div className="text-[9.5px] font-semibold text-slate-600 mt-0.5">JEE & NEET Top 500</div>
@@ -129,7 +129,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                 </div>
 
                 {/* Faculty Portrait Avatars */}
-                <div className="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-200/80 mb-6 relative z-10">
+                <div className="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-200/80 mb-6 relative z-10 shadow-xs">
                   <div className="flex -space-x-3 overflow-hidden">
                     <img src="/bm_sir.jpg" alt="BM Sir" className="inline-block h-10 w-10 rounded-full ring-2 ring-indigo-500 object-cover" />
                     <img src="/konika_mam.jpg" alt="Konika Ma'am" className="inline-block h-10 w-10 rounded-full ring-2 ring-emerald-500 object-cover" />
@@ -149,7 +149,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
 
                 <button
                   onClick={() => handleRegister('Class 11th & 12th Integrated JEE & NEET')}
-                  className="bg-slate-950 hover:bg-indigo-600 text-white font-black text-xs px-6 py-3.5 rounded-2xl transition-all shadow-md flex items-center gap-2 cursor-pointer ml-auto"
+                  className="bg-slate-950 hover:bg-indigo-600 text-white font-black text-xs px-6 py-3.5 rounded-2xl transition-all shadow-md hover:shadow-xl flex items-center gap-2 cursor-pointer ml-auto"
                 >
                   <span>Apply Class 11th & 12th Batch</span>
                   <ArrowRight className="w-4 h-4 text-cyan-300" />
@@ -163,12 +163,12 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
           {/* BENTO CARD 2: BIOLOGY EXCELLENCE CARD (Spans 5 cols on lg) */}
           {/* ========================================================= */}
           <ScrollReveal delay={250} direction="up" className="lg:col-span-5 flex">
-            <div className="bg-white border border-slate-200/90 rounded-[28px] p-6 sm:p-8 text-slate-900 shadow-[0_10px_35px_rgba(0,0,0,0.03)] hover:border-emerald-400 hover:shadow-xl transition-all duration-300 relative group flex flex-col justify-between w-full">
+            <div className="bg-white border-2 border-slate-200/90 border-b-4 border-b-emerald-500/80 rounded-[28px] p-6 sm:p-8 text-slate-900 shadow-[0_15px_35px_-5px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_25px_50px_-10px_rgba(16,185,129,0.22),0_12px_24px_rgba(0,0,0,0.06)] hover:border-b-emerald-600 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between w-full">
               <div>
                 {/* Header Badge */}
                 <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200/80 text-emerald-600 flex items-center justify-center font-black">
+                    <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200/80 text-emerald-600 flex items-center justify-center font-black shadow-xs">
                       <Stethoscope className="w-5 h-5" />
                     </div>
                     <div>
@@ -179,7 +179,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                     </div>
                   </div>
 
-                  <span className="text-[10px] font-black bg-emerald-100/80 text-emerald-800 border border-emerald-200 px-3 py-1 rounded-full uppercase tracking-wider">
+                  <span className="text-[10px] font-black bg-emerald-100/80 text-emerald-800 border border-emerald-200 px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">
                     360/360 NEET BIO
                   </span>
                 </div>
@@ -188,8 +188,8 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                   Biology Excellence (Class 9th–12th & NEET UG)
                 </h3>
 
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5 font-medium">
-                  Interactive digital board classes for CBSE, ICSE/IB & NEET Botany by Konika Ma'am (20 Yrs Exp). NCERT line-by-line concept breakdown & high-speed mock drills.
+                <p className="text-slate-700 text-xs sm:text-sm leading-relaxed mb-5 font-bold bg-emerald-50/60 p-2.5 rounded-xl border border-emerald-100">
+                  🧬 Score 360/360 in NEET Bio with Konika Ma'am's NCERT line-by-line digital board classes.
                 </p>
 
                 {/* Micro Dashboard Tint Box */}
@@ -232,13 +232,13 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
           {/* BENTO CARD 3: 1-ON-1 ONLINE SCIENCE TEACHER (Spans 4 cols) */}
           {/* ========================================================= */}
           <ScrollReveal delay={300} direction="up" className="lg:col-span-4 flex">
-            <div className="bg-white border border-slate-200/90 rounded-[28px] p-6 text-slate-900 shadow-[0_10px_35px_rgba(0,0,0,0.03)] hover:border-pink-400 hover:shadow-xl transition-all duration-300 relative group flex flex-col justify-between w-full">
+            <div className="bg-white border-2 border-slate-200/90 border-b-4 border-b-pink-500/80 rounded-[28px] p-6 text-slate-900 shadow-[0_15px_35px_-5px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_25px_50px_-10px_rgba(236,72,153,0.22),0_12px_24px_rgba(0,0,0,0.06)] hover:border-b-pink-600 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between w-full">
               <div>
                 <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-4">
-                  <div className="w-10 h-10 rounded-2xl bg-pink-50 border border-pink-200/80 text-pink-600 flex items-center justify-center font-black">
+                  <div className="w-10 h-10 rounded-2xl bg-pink-50 border border-pink-200/80 text-pink-600 flex items-center justify-center font-black shadow-xs">
                     <UserCheck className="w-5 h-5" />
                   </div>
-                  <span className="text-[10px] font-black bg-pink-100 text-pink-800 border border-pink-200 px-3 py-1 rounded-full uppercase tracking-wider">
+                  <span className="text-[10px] font-black bg-pink-100 text-pink-800 border border-pink-200 px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">
                     22 YRS EXP
                   </span>
                 </div>
@@ -251,8 +251,8 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                   Science Teacher | Online (9th–12th) + 1-on-1
                 </h3>
 
-                <p className="text-slate-600 text-xs leading-relaxed mb-4 font-medium">
-                  22 years teaching experience (18 Yrs FIITJEE, 2 Yrs NIIT e-Gurucool, 2 Yrs PMT OASIS). Dedicated 1-on-1 online classes & small-batch concept drills.
+                <p className="text-slate-700 text-xs leading-relaxed mb-4 font-bold bg-pink-50/60 p-2.5 rounded-xl border border-pink-100">
+                  💻 Dedicated 1-on-1 online mentoring & small-batch Science drills by Chumki Ma'am (18 Yrs FIITJEE).
                 </p>
 
                 <div className="bg-pink-50/70 border border-pink-100 rounded-2xl p-3.5 space-y-2 mb-4">
@@ -290,13 +290,13 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
           {/* BENTO CARD 4: CLASS 9TH & 10TH FOUNDATION (Spans 4 cols)  */}
           {/* ========================================================= */}
           <ScrollReveal delay={350} direction="up" className="lg:col-span-4 flex">
-            <div className="bg-white border border-slate-200/90 rounded-[28px] p-6 text-slate-900 shadow-[0_10px_35px_rgba(0,0,0,0.03)] hover:border-indigo-500 hover:shadow-xl transition-all duration-300 relative group flex flex-col justify-between w-full">
+            <div className="bg-white border-2 border-slate-200/90 border-b-4 border-b-indigo-500/80 rounded-[28px] p-6 text-slate-900 shadow-[0_15px_35px_-5px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_25px_50px_-10px_rgba(99,102,241,0.22),0_12px_24px_rgba(0,0,0,0.06)] hover:border-b-indigo-600 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between w-full">
               <div>
                 <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-4">
-                  <div className="w-10 h-10 rounded-2xl bg-indigo-50 border border-indigo-200/80 text-indigo-700 flex items-center justify-center font-black">
+                  <div className="w-10 h-10 rounded-2xl bg-indigo-50 border border-indigo-200/80 text-indigo-700 flex items-center justify-center font-black shadow-xs">
                     <TrendingUp className="w-5 h-5" />
                   </div>
-                  <span className="text-[10px] font-black bg-indigo-100 text-indigo-800 border border-indigo-200 px-3 py-1 rounded-full uppercase tracking-wider">
+                  <span className="text-[10px] font-black bg-indigo-100 text-indigo-800 border border-indigo-200 px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">
                     STARTS 12TH MARCH
                   </span>
                 </div>
@@ -309,8 +309,8 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                   Class 9th & 10th Maths & Science Foundation
                 </h3>
 
-                <p className="text-slate-600 text-xs leading-relaxed mb-4 font-medium">
-                  Competency-based board mastery & early analytical foundation for Class 9th & 10th. Updated NCERT syllabus focus in small micro-batches.
+                <p className="text-slate-700 text-xs leading-relaxed mb-4 font-bold bg-indigo-50/60 p-2.5 rounded-xl border border-indigo-100">
+                  🚀 Build early JEE & NEET analytical thinking + 100% CBSE Board competency mastery.
                 </p>
 
                 <div className="bg-indigo-50/70 border border-indigo-100 rounded-2xl p-3.5 space-y-2 mb-4">
@@ -341,13 +341,13 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
           {/* BENTO CARD 5: 1-ON-1 DOUBT & PYQ DRILLS (Spans 4 cols)    */}
           {/* ========================================================= */}
           <ScrollReveal delay={400} direction="up" className="lg:col-span-4 flex">
-            <div className="bg-white border border-slate-200/90 rounded-[28px] p-6 text-slate-900 shadow-[0_10px_35px_rgba(0,0,0,0.03)] hover:border-amber-400 hover:shadow-xl transition-all duration-300 relative group flex flex-col justify-between w-full">
+            <div className="bg-white border-2 border-slate-200/90 border-b-4 border-b-amber-500/80 rounded-[28px] p-6 text-slate-900 shadow-[0_15px_35px_-5px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_25px_50px_-10px_rgba(245,158,11,0.22),0_12px_24px_rgba(0,0,0,0.06)] hover:border-b-amber-600 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between w-full">
               <div>
                 <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-4">
-                  <div className="w-10 h-10 rounded-2xl bg-amber-50 border border-amber-200/80 text-amber-600 flex items-center justify-center font-black">
+                  <div className="w-10 h-10 rounded-2xl bg-amber-50 border border-amber-200/80 text-amber-600 flex items-center justify-center font-black shadow-xs">
                     <HelpCircle className="w-5 h-5" />
                   </div>
-                  <span className="text-[10px] font-black bg-amber-100 text-amber-800 border border-amber-200 px-3 py-1 rounded-full uppercase tracking-wider">
+                  <span className="text-[10px] font-black bg-amber-100 text-amber-800 border border-amber-200 px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">
                     SAME-DAY DOUBTS
                   </span>
                 </div>
@@ -360,8 +360,8 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                   1-on-1 Board Doubt Clearing & PYQ Shortcut Drills
                 </h3>
 
-                <p className="text-slate-600 text-xs leading-relaxed mb-4 font-medium">
-                  Daily 1-on-1 board doubt resolution directly with BM Sir & Senior Ex-HODs — zero queue waiting. PYQ shortcut matrices for speed & accuracy.
+                <p className="text-slate-700 text-xs leading-relaxed mb-4 font-bold bg-amber-50/60 p-2.5 rounded-xl border border-amber-100">
+                  ⚡ Zero-queue daily 1-on-1 doubt solving directly with BM Sir & Senior Ex-HODs.
                 </p>
 
                 <div className="bg-amber-50/70 border border-amber-100 rounded-2xl p-3.5 space-y-2 mb-4">
