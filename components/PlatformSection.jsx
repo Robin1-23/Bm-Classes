@@ -100,57 +100,56 @@ export default function PlatformSection() {
           </div>
         </div>
 
-        {/* Right Platform Analytics Dashboard Card */}
-        <div className="lg:col-span-5 bg-slate-950 text-white border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl relative overflow-hidden">
+        {/* Right Platform Analytics Dashboard Card (Clean Minimalist Light Style) */}
+        <div className="lg:col-span-5 bg-white text-slate-950 border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-[0_15px_35px_-5px_rgba(15,23,42,0.08)] relative overflow-hidden">
           
-          <div className="absolute -right-16 -top-16 w-60 h-60 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none"></div>
-
-          <div className="flex items-center justify-between pb-4 border-b border-slate-800 mb-6 relative z-10">
+          <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-6 relative z-10">
             <div>
-              <div className="font-heading font-extrabold text-white text-base">Student Telemetry Dashboard</div>
-              <div className="text-[10px] text-indigo-300 font-semibold">Real-Time Performance Analytics</div>
+              <div className="font-heading font-black text-slate-950 text-base sm:text-lg">Student Telemetry Dashboard</div>
+              <div className="text-xs text-slate-500 font-semibold mt-0.5">Real-Time Performance Analytics</div>
             </div>
-            <span className="text-[10px] font-black bg-cyan-400 text-slate-950 px-2.5 py-1 rounded-md uppercase tracking-wider shadow-xs">
-              LIVE TELEMETRY
+            <span className="text-[10px] font-black bg-emerald-50 text-emerald-700 border border-emerald-200/90 px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>LIVE TELEMETRY</span>
             </span>
           </div>
 
           <div className="space-y-4 mb-6 relative z-10">
             <div>
-              <div className="flex justify-between text-xs font-extrabold mb-1">
-                <span className="text-slate-200">Rotational Dynamics Mastery</span>
-                <span className="text-cyan-300">78%</span>
+              <div className="flex justify-between text-xs sm:text-sm font-extrabold mb-1.5">
+                <span className="text-slate-900">Rotational Dynamics Mastery</span>
+                <span className="text-indigo-600 font-black">78%</span>
               </div>
-              <div className="h-2.5 bg-slate-800 rounded-full overflow-hidden">
+              <div className="h-2.5 bg-slate-100 rounded-full overflow-hidden border border-slate-200/60">
                 <div className="h-full bg-indigo-600 rounded-full w-[78%]"></div>
               </div>
             </div>
 
             <div>
-              <div className="flex justify-between text-xs font-extrabold mb-1">
-                <span className="text-slate-200">Organic Reaction Mechanisms</span>
-                <span className="text-cyan-300">92%</span>
+              <div className="flex justify-between text-xs sm:text-sm font-extrabold mb-1.5">
+                <span className="text-slate-900">Organic Reaction Mechanisms</span>
+                <span className="text-indigo-600 font-black">92%</span>
               </div>
-              <div className="h-2.5 bg-slate-800 rounded-full overflow-hidden">
-                <div className="h-full bg-cyan-400 rounded-full w-[92%]"></div>
+              <div className="h-2.5 bg-slate-100 rounded-full overflow-hidden border border-slate-200/60">
+                <div className="h-full bg-indigo-600 rounded-full w-[92%]"></div>
               </div>
             </div>
 
             <div>
-              <div className="flex justify-between text-xs font-extrabold mb-1">
-                <span className="text-slate-200">Integral Calculus Practice</span>
-                <span className="text-cyan-300">85%</span>
+              <div className="flex justify-between text-xs sm:text-sm font-extrabold mb-1.5">
+                <span className="text-slate-900">Integral Calculus Practice</span>
+                <span className="text-indigo-600 font-black">85%</span>
               </div>
-              <div className="h-2.5 bg-slate-800 rounded-full overflow-hidden">
-                <div className="h-full bg-emerald-500 rounded-full w-[85%]"></div>
+              <div className="h-2.5 bg-slate-100 rounded-full overflow-hidden border border-slate-200/60">
+                <div className="h-full bg-indigo-600 rounded-full w-[85%]"></div>
               </div>
             </div>
           </div>
 
-          <div className="bg-white/10 rounded-2xl p-4 text-xs text-slate-200 border border-white/10 relative z-10 flex items-start gap-2.5">
-            <Zap className="w-4 h-4 text-cyan-300 shrink-0 mt-0.5" />
-            <div>
-              <strong className="text-cyan-300">AI Weak Area Trigger:</strong> 15 targeted practice problems generated for tomorrow's review on "Moment of Inertia of Composite Bodies".
+          <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-4 text-xs text-slate-700 relative z-10 flex items-start gap-3 shadow-2xs">
+            <Zap className="w-4 h-4 text-indigo-600 shrink-0 mt-0.5" />
+            <div className="leading-relaxed">
+              <strong className="text-slate-950 font-black">AI Weak Area Trigger:</strong> 15 targeted practice problems generated for tomorrow's review on "Moment of Inertia of Composite Bodies".
             </div>
           </div>
 
