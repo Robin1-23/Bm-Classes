@@ -29,6 +29,28 @@ const renderWhitespace = (value, key) =>
     );
   });
 
+// Soft Web Audio API click synth for tactile reveal feedback
+const playSoftTick = () => {
+  try {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+    const ctx = new AudioCtx();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.setValueAtTime(600, ctx.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(1000, ctx.currentTime + 0.025);
+    gain.gain.setValueAtTime(0.01, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.025);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 0.025);
+  } catch (e) {
+    // Ignore audio context block if user hasn't interacted
+  }
+};
+
 const FoldText = ({
   text = 'Design unfolds',
   splitBy = 'char',
@@ -39,6 +61,7 @@ const FoldText = ({
   perspective = 700,
   creaseShading = 0.55,
   trigger = 'mount',
+  sound = false,
   fontSize = 80,
   fontWeight = 800,
   color = '#f7f2e8',
@@ -108,6 +131,7 @@ const FoldText = ({
     const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
     const activeDuration = reduceMotion ? Math.min(duration, 0.22) : duration;
     const activeStagger = reduceMotion ? Math.min(stagger, 0.02) : stagger;
+
     const fromVars = {
       opacity: 0,
       rotateX: reduceMotion ? 0 : hingeConfig.rotateX,
@@ -116,6 +140,7 @@ const FoldText = ({
       transformOrigin: hingeConfig.origin,
       force3D: true
     };
+
     const toVars = {
       opacity: 1,
       rotateX: 0,
@@ -123,7 +148,12 @@ const FoldText = ({
       '--fold-crease': 0,
       duration: activeDuration,
       ease: reduceMotion ? 'power1.out' : ease,
-      stagger: activeStagger,
+      stagger: {
+        each: activeStagger,
+        onStart: function() {
+          if (sound) playSoftTick();
+        }
+      },
       clearProps: 'willChange'
     };
 
@@ -151,10 +181,18 @@ const FoldText = ({
       gsap.set(pieces, fromVars);
       scrollTrigger = ScrollTrigger.create({
         trigger: root,
-        start: 'top 82%',
+        start: 'top 85%',
         once: true,
         onEnter: () => play(false)
       });
+
+      // Also enable hover re-trigger for interactive delight
+      hoverHandler = () => {
+        if (!timelineRef.current || !timelineRef.current.isActive()) {
+          play(false);
+        }
+      };
+      root.addEventListener('mouseenter', hoverHandler);
     } else if (trigger === 'loop') {
       play(true);
     } else {
@@ -176,6 +214,7 @@ const FoldText = ({
     perspective,
     safeCrease,
     trigger,
+    sound,
     hingeConfig.origin,
     hingeConfig.rotateX,
     hingeConfig.rotateY

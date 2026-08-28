@@ -7,6 +7,7 @@
   letter-spacing: -0.04em;
   white-space: pre-wrap;
   user-select: text;
+  cursor: pointer;
 }
 
 .fold-text-sr-only {
@@ -53,6 +54,7 @@
   transform-style: preserve-3d;
   backface-visibility: hidden;
   will-change: transform, opacity;
+  transition: filter 0.3s ease;
 }
 
 .fold-text-piece::after {
@@ -63,6 +65,18 @@
   opacity: var(--fold-crease, 0);
   mix-blend-mode: multiply;
   border-radius: 0.08em;
+}
+
+/* Glowing Reveal Light Shimmer Overlay */
+.fold-text-piece::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+  opacity: var(--fold-crease, 0);
+  pointer-events: none;
+  border-radius: 0.08em;
+  mix-blend-mode: overlay;
 }
 
 .fold-text-piece[data-fold-hinge='top']::after {
@@ -86,7 +100,8 @@
     transform: none !important;
   }
 
-  .fold-text-piece::after {
+  .fold-text-piece::after,
+  .fold-text-piece::before {
     opacity: 0 !important;
   }
 }
