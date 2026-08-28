@@ -157,46 +157,16 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
 
         </div>
 
-        {/* Right Graphic / Student Visual with Tactile 3D Depth Stack */}
+        {/* Right Graphic / Student Celebration Photo (Clean Minimal Style) */}
         <div className="lg:col-span-5 relative w-full flex items-center justify-center mt-6 lg:mt-0">
-          <ScrollReveal delay={300} direction="left" className="w-full relative group">
-            
-            {/* 3D Layer 1: Ambient Floor Light Reflection */}
-            <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 w-full h-40 bg-gradient-to-tr from-indigo-500/30 via-purple-500/25 to-cyan-400/30 rounded-full blur-3xl pointer-events-none transition-all duration-700 group-hover:scale-110"></div>
-
-            {/* 3D Layer 2: Deep 3D Shadow Backdrop Frame */}
-            <div className="absolute -inset-4 bg-gradient-to-tr from-indigo-600/30 via-purple-600/20 to-cyan-400/30 rounded-[40px] blur-lg transform -rotate-3 scale-[1.03] pointer-events-none"></div>
-            <div className="absolute -inset-2 bg-[#090d16] rounded-[34px] transform -rotate-[2.5deg] shadow-[0_30px_70px_rgba(0,0,0,0.4)] pointer-events-none opacity-95 border border-slate-800/90 transition-transform duration-700 group-hover:rotate-0 group-hover:scale-[1.01]"></div>
-
-            {/* 3D Layer 3: Floating Top-Left Ranker Chip */}
-            <div className="absolute -top-5 -left-4 z-30 bg-slate-950/95 backdrop-blur-md text-white text-[11px] sm:text-xs font-black px-4 py-2 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-cyan-400/50 flex items-center gap-2 transform -rotate-6 group-hover:rotate-0 group-hover:scale-105 transition-all duration-500 hidden sm:flex">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400"></span>
-              </span>
-              <span>🏆 AIR 18, 22 & 52 PROVEN</span>
-            </div>
-
-            {/* 3D Layer 4: Floating Bottom-Right Batch Cap Chip */}
-            <div className="absolute -bottom-5 -right-4 z-30 bg-white/95 backdrop-blur-md text-slate-950 text-[11px] sm:text-xs font-black px-4 py-2 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.2)] border border-slate-200/90 flex items-center gap-2 transform rotate-3 group-hover:rotate-0 group-hover:scale-105 transition-all duration-500 hidden sm:flex">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-xs"></span>
-              <span>⚡ CAPPED 10–15 BATCH</span>
-            </div>
-
-            {/* 3D Layer 5: Top Right Live Admissions Badge */}
-            <div className="absolute top-4 right-4 z-30 bg-slate-950/80 backdrop-blur-md border border-white/20 text-white text-[10px] font-black uppercase px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-              <span>LIVE BATCH 2026-27</span>
-            </div>
-
-            {/* Main 3D Card Frame */}
-            <div className="relative z-20 overflow-hidden rounded-[28px] shadow-[0_30px_70px_-15px_rgba(15,23,42,0.35),0_15px_30px_-10px_rgba(99,102,241,0.25)] border-2 border-white bg-white p-2.5 transition-all duration-700 group-hover:shadow-[0_40px_90px_-15px_rgba(99,102,241,0.4)]">
+          <ScrollReveal delay={300} direction="left" className="w-full relative">
+            <div className="relative z-10 overflow-hidden rounded-3xl shadow-xl border border-slate-200/80 bg-white p-2.5">
               <img 
                 src="/CELEBRATION_PHOTO.jpg" 
                 alt="BM CLASSES Top Rank Student Celebration" 
                 loading="eager"
                 decoding="async"
-                className="w-full h-[360px] xs:h-[420px] sm:h-[480px] lg:h-[530px] object-cover object-center rounded-2xl group-hover:scale-[1.02] transition-transform duration-700"
+                className="w-full h-[360px] xs:h-[420px] sm:h-[480px] lg:h-[530px] object-cover object-center rounded-2xl"
                 onError={(e) => {
                   e.target.src = '/hero_students_celebrating.jpg';
                 }}
