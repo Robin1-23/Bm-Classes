@@ -6,6 +6,8 @@ import { Award, ShieldCheck, Trophy, Sparkles, GraduationCap, Flame, ArrowRight,
 import ScrollReveal from '@/components/ScrollReveal';
 import { useModal } from '@/context/ModalContext';
 
+import FoldText from '@/components/ui/FoldText';
+
 export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
   const modal = useModal();
   const handleRegister = onOpenRegister || modal.openRegister;
@@ -71,12 +73,25 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
             </div>
           </ScrollReveal>
 
-          {/* Massive Display Heading */}
+          {/* Massive Display FoldText Heading from React Bits */}
           <ScrollReveal delay={200} direction="up">
-            <h1 className="font-heading text-4xl xs:text-5xl sm:text-6xl lg:text-7xl font-black text-slate-950 leading-[1.06] tracking-tight mb-6">
-              Small batches.<br />
-              <span className="text-slate-950">Exceptional ranks.</span>
-            </h1>
+            <div className="mb-6 leading-[1.06] tracking-tight">
+              <h1 className="sr-only">Small batches. Exceptional ranks.</h1>
+              <FoldText
+                text={"Small batches.\nExceptional ranks."}
+                splitBy="char"
+                hinge="top"
+                trigger="scroll"
+                duration={0.65}
+                stagger={0.035}
+                ease="power3.out"
+                perspective={700}
+                creaseShading={0.55}
+                fontSize="clamp(2.4rem, 5.5vw, 4.5rem)"
+                fontWeight={900}
+                color="#090d16"
+              />
+            </div>
           </ScrollReveal>
 
           {/* Subheading Copy */}
