@@ -92,66 +92,61 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
           {/* BENTO CARD 1: LIGHT LUXURY HERO CARD (Spans 7 cols on lg) */}
           {/* ========================================================= */}
           <ScrollReveal delay={200} direction="up" className="lg:col-span-7 flex">
-            <div className="bg-white text-slate-900 border-2 border-indigo-200/90 border-b-4 border-b-indigo-500/80 rounded-[28px] p-6 sm:p-9 relative overflow-hidden flex flex-col justify-between shadow-[0_15px_35px_-5px_rgba(99,102,241,0.1),0_8px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_25px_55px_-10px_rgba(99,102,241,0.25),0_12px_24px_rgba(0,0,0,0.06)] hover:border-b-indigo-600 hover:-translate-y-2 transition-all duration-300 w-full group">
+            <div className="bg-white text-slate-900 border border-slate-200/80 rounded-[32px] p-6 sm:p-9 relative overflow-hidden flex flex-col justify-between shadow-[0_20px_45px_-10px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_65px_-12px_rgba(99,102,241,0.22),0_12px_24px_rgba(0,0,0,0.04)] hover:border-indigo-400/80 hover:-translate-y-2 transition-all duration-300 w-full group">
               
               {/* Top Soft Ambient Glow */}
-              <div className="absolute -right-20 -top-20 w-80 h-80 bg-indigo-100/60 rounded-full blur-3xl pointer-events-none"></div>
+              <div className="absolute -right-20 -top-20 w-80 h-80 bg-indigo-100/50 rounded-full blur-3xl pointer-events-none"></div>
 
               <div>
-                {/* Header Pills Row */}
-                <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-slate-100 mb-6 relative z-10">
+                {/* Top Row: Circular Icon (Left) & Saved/Badge Tag (Right) */}
+                <div className="flex items-center justify-between gap-3 pb-5 border-b border-slate-100 mb-6 relative z-10">
                   <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-2xl bg-indigo-50 border border-indigo-200/80 text-indigo-700 flex items-center justify-center font-black shadow-xs">
+                    <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-200/80 text-indigo-700 flex items-center justify-center font-black shadow-2xs group-hover:scale-105 transition-transform">
                       <Target className="w-6 h-6 text-indigo-600" />
                     </div>
                     <div>
                       <span className="text-[10px] font-black tracking-widest text-indigo-700 uppercase block">
-                        STARTS 6TH APRIL · FLAGSHIP
+                        FLAGSHIP BATCH
                       </span>
-                      <span className="text-xs font-extrabold text-slate-600">
-                        Classes 11th, 12th & XI Pass Droppers
+                      <span className="text-xs font-extrabold text-slate-500">
+                        Starts 6th April · Classes 11th, 12th & Droppers
                       </span>
                     </div>
                   </div>
 
-                  <span className="bg-indigo-600 text-white text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider flex items-center gap-1.5 shadow-md">
-                    <Flame className="w-3.5 h-3.5 fill-white text-white" />
+                  <span className="bg-slate-100 text-slate-800 border border-slate-200/80 text-[10px] font-black px-3.5 py-1.5 rounded-xl uppercase tracking-wider flex items-center gap-1.5 shadow-2xs">
+                    <Flame className="w-3.5 h-3.5 fill-indigo-600 text-indigo-600" />
                     <span>Capped 10–15 Batch</span>
                   </span>
                 </div>
 
-                {/* Card Title & Desc */}
-                <h3 className="font-heading text-2xl sm:text-3xl font-black text-slate-950 mb-3 group-hover:text-indigo-600 transition-colors relative z-10 leading-tight">
-                  Class 11th & 12th Integrated JEE Main, Advanced & NEET Master Program
+                {/* Subtitle & Main Title */}
+                <div className="text-xs font-bold text-slate-500 mb-1 relative z-10">
+                  JEE Main, Advanced & NEET UG
+                </div>
+                <h3 className="font-heading text-2xl sm:text-3xl font-black text-slate-950 mb-3 group-hover:text-indigo-600 transition-colors relative z-10 leading-tight tracking-tight">
+                  Class 11th & 12th Integrated Master Program
                 </h3>
 
-                <p className="text-slate-700 text-xs sm:text-sm leading-relaxed mb-6 font-bold max-w-xl relative z-10 bg-indigo-50/50 p-3 rounded-xl border border-indigo-100/70">
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6 font-semibold relative z-10 bg-slate-50 p-3.5 rounded-2xl border border-slate-200/60">
                   🎯 Target Top 500 AIR Ranks with 100% Ex-HOD direct teaching, 15 daily PYQ drills & zero-queue doubt solving.
                 </p>
 
-                {/* Neumorphic Mini-Stat Widgets Inside Hero Card */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-7 relative z-10">
-                  <div className="bg-indigo-50/80 border border-indigo-100/90 rounded-2xl p-3.5 text-left shadow-xs">
-                    <div className="text-[10px] font-extrabold text-indigo-700 uppercase tracking-wider">Batch Cap</div>
-                    <div className="text-base sm:text-lg font-black text-slate-950 mt-0.5">10–15 Max</div>
-                    <div className="text-[9.5px] font-semibold text-slate-600 mt-0.5">Zero Crowd Halls</div>
-                  </div>
-
-                  <div className="bg-emerald-50/80 border border-emerald-100/90 rounded-2xl p-3.5 text-left shadow-xs">
-                    <div className="text-[10px] font-extrabold text-emerald-800 uppercase tracking-wider">Faculty Guarantee</div>
-                    <div className="text-base sm:text-lg font-black text-slate-950 mt-0.5">100% Ex-HODs</div>
-                    <div className="text-[9.5px] font-semibold text-slate-600 mt-0.5">Zero Junior TAs</div>
-                  </div>
-
-                  <div className="bg-amber-50/80 border border-amber-100/90 rounded-2xl p-3.5 text-left col-span-2 sm:col-span-1 shadow-xs">
-                    <div className="text-[10px] font-extrabold text-amber-800 uppercase tracking-wider">Proven Ranks</div>
-                    <div className="text-base sm:text-lg font-black text-slate-950 mt-0.5">AIR 18 & 22</div>
-                    <div className="text-[9.5px] font-semibold text-slate-600 mt-0.5">JEE & NEET Top 500</div>
-                  </div>
+                {/* Pill Badges Row */}
+                <div className="flex flex-wrap items-center gap-2 mb-6 relative z-10">
+                  <span className="bg-slate-100 text-slate-700 text-xs font-bold px-3 py-1.5 rounded-xl border border-slate-200/60">
+                    Max 10–15 Students
+                  </span>
+                  <span className="bg-slate-100 text-slate-700 text-xs font-bold px-3 py-1.5 rounded-xl border border-slate-200/60">
+                    100% Ex-HOD Taught
+                  </span>
+                  <span className="bg-indigo-50 text-indigo-700 text-xs font-bold px-3 py-1.5 rounded-xl border border-indigo-100">
+                    AIR 18 & 22 Proven
+                  </span>
                 </div>
 
                 {/* Faculty Portrait Avatars */}
-                <div className="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-200/80 mb-6 relative z-10 shadow-xs">
+                <div className="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-200/80 mb-6 relative z-10 shadow-2xs">
                   <div className="flex -space-x-3 overflow-hidden">
                     <img src="/bm_sir.jpg" alt="BM Sir" className="inline-block h-10 w-10 rounded-full ring-2 ring-indigo-500 object-cover" />
                     <img src="/konika_mam.jpg" alt="Konika Ma'am" className="inline-block h-10 w-10 rounded-full ring-2 ring-emerald-500 object-cover" />
@@ -162,18 +157,18 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                 </div>
               </div>
 
-              {/* Card Footer CTA */}
+              {/* Card Footer CTA Row matching uploaded image */}
               <div className="pt-4 border-t border-slate-100 relative z-10 flex items-center justify-between flex-wrap gap-4">
-                <div className="flex items-center gap-2 text-xs font-extrabold text-indigo-700">
-                  <ShieldCheck className="w-4 h-4 text-indigo-600" />
-                  <span>Only 3 Seats Remaining for 2024–25 Session</span>
+                <div>
+                  <div className="font-heading font-black text-slate-950 text-lg">Limited Seats</div>
+                  <div className="text-xs text-slate-500 font-bold">Only 3 Seats Remaining for 2024–25</div>
                 </div>
 
                 <button
                   onClick={() => handleRegister('Class 11th & 12th Integrated JEE & NEET')}
-                  className="bg-slate-950 hover:bg-indigo-600 text-white font-black text-xs px-6 py-3.5 rounded-2xl transition-all shadow-md hover:shadow-xl flex items-center gap-2 cursor-pointer ml-auto"
+                  className="bg-slate-950 hover:bg-indigo-600 text-white font-black text-xs px-6 py-3 rounded-2xl transition-all shadow-sm flex items-center gap-2 cursor-pointer ml-auto"
                 >
-                  <span>Apply Class 11th & 12th Batch</span>
+                  <span>Apply now</span>
                   <ArrowRight className="w-4 h-4 text-cyan-300" />
                 </button>
               </div>
@@ -185,13 +180,13 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
           {/* BENTO CARD 2: BIOLOGY EXCELLENCE CARD (Spans 5 cols on lg) */}
           {/* ========================================================= */}
           <ScrollReveal delay={250} direction="up" className="lg:col-span-5 flex">
-            <div className="bg-white border-2 border-slate-200/90 border-b-4 border-b-emerald-500/80 rounded-[28px] p-6 sm:p-8 text-slate-900 shadow-[0_15px_35px_-5px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_25px_50px_-10px_rgba(16,185,129,0.22),0_12px_24px_rgba(0,0,0,0.06)] hover:border-b-emerald-600 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between w-full">
+            <div className="bg-white border border-slate-200/80 rounded-[32px] p-6 sm:p-8 text-slate-900 shadow-[0_20px_45px_-10px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_65px_-12px_rgba(16,185,129,0.22),0_12px_24px_rgba(0,0,0,0.04)] hover:border-emerald-400/80 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between w-full">
               <div>
-                {/* Header Badge */}
+                {/* Top Row */}
                 <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-200/80 text-emerald-600 flex items-center justify-center font-black shadow-xs">
-                      <Stethoscope className="w-5 h-5" />
+                    <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-200/80 text-emerald-600 flex items-center justify-center font-black shadow-2xs group-hover:scale-105 transition-transform">
+                      <Stethoscope className="w-6 h-6 text-emerald-600" />
                     </div>
                     <div>
                       <span className="text-[10px] font-black tracking-widest text-emerald-600 uppercase block">
@@ -201,36 +196,36 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                     </div>
                   </div>
 
-                  <span className="text-[10px] font-black bg-emerald-100/80 text-emerald-800 border border-emerald-200 px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">
-                    360/360 NEET BIO
+                  <span className="text-[10px] font-black bg-slate-100 text-slate-800 border border-slate-200/80 px-3 py-1 rounded-xl uppercase tracking-wider shadow-2xs">
+                    360/360 BIO
                   </span>
                 </div>
 
-                <h3 className="font-heading text-xl font-black text-slate-950 mb-2 group-hover:text-emerald-600 transition-colors leading-snug">
-                  Biology Excellence (Class 9th–12th & NEET UG)
+                <div className="text-xs font-bold text-slate-500 mb-1">
+                  Class 9th–12th & NEET UG
+                </div>
+                <h3 className="font-heading text-xl sm:text-2xl font-black text-slate-950 mb-2 group-hover:text-emerald-600 transition-colors leading-snug tracking-tight">
+                  Biology Excellence Master Batch
                 </h3>
 
-                <p className="text-slate-700 text-xs sm:text-sm leading-relaxed mb-5 font-bold bg-emerald-50/60 p-2.5 rounded-xl border border-emerald-100">
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-5 font-semibold bg-slate-50 p-3 rounded-2xl border border-slate-200/60">
                   🧬 Score 360/360 in NEET Bio with Konika Ma'am's NCERT line-by-line digital board classes.
                 </p>
 
-                {/* Micro Dashboard Tint Box */}
-                <div className="bg-emerald-50/70 border border-emerald-100 rounded-2xl p-4 mb-5 space-y-2">
-                  <div className="flex items-center gap-2 text-xs font-extrabold text-emerald-950">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>NCERT line-by-line diagram mastery</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs font-extrabold text-emerald-950">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>High-speed NEET Botany & Zoology drills</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs font-extrabold text-emerald-950">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Zero-error assertion & reasoning training</span>
-                  </div>
+                {/* Pill Badges Row */}
+                <div className="flex flex-wrap items-center gap-2 mb-5">
+                  <span className="bg-slate-100 text-slate-700 text-xs font-bold px-3 py-1 rounded-xl border border-slate-200/60">
+                    NCERT Line-by-Line
+                  </span>
+                  <span className="bg-slate-100 text-slate-700 text-xs font-bold px-3 py-1 rounded-xl border border-slate-200/60">
+                    Botany & Zoology
+                  </span>
+                  <span className="bg-emerald-50 text-emerald-800 text-xs font-bold px-3 py-1 rounded-xl border border-emerald-100">
+                    Zero-Error Drills
+                  </span>
                 </div>
 
-                <div className="flex items-center gap-3 p-2.5 rounded-xl bg-slate-50 border border-slate-200/80 mb-5">
+                <div className="flex items-center gap-3 p-2.5 rounded-2xl bg-slate-50 border border-slate-200/80 mb-5">
                   <img src="/konika_mam.jpg" alt="Konika Ma'am" className="h-9 w-9 rounded-full ring-2 ring-emerald-500 object-cover shrink-0" />
                   <div className="text-[11px] font-bold text-slate-700">
                     Guided by <strong className="text-slate-950 font-black">Konika Ma'am</strong> (Ex-FIITJEE KVPY Batch)
@@ -238,13 +233,19 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-slate-100">
+              {/* Card Footer CTA Row matching uploaded image */}
+              <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-4">
+                <div>
+                  <div className="font-heading font-black text-slate-950 text-lg">NEET Medical</div>
+                  <div className="text-xs text-slate-500 font-bold">100% NCERT Mastery</div>
+                </div>
+
                 <button
                   onClick={() => handleRegister('Biology Excellence Program')}
-                  className="w-full bg-slate-950 hover:bg-emerald-600 text-white font-black text-xs py-3 rounded-2xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                  className="bg-slate-950 hover:bg-emerald-600 text-white font-black text-xs px-5 py-2.5 rounded-2xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
                 >
-                  <span>Apply Biology Program</span>
-                  <ArrowRight className="w-4 h-4 text-cyan-300" />
+                  <span>Apply now</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-cyan-300" />
                 </button>
               </div>
             </div>
@@ -254,41 +255,41 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
           {/* BENTO CARD 3: 1-ON-1 ONLINE SCIENCE TEACHER (Spans 4 cols) */}
           {/* ========================================================= */}
           <ScrollReveal delay={300} direction="up" className="lg:col-span-4 flex">
-            <div className="bg-white border-2 border-slate-200/90 border-b-4 border-b-pink-500/80 rounded-[28px] p-6 text-slate-900 shadow-[0_15px_35px_-5px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_25px_50px_-10px_rgba(236,72,153,0.22),0_12px_24px_rgba(0,0,0,0.06)] hover:border-b-pink-600 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between w-full">
+            <div className="bg-white border border-slate-200/80 rounded-[32px] p-6 text-slate-900 shadow-[0_20px_45px_-10px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_65px_-12px_rgba(236,72,153,0.22),0_12px_24px_rgba(0,0,0,0.04)] hover:border-pink-400/80 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between w-full">
               <div>
+                {/* Top Row */}
                 <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-4">
-                  <div className="w-10 h-10 rounded-2xl bg-pink-50 border border-pink-200/80 text-pink-600 flex items-center justify-center font-black shadow-xs">
-                    <UserCheck className="w-5 h-5" />
+                  <div className="w-11 h-11 rounded-full bg-slate-50 border border-slate-200/80 text-pink-600 flex items-center justify-center font-black shadow-2xs group-hover:scale-105 transition-transform">
+                    <UserCheck className="w-5 h-5 text-pink-600" />
                   </div>
-                  <span className="text-[10px] font-black bg-pink-100 text-pink-800 border border-pink-200 px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">
+                  <span className="text-[10px] font-black bg-slate-100 text-slate-800 border border-slate-200/80 px-3 py-1 rounded-xl uppercase tracking-wider shadow-2xs">
                     22 YRS EXP
                   </span>
                 </div>
 
-                <span className="text-[10px] font-black tracking-widest text-pink-600 uppercase block mb-1">
+                <div className="text-[10px] font-black tracking-widest text-pink-600 uppercase block mb-1">
                   CHUMKI MA'AM · EX-FIITJEE
-                </span>
+                </div>
 
-                <h3 className="font-heading text-lg font-black text-slate-950 mb-2 group-hover:text-pink-600 transition-colors leading-snug">
+                <h3 className="font-heading text-lg font-black text-slate-950 mb-2 group-hover:text-pink-600 transition-colors leading-snug tracking-tight">
                   Science Teacher | Online (9th–12th) + 1-on-1
                 </h3>
 
-                <p className="text-slate-700 text-xs leading-relaxed mb-4 font-bold bg-pink-50/60 p-2.5 rounded-xl border border-pink-100">
-                  💻 Dedicated 1-on-1 online mentoring & small-batch Science drills by Chumki Ma'am (18 Yrs FIITJEE).
+                <p className="text-slate-600 text-xs leading-relaxed mb-4 font-semibold bg-slate-50 p-2.5 rounded-2xl border border-slate-200/60">
+                  💻 Dedicated 1-on-1 online mentoring & small-batch Science drills by Chumki Ma'am.
                 </p>
 
-                <div className="bg-pink-50/70 border border-pink-100 rounded-2xl p-3.5 space-y-2 mb-4">
-                  <div className="flex items-center gap-2 text-xs font-extrabold text-slate-900">
-                    <Zap className="w-3.5 h-3.5 text-pink-600 shrink-0" />
-                    <span>Dedicated 1-on-1 online mentoring</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs font-extrabold text-slate-900">
-                    <Zap className="w-3.5 h-3.5 text-pink-600 shrink-0" />
-                    <span>Class 9th to 12th Science Foundation</span>
-                  </div>
+                {/* Pill Badges Row */}
+                <div className="flex flex-wrap items-center gap-1.5 mb-4">
+                  <span className="bg-slate-100 text-slate-700 text-xs font-bold px-2.5 py-1 rounded-xl border border-slate-200/60">
+                    1-on-1 Mentoring
+                  </span>
+                  <span className="bg-slate-100 text-slate-700 text-xs font-bold px-2.5 py-1 rounded-xl border border-slate-200/60">
+                    Class 9th–12th
+                  </span>
                 </div>
 
-                <div className="flex items-center gap-3 p-2 rounded-xl bg-slate-50 border border-slate-200/80 mb-4">
+                <div className="flex items-center gap-3 p-2 rounded-2xl bg-slate-50 border border-slate-200/80 mb-4">
                   <img src="/chumki_mam.jpeg" alt="Chumki Ma'am" className="h-8 w-8 rounded-full ring-2 ring-pink-400 object-cover shrink-0" />
                   <div className="text-[10.5px] font-bold text-slate-700">
                     Taught by <strong className="text-slate-950 font-black">Chumki Ma'am</strong> (18 Yrs FIITJEE)
@@ -296,12 +297,18 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-slate-100">
+              {/* Card Footer CTA Row matching uploaded image */}
+              <div className="pt-3.5 border-t border-slate-100 flex items-center justify-between gap-3">
+                <div>
+                  <div className="font-heading font-black text-slate-950 text-base">1-on-1 Online</div>
+                  <div className="text-[11px] text-slate-500 font-bold">Personalized Pace</div>
+                </div>
+
                 <button
                   onClick={() => handleRegister('Science Teacher Online (9th-12th) + 1-on-1')}
-                  className="w-full bg-slate-950 hover:bg-pink-600 text-white font-black text-xs py-2.5 rounded-2xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-md"
+                  className="bg-slate-950 hover:bg-pink-600 text-white font-black text-xs px-4 py-2.5 rounded-2xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                 >
-                  <span>Book 1-on-1 Online Class</span>
+                  <span>Apply now</span>
                   <ArrowRight className="w-3.5 h-3.5 text-cyan-300" />
                 </button>
               </div>
@@ -312,33 +319,44 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
           {/* BENTO CARD 4: CLASS 9TH & 10TH FOUNDATION (Spans 4 cols)  */}
           {/* ========================================================= */}
           <ScrollReveal delay={350} direction="up" className="lg:col-span-4 flex">
-            <div className="bg-white border-2 border-slate-200/90 border-b-4 border-b-indigo-500/80 rounded-[28px] p-6 text-slate-900 shadow-[0_15px_35px_-5px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_25px_50px_-10px_rgba(99,102,241,0.22),0_12px_24px_rgba(0,0,0,0.06)] hover:border-b-indigo-600 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between w-full">
+            <div className="bg-white border border-slate-200/80 rounded-[32px] p-6 text-slate-900 shadow-[0_20px_45px_-10px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_65px_-12px_rgba(99,102,241,0.22),0_12px_24px_rgba(0,0,0,0.04)] hover:border-indigo-400/80 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between w-full">
               <div>
+                {/* Top Row */}
                 <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-4">
-                  <div className="w-10 h-10 rounded-2xl bg-indigo-50 border border-indigo-200/80 text-indigo-700 flex items-center justify-center font-black shadow-xs">
-                    <TrendingUp className="w-5 h-5" />
+                  <div className="w-11 h-11 rounded-full bg-slate-50 border border-slate-200/80 text-indigo-600 flex items-center justify-center font-black shadow-2xs group-hover:scale-105 transition-transform">
+                    <TrendingUp className="w-5 h-5 text-indigo-600" />
                   </div>
-                  <span className="text-[10px] font-black bg-indigo-100 text-indigo-800 border border-indigo-200 px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">
+                  <span className="text-[10px] font-black bg-slate-100 text-slate-800 border border-slate-200/80 px-3 py-1 rounded-xl uppercase tracking-wider shadow-2xs">
                     STARTS 12TH MARCH
                   </span>
                 </div>
 
-                <span className="text-[10px] font-black tracking-widest text-indigo-600 uppercase block mb-1">
+                <div className="text-[10px] font-black tracking-widest text-indigo-600 uppercase block mb-1">
                   CLASSES 9TH & 10TH · CBSE & OLYMPIAD
-                </span>
+                </div>
 
-                <h3 className="font-heading text-lg font-black text-slate-950 mb-2 group-hover:text-indigo-600 transition-colors leading-snug">
+                <h3 className="font-heading text-lg font-black text-slate-950 mb-2 group-hover:text-indigo-600 transition-colors leading-snug tracking-tight">
                   Class 9th & 10th Maths & Science Foundation
                 </h3>
 
-                <p className="text-slate-700 text-xs leading-relaxed mb-4 font-bold bg-indigo-50/60 p-2.5 rounded-xl border border-indigo-100">
+                <p className="text-slate-600 text-xs leading-relaxed mb-4 font-semibold bg-slate-50 p-2.5 rounded-2xl border border-slate-200/60">
                   🚀 Build early JEE & NEET analytical thinking + 100% CBSE Board competency mastery.
                 </p>
 
-                <div className="bg-indigo-50/70 border border-indigo-100 rounded-2xl p-3.5 space-y-2 mb-4">
+                {/* Pill Badges Row */}
+                <div className="flex flex-wrap items-center gap-1.5 mb-4">
+                  <span className="bg-slate-100 text-slate-700 text-xs font-bold px-2.5 py-1 rounded-xl border border-slate-200/60">
+                    CBSE Competency
+                  </span>
+                  <span className="bg-slate-100 text-slate-700 text-xs font-bold px-2.5 py-1 rounded-xl border border-slate-200/60">
+                    Olympiad Drills
+                  </span>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-3 space-y-1.5 mb-4">
                   <div className="flex items-center gap-2 text-xs font-extrabold text-slate-900">
                     <Check className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
-                    <span>Competency-based board paper mastery</span>
+                    <span>Board competency paper mastery</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs font-extrabold text-slate-900">
                     <Check className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
@@ -347,12 +365,18 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-slate-100">
+              {/* Card Footer CTA Row matching uploaded image */}
+              <div className="pt-3.5 border-t border-slate-100 flex items-center justify-between gap-3">
+                <div>
+                  <div className="font-heading font-black text-slate-950 text-base">Class 9th / 10th</div>
+                  <div className="text-[11px] text-slate-500 font-bold">Foundation Batch</div>
+                </div>
+
                 <button
                   onClick={() => handleRegister('Class 9th & 10th Foundation')}
-                  className="w-full bg-slate-950 hover:bg-indigo-600 text-white font-black text-xs py-2.5 rounded-2xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-md"
+                  className="bg-slate-950 hover:bg-indigo-600 text-white font-black text-xs px-4 py-2.5 rounded-2xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                 >
-                  <span>Apply Class 9th/10th Batch</span>
+                  <span>Apply now</span>
                   <ArrowRight className="w-3.5 h-3.5 text-cyan-300" />
                 </button>
               </div>
@@ -363,30 +387,41 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
           {/* BENTO CARD 5: 1-ON-1 DOUBT & PYQ DRILLS (Spans 4 cols)    */}
           {/* ========================================================= */}
           <ScrollReveal delay={400} direction="up" className="lg:col-span-4 flex">
-            <div className="bg-white border-2 border-slate-200/90 border-b-4 border-b-amber-500/80 rounded-[28px] p-6 text-slate-900 shadow-[0_15px_35px_-5px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_25px_50px_-10px_rgba(245,158,11,0.22),0_12px_24px_rgba(0,0,0,0.06)] hover:border-b-amber-600 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between w-full">
+            <div className="bg-white border border-slate-200/80 rounded-[32px] p-6 text-slate-900 shadow-[0_20px_45px_-10px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_65px_-12px_rgba(245,158,11,0.22),0_12px_24px_rgba(0,0,0,0.04)] hover:border-amber-400/80 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between w-full">
               <div>
+                {/* Top Row */}
                 <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-4">
-                  <div className="w-10 h-10 rounded-2xl bg-amber-50 border border-amber-200/80 text-amber-600 flex items-center justify-center font-black shadow-xs">
-                    <HelpCircle className="w-5 h-5" />
+                  <div className="w-11 h-11 rounded-full bg-slate-50 border border-slate-200/80 text-amber-600 flex items-center justify-center font-black shadow-2xs group-hover:scale-105 transition-transform">
+                    <HelpCircle className="w-5 h-5 text-amber-600" />
                   </div>
-                  <span className="text-[10px] font-black bg-amber-100 text-amber-800 border border-amber-200 px-3 py-1 rounded-full uppercase tracking-wider shadow-xs">
+                  <span className="text-[10px] font-black bg-slate-100 text-slate-800 border border-slate-200/80 px-3 py-1 rounded-xl uppercase tracking-wider shadow-2xs">
                     SAME-DAY DOUBTS
                   </span>
                 </div>
 
-                <span className="text-[10px] font-black tracking-widest text-amber-600 uppercase block mb-1">
+                <div className="text-[10px] font-black tracking-widest text-amber-600 uppercase block mb-1">
                   1-ON-1 DOUBTS & BOARD PYQS
-                </span>
+                </div>
 
-                <h3 className="font-heading text-lg font-black text-slate-950 mb-2 group-hover:text-amber-600 transition-colors leading-snug">
+                <h3 className="font-heading text-lg font-black text-slate-950 mb-2 group-hover:text-amber-600 transition-colors leading-snug tracking-tight">
                   1-on-1 Board Doubt Clearing & PYQ Shortcut Drills
                 </h3>
 
-                <p className="text-slate-700 text-xs leading-relaxed mb-4 font-bold bg-amber-50/60 p-2.5 rounded-xl border border-amber-100">
+                <p className="text-slate-600 text-xs leading-relaxed mb-4 font-semibold bg-slate-50 p-2.5 rounded-2xl border border-slate-200/60">
                   ⚡ Zero-queue daily 1-on-1 doubt solving directly with BM Sir & Senior Ex-HODs.
                 </p>
 
-                <div className="bg-amber-50/70 border border-amber-100 rounded-2xl p-3.5 space-y-2 mb-4">
+                {/* Pill Badges Row */}
+                <div className="flex flex-wrap items-center gap-1.5 mb-4">
+                  <span className="bg-slate-100 text-slate-700 text-xs font-bold px-2.5 py-1 rounded-xl border border-slate-200/60">
+                    Zero Queue
+                  </span>
+                  <span className="bg-slate-100 text-slate-700 text-xs font-bold px-2.5 py-1 rounded-xl border border-slate-200/60">
+                    Ex-HOD Mentors
+                  </span>
+                </div>
+
+                <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-3 space-y-1.5 mb-4">
                   <div className="flex items-center gap-2 text-xs font-extrabold text-slate-900">
                     <Check className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                     <span>Same-day board doubt resolution</span>
@@ -398,12 +433,18 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-slate-100">
+              {/* Card Footer CTA Row matching uploaded image */}
+              <div className="pt-3.5 border-t border-slate-100 flex items-center justify-between gap-3">
+                <div>
+                  <div className="font-heading font-black text-slate-950 text-base">Doubt Session</div>
+                  <div className="text-[11px] text-slate-500 font-bold">1-on-1 Slot</div>
+                </div>
+
                 <button
                   onClick={() => handleRegister('1-on-1 Doubt & PYQ Drills')}
-                  className="w-full bg-slate-950 hover:bg-amber-500 text-white font-black text-xs py-2.5 rounded-2xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-md"
+                  className="bg-slate-950 hover:bg-amber-500 text-white font-black text-xs px-4 py-2.5 rounded-2xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                 >
-                  <span>Book Doubt Session Slot</span>
+                  <span>Apply now</span>
                   <ArrowRight className="w-3.5 h-3.5 text-cyan-300" />
                 </button>
               </div>

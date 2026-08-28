@@ -42,46 +42,44 @@ export default function FacultySection({ onOpenRegister }) {
           {MENTORS_DATA.map((mentor, idx) => {
             const videoUrl = videoUrls[idx % videoUrls.length];
             return (
-              <ScrollReveal key={idx} delay={100 * (idx + 1)} direction="up">
-                <div className="bg-white border border-[#e8dfd5] rounded-3xl p-6 sm:p-7 flex flex-col justify-between shadow-[0_10px_30px_-5px_rgba(15,23,42,0.05)] hover:shadow-[0_20px_50px_-10px_rgba(15,23,42,0.1)] hover:border-indigo-400 transition-all duration-300 h-full relative group">
+              <ScrollReveal key={idx} delay={100 * (idx + 1)} direction="up" className="flex">
+                <div className="bg-white border border-slate-200/80 rounded-[32px] p-6 sm:p-7 flex flex-col justify-between shadow-[0_20px_45px_-10px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_65px_-12px_rgba(99,102,241,0.22),0_12px_24px_rgba(0,0,0,0.04)] hover:border-indigo-400/80 hover:-translate-y-2 transition-all duration-300 h-full w-full relative group">
                   
                   <div>
-                    {/* Top Avatar & Experience Row */}
+                    {/* Top Row: Circular Photo & Badge Tag */}
                     <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
                       <div className="relative">
                         {mentor.image ? (
-                          <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden shadow-md border-2 border-white ring-2 ring-slate-200 group-hover:ring-indigo-500/50 transition-all duration-300 bg-slate-950">
-                            <img 
-                              src={mentor.image} 
-                              alt={mentor.name} 
-                              className="w-full h-full object-cover object-top" 
-                            />
-                          </div>
+                          <img 
+                            src={mentor.image} 
+                            alt={mentor.name} 
+                            className="w-14 h-14 rounded-full border-2 border-white ring-2 ring-slate-200/80 object-cover shadow-sm group-hover:scale-105 transition-transform"
+                          />
                         ) : (
-                          <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full bg-slate-950 text-white font-heading font-black text-2xl flex items-center justify-center shadow-md border-2 border-white ring-2 ring-slate-200 group-hover:ring-indigo-500/50 transition-all">
+                          <div className="w-14 h-14 rounded-full bg-slate-950 text-white font-heading font-black text-lg flex items-center justify-center border-2 border-white ring-2 ring-slate-200/80 shadow-sm group-hover:scale-105 transition-transform">
                             {mentor.initials}
                           </div>
                         )}
                         <span className="absolute bottom-0.5 right-0.5 w-4 h-4 bg-emerald-500 border-2 border-white rounded-full"></span>
                       </div>
 
-                      <span className="inline-flex items-center gap-1.5 bg-slate-100 text-slate-900 border border-slate-200/90 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wide">
+                      <span className="inline-flex items-center gap-1.5 bg-slate-100 text-slate-800 border border-slate-200/80 px-3 py-1 rounded-xl text-[11px] font-extrabold uppercase tracking-wide shadow-2xs">
                         <ShieldCheck className="w-3.5 h-3.5 text-indigo-600" />
                         {mentor.exp}
                       </span>
                     </div>
 
-                    {/* Name, Role & Subject Header */}
-                    <div className="mb-5">
-                      <span className="text-xs font-black uppercase tracking-wider text-indigo-600 block mb-1">
+                    {/* Subtitle & Name */}
+                    <div className="mb-4">
+                      <span className="text-[11px] font-black uppercase tracking-wider text-indigo-600 block mb-0.5">
                         {mentor.role}
                       </span>
 
-                      <h3 className="font-heading font-black text-xl text-slate-950 mb-1 leading-snug">
+                      <h3 className="font-heading font-black text-xl text-slate-950 mb-1 leading-snug tracking-tight group-hover:text-indigo-600 transition-colors">
                         {mentor.name}
                       </h3>
 
-                      <p className="text-xs text-slate-600 font-bold">
+                      <p className="text-xs text-slate-500 font-bold">
                         {mentor.subject}
                       </p>
                     </div>
@@ -89,10 +87,10 @@ export default function FacultySection({ onOpenRegister }) {
                     {/* Minimalist Teaching Reel Trigger */}
                     <button
                       onClick={() => setActiveVideo({ mentor, videoUrl })}
-                      className="w-full mb-5 bg-slate-950 hover:bg-slate-800 text-white font-extrabold text-xs py-3 px-4 rounded-full shadow-xs flex items-center justify-center gap-2.5 transition-all cursor-pointer group/vid"
+                      className="w-full mb-5 bg-slate-50 hover:bg-indigo-50 text-slate-900 border border-slate-200/80 hover:border-indigo-200 font-extrabold text-xs py-2.5 px-4 rounded-2xl shadow-2xs flex items-center justify-center gap-2.5 transition-all cursor-pointer group/vid"
                     >
-                      <div className="w-5 h-5 rounded-full bg-white text-slate-950 flex items-center justify-center pl-0.5 shrink-0 group-hover/vid:scale-110 transition-transform">
-                        <Play className="w-3 h-3 fill-slate-950" />
+                      <div className="w-5 h-5 rounded-full bg-indigo-600 text-white flex items-center justify-center pl-0.5 shrink-0 group-hover/vid:scale-110 transition-transform">
+                        <Play className="w-3 h-3 fill-white" />
                       </div>
                       <span>Watch 30s Teaching Sample</span>
                     </button>
@@ -107,7 +105,7 @@ export default function FacultySection({ onOpenRegister }) {
                       ))}
                     </div>
 
-                    {/* Pedagogy Insight */}
+                    {/* Pedagogy Insight Quote Box */}
                     <div className="bg-[#f5efe6] border-l-2 border-indigo-600 p-3.5 rounded-r-2xl mb-6 min-h-[64px] flex flex-col justify-center">
                       <div className="text-[10px] font-black uppercase tracking-wider text-indigo-600 mb-0.5">
                         Pedagogy Insight
@@ -118,15 +116,19 @@ export default function FacultySection({ onOpenRegister }) {
                     </div>
                   </div>
 
-                  {/* Action CTA Button */}
-                  <div className="pt-3 border-t border-slate-100">
+                  {/* Action CTA Button matching reference card style */}
+                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+                    <div>
+                      <div className="font-heading font-black text-slate-950 text-base">Direct Ex-HOD</div>
+                      <div className="text-[11px] text-slate-500 font-bold">1-on-1 Mentorship</div>
+                    </div>
+
                     <button
                       onClick={() => handleRegister(mentor.name)}
-                      className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-black text-xs py-3.5 px-4 rounded-full flex items-center justify-center gap-2 transition-all shadow-sm cursor-pointer"
+                      className="bg-slate-950 hover:bg-indigo-600 text-white font-black text-xs py-2.5 px-4 rounded-2xl flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer"
                     >
-                      <MessageCircle className="w-3.5 h-3.5 text-white" />
-                      <span>Book Counseling with {mentor.name.split(' ')[0]}</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-white" />
+                      <span>Book Counseling</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-cyan-300" />
                     </button>
                   </div>
 

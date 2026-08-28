@@ -199,34 +199,44 @@ export default function WhySection({ hidePedagogy = false }) {
         {/* BESPOKE ACADEMIC CARDS */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-lg sm:max-w-none mx-auto mb-20">
           {pillars.map((pillar, idx) => {
+            const Icon = pillar.icon;
             return (
-              <ScrollReveal key={idx} delay={150 * (idx + 1)} direction="up">
-                <div className="bg-white border border-slate-200/90 rounded-3xl p-7 sm:p-8 text-slate-950 shadow-[0_10px_30px_-5px_rgba(15,23,42,0.05)] hover:shadow-[0_20px_50px_-10px_rgba(15,23,42,0.1)] hover:border-slate-300 transition-all duration-300 relative group flex flex-col justify-between overflow-hidden h-full">
+              <ScrollReveal key={idx} delay={150 * (idx + 1)} direction="up" className="flex">
+                <div className="bg-white border border-slate-200/80 rounded-[32px] p-7 sm:p-8 text-slate-950 shadow-[0_20px_45px_-10px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_65px_-12px_rgba(99,102,241,0.22),0_12px_24px_rgba(0,0,0,0.04)] hover:border-indigo-400/80 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between overflow-hidden h-full w-full">
                   
-                  {/* Top Header Row */}
-                  <div className="flex items-center justify-between pb-5 border-b border-slate-100 mb-6">
-                    <span className="text-[10px] font-black tracking-wider uppercase text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-3 py-1 rounded-full">
-                      {pillar.tag}
-                    </span>
-                    <span className="font-heading font-black text-slate-400 text-sm">
-                      #{pillar.num}
-                    </span>
-                  </div>
-
                   <div>
-                    <h3 className="font-heading text-xl sm:text-2xl font-black text-slate-950 mb-3 leading-snug">
+                    {/* Top Row: Circular Icon & Tag */}
+                    <div className="flex items-center justify-between pb-5 border-b border-slate-100 mb-6">
+                      <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-200/80 text-indigo-600 flex items-center justify-center font-black shadow-2xs group-hover:scale-105 transition-transform">
+                        <Icon className="w-6 h-6 text-indigo-600" />
+                      </div>
+                      <span className="text-[10px] font-black tracking-wider uppercase text-slate-800 bg-slate-100 border border-slate-200/80 px-3 py-1.5 rounded-xl shadow-2xs">
+                        {pillar.tag}
+                      </span>
+                    </div>
+
+                    <div className="text-xs font-bold text-slate-500 mb-1">
+                      Pillar #{pillar.num}
+                    </div>
+
+                    <h3 className="font-heading text-xl sm:text-2xl font-black text-slate-950 mb-3 leading-snug tracking-tight group-hover:text-indigo-600 transition-colors">
                       {pillar.title}
                     </h3>
-                    <p className="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed mb-6">
+                    <p className="text-slate-600 text-xs sm:text-sm font-semibold leading-relaxed mb-6 bg-slate-50 p-3.5 rounded-2xl border border-slate-200/60">
                       {pillar.desc}
                     </p>
                   </div>
 
-                  <div className="pt-4 border-t border-slate-100">
-                    <div className="flex items-center gap-2 text-xs font-black text-slate-900 bg-slate-50 border border-slate-200/80 px-3.5 py-2.5 rounded-xl">
-                      <CheckCircle2 className="w-4 h-4 text-indigo-600 shrink-0" />
-                      <span>{pillar.stats}</span>
+                  {/* Card Footer matching reference card style */}
+                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+                    <div>
+                      <div className="font-heading font-black text-slate-950 text-base">{pillar.stats}</div>
+                      <div className="text-[11px] text-slate-500 font-bold">Standard Metric</div>
                     </div>
+
+                    <span className="bg-slate-950 text-white font-extrabold text-xs px-4 py-2.5 rounded-2xl shadow-xs">
+                      Active
+                    </span>
                   </div>
 
                 </div>
