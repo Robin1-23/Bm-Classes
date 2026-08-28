@@ -44,10 +44,10 @@ export default function LocalSeoKeywordsSection() {
   };
 
   return (
-    <section className="py-20 sm:py-28 bg-[#faf8f5] text-slate-950 border-b border-slate-200/80 relative overflow-hidden">
+    <section className="py-20 sm:py-28 bg-white text-slate-950 border-b border-slate-200/80 relative overflow-hidden">
       
       {/* Soft Ambient Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-100/40 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-slate-100/50 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
@@ -144,7 +144,7 @@ export default function LocalSeoKeywordsSection() {
                 ].map((kw, idx) => (
                   <div 
                     key={idx}
-                    className="bg-indigo-950 text-white border-2 border-indigo-800 hover:border-cyan-400 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-extrabold shadow-md transition-all flex items-center gap-2 shrink-0 cursor-default"
+                    className="bg-slate-950 text-white border border-slate-800 hover:border-indigo-400 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-extrabold shadow-sm transition-all flex items-center gap-2 shrink-0 cursor-default"
                   >
                     <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
                     <span>{kw}</span>
