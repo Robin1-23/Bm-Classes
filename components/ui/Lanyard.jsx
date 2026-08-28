@@ -2,7 +2,7 @@
 'use client';
 import React, { Component, Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { Canvas, extend, useFrame } from '@react-three/fiber';
-import { useGLTF, useTexture, Environment, Lightformer } from '@react-three/drei';
+import { useTexture, Environment, Lightformer } from '@react-three/drei';
 import { BallCollider, CuboidCollider, Physics, RigidBody, useRopeJoint, useSphericalJoint } from '@react-three/rapier';
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 import * as THREE from 'three';
@@ -23,7 +23,6 @@ class ErrorBoundary extends Component {
     this.state = { hasError: false };
   }
   static getDerivedStateFromError(error) {
-    // If error is a Promise (Suspense), do not treat as React error
     if (error && typeof error.then === 'function') {
       return { hasError: false };
     }
@@ -157,50 +156,33 @@ function Band({
     dir = new THREE.Vector3();
   const segmentProps = { type: 'dynamic', canSleep: true, colliders: false, angularDamping: 4, linearDamping: 4 };
 
-  const gltf = useGLTF('/card.glb');
-  const nodes = gltf?.nodes || {};
-  const materials = gltf?.materials || {};
-
-  const cardGeo = useMemo(() => {
-    if (nodes?.card?.geometry) return nodes.card.geometry;
-    return new THREE.BoxGeometry(1.6, 2.25, 0.02);
-  }, [nodes]);
-
+  // Procedural Geometries & Materials (No GLTF fetch required!)
+  const cardGeo = useMemo(() => new THREE.BoxGeometry(1.6, 2.25, 0.02), []);
   const clipGeo = useMemo(() => {
-    if (nodes?.clip?.geometry) return nodes.clip.geometry;
     const g = new THREE.CylinderGeometry(0.12, 0.12, 0.2, 16);
     g.rotateX(Math.PI / 2);
     return g;
-  }, [nodes]);
-
-  const clampGeo = useMemo(() => {
-    if (nodes?.clamp?.geometry) return nodes.clamp.geometry;
-    return new THREE.BoxGeometry(0.3, 0.15, 0.08);
-  }, [nodes]);
+  }, []);
+  const clampGeo = useMemo(() => new THREE.BoxGeometry(0.3, 0.15, 0.08), []);
+  const metalMat = useMemo(() => new THREE.MeshStandardMaterial({ color: 0xdddddd, metalness: 0.9, roughness: 0.2 }), []);
 
   const texture = useTexture(lanyardImage || '/lanyard.png');
   const frontTex = useTexture(frontImage || BLANK_PIXEL);
   const backTex = useTexture(backImage || BLANK_PIXEL);
 
   const cardMap = useMemo(() => {
-    const baseMap = materials?.base?.map;
-    if (!frontImage && !backImage) return baseMap || null;
+    if (!frontImage && !backImage) return null;
 
-    const baseImg = baseMap?.image;
-    const W = baseImg?.width || 1024;
-    const H = baseImg?.height || 1024;
+    const W = 1024;
+    const H = 1024;
     const canvas = document.createElement('canvas');
     canvas.width = W;
     canvas.height = H;
     const ctx = canvas.getContext('2d');
-    if (!ctx) return baseMap || null;
+    if (!ctx) return null;
 
-    if (baseImg) {
-      ctx.drawImage(baseImg, 0, 0, W, H);
-    } else {
-      ctx.fillStyle = '#ffffff';
-      ctx.fillRect(0, 0, W, H);
-    }
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, W, H);
 
     const drawFitted = (img, rect) => {
       if (!img) return;
@@ -227,11 +209,10 @@ function Band({
 
     const composite = new THREE.CanvasTexture(canvas);
     composite.colorSpace = THREE.SRGBColorSpace;
-    if (baseMap) composite.flipY = baseMap.flipY;
     composite.anisotropy = 16;
     composite.needsUpdate = true;
     return composite;
-  }, [frontImage, backImage, imageFit, frontTex, backTex, materials?.base?.map]);
+  }, [frontImage, backImage, imageFit, frontTex, backTex]);
 
   const [curve] = useState(
     () =>
@@ -328,8 +309,8 @@ function Band({
                 metalness={0.8}
               />
             </mesh>
-            <mesh geometry={clipGeo} material={materials?.metal || new THREE.MeshStandardMaterial({ color: 0xcccccc, metalness: 0.9 })} />
-            <mesh geometry={clampGeo} material={materials?.metal || new THREE.MeshStandardMaterial({ color: 0xcccccc, metalness: 0.9 })} />
+            <mesh geometry={clipGeo} material={metalMat} />
+            <mesh geometry={clampGeo} material={metalMat} />
           </group>
         </RigidBody>
       </group>
@@ -348,5 +329,3 @@ function Band({
     </>
   );
 }
-
-useGLTF.preload('/card.glb');
