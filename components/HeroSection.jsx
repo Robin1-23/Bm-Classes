@@ -89,7 +89,7 @@ export default function HeroSection({ onOpenRegister }) {
             <div className="inline-flex items-center gap-2 mb-5">
               <span className="w-2.5 h-2.5 bg-indigo-600 rounded-sm inline-block"></span>
               <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">
-                15 SEATS · ZERO BACKBENCHERS
+                IIT JEE & NEET COACHING · SECTOR 45, GURUGRAM
               </span>
             </div>
           </ScrollReveal>
@@ -97,7 +97,7 @@ export default function HeroSection({ onOpenRegister }) {
           {/* Massive Display FoldText Heading from React Bits */}
           <ScrollReveal delay={200} direction="up">
             <div className="mb-6 font-heading leading-[1.02] tracking-[-0.035em]">
-              <h1 className="sr-only">Small batches. Exceptional ranks.</h1>
+              <h1 className="sr-only">IIT JEE &amp; NEET coaching in Gurugram: small batches, exceptional ranks.</h1>
               <FoldText
                 text={"Small batches.\nExceptional ranks."}
                 splitBy="word"

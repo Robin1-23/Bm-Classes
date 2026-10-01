@@ -1,45 +1,15 @@
-import React from 'react';
+import { pageMetadata, breadcrumbJsonLd, JsonLd } from '@/data/seo';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bm-classes.com';
-
-export const metadata = {
-  title: 'JEE & NEET Scholarship Fee Calculator | Up to 40% Waiver BmClasses Gurgaon',
-  description: 'Calculate your personalized fee structure and merit scholarship waiver (up to 40%) for JEE Main, JEE Advanced & NEET UG micro-batch coaching at BmClasses Gurgaon.',
-  keywords: [
-    'JEE Scholarship Test Gurgaon',
-    'NEET Scholarship Waiver Gurgaon',
-    'BmClasses Fee Calculator Sector 45',
-    'Best Affordable JEE Coaching Gurgaon',
-    'Merit Scholarship IIT Coaching Gurugram',
-  ],
-  alternates: {
-    canonical: `${siteUrl}/calculator`,
-  },
-  openGraph: {
-    title: 'JEE & NEET Merit Scholarship Fee Calculator | BmClasses Gurgaon',
-    description: 'Instant scholarship calculator for Class 9th, 10th, 11th, 12th & Droppers. Get up to 40% fee waiver.',
-    url: `${siteUrl}/calculator`,
-    siteName: 'BmClasses Gurgaon',
-    type: 'website',
-  },
-};
+export const metadata = pageMetadata({
+  title: "JEE & NEET Fee and Scholarship Calculator",
+  description: "See your yearly fee for Class 11, Class 12 or droppers in seconds, and how much a merit scholarship of up to 40% could save you. No hidden costs.",
+  path: '/calculator',
+});
 
 export default function CalculatorLayout({ children }) {
-  const jsonLdBreadcrumb = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: siteUrl },
-      { '@type': 'ListItem', position: 2, name: 'Scholarship Calculator', item: `${siteUrl}/calculator` },
-    ],
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdBreadcrumb) }}
-      />
+      <JsonLd data={breadcrumbJsonLd("Fee calculator", '/calculator')} />
       {children}
     </>
   );
