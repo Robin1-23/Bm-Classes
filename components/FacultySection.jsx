@@ -7,6 +7,16 @@ import SectionHeader from '@/components/ui/SectionHeader';
 import { MENTORS_DATA } from '@/data/contentData';
 import { useModal } from '@/context/ModalContext';
 
+const PANEL_TINTS = ['bg-[#f3f1ff]', 'bg-[#eef7ea]', 'bg-[#fdf4e6]'];
+
+// "Bighnaraj Mishra (BM Sir)" -> ["Bighnaraj Mishra", "BM Sir"]; "Konika Ma'am" -> ["Konika", "Ma'am"]
+const splitName = (name) => {
+  const m = name.match(/^(.*?)\s*\((.*)\)$/);
+  if (m) return [m[1], m[2]];
+  const i = name.lastIndexOf(' ');
+  return i > 0 ? [name.slice(0, i), name.slice(i + 1)] : [name, ''];
+};
+
 export default function FacultySection({ onOpenRegister }) {
   const modal = useModal();
   const handleRegister = onOpenRegister || modal.openRegister;
@@ -40,46 +50,55 @@ export default function FacultySection({ onOpenRegister }) {
             return (
               <ScrollReveal key={mentor.id} delay={100 * (idx + 1)} direction="up" className="flex">
                 <article className="group flex flex-col w-full bg-white border border-slate-200/70 rounded-[28px] p-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_50px_-28px_rgba(15,23,42,0.35)]">
-                  <div className="relative aspect-[4/3] bg-[#eef1ff] rounded-[22px] overflow-hidden">
-                    <img loading="lazy" decoding="async"
+                  {/* Pastel panel: two-tone name top-left, portrait tucked bottom-right */}
+                  <div className={`relative overflow-hidden rounded-[22px] ${PANEL_TINTS[idx % PANEL_TINTS.length]} h-[300px] sm:h-[320px]`}>
+                    <div className="relative z-10 p-6 max-w-[62%]">
+                      <p className="text-sm font-semibold text-slate-600">{mentor.role}</p>
+                      <h3 className="font-heading font-semibold text-[28px] leading-[1.08] tracking-[-0.025em] text-slate-900 mt-3">
+                        {splitName(mentor.name)[0]}
+                        <span className="block text-slate-400">{splitName(mentor.name)[1]}</span>
+                      </h3>
+                      <p className="text-sm text-slate-600 mt-3">{mentor.exp} teaching</p>
+                    </div>
+
+                    <img
                       src={mentor.image}
                       alt={mentor.name}
-                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute right-0 bottom-0 w-[52%] h-[78%] object-cover object-top rounded-tl-[40px] transition-transform duration-500 group-hover:scale-[1.04] origin-bottom-right"
                     />
+
                     <button
                       onClick={() => setActiveVideo({ mentor, videoUrl })}
-                      className="absolute left-4 bottom-4 inline-flex items-center gap-2 bg-white/95 hover:bg-white text-slate-900 text-sm font-semibold pl-1.5 pr-4 py-1.5 rounded-full shadow-sm cursor-pointer"
+                      aria-label={`Watch ${mentor.name} teach a class`}
+                      className="absolute left-6 bottom-6 z-10 inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-wide text-slate-900 cursor-pointer"
                     >
-                      <span className="w-7 h-7 rounded-full bg-indigo-600 text-white flex items-center justify-center">
+                      <span className="w-10 h-10 rounded-full bg-slate-950 text-white flex items-center justify-center transition-transform group-hover:scale-110">
                         <Play className="w-3.5 h-3.5 fill-white ml-0.5" />
                       </span>
-                      Watch a class
+                      Watch
                     </button>
                   </div>
 
+                  {/* White footer: subject, credentials, booking */}
                   <div className="flex flex-col flex-1 px-4 pt-5 pb-2">
-                    <p className="text-sm font-semibold text-indigo-700">{mentor.role} · {mentor.exp}</p>
-                    <h3 className="font-heading font-extrabold text-2xl tracking-[-0.02em] text-slate-950 mt-1">{mentor.name}</h3>
-                    <p className="text-sm text-slate-500 mt-0.5">{mentor.subject}</p>
-
-                    <p className="text-[15px] text-slate-700 leading-relaxed mt-4">{mentor.approach}</p>
-
-                    <ul className="mt-5 border-t border-slate-100 divide-y divide-slate-100 text-sm text-slate-700">
+                    <p className="text-[15px] text-slate-700 leading-relaxed">{mentor.approach}</p>
+                    <div className="flex flex-wrap gap-2 mt-4">
                       {mentor.highlights.map((item) => (
-                        <li key={item} className="py-2.5">{item}</li>
+                        <span key={item} className="text-xs font-medium text-slate-700 bg-slate-100 rounded-full px-3 py-1.5">{item}</span>
                       ))}
-                    </ul>
-
+                    </div>
                     <div className="mt-auto pt-5 flex items-center gap-3">
                       <div className="min-w-0">
-                        <p className="text-sm font-semibold text-slate-900 leading-tight">1-on-1 or batch</p>
-                        <p className="text-sm text-slate-500 leading-tight mt-0.5">{mentor.exp} teaching</p>
+                        <p className="text-sm font-semibold text-slate-900 leading-tight">{mentor.subject.split(' · ')[0]}</p>
+                        <p className="text-sm text-slate-500 leading-tight mt-0.5">1-on-1 or batch</p>
                       </div>
                       <button
                         onClick={() => handleRegister(mentor.name)}
                         className="ml-auto shrink-0 inline-flex items-center gap-1.5 h-11 px-5 rounded-full bg-slate-950 hover:bg-indigo-600 text-white text-sm font-semibold transition-colors cursor-pointer"
                       >
-                        Book a session
+                        Book
                         <ArrowRight className="w-4 h-4" />
                       </button>
                     </div>
