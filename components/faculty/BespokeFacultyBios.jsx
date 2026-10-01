@@ -95,7 +95,7 @@ export default function BespokeFacultyBios() {
                     <div className="flex items-center gap-3">
                       {m.image ? (
                         <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full overflow-hidden shadow-xl border-2 border-white ring-4 ring-indigo-500/20 bg-slate-950 shrink-0">
-                          <img 
+                          <img loading="lazy" decoding="async" 
                             src={m.image} 
                             alt={m.name} 
                             className="w-full h-full object-cover object-top" 

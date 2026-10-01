@@ -89,7 +89,6 @@ export default function BespokeProgramRoadmap() {
     <section className="py-20 lg:py-28 bg-white text-slate-950 border-b border-slate-200/80 relative overflow-hidden">
       
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/4 left-10 w-96 h-96 bg-indigo-50/60 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-14 relative z-10">
         

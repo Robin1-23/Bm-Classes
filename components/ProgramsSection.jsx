@@ -100,7 +100,7 @@ function ProgramCard({ program, wide, onApply }) {
         {program.faces && (
           <div className="flex -space-x-2 shrink-0">
             {program.faces.map((src) => (
-              <img
+              <img loading="lazy" decoding="async"
                 key={src}
                 src={src}
                 alt=""

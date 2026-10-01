@@ -23,7 +23,7 @@ export default function Header({ onOpenRegister }) {
         setScrolled(false);
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -60,7 +60,7 @@ export default function Header({ onOpenRegister }) {
           {/* Left Side: Brand Logo & Title */}
           <Link href="/" className="flex items-center gap-2.5 group shrink-0">
             <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-950 p-0.5 overflow-hidden shadow-xs border border-slate-200 group-hover:scale-105 transition-transform shrink-0">
-              <img 
+              <img loading="lazy" decoding="async" 
                 src="/logo.jpg" 
                 alt="BM Classes Gurgaon" 
                 className="w-full h-full object-cover rounded-full" 
@@ -121,7 +121,7 @@ export default function Header({ onOpenRegister }) {
       {mobileMenuOpen && (
         <div className="lg:hidden">
           <div 
-            className="fixed inset-0 bg-slate-950/60 backdrop-blur-md z-50 transition-opacity"
+            className="fixed inset-0 bg-slate-950/60 z-50 transition-opacity"
             onClick={() => setMobileMenuOpen(false)}
           ></div>
 

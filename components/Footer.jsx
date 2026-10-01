@@ -45,8 +45,6 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
     <footer className="relative bg-[#0b1020] text-white pt-20 pb-12 overflow-hidden font-sans" id="contact">
       
       {/* Background Soft Glows */}
-      <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-indigo-400/20 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 right-10 w-96 h-96 bg-indigo-400/20 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         

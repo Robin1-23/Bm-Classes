@@ -485,7 +485,6 @@ export default function AdminPage() {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center p-4 pt-28 sm:pt-36 pb-16">
         <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl p-8 sm:p-10 max-w-md w-full shadow-2xl relative overflow-hidden my-auto">
-          <div className="absolute top-0 right-0 w-48 h-48 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
           <div className="w-12 h-12 rounded-2xl bg-indigo-950/80 border border-indigo-800/40 text-indigo-400 font-bold flex items-center justify-center mb-6">
             <Lock className="w-6 h-6 text-indigo-400" />
@@ -585,7 +584,6 @@ export default function AdminPage() {
         
         {/* Header Bar */}
         <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
           <div>
             <div className="flex items-center gap-2 mb-2 flex-wrap">
@@ -910,7 +908,7 @@ export default function AdminPage() {
 
       {/* ADD APPLICATION MODAL */}
       {isAddModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 overflow-y-auto">
           <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl my-auto">
             <button
               onClick={() => setIsAddModalOpen(false)}
@@ -1061,7 +1059,7 @@ export default function AdminPage() {
 
       {/* EDIT INTERNAL NOTES MODAL */}
       {activeNotesApp && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 overflow-y-auto">
           <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl max-w-md w-full p-6 relative shadow-2xl my-auto">
             <button
               onClick={() => setActiveNotesApp(null)}
@@ -1115,7 +1113,7 @@ export default function AdminPage() {
 
       {/* JSON BACKUP & TRANSFER MODAL */}
       {isBackupModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto">
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 overflow-y-auto">
           <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl my-auto">
             <button
               onClick={() => setIsBackupModalOpen(false)}

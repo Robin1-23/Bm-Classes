@@ -16,7 +16,7 @@ export default function FloatingWhatsAppButton() {
         className="group pointer-events-auto relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#1ebe5a] text-white shadow-lg shadow-black/15 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer shrink-0"
       >
         {/* Tooltip Badge - triggers ONLY when hovering directly on this circular button */}
-        <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-slate-950/95 text-white border border-slate-700/80 backdrop-blur-md px-4 py-2.5 rounded-2xl text-xs font-bold shadow-2xl opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300 pointer-events-none whitespace-nowrap z-20">
+        <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-slate-950/95 text-white border border-slate-700/80 px-4 py-2.5 rounded-2xl text-xs font-bold shadow-2xl opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300 pointer-events-none whitespace-nowrap z-20">
           Chat directly with HOD on WhatsApp (+91 98998 18241)
         </span>
 

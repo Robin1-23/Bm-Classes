@@ -95,7 +95,6 @@ export default function BespokeHallOfFame() {
     <section className="py-20 lg:py-28 bg-white text-slate-950 border-b border-slate-200/80 relative overflow-hidden">
       
       {/* Ambient Glow */}
-      <div className="absolute top-1/3 right-10 w-96 h-96 bg-indigo-50/60 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-14">
         

@@ -165,7 +165,7 @@ export default function FloatingLiveReelWidget() {
           >
             {/* Top Header Bar */}
             <div className="absolute top-1.5 left-1.5 right-1.5 z-20 flex items-center justify-between pointer-events-none">
-              <div className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-black/80 backdrop-blur-md border border-red-500/50 text-xs font-bold text-white shadow-xs">
+              <div className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-black/80 border border-red-500/50 text-xs font-bold text-white shadow-xs">
                 <span className="relative flex h-1.5 w-1.5">
                   <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500"></span>
                 </span>
@@ -239,7 +239,7 @@ export default function FloatingLiveReelWidget() {
 
       {/* 2. FULL-SCREEN EXPANDED REEL PLAYER MODAL */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 animate-fadeIn">
+        <div className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-3 sm:p-6 animate-fadeIn">
           <div className="relative w-full max-w-sm sm:max-w-md bg-slate-950 border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl flex flex-col h-[85vh] sm:h-[88vh]">
             
             {/* Top Modal Header */}
@@ -262,13 +262,13 @@ export default function FloatingLiveReelWidget() {
               <div className="flex items-center gap-2">
                 <button
                   onClick={toggleModalMute}
-                  className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-colors cursor-pointer border border-white/10"
+                  className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center transition-colors cursor-pointer border border-white/10"
                 >
                   {modalIsMuted ? <VolumeX className="w-4 h-4 text-red-400" /> : <Volume2 className="w-4 h-4 text-indigo-400" />}
                 </button>
                 <button
                   onClick={handleCloseModal}
-                  className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-colors cursor-pointer border border-white/10"
+                  className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center transition-colors cursor-pointer border border-white/10"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -291,9 +291,9 @@ export default function FloatingLiveReelWidget() {
               {!modalIsPlaying && (
                 <div 
                   onClick={toggleModalPlay}
-                  className="absolute inset-0 bg-black/40 backdrop-blur-xs flex items-center justify-center cursor-pointer z-20"
+                  className="absolute inset-0 bg-black/40 flex items-center justify-center cursor-pointer z-20"
                 >
-                  <div className="w-16 h-16 rounded-full bg-white/20 border border-white/40 text-white flex items-center justify-center backdrop-blur-md shadow-2xl pl-1">
+                  <div className="w-16 h-16 rounded-full bg-white/20 border border-white/40 text-white flex items-center justify-center shadow-2xl pl-1">
                     <Play className="w-8 h-8 fill-white" />
                   </div>
                 </div>

@@ -3,6 +3,7 @@
 import React, { useState, useRef } from 'react';
 import { Play, X, Volume2, VolumeX, Sparkles, ArrowRight, Award, UserCheck, ChevronLeft, ChevronRight } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
+import LazyVideo from '@/components/ui/LazyVideo';
 import FoldText from '@/components/ui/FoldText';
 import { useModal } from '@/context/ModalContext';
 
@@ -152,8 +153,6 @@ export default function ReelShowcaseSection() {
     <section className="py-20 lg:py-28 bg-white text-slate-950 relative overflow-hidden border-b border-slate-200/80">
       
       {/* Background Ambient Lighting Orbs */}
-      <div className="absolute top-0 right-10 w-96 h-96 bg-indigo-50/70 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 left-10 w-96 h-96 bg-slate-100/70 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
@@ -228,13 +227,9 @@ export default function ReelShowcaseSection() {
               >
                 {/* Background Video Preview (Silent Loop) */}
                 <div className="absolute inset-0 z-0 overflow-hidden bg-zinc-900">
-                  <video 
-                    src={reel.videoUrl} 
-                    muted 
-                    loop 
-                    playsInline
-                    autoPlay
-                    className="w-full h-full object-cover object-center group-hover/card:scale-105 transition-transform duration-700 opacity-65 group-hover/card:opacity-85"
+                  <LazyVideo
+                    src={reel.videoUrl}
+                    className="w-full h-full object-cover object-center transition-opacity duration-300 opacity-65 group-hover/card:opacity-85"
                   />
                   {/* Dark Vignette Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-black/60 pointer-events-none"></div>
@@ -242,14 +237,14 @@ export default function ReelShowcaseSection() {
 
                 {/* Top Overlay: Duration Only */}
                 <div className="relative z-10 p-4 flex items-center justify-end">
-                  <span className="text-xs font-bold text-zinc-300 bg-black/70 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/10">
+                  <span className="text-xs font-bold text-zinc-300 bg-black/70 px-2.5 py-0.5 rounded-full border border-white/10">
                     {reel.duration}
                   </span>
                 </div>
 
                 {/* Center Play Button Icon */}
                 <div className="relative z-10 flex-1 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-white/20 border-2 border-white/50 text-white flex items-center justify-center backdrop-blur-md group-hover/card:scale-115 group-hover/card:bg-indigo-400 group-hover/card:text-slate-950 group-hover/card:border-indigo-400 transition-all duration-300 shadow-2xl pl-1">
+                  <div className="w-16 h-16 rounded-full bg-white/20 border-2 border-white/50 text-white flex items-center justify-center group-hover/card:scale-115 group-hover/card:bg-indigo-400 group-hover/card:text-slate-950 group-hover/card:border-indigo-400 transition-all duration-300 shadow-2xl pl-1">
                     <Play className="w-7 h-7 fill-current" />
                   </div>
                 </div>
@@ -310,13 +305,13 @@ export default function ReelShowcaseSection() {
               <div className="flex items-center gap-2">
                 <button
                   onClick={toggleMute}
-                  className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-colors cursor-pointer border border-white/10"
+                  className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center transition-colors cursor-pointer border border-white/10"
                 >
                   {isMuted ? <VolumeX className="w-4 h-4 text-red-400" /> : <Volume2 className="w-4 h-4 text-indigo-400" />}
                 </button>
                 <button
                   onClick={handleClose}
-                  className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-colors cursor-pointer border border-white/10"
+                  className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center transition-colors cursor-pointer border border-white/10"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -339,9 +334,9 @@ export default function ReelShowcaseSection() {
               {!isPlaying && (
                 <div 
                   onClick={togglePlay}
-                  className="absolute inset-0 bg-black/40 backdrop-blur-xs flex items-center justify-center cursor-pointer z-20"
+                  className="absolute inset-0 bg-black/40 flex items-center justify-center cursor-pointer z-20"
                 >
-                  <div className="w-16 h-16 rounded-full bg-white/20 border border-white/40 text-white flex items-center justify-center backdrop-blur-md shadow-2xl pl-1">
+                  <div className="w-16 h-16 rounded-full bg-white/20 border border-white/40 text-white flex items-center justify-center shadow-2xl pl-1">
                     <Play className="w-8 h-8 fill-white" />
                   </div>
                 </div>

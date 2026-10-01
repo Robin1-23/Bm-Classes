@@ -145,7 +145,7 @@ export default function FacultyIntroVideoCard({ title = "Meet Your Mentors: BM S
               src="/videos/introductory_video.mp4"
               playsInline
               loop
-              preload="metadata"
+              preload="none"
               className="w-full h-full object-cover"
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
@@ -165,7 +165,7 @@ export default function FacultyIntroVideoCard({ title = "Meet Your Mentors: BM S
             <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
               <button
                 onClick={toggleMute}
-                className="w-9 h-9 rounded-full bg-black/80 backdrop-blur-md border border-zinc-700 text-white flex items-center justify-center hover:border-indigo-400 transition-all hover:scale-105"
+                className="w-9 h-9 rounded-full bg-black/80 border border-zinc-700 text-white flex items-center justify-center hover:border-indigo-400 transition-all hover:scale-105"
                 aria-label={isMuted ? "Unmute video" : "Mute video"}
               >
                 {isMuted ? <VolumeX className="w-4 h-4 text-zinc-400" /> : <Volume2 className="w-4 h-4 text-indigo-300" />}
@@ -173,7 +173,7 @@ export default function FacultyIntroVideoCard({ title = "Meet Your Mentors: BM S
 
               <button
                 onClick={handleFullScreen}
-                className="w-9 h-9 rounded-full bg-black/80 backdrop-blur-md border border-zinc-700 text-white flex items-center justify-center hover:border-indigo-400 transition-all hover:scale-105"
+                className="w-9 h-9 rounded-full bg-black/80 border border-zinc-700 text-white flex items-center justify-center hover:border-indigo-400 transition-all hover:scale-105"
                 aria-label="Full screen video"
               >
                 <Maximize className="w-4 h-4 text-white" />
@@ -184,7 +184,7 @@ export default function FacultyIntroVideoCard({ title = "Meet Your Mentors: BM S
             <div className="absolute bottom-4 left-4 z-20">
               <button
                 onClick={(e) => { e.stopPropagation(); togglePlay(); }}
-                className="inline-flex items-center gap-2 bg-black/80 backdrop-blur-md border border-zinc-700 hover:border-indigo-400 text-white px-4 py-2 rounded-full text-xs font-bold transition-all hover:scale-105"
+                className="inline-flex items-center gap-2 bg-black/80 border border-zinc-700 hover:border-indigo-400 text-white px-4 py-2 rounded-full text-xs font-bold transition-all hover:scale-105"
               >
                 {isPlaying ? (
                   <>

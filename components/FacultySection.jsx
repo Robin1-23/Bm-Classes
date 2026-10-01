@@ -41,7 +41,7 @@ export default function FacultySection({ onOpenRegister }) {
               <ScrollReveal key={mentor.id} delay={100 * (idx + 1)} direction="up" className="flex">
                 <article className="group flex flex-col w-full bg-white border border-slate-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-indigo-300 hover:shadow-[0_18px_40px_-18px_rgba(15,23,42,0.25)]">
                   <div className="relative aspect-[4/3] bg-slate-100 overflow-hidden">
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={mentor.image}
                       alt={mentor.name}
                       className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
@@ -113,13 +113,13 @@ export default function FacultySection({ onOpenRegister }) {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setIsMuted(!isMuted)}
-                  className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-colors cursor-pointer border border-white/10"
+                  className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center transition-colors cursor-pointer border border-white/10"
                 >
                   {isMuted ? <VolumeX className="w-4 h-4 text-red-400" /> : <Volume2 className="w-4 h-4 text-indigo-400" />}
                 </button>
                 <button
                   onClick={() => setActiveVideo(null)}
-                  className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-colors cursor-pointer border border-white/10"
+                  className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center transition-colors cursor-pointer border border-white/10"
                 >
                   <X className="w-5 h-5" />
                 </button>

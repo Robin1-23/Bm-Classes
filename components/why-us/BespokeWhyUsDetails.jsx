@@ -65,14 +65,12 @@ export default function BespokeWhyUsDetails() {
     <section className="py-20 lg:py-28 bg-black text-white border-b border-zinc-900 relative overflow-hidden">
       
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/3 left-10 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-16">
         
         {/* 1. THE MICRO-BATCH MANIFESTO */}
         <ScrollReveal delay={100} direction="up">
           <div className="bg-black rounded-3xl p-6 sm:p-10 text-white border-2 border-zinc-800 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-950/60 border border-indigo-800/40 text-indigo-400 text-xs font-bold uppercase tracking-wider mb-3">
               <ShieldCheck className="w-4 h-4 text-indigo-400" />

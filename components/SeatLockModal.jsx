@@ -181,7 +181,6 @@ export default function SeatLockModal({ isOpen, onClose }) {
 
         {/* Modal Header Banner */}
         <div className="bg-black text-white p-6 sm:p-8 rounded-t-3xl relative overflow-hidden border-b border-zinc-800">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
           
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-400/20 border border-indigo-400/30 text-indigo-300 text-xs font-bold uppercase tracking-wider mb-3">
             <Lock className="w-3.5 h-3.5 text-indigo-300 shrink-0" />

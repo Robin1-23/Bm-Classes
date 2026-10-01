@@ -190,7 +190,6 @@ export default function Modals({
             
             {/* Modal Header Banner */}
             <div className="bg-black text-white p-6 sm:p-8 rounded-t-3xl relative overflow-hidden border-b border-zinc-800">
-              <div className="absolute top-0 right-0 w-48 h-48 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
 
               {/* Close Button */}
               <button 

@@ -2,59 +2,53 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 
-export default function ScrollReveal({ 
-  children, 
-  className = '', 
-  delay = 0,
-  direction = 'up'
-}) {
-  const [isVisible, setIsVisible] = useState(false);
+const OFFSETS = {
+  up: 'translate-y-4',
+  down: '-translate-y-4',
+  left: 'translate-x-4',
+  right: '-translate-x-4',
+  fade: '',
+};
+
+// Content is visible in the server HTML. Only elements that start below the fold
+// are hidden on mount and faded in when scrolled to, so nothing above the fold
+// ever waits on JavaScript.
+export default function ScrollReveal({ children, className = '', delay = 0, direction = 'up' }) {
   const ref = useRef(null);
+  const [state, setState] = useState('static'); // static | hidden | shown
 
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
+    if (node.getBoundingClientRect().top < window.innerHeight) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+    setState('hidden');
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
+          setState('shown');
+          observer.disconnect();
         }
       },
-      {
-        threshold: 0.05,
-        rootMargin: '50px 0px -20px 0px',
-      }
+      { rootMargin: '0px 0px -8% 0px' }
     );
-
     observer.observe(node);
-
-    return () => {
-      if (node) {
-        observer.unobserve(node);
-      }
-    };
+    return () => observer.disconnect();
   }, []);
 
-  const getInitialClass = () => {
-    if (isVisible) return 'opacity-100 translate-x-0 translate-y-0 scale-100 pointer-events-auto';
-    
-    switch (direction) {
-      case 'up': return 'opacity-0 translate-y-6 will-change-[transform,opacity]';
-      case 'down': return 'opacity-0 -translate-y-6 will-change-[transform,opacity]';
-      case 'left': return 'opacity-0 translate-x-6 will-change-[transform,opacity]';
-      case 'right': return 'opacity-0 -translate-x-6 will-change-[transform,opacity]';
-      case 'fade': return 'opacity-0 scale-95 will-change-[transform,opacity]';
-      default: return 'opacity-0 translate-y-6 will-change-[transform,opacity]';
-    }
-  };
+  const motion =
+    state === 'hidden'
+      ? `opacity-0 ${OFFSETS[direction] ?? OFFSETS.up}`
+      : state === 'shown'
+        ? 'opacity-100 translate-x-0 translate-y-0'
+        : '';
 
   return (
     <div
       ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-500 ease-out transform-gpu ${getInitialClass()} ${className}`}
+      style={state === 'shown' ? { transitionDelay: `${Math.min(delay, 160)}ms` } : undefined}
+      className={`${state === 'static' ? '' : 'transition-[opacity,transform] duration-500 ease-out'} ${motion} ${className}`}
     >
       {children}
     </div>

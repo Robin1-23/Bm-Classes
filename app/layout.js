@@ -1,4 +1,7 @@
 import './globals.css';
+import { Outfit } from 'next/font/google';
+
+const outfit = Outfit({ subsets: ['latin'], weight: ['600', '700', '800', '900'], variable: '--font-outfit', display: 'swap' });
 import ClientLayoutWrapper from '@/components/ClientLayoutWrapper';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bm-classes.com';
@@ -273,14 +276,14 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`scroll-smooth ${outfit.variable}`}>
       <head>
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link 
-          href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" 
+          href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" 
           rel="stylesheet" 
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
