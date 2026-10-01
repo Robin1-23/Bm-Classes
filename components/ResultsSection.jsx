@@ -178,7 +178,7 @@ export default function ResultsSection() {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#e3e8f5] text-indigo-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
             <FoldText
-              text="REAL GOOGLE REVIEWS & STUDENT RANKERS"
+              text="THE PROOF"
               splitBy="char"
               hinge="top"
               trigger="scroll"
@@ -191,9 +191,9 @@ export default function ResultsSection() {
           </div>
           
           <h2 className="font-heading font-extrabold tracking-[-0.03em] leading-[1.15] mt-1 mb-2">
-            <span className="sr-only">Clarity That Parents & Students Remember</span>
+            <span className="sr-only">Ranks speak. Parents agree.</span>
             <FoldText
-              text="Clarity That Parents & Students Remember"
+              text="Ranks speak. Parents agree."
               splitBy="word"
               hinge="top"
               trigger="scroll"
@@ -206,7 +206,7 @@ export default function ResultsSection() {
           </h2>
           
           <p className="text-slate-600 text-base sm:text-lg mt-3 font-semibold leading-relaxed max-w-2xl mx-auto">
-            Authentic Google reviews from Gurgaon parents and top JEE & NEET rankers.
+            Real AIRs. Real Google reviews from Gurgaon parents.
           </p>
         </ScrollReveal>
 

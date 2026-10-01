@@ -15,8 +15,8 @@ export default function FacultyPage() {
     <>
       <PageHeader 
         badgeText="100% EX-FIITJEE & VMC HODs"
-        title="Learn Directly from Legendary Subject Leads"
-        subtitle="No junior teaching assistants or swapped faculties. BM Sir, Konika Ma’am & Chumki Ma’am teach every single lecture."
+        title="Legends at the board. Every lecture."
+        subtitle="No junior assistants. No swapped faculty. BM Sir, Konika Ma’am and Chumki Ma’am teach every single lecture."
         breadcrumb="Ex-HOD Faculty"
       />
       <FacultyIntroVideoCard 

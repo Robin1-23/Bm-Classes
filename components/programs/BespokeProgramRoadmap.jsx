@@ -99,7 +99,7 @@ export default function BespokeProgramRoadmap() {
             <span className="text-xs font-bold tracking-wider uppercase text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-3.5 py-1.5 rounded-full inline-flex items-center gap-2">
               <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
               <FoldText
-                text="CLEAR ADMISSION FLOW"
+                text="HOW TO JOIN"
                 splitBy="char"
                 hinge="top"
                 trigger="scroll"
@@ -111,9 +111,9 @@ export default function BespokeProgramRoadmap() {
               />
             </span>
             <h2 className="font-heading font-extrabold tracking-[-0.03em] mt-3">
-              <span className="sr-only">Simple 5-step journey to your target rank.</span>
+              <span className="sr-only">Five steps from hello to the classroom.</span>
               <FoldText
-                text="Simple 5-step journey to your target rank."
+                text="Five steps from hello to the classroom."
                 splitBy="word"
                 hinge="top"
                 trigger="scroll"

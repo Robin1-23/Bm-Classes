@@ -88,7 +88,7 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
             <div className="inline-flex items-center gap-2 mb-5">
               <span className="w-2.5 h-2.5 bg-indigo-600 rounded-sm inline-block"></span>
               <span className="text-xs font-bold text-slate-700 uppercase tracking-widest">
-                EX-HOD FACULTY · CAPPED MICRO-BATCHES
+                15 SEATS · ZERO BACKBENCHERS
               </span>
             </div>
           </ScrollReveal>
@@ -117,7 +117,7 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
           {/* Subheading Copy (Short & Punchy) */}
           <ScrollReveal delay={250} direction="up">
             <p className="text-slate-700 font-semibold text-lg sm:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
-              Gurgaon’s premier IIT JEE & NEET academy. Taught 100% directly by Senior Ex-HODs.
+              No crowds. No junior tutors. Just the Ex-HODs of FIITJEE & VMC teaching you by name.
             </p>
           </ScrollReveal>
 
@@ -187,7 +187,7 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
 
         </div>
 
-        {/* Right: real celebration photo with proof chips */}
+        {/* Right: real celebration photo */}
         <div className="lg:col-span-5 relative w-full mt-4 lg:mt-0">
           <ScrollReveal delay={300} direction="left" className="w-full relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
@@ -200,26 +200,6 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
                   sizes="(min-width: 1024px) 40vw, 90vw"
                   className="object-cover"
                 />
-                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/70 to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-300">JEE Advanced toppers</p>
-                  <p className="font-heading font-extrabold text-3xl sm:text-4xl tracking-tight leading-tight mt-1">AIR 18 · 22 · 52</p>
-                </div>
-              </div>
-
-              <div className="absolute -left-3 sm:-left-6 top-8 bg-white border border-[#e3e8f5] rounded-2xl shadow-premium px-4 py-3 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center">
-                  <Award className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-sm font-bold text-slate-900 leading-tight">Ex-FIITJEE &amp; VMC</p>
-                  <p className="text-xs text-slate-500">Senior HODs teach every class</p>
-                </div>
-              </div>
-
-              <div className="absolute -right-2 sm:-right-5 top-1/2 bg-white border border-[#e3e8f5] rounded-2xl shadow-premium px-4 py-3">
-                <p className="font-heading font-extrabold text-3xl text-indigo-700 tracking-tight leading-none">10–15</p>
-                <p className="text-xs text-slate-500 mt-1">students per batch</p>
               </div>
             </div>
           </ScrollReveal>

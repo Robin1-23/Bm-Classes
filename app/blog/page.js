@@ -13,8 +13,8 @@ export default function BlogPage() {
     <>
       <PageHeader 
         badgeText="EX-HOD INSIGHTS & STRATEGY"
-        title="High-Yield JEE & NEET Preparation Articles"
-        subtitle="Expert exam preparation blueprints, organic reaction shortcuts, and problem-solving strategies written directly by Senior Ex-HODs."
+        title="Exam strategy, straight from the HODs"
+        subtitle="Shortcuts, blueprints and problem-solving tricks our Ex-HODs actually use in class."
         breadcrumb="Articles"
       />
       <BlogSection />

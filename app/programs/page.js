@@ -14,8 +14,8 @@ export default function ProgramsPage() {
     <>
       <PageHeader 
         badgeText="ACADEMIC PROGRAMS 2026-27"
-        title="Classroom Coaching Built for Top AIR Ranks"
-        subtitle="Explore our specialized JEE Main, JEE Advanced, and NEET-UG micro-batches taught 100% directly by Senior Ex-HODs."
+        title="Built for ranks, not roll numbers."
+        subtitle="JEE Main, JEE Advanced and NEET micro-batches, taught 100% by Senior Ex-HODs."
         breadcrumb="Academic Programs"
       />
       <BespokeProgramRoadmap />

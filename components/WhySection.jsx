@@ -164,7 +164,7 @@ export default function WhySection({ hidePedagogy = false }) {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
             <Sparkles className="w-4 h-4 text-indigo-600" />
             <FoldText
-              text="PEDAGOGY DIFFERENCE"
+              text="WHY IT WORKS"
               splitBy="char"
               hinge="top"
               trigger="scroll"
@@ -177,9 +177,9 @@ export default function WhySection({ hidePedagogy = false }) {
           </div>
           
           <h2 className="font-heading font-extrabold tracking-[-0.03em] leading-[1.15] mt-1 mb-2">
-            <span className="sr-only">Conceptual Depth Over Mechanical Drills</span>
+            <span className="sr-only">Understand it once. Solve it forever.</span>
             <FoldText
-              text="Conceptual Depth Over Mechanical Drills"
+              text="Understand it once. Solve it forever."
               splitBy="word"
               hinge="top"
               trigger="scroll"
@@ -192,7 +192,7 @@ export default function WhySection({ hidePedagogy = false }) {
           </h2>
           
           <p className="text-slate-600 text-base sm:text-lg mt-3 font-semibold leading-relaxed max-w-xl mx-auto">
-            Premier institute rigor combined with the personal mentorship only a 10–15 student batch provides.
+            Big-institute rigour. Small-batch attention. Nobody gets left behind.
           </p>
         </ScrollReveal>
 

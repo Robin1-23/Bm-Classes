@@ -11,8 +11,8 @@ export default function WhyUsPage() {
     <>
       <PageHeader 
         badgeText="10-15 MICRO-BATCH RIGOR"
-        title="Why Small-Batch Coaching Outperforms Mass Factories"
-        subtitle="Premier institute rigor combined with the individual attention and same-day board doubt resolution only a capped 10-15 student batch provides."
+        title="Small rooms. Big ranks."
+        subtitle="Big-institute rigour, with the attention and same-day doubt solving only a 10–15 student batch can give."
         breadcrumb="Why Us"
       />
       <BespokeWhyUsDetails />

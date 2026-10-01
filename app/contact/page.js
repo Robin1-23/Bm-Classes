@@ -15,8 +15,8 @@ export default function ContactPage() {
     <>
       <PageHeader 
         badgeText="SECTOR 45 GURGAON CENTER"
-        title="Visit Chemistry classes by BM sir"
-        subtitle="Book a direct 1-on-1 diagnostic counseling session at House no - 1411p, 1st floor, sec-45, near DPS-45 school."
+        title="Come see the classroom."
+        subtitle="Book a 1-on-1 counselling session at House no - 1411p, 1st floor, Sector 45, near DPS-45 school."
         breadcrumb="Contact Us"
       />
       <BespokeCenterGuide />

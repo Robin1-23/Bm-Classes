@@ -32,9 +32,9 @@ export default function FacultySection({ onOpenRegister }) {
         {/* Section Header */}
         <SectionHeader 
           badgeIcon={Sparkles}
-          badgeText="100% EX-HOD DIRECT FACULTY"
-          title="Mentored directly by Senior Ex-HODs"
-          subtitle="Zero junior teaching assistants. Learn 100% directly from Ex-HODs of FIITJEE & VMC."
+          badgeText="YOUR TEACHERS"
+          title="The HODs teach. Every single class."
+          subtitle="No junior assistants. No substitutes. Ex-HODs of FIITJEE & VMC, right at your desk."
         />
 
         {/* ULTRA-CLEAN FACULTY CARDS GRID */}

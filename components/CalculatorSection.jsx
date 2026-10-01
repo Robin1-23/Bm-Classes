@@ -64,9 +64,9 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
         <SectionHeader 
           dark
           badgeIcon={Calculator}
-          badgeText="TRANSPARENT TUITION STUDIO"
-          title="Calculate fee & seat matrix"
-          subtitle="Transparent fee structure with early-bird scholarships and live micro-batch seat tracking."
+          badgeText="NO HIDDEN FEES"
+          title="Know your fee in 10 seconds."
+          subtitle="Pick your class and exam. See your fee, your scholarship and the seats left."
         />
 
         {/* MODERN INTERACTIVE STUDIO CONSOLE */}

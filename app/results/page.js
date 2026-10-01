@@ -14,8 +14,8 @@ export default function ResultsPage() {
     <>
       <PageHeader 
         badgeText="AIR 18, 22, 52, 102 TOP RANKS"
-        title="Proven Rank Telemetry & Parent Reviews"
-        subtitle="15+ years of verified JEE Advanced and NEET top ranks. Real video reviews from Gurgaon parents and IITian alumni."
+        title="Our toppers did the talking."
+        subtitle="15+ years of JEE Advanced and NEET top ranks, plus real video reviews from Gurgaon parents and alumni."
         breadcrumb="Top AIR Ranks"
       />
       <BespokeHallOfFame />

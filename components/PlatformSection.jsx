@@ -18,7 +18,7 @@ export default function PlatformSection() {
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
             <FoldText
-              text="HYBRID LEARNING"
+              text="BEYOND THE CLASSROOM"
               splitBy="char"
               hinge="top"
               trigger="scroll"
@@ -31,9 +31,9 @@ export default function PlatformSection() {
           </div>
           
           <h2 className="font-heading font-extrabold tracking-[-0.03em] leading-[1.15] mt-1 mb-2">
-            <span className="sr-only">Classroom depth + AI test telemetry.</span>
+            <span className="sr-only">Learn in class. Level up online.</span>
             <FoldText
-              text="Classroom depth + AI test telemetry."
+              text="Learn in class. Level up online."
               splitBy="word"
               hinge="top"
               trigger="scroll"
@@ -46,7 +46,7 @@ export default function PlatformSection() {
           </h2>
           
           <p className="text-slate-600 text-base sm:text-lg mt-4 font-medium leading-relaxed">
-            Classrooms build fundamental clarity. The platform tracks concept gaps, drills weak areas, and automates revision.
+            Class builds the concepts. The platform finds your gaps, drills your weak spots and handles revision.
           </p>
         </div>
 

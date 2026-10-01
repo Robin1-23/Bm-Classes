@@ -53,10 +53,10 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
         {/* TOP HERO CTA SECTION */}
         <div className="text-center max-w-3xl mx-auto mb-16 pt-4">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-            Join Gurgaon's #1 Academy <br className="hidden sm:inline" /> at speed + scale.
+            Your rank starts <br className="hidden sm:inline" /> with one call.
           </h2>
           <p className="text-indigo-100 text-sm sm:text-base font-medium max-w-xl mx-auto mb-8 leading-relaxed">
-            BM Classes' cutting edge Ex-HOD technology & micro-batches seamlessly match students with top rankers.
+            Leave your number. We’ll call you back to plan your preparation.
           </p>
 
           {/* Email / Mobile Quick Action Form */}

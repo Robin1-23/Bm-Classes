@@ -164,7 +164,7 @@ export default function ReelShowcaseSection() {
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
                 <Sparkles className="w-4 h-4 text-indigo-600" />
                 <FoldText
-                  text="HYBRID LEARNING"
+                  text="INSIDE THE CLASSROOM"
                   splitBy="char"
                   hinge="top"
                   trigger="scroll"
@@ -181,7 +181,7 @@ export default function ReelShowcaseSection() {
               <h2 className="font-heading font-extrabold tracking-[-0.03em] leading-tight">
                 <span className="sr-only">See Our Faculty Teaching Live</span>
                 <FoldText
-                  text="See Our Faculty Teaching Live"
+                  text="Sit in on a class. Right now."
                   splitBy="word"
                   hinge="top"
                   trigger="scroll"

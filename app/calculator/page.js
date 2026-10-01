@@ -14,8 +14,8 @@ export default function CalculatorPage() {
     <>
       <PageHeader 
         badgeText="100% FEE TRANSPARENCY"
-        title="Interactive Fee & Merit Scholarship Calculator"
-        subtitle="Calculate your exact course fee and unlock up to 40% Ex-HOD Merit Scholarship fee waivers based on your Class X/XI marks."
+        title="Your fee. Your scholarship. No surprises."
+        subtitle="See your exact course fee and unlock up to 40% merit scholarship based on your Class X/XI marks."
         breadcrumb="Fee Calculator"
       />
       <BespokeFeeBreakdown />

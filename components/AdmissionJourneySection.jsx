@@ -63,9 +63,9 @@ export default function AdmissionJourneySection({ onOpenRegister }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         <SectionHeader 
-          badgeText="CLEAR ADMISSION FLOW"
-          title="Simple 5-step journey to your target rank"
-          subtitle="No complex procedures. Know exactly what to expect from first contact to batch enrolment."
+          badgeText="HOW TO JOIN"
+          title="Five steps from hello to the classroom."
+          subtitle="No paperwork maze. You’ll know exactly what happens next, at every step."
         />
 
         {/* Step Cards Grid with 3D Shadows & Very Light Backgrounds */}

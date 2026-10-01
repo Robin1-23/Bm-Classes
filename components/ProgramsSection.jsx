@@ -49,7 +49,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#e3e8f5] text-indigo-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
             <FoldText
-              text="ACADEMIC PROGRAMS"
+              text="PROGRAMS"
               splitBy="char"
               hinge="top"
               trigger="scroll"
@@ -61,9 +61,9 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
             />
           </div>
           <h2 className="font-heading font-extrabold tracking-[-0.03em] leading-tight mt-1 mb-2">
-            <span className="sr-only">Courses Built for Top AIR Ranks</span>
+            <span className="sr-only">Pick your batch. Chase your rank.</span>
             <FoldText
-              text="Courses Built for Top AIR Ranks"
+              text="Pick your batch. Chase your rank."
               splitBy="word"
               hinge="top"
               trigger="scroll"
@@ -75,7 +75,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
             />
           </h2>
           <p className="text-slate-600 text-xs sm:text-sm font-medium mt-2">
-            100% Ex-HOD taught micro-batches (Capped 10–15 students max) with same-day board doubt resolution.
+            Every batch capped at 15. Every doubt solved the same day.
           </p>
         </ScrollReveal>
 
