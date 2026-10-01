@@ -99,6 +99,8 @@ const GoogleG = (props) => (
 
 const DOTS = { backgroundImage: 'radial-gradient(rgba(15,23,42,0.07) 1px, transparent 1.3px)', backgroundSize: '14px 14px' };
 
+const QUOTE_TINTS = ['bg-[#f3f1ff]', 'bg-[#eef7ea]', 'bg-[#fdf4e6]', 'bg-[#eef4ff]', 'bg-[#fbf0ee]'];
+
 const WRITTEN_REVIEWS = [
   {
     quote: "We enrolled our son in BM Sir's Chemistry classes towards the end of Class XI, and it has been a wonderful decision. We have seen a significant improvement not only in his academic performance but, more importantly, in his enthusiasm to learn, practice, and continuously improve. Thank you, Sir, for your invaluable guidance and support.",
@@ -306,39 +308,32 @@ export default function ResultsSection() {
         <div className="overflow-hidden py-4 w-full">
           <div className="animate-marquee flex items-stretch gap-6">
             {[...WRITTEN_REVIEWS, ...WRITTEN_REVIEWS].map((rev, idx) => (
-              <div 
+              <figure
                 key={idx}
-                className="w-[310px] sm:w-[380px] lg:w-[410px] bg-white text-slate-950 border border-[#e3e8f5] hover:border-indigo-400 rounded-3xl p-6 sm:p-7 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_45px_-10px_rgba(99,102,241,0.15)] hover:-translate-y-2.5 transition-all duration-300 flex flex-col justify-between shrink-0 group cursor-pointer relative"
+                className="w-[300px] sm:w-[360px] lg:w-[390px] shrink-0 flex flex-col rounded-[28px] bg-white p-2 border border-slate-200/70 transition-shadow duration-300 hover:shadow-[0_28px_50px_-28px_rgba(15,23,42,0.35)]"
               >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100">
-                    <div className="flex items-center gap-1 text-amber-400">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                      ))}
-                    </div>
-                    <span className="text-xs font-bold bg-[#eef1ff] text-slate-800 border border-[#e3e8f5] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
-                      Google Review
+                <div className={`flex-1 rounded-[22px] ${QUOTE_TINTS[idx % QUOTE_TINTS.length]} p-6 sm:p-7 flex flex-col`}>
+                  <div className="flex items-center justify-between">
+                    <span aria-hidden="true" className="font-heading font-extrabold text-6xl leading-[0.6] text-slate-900/15">“</span>
+                    <span className="flex text-amber-500" aria-label="5 out of 5 stars">
+                      {[0, 1, 2, 3, 4].map((i) => <Star key={i} className="w-4 h-4 fill-amber-400" />)}
                     </span>
                   </div>
-
-                  <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium italic mb-6">
-                    "{rev.quote}"
-                  </p>
+                  <blockquote className="text-[15px] text-slate-800 leading-relaxed mt-5 line-clamp-6">
+                    {rev.quote}
+                  </blockquote>
                 </div>
-
-                <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                  <div>
-                    <div className="font-heading font-extrabold text-slate-950 text-sm group-hover:text-indigo-600 transition-colors">
-                      {rev.author}
-                    </div>
-                    <div className="text-xs font-bold text-slate-600 mt-0.5">
-                      {rev.sub}
-                    </div>
+                <figcaption className="flex items-center gap-3 px-3 sm:px-4 py-3.5">
+                  <span className="w-10 h-10 rounded-full bg-slate-950 text-white text-sm font-semibold flex items-center justify-center shrink-0">
+                    {rev.author.split(/\s+/).map((w) => w[0]).slice(0, 2).join('').toUpperCase()}
+                  </span>
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold text-slate-900 leading-tight">{rev.author}</p>
+                    <p className="text-sm text-slate-500 leading-tight mt-0.5 truncate">{rev.sub}</p>
                   </div>
-                  <span className="text-slate-500 text-xs font-mono font-bold">5.0 ★</span>
-                </div>
-              </div>
+                  <GoogleG className="w-6 h-6 ml-auto shrink-0" />
+                </figcaption>
+              </figure>
             ))}
           </div>
         </div>
