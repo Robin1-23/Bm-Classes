@@ -4,7 +4,6 @@ import React from 'react';
 import PageHeader from '@/components/ui/PageHeader';
 import BespokeCenterGuide from '@/components/contact/BespokeCenterGuide';
 import CenterLocationSection from '@/components/CenterLocationSection';
-import CalculatorSection from '@/components/CalculatorSection';
 import { useModal } from '@/context/ModalContext';
 
 export default function ContactPage() {
@@ -20,9 +19,6 @@ export default function ContactPage() {
       />
       <BespokeCenterGuide />
       <CenterLocationSection 
-        onOpenRegister={openRegister}
-      />
-      <CalculatorSection 
         onOpenRegister={openRegister}
       />
     </>

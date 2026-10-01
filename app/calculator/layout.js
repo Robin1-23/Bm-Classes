@@ -3,8 +3,8 @@ import React from 'react';
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bm-classes.com';
 
 export const metadata = {
-  title: 'JEE & NEET Scholarship Fee Calculator | Up to 90% Waiver BmClasses Gurgaon',
-  description: 'Calculate your personalized fee structure and merit scholarship waiver (up to 90%) for JEE Main, JEE Advanced & NEET UG micro-batch coaching at BmClasses Gurgaon.',
+  title: 'JEE & NEET Scholarship Fee Calculator | Up to 40% Waiver BmClasses Gurgaon',
+  description: 'Calculate your personalized fee structure and merit scholarship waiver (up to 40%) for JEE Main, JEE Advanced & NEET UG micro-batch coaching at BmClasses Gurgaon.',
   keywords: [
     'JEE Scholarship Test Gurgaon',
     'NEET Scholarship Waiver Gurgaon',
@@ -17,7 +17,7 @@ export const metadata = {
   },
   openGraph: {
     title: 'JEE & NEET Merit Scholarship Fee Calculator | BmClasses Gurgaon',
-    description: 'Instant scholarship calculator for Class 9th, 10th, 11th, 12th & Droppers. Get up to 90% fee waiver.',
+    description: 'Instant scholarship calculator for Class 9th, 10th, 11th, 12th & Droppers. Get up to 40% fee waiver.',
     url: `${siteUrl}/calculator`,
     siteName: 'BmClasses Gurgaon',
     type: 'website',

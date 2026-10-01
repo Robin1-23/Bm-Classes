@@ -61,7 +61,7 @@ export default function DemoBookingSection() {
   const field = 'w-full h-12 px-4 rounded-xl border border-slate-200 bg-white text-[15px] text-slate-900 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20';
 
   return (
-    <section id="book-demo" className="bg-[#f5f7ff] py-20 lg:py-28 border-b border-[#e3e8f5] scroll-mt-24">
+    <section id="book-demo" className="bg-white py-20 lg:py-28 border-b border-[#e3e8f5] scroll-mt-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
         <SectionHeader
           badgeIcon={CalendarCheck}

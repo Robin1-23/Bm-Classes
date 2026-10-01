@@ -8,7 +8,6 @@ import FacultyIntroVideoCard from '@/components/FacultyIntroVideoCard';
 import FacultySection from '@/components/FacultySection';
 import ProgramsSection from '@/components/ProgramsSection';
 import WhySection from '@/components/WhySection';
-import CalculatorSection from '@/components/CalculatorSection';
 import AdmissionJourneySection from '@/components/AdmissionJourneySection';
 import DemoBookingSection from '@/components/DemoBookingSection';
 import CenterLocationSection from '@/components/CenterLocationSection';
@@ -27,7 +26,6 @@ export default function Home() {
       <FacultySection onOpenRegister={openRegister} />
       <ProgramsSection onOpenRegister={openRegister} />
       <WhySection hidePedagogy />
-      <CalculatorSection onOpenRegister={openRegister} />
       <AdmissionJourneySection onOpenRegister={openRegister} />
       <DemoBookingSection />
       <CenterLocationSection onOpenRegister={openRegister} />
