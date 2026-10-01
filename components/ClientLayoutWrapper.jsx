@@ -16,7 +16,7 @@ function Shell({ children }) {
   const isAdmin = pathname?.startsWith('/admin');
 
   return (
-    <div className="min-h-screen flex flex-col pb-16 lg:pb-0 overflow-x-hidden max-w-full w-full">
+    <div className="min-h-screen flex flex-col pb-24 lg:pb-0 overflow-x-hidden max-w-full w-full">
       <Header />
       <main className="flex-1 w-full max-w-full overflow-x-hidden">
         {children}
