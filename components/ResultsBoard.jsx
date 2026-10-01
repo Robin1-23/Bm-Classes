@@ -5,7 +5,14 @@ import { Trophy, Play, X } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { SITE_CONTENT } from '@/data/siteContent';
 
-const TINTS = ['bg-[#f3f1ff]', 'bg-[#eef7ea]', 'bg-[#fdf4e6]', 'bg-[#eef4ff]', 'bg-[#fbf0ee]'];
+const TINTS = ['bg-[#f3f1ff]', 'bg-[#e4efdc]', 'bg-[#fcecd6]', 'bg-[#e3ecfb]', 'bg-[#f8e3df]'];
+
+// "99.48 percentile" -> ["99.48", "percentile"]; "AIR 18" stays whole
+const splitResult = (text) => {
+  if (/^AIR\s/i.test(text)) return [text, ''];
+  const i = text.indexOf(' ');
+  return i > 0 ? [text.slice(0, i), text.slice(i + 1)] : [text, ''];
+};
 
 const initials = (name) =>
   name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join('');
@@ -45,38 +52,56 @@ export default function ResultsBoard() {
           </div>
         )}
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
           {shown.map((r, idx) => {
+            const accent = idx === 0;
+            const [lead, soft] = splitResult(r.result || r.exam);
             const Card = r.video ? 'button' : 'div';
             return (
               <Card
                 key={r.id}
                 onClick={r.video ? () => setVideo(r) : undefined}
-                className={`group text-left bg-white border border-slate-200/70 rounded-[28px] p-2 transition-all duration-300 ${
-                  r.video ? 'cursor-pointer hover:-translate-y-1 hover:shadow-[0_28px_50px_-28px_rgba(15,23,42,0.35)]' : ''
-                }`}
+                className={`group relative overflow-hidden text-left rounded-[28px] p-5 sm:p-6 min-h-[250px] sm:min-h-[280px] flex flex-col transition-all duration-300 ${
+                  accent ? 'bg-indigo-600 text-white' : `${TINTS[idx % TINTS.length]} text-slate-900`
+                } ${r.video ? 'cursor-pointer hover:-translate-y-1 hover:shadow-[0_28px_50px_-28px_rgba(15,23,42,0.4)]' : ''}`}
               >
-                <div className={`relative aspect-square rounded-[22px] ${TINTS[idx % TINTS.length]} flex items-center justify-center overflow-hidden`}>
-                  {r.photo ? (
-                    <img src={r.photo} alt={r.name} loading="lazy" decoding="async" className="w-full h-full object-cover object-top" />
-                  ) : (
-                    <span className="font-heading font-extrabold text-5xl text-slate-900/70 tracking-tight">{initials(r.name)}</span>
-                  )}
+                {r.photo ? (
+                  <img
+                    src={r.photo}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    className="absolute right-0 bottom-0 w-[48%] h-[55%] object-cover object-top rounded-tl-[32px]"
+                  />
+                ) : (
+                  <span
+                    aria-hidden="true"
+                    className={`absolute -right-3 -bottom-8 font-heading font-extrabold text-[120px] sm:text-[140px] leading-none tracking-[-0.06em] select-none transition-transform duration-500 group-hover:-rotate-6 ${
+                      accent ? 'text-white/15' : 'text-slate-900/[0.07]'
+                    }`}
+                  >
+                    {initials(r.name)}
+                  </span>
+                )}
+
+                <p className={`relative text-xs sm:text-sm font-semibold ${accent ? 'text-indigo-100' : 'text-slate-600'}`}>
+                  {[r.exam, r.year].filter(Boolean).join(' · ')}
+                </p>
+                <p className="relative font-heading font-semibold text-[30px] sm:text-[36px] leading-[1.02] tracking-[-0.03em] mt-3">
+                  {lead}
+                  {soft && <span className={`block ${accent ? 'text-indigo-200' : 'text-slate-400'}`}>{soft}</span>}
+                </p>
+
+                <div className="relative mt-auto pt-6">
+                  <p className="text-sm sm:text-[15px] font-semibold">{r.name}</p>
                   {r.video && (
-                    <span className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 bg-white/95 text-slate-900 text-xs font-semibold pl-1 pr-3 py-1 rounded-full shadow-sm">
-                      <span className="w-6 h-6 rounded-full bg-indigo-600 text-white flex items-center justify-center">
-                        <Play className="w-3 h-3 fill-white ml-0.5" />
+                    <span className="inline-flex items-center gap-2 mt-3 text-xs font-semibold uppercase tracking-wide">
+                      <span className={`w-9 h-9 rounded-full flex items-center justify-center transition-transform group-hover:scale-110 ${accent ? 'bg-white text-indigo-700' : 'bg-slate-950 text-white'}`}>
+                        <Play className={`w-3 h-3 ml-0.5 ${accent ? 'fill-indigo-700' : 'fill-white'}`} />
                       </span>
                       Watch
                     </span>
                   )}
-                </div>
-                <div className="px-3 pt-4 pb-3">
-                  <p className="font-heading font-extrabold text-xl sm:text-2xl tracking-[-0.02em] text-slate-950 leading-tight">
-                    {r.result || r.exam}
-                  </p>
-                  <p className="text-sm font-semibold text-slate-900 mt-2">{r.name}</p>
-                  <p className="text-xs text-slate-500 mt-0.5">{[r.exam, r.year].filter(Boolean).join(' · ')}</p>
                 </div>
               </Card>
             );
