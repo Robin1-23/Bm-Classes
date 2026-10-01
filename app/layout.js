@@ -12,7 +12,7 @@ export const metadata = {
     default: 'BM Classes Gurgaon | Best IIT JEE Coaching & Best NEET Coaching',
     template: '%s | BM Classes Gurgaon',
   },
-  description: 'BM Classes Gurgaon (BmClasses) is the #1 Best IIT JEE Coaching & Best NEET Coaching Institute in Gurgaon. Taught 100% directly by Senior Ex-HODs of FIITJEE & VMC in 10-15 student micro-batches in Sector 52 & Ardee City. Class 9, 10, 11, 12 & Droppers.',
+  description: 'BM Classes Gurgaon (BmClasses) is the #1 Best IIT JEE Coaching & Best NEET Coaching Institute in Gurgaon. Taught 100% directly by Senior Ex-HODs of FIITJEE & VMC in 10-15 student micro-batches in Sector 45, Gurugram. Class 9, 10, 11, 12 & Droppers.',
   keywords: [
     // Top Rank IIT JEE Keywords
     'iit jee coaching in gurgaon',
@@ -45,13 +45,11 @@ export const metadata = {
     'foundation coaching class 9 10 gurgaon',
 
     // Hyperlocal Gurgaon Location Keywords
-    'best iit jee coaching in sector 52 gurgaon',
-    'best neet coaching in sector 52 gurgaon',
-    'best coaching in ardee city gurgaon',
-    'best coaching in sector 45 gurgaon',
+    'best iit jee coaching in sector 45 gurgaon',
+    'best neet coaching in sector 45 gurgaon',
     'best coaching in sector 47 gurgaon',
     'best coaching in sector 46 gurgaon',
-    'coaching institute in gurgaon sector 52',
+    'coaching institute in gurgaon sector 45',
     'best coaching near huda city centre gurgaon',
     'golf course extension road jee coaching',
     'dlf phase 4 5 iit jee institute gurgaon',
@@ -60,12 +58,11 @@ export const metadata = {
     // Brand & Ex-HOD Mentorship Keywords
     'BM Classes Gurgaon',
     'BmClasses Gurgaon',
-    'BM Classes Sector 52',
-    'BM Classes Ardee City',
+    'BM Classes Sector 45',
     'ex fiitjee hod coaching in gurgaon',
     'ex vmc hod coaching in gurgaon',
     'micro batch iit jee coaching gurgaon',
-    'small batch iit coaching sector 52',
+    'small batch iit coaching sector 45',
     'FIITJEE Alternative in Gurgaon',
     'VMC Alternative in Gurgaon',
     'Allen Alternative in Gurgaon',
@@ -92,7 +89,7 @@ export const metadata = {
   },
   openGraph: {
     title: 'BmClasses Gurgaon | Best JEE Main, JEE Advanced & NEET Coaching',
-    description: '100% taught directly by Senior Ex-HODs of FIITJEE & VMC in 10-15 student micro-batches in Gurgaon Sector 52 & Ardee City. AIR 18, AIR 22, AIR 52 proven ranks.',
+    description: '100% taught directly by Senior Ex-HODs of FIITJEE & VMC in 10-15 student micro-batches in Sector 45, Gurugram. AIR 18, AIR 22, AIR 52 proven ranks.',
     url: siteUrl,
     siteName: 'BmClasses Gurgaon',
     locale: 'en_IN',
@@ -145,16 +142,16 @@ export default function RootLayout({ children }) {
     priceRange: '₹₹',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'House no - 1411p, 1st floor, sec-45, near DPS-45 school',
-      addressLocality: 'Gurgaon',
+      streetAddress: 'Flat no 303, Ayyachi Apartment, Block C, Uday Nagar, Sector 45, near Delhi Public School',
+      addressLocality: 'Gurugram',
       addressRegion: 'Haryana',
       postalCode: '122003',
       addressCountry: 'IN',
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 28.4357,
-      longitude: 77.0784,
+      latitude: 28.441687,
+      longitude: 77.064937,
     },
     openingHoursSpecification: [
       {
@@ -237,7 +234,7 @@ export default function RootLayout({ children }) {
         name: 'Where is BmClasses located in Gurgaon?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Chemistry classes by BM sir is located at House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon, Haryana 122003.',
+          text: 'Chemistry By Bighnaraj Sir is located at Flat no 303, Ayyachi Apartment, Block C, Uday Nagar, Sector 45, near Delhi Public School, Gurugram, Haryana 122003.',
         },
       },
       {

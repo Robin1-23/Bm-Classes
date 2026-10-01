@@ -182,7 +182,7 @@ export default function HeroSection({ onOpenRegister }) {
               <span className="text-slate-300">•</span>
               <a href={CENTER_INFO.googleReviewsUrl} target="_blank" rel="noopener noreferrer" className="hover:text-slate-900 underline-offset-4 hover:underline">{CENTER_INFO.googleReviewCount} Google reviews</a>
               <span className="text-slate-300">•</span>
-              <span className="text-slate-900 font-bold">Gurgaon Sec-45</span>
+              <span className="text-slate-900 font-bold">Sector 45, Gurugram</span>
             </div>
           </ScrollReveal>
 

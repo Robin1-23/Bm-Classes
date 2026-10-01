@@ -26,7 +26,7 @@ export const metadata = {
   },
   openGraph: {
     title: 'IIT JEE & NEET Coaching Programs Gurgaon | BmClasses',
-    description: 'Specialized 10-15 student micro-batch programs for JEE Main, JEE Advanced & NEET UG, taught 100% by Senior Ex-HODs in Gurgaon Sector 52.',
+    description: 'Specialized 10-15 student micro-batch programs for JEE Main, JEE Advanced & NEET UG, taught 100% by Senior Ex-HODs in Gurgaon Sector 45.',
     url: `${siteUrl}/programs`,
     siteName: 'BmClasses Gurgaon',
     type: 'website',

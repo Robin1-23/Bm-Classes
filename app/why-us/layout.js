@@ -21,7 +21,7 @@ export const metadata = {
   },
   openGraph: {
     title: 'Why BmClasses Gurgaon | Ex-HOD Direct Teaching & Micro-Batches',
-    description: 'Compare factory coaching vs BmClasses 10-15 student micro-batch methodology in Gurgaon Sector 52 & Ardee City.',
+    description: 'Compare factory coaching vs BmClasses 10-15 student micro-batch methodology in Sector 45, Gurugram.',
     url: `${siteUrl}/why-us`,
     siteName: 'BmClasses Gurgaon',
     type: 'website',

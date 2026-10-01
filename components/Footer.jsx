@@ -174,7 +174,7 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-white shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
-                  House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon, India
+                  Flat no 303, Ayyachi Apartment, Block C, Uday Nagar, Sector 45, near Delhi Public School, Gurugram, Haryana 122003
                 </span>
               </li>
               <li className="flex items-center gap-3">

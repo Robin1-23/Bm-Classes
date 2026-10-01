@@ -8,9 +8,9 @@ export const metadata = {
   keywords: [
     'JEE Scholarship Test Gurgaon',
     'NEET Scholarship Waiver Gurgaon',
-    'BmClasses Fee Calculator Sector 52',
+    'BmClasses Fee Calculator Sector 45',
     'Best Affordable JEE Coaching Gurgaon',
-    'Merit Scholarship IIT Coaching Ardee City',
+    'Merit Scholarship IIT Coaching Gurugram',
   ],
   alternates: {
     canonical: `${siteUrl}/calculator`,

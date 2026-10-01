@@ -158,7 +158,7 @@ export default function Modals({
       `*Mobile Number:* ${cleanPhone}\n` +
       `*Email ID:* ${cleanEmail}\n` +
       `*Target Program:* ${selectedProgram}\n` +
-      `*Center:* House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon\n\n` +
+      `*Center:* Flat no 303, Ayyachi Apartment, Block C, Sector 45, near DPS, Gurugram\n\n` +
       `Hi BmClasses, I have submitted my admission application on the website. Please contact me for my diagnostic session and counseling call.`;
 
     const encoded = encodeURIComponent(textMessage);

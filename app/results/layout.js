@@ -9,7 +9,7 @@ export const metadata = {
     'BmClasses Results Gurgaon',
     'Bm Classes Top AIR Ranks',
     'JEE Advanced AIR 18 22 52 Gurgaon',
-    'JEE Main Result BmClasses Sector 52',
+    'JEE Main Result BmClasses Sector 45',
     'NEET Selection Rate Gurgaon Coaching',
     'Best IIT JEE Results Institute Gurgaon',
   ],

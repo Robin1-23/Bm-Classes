@@ -4,7 +4,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bm-classes.com'
 
 export const metadata = {
   title: 'Senior Ex-FIITJEE & VMC HOD Faculty Team | BmClasses Gurgaon',
-  description: 'Meet Gurgaon’s most elite JEE & NEET faculty team. 100% Ex-HODs of FIITJEE & VMC with 20+ years experience teaching Physics, Chemistry, Mathematics & Biology in Sector 52.',
+  description: 'Meet Gurgaon’s most elite JEE & NEET faculty team. 100% Ex-HODs of FIITJEE & VMC with 20+ years experience teaching Physics, Chemistry, Mathematics & Biology in Sector 45.',
   keywords: [
     'Ex FIITJEE HOD Faculty Gurgaon',
     'Ex VMC HOD Chemistry Physics Maths Gurgaon',

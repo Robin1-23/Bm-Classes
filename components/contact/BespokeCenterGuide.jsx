@@ -37,12 +37,12 @@ export default function BespokeCenterGuide() {
     {
       from: 'From Huda City Centre Metro',
       dist: '5 Mins (1.8 km)',
-      desc: 'Drive via Sector 45 Main Road towards DPS-45 School. House no - 1411p, 1st floor.',
+      desc: 'Drive via Sector 45 Main Road towards Delhi Public School. Ayyachi Apartment, Block C, Flat 303.',
     },
     {
       from: 'From Golf Course Road / Sec 43',
       dist: '7 Mins (2.5 km)',
-      desc: 'Head west via Golf Course Road into Sector 45. Located near DPS-45 School.',
+      desc: 'Head west via Golf Course Road into Sector 45. Located near Delhi Public School, Sector 45.',
     },
     {
       from: 'From Sohna Road / Subhash Chowk',
@@ -127,11 +127,11 @@ export default function BespokeCenterGuide() {
               </div>
 
               <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-                How to Reach <span className="text-indigo-300">Chemistry classes by BM sir</span>
+                How to Reach <span className="text-indigo-300">Chemistry By Bighnaraj Sir</span>
               </h3>
 
               <p className="text-zinc-300 text-xs sm:text-sm font-medium leading-relaxed">
-                House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon. Easy access with dedicated parent parking.
+                Flat no 303, Ayyachi Apartment, Block C, Sector 45, near DPS, Gurugram. Easy access with dedicated parent parking.
               </p>
 
               <div className="pt-2">

@@ -11,18 +11,18 @@ export default function CenterLocationSection({ onOpenRegister }) {
   const handleRegister = onOpenRegister || modal.openRegister;
   const [copied, setCopied] = useState(false);
 
-  const centerAddress = "House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon, Haryana 122003";
-  const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Chemistry+classes+by+BM+sir+House+no+-+1411p,+1st+floor,+sec-45,+near+DPS-45+school+Gurgaon";
+  const centerAddress = "Flat no 303, Ayyachi Apartment, Block C, Uday Nagar, Sector 45, near Delhi Public School, Gurugram, Haryana 122003";
+  const googleMapsUrl = "https://maps.google.com/?cid=5853186131892736630";
   const phoneUrl = "tel:+919899818241";
-  const whatsappUrl = "https://wa.me/919899818241?text=Hi%20BM%20Sir%2C%20I%20would%20like%20to%20schedule%20a%20center%20visit%20at%20House%20no%20-%201411p%2C%201st%20floor%2C%20sec-45%2C%20near%20DPS-45%20school.";
+  const whatsappUrl = "https://wa.me/919899818241?text=Hi%20BM%20Sir%2C%20I%20would%20like%20to%20schedule%20a%20center%20visit%20at%20your%20Sector%2045%20centre%20(Ayyachi%20Apartment).";
 
   const shareText = encodeURIComponent(
-    "Check out Chemistry classes by BM sir — Premier JEE Advanced, JEE Main & NEET coaching taught 100% directly by BM Sir & Senior Ex-HODs in capped 10-15 student micro-batches!\n\n📍 Center: House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon\n📞 Contact: +91 98998 18241"
+    "Check out Chemistry By Bighnaraj Sir — Premier JEE Advanced, JEE Main & NEET coaching taught 100% directly by BM Sir & Senior Ex-HODs in capped 10-15 student micro-batches!\n\n📍 Center: Flat no 303, Ayyachi Apartment, Block C, Sector 45, near DPS, Gurugram\n📞 Contact: +91 98998 18241"
   );
   const whatsappShareUrl = `https://api.whatsapp.com/send?text=${shareText}`;
 
   const handleCopyDetails = () => {
-    navigator.clipboard.writeText(`Chemistry classes by BM sir\nAddress: ${centerAddress}\nPhone: +91 98998 18241`);
+    navigator.clipboard.writeText(`Chemistry By Bighnaraj Sir\nAddress: ${centerAddress}\nPhone: +91 98998 18241`);
     setCopied(true);
     setTimeout(() => setCopied(false), 3000);
   };
@@ -46,7 +46,7 @@ export default function CenterLocationSection({ onOpenRegister }) {
           </h2>
           
           <p className="text-slate-600 text-base sm:text-lg mt-3 font-semibold leading-relaxed max-w-xl mx-auto">
-            Conveniently located in Sector 45 Gurgaon near DPS-45 school. Easy access for students from Sushant Lok, Golf Course Road, Sector 46, 47 & 52.
+            Conveniently located in Sector 45 Gurgaon near Delhi Public School. Easy access for students from Sushant Lok, Golf Course Road, Sector 46, 47 & 52.
           </p>
         </ScrollReveal>
 
@@ -70,14 +70,14 @@ export default function CenterLocationSection({ onOpenRegister }) {
                 </div>
 
                 <h3 className="font-heading text-2xl font-extrabold text-slate-950 mb-3">
-                  Chemistry classes by BM sir
+                  Chemistry By Bighnaraj Sir
                 </h3>
 
                 <div className="space-y-2.5 mb-6 text-xs font-semibold text-slate-700">
                   <div className="bg-[#eef1ff] border border-[#e3e8f5] p-4 rounded-2xl">
                     <span className="text-xs font-bold text-indigo-700 uppercase block mb-1">OFFICIAL CENTER ADDRESS</span>
-                    <span className="leading-snug text-slate-950 font-semibold text-sm block">House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon</span>
-                    <span className="text-slate-600 text-xs mt-1 block">Landmark: Near DPS-45 School</span>
+                    <span className="leading-snug text-slate-950 font-semibold text-sm block">Flat no 303, Ayyachi Apartment, Block C, Sector 45, near DPS, Gurugram</span>
+                    <span className="text-slate-600 text-xs mt-1 block">Landmark: Near Delhi Public School, Sector 45</span>
                   </div>
 
                   <div className="grid grid-cols-2 gap-2 text-xs pt-1">
@@ -148,7 +148,7 @@ export default function CenterLocationSection({ onOpenRegister }) {
               <div className="bg-[#eef1ff] border-b border-[#e3e8f5] px-5 py-3.5 flex items-center justify-between z-10">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-indigo-600" />
-                  <span className="font-heading font-extrabold text-xs text-slate-950">Sector 45 Center (Near DPS-45 School)</span>
+                  <span className="font-heading font-extrabold text-xs text-slate-950">Sector 45 Centre (near DPS)</span>
                 </div>
                 <span className="text-xs font-mono font-bold text-slate-600">Gurgaon, Haryana</span>
               </div>
@@ -156,8 +156,8 @@ export default function CenterLocationSection({ onOpenRegister }) {
               {/* Embedded Google Map iFrame */}
               <div className="w-full h-full min-h-[300px] lg:min-h-[380px] relative bg-slate-100">
                 <iframe
-                  title="Chemistry classes by BM sir Gurgaon Location"
-                  src="https://maps.google.com/maps?q=House+no+-+1411p,+1st+floor,+sec-45,+near+DPS-45+school,+Gurgaon&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                  title="Chemistry By Bighnaraj Sir Gurgaon Location"
+                  src="https://maps.google.com/maps?q=28.441687,77.064937&z=16&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

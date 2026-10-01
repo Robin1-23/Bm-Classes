@@ -24,15 +24,15 @@ export const CENTER_INFO = {
   googleReviewCount: '65',
   googleReviewsUrl: 'https://maps.google.com/?cid=5853186131892736630',
   googleWriteReviewUrl: 'https://maps.google.com/?cid=5853186131892736630',
-  googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Chemistry+classes+by+BM+sir+House+no+-+1411p,+1st+floor,+sec-45,+near+DPS-45+school+Gurgaon',
+  googleMapsUrl: 'https://maps.google.com/?cid=5853186131892736630',
   
   centres: [
     {
       id: 'center1',
-      name: 'Chemistry classes by BM sir',
-      address: 'House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon',
+      name: 'Chemistry By Bighnaraj Sir',
+      address: 'Flat no 303, Ayyachi Apartment, Block C, Sector 45, near DPS, Gurugram',
       tag: 'Main Academic Center',
-      landmark: 'Near DPS-45 School, Sector 45, Gurgaon',
+      landmark: 'Near Delhi Public School, Sector 45, Gurugram',
     },
   ],
 };
