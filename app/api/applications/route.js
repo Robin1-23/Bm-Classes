@@ -1,6 +1,10 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import { isAuthorized } from '@/lib/adminAuth';
+
+const unauthorized = () =>
+  NextResponse.json({ success: false, message: 'Unauthorized.' }, { status: 401 });
 
 // Cloud Persistence Store (REST API Endpoint for cross-device persistence across mobile & desktop)
 const CLOUD_STORE_URL = 'https://api.restful-api.dev/objects/ff8081819f7e10ae019fefb84e3622d8';
@@ -119,7 +123,8 @@ async function getMergedRegistrations() {
 }
 
 // GET: Fetch all application submissions (for Admin Panel & Mobile/Desktop Sync)
-export async function GET() {
+export async function GET(req) {
+  if (!isAuthorized(req)) return unauthorized();
   const registrations = await getMergedRegistrations();
   return NextResponse.json({
     success: true,
@@ -133,19 +138,22 @@ export async function GET() {
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { studentName, phoneNumber, email, selectedProgram, marksPercentage, lockPassId, source, status, notes } = body;
+    const { studentName, phoneNumber, email, selectedProgram, marksPercentage, lockPassId } = body;
+    // Only the admin desk may set CRM fields; public forms must not overwrite them.
+    const isAdmin = isAuthorized(req);
+    const { source, status, notes } = isAdmin ? body : { source: body.source };
 
     // Strict Validations
-    if (!studentName || !studentName.trim()) {
+    if (typeof studentName !== 'string' || !studentName.trim()) {
       return NextResponse.json({ success: false, message: 'Student name is required.' }, { status: 400 });
     }
 
-    const cleanPhone = (phoneNumber || '').replace(/\D/g, '');
+    const cleanPhone = String(phoneNumber || '').replace(/\D/g, '');
     if (!/^[6-9]\d{9}$/.test(cleanPhone)) {
       return NextResponse.json({ success: false, message: 'Please provide a valid 10-digit Indian mobile number.' }, { status: 400 });
     }
 
-    const cleanEmail = (email || '').trim();
+    const cleanEmail = String(email || '').trim();
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!cleanEmail || !emailRegex.test(cleanEmail)) {
       return NextResponse.json({ success: false, message: 'Please provide a valid email address.' }, { status: 400 });
@@ -175,8 +183,12 @@ export async function POST(req) {
     );
 
     if (duplicate) {
-      // Update existing record rather than creating duplicate
-      Object.assign(duplicate, newApplication, { id: duplicate.id });
+      // Update existing record rather than creating duplicate; keep admin-managed fields
+      Object.assign(duplicate, newApplication, {
+        id: duplicate.id,
+        status: status || duplicate.status || newApplication.status,
+        notes: notes || duplicate.notes || '',
+      });
     } else {
       registrations.unshift(newApplication);
     }
@@ -198,6 +210,7 @@ export async function POST(req) {
 
 // PATCH: Update an application (e.g. status or notes)
 export async function PATCH(req) {
+  if (!isAuthorized(req)) return unauthorized();
   try {
     const body = await req.json();
     const { id, status, notes, studentName, phoneNumber, email, selectedProgram, marksPercentage } = body;
@@ -217,9 +230,9 @@ export async function PATCH(req) {
       ...registrations[index],
       ...(status !== undefined && { status }),
       ...(notes !== undefined && { notes }),
-      ...(studentName && { studentName: studentName.trim() }),
-      ...(phoneNumber && { phoneNumber: phoneNumber.replace(/\D/g, '') }),
-      ...(email && { email: email.trim() }),
+      ...(studentName && { studentName: String(studentName).trim() }),
+      ...(phoneNumber && { phoneNumber: String(phoneNumber).replace(/\D/g, '') }),
+      ...(email && { email: String(email).trim() }),
       ...(selectedProgram && { selectedProgram }),
       ...(marksPercentage !== undefined && { marksPercentage }),
       updatedAt: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
@@ -241,6 +254,7 @@ export async function PATCH(req) {
 
 // DELETE: Delete an application by ID
 export async function DELETE(req) {
+  if (!isAuthorized(req)) return unauthorized();
   try {
     const { searchParams } = new URL(req.url);
     const id = searchParams.get('id');

@@ -10,32 +10,32 @@ export default function PageHeader({ badgeText, title, subtitle, breadcrumb }) {
     <div className="bg-black text-white pt-28 pb-14 sm:pt-36 sm:pb-20 px-4 sm:px-6 relative overflow-hidden border-b border-zinc-900">
       
       {/* Ambient Lighting Orbs */}
-      <div className="absolute top-0 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-0 right-10 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-0 left-10 w-80 h-80 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Breadcrumb Navigation */}
         <ScrollReveal delay={100} direction="down">
-          <div className="flex items-center gap-2 text-xs font-extrabold text-slate-400 mb-4">
-            <Link href="/" className="hover:text-cyan-300 transition-colors">
+          <div className="flex items-center gap-2 text-xs font-semibold text-slate-400 mb-4">
+            <Link href="/" className="hover:text-indigo-300 transition-colors">
               Home
             </Link>
             <ChevronRight className="w-3.5 h-3.5 text-slate-600" />
-            <span className="text-cyan-300">{breadcrumb || title}</span>
+            <span className="text-indigo-300">{breadcrumb || title}</span>
           </div>
         </ScrollReveal>
 
         {/* Badge & Title */}
         <ScrollReveal delay={150} direction="up">
           {badgeText && (
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-400/20 border border-cyan-400/30 text-cyan-300 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
-              <ShieldCheck className="w-3.5 h-3.5 text-cyan-300" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-amber-300 text-xs font-semibold uppercase tracking-[0.18em] mb-4">
+              <ShieldCheck className="w-3.5 h-3.5 text-indigo-300" />
               <span>{badgeText}</span>
             </div>
           )}
 
-          <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight max-w-3xl">
+          <h1 className="font-heading font-extrabold tracking-[-0.03em] text-4xl sm:text-5xl lg:text-6xl leading-[1.05] max-w-3xl">
             {title}
           </h1>
 

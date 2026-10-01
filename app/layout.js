@@ -120,14 +120,6 @@ export const metadata = {
       'max-snippet': -1,
     },
   },
-  icons: {
-    icon: [
-      { url: '/icon.svg', type: 'image/svg+xml' },
-      { url: '/icon.png', type: 'image/png' },
-    ],
-    shortcut: '/favicon.ico',
-    apple: '/icon.png',
-  },
   verification: {
     google: 'Fq-s47d0ftSJBLa5q6IbNPpc3H-HVjL3E2FqVasZaZg',
   },
@@ -142,7 +134,7 @@ export default function RootLayout({ children }) {
     name: 'BmClasses Gurgaon',
     alternateName: ['BM Classes', 'BmClasses', 'BM Classes Gurgaon'],
     url: siteUrl,
-    logo: `${siteUrl}/icon.svg`,
+    logo: `${siteUrl}/icon.png`,
     image: `${siteUrl}/hero_student_laptop.jpg`,
     description: 'Gurgaon’s premier micro-batch (10-15 students) coaching institute for JEE Advanced, JEE Main & NEET UG, taught 100% directly by Ex-HODs of FIITJEE & VMC.',
     telephone: '+919899818241',
@@ -288,7 +280,7 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link 
-          href="https://fonts.googleapis.com/css2?family=Calistoga&family=Chonburi&family=Geist:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" 
+          href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" 
           rel="stylesheet" 
         />
         <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -306,7 +298,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaqSchema) }}
         />
       </head>
-      <body className="font-body bg-[#faf8f5] text-slate-900 antialiased selection:bg-indigo-600 selection:text-white">
+      <body className="font-body bg-[#faf6f0] text-slate-900 antialiased selection:bg-indigo-600 selection:text-white">
         <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
       </body>
     </html>

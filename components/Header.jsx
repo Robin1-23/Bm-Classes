@@ -67,7 +67,7 @@ export default function Header({ onOpenRegister }) {
               />
             </div>
 
-            <span className="text-base sm:text-lg font-heading font-black text-slate-950 tracking-tight uppercase">
+            <span className="text-base sm:text-lg font-heading font-extrabold text-slate-950 tracking-tight uppercase">
               BM CLASSES
             </span>
           </Link>
@@ -80,7 +80,7 @@ export default function Header({ onOpenRegister }) {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-xs font-black tracking-wide transition-all duration-200 px-3.5 py-1.5 rounded-full ${
+                  className={`text-xs font-bold tracking-wide transition-all duration-200 px-3.5 py-1.5 rounded-full ${
                     isActive
                       ? 'bg-slate-950 text-white shadow-xs'
                       : 'text-slate-700 hover:text-slate-950 hover:bg-white/80'
@@ -96,7 +96,7 @@ export default function Header({ onOpenRegister }) {
           <div className="flex items-center gap-2 shrink-0">
             <button 
               onClick={() => handleRegister()}
-              className="hidden lg:flex bg-indigo-600 hover:bg-indigo-700 text-white font-black text-xs px-5 py-2.5 rounded-full items-center gap-1.5 shadow-sm transition-all cursor-pointer"
+              className="hidden lg:flex bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs px-5 py-2.5 rounded-full items-center gap-1.5 shadow-sm transition-all cursor-pointer"
             >
               <Sparkles className="w-3.5 h-3.5 text-white" />
               <span>Apply Now</span>
@@ -129,10 +129,10 @@ export default function Header({ onOpenRegister }) {
             
             <div className="pb-3.5 border-b border-slate-100 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-full bg-slate-950 text-white font-black flex items-center justify-center text-xs">
+                <div className="w-7 h-7 rounded-full bg-slate-950 text-white font-bold flex items-center justify-center text-xs">
                   BM
                 </div>
-                <span className="text-xs font-black uppercase tracking-wider text-slate-950">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-950">
                   Navigation
                 </span>
               </div>
@@ -146,7 +146,7 @@ export default function Header({ onOpenRegister }) {
               </button>
             </div>
 
-            <nav className="flex flex-col gap-1.5 font-black text-sm">
+            <nav className="flex flex-col gap-1.5 font-bold text-sm">
               {navItems.map((item) => {
                 const isActive = pathname === item.href;
                 return (
@@ -156,13 +156,13 @@ export default function Header({ onOpenRegister }) {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`py-3 px-4 rounded-2xl transition-all flex items-center justify-between ${
                       isActive
-                        ? 'bg-slate-950 text-white font-black shadow-xs'
+                        ? 'bg-slate-950 text-white font-bold shadow-xs'
                         : 'hover:bg-slate-100 text-slate-800'
                     }`}
                   >
                     <span>{item.label}</span>
                     {isActive && (
-                      <span className="text-[10px] bg-white/20 text-white px-2 py-0.5 rounded-full font-bold">
+                      <span className="text-xs bg-white/20 text-white px-2 py-0.5 rounded-full font-bold">
                         Active
                       </span>
                     )}
@@ -177,7 +177,7 @@ export default function Header({ onOpenRegister }) {
                   setMobileMenuOpen(false);
                   handleRegister();
                 }}
-                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-black py-3.5 rounded-full flex items-center justify-center gap-2 text-xs shadow-sm cursor-pointer"
+                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 rounded-full flex items-center justify-center gap-2 text-xs shadow-sm cursor-pointer"
               >
                 <Sparkles className="w-3.5 h-3.5 text-white" />
                 <span>Apply Now for Admission</span>

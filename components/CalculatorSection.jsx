@@ -52,11 +52,11 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
   ];
 
   return (
-    <section className="bg-black text-white py-20 sm:py-28 relative overflow-hidden border-b border-zinc-800" id="calculator">
+    <section className="bg-black text-white py-20 lg:py-28 relative overflow-hidden border-b border-zinc-800" id="calculator">
       
       {/* Background Ambient Glow Orbs */}
       <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-10 -right-32 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-10 -right-32 w-[500px] h-[500px] bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
@@ -80,8 +80,8 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
                 
                 {/* 1. Class Selection Pills */}
                 <div>
-                  <label className="block text-xs font-black text-white uppercase tracking-widest mb-3 flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-cyan-400 text-slate-950 text-[10px] flex items-center justify-center font-black">1</span>
+                  <label className="block text-xs font-bold text-white uppercase tracking-widest mb-3 flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-indigo-400 text-slate-950 text-xs flex items-center justify-center font-bold">1</span>
                     <span className="text-white">Target Academic Class</span>
                   </label>
                   
@@ -92,12 +92,12 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
                         onClick={() => setCls(opt.id)}
                         className={`p-3.5 rounded-2xl text-left transition-all duration-300 border cursor-pointer ${
                           cls === opt.id
-                            ? 'bg-white text-slate-950 font-black border-white shadow-lg'
+                            ? 'bg-white text-slate-950 font-bold border-white shadow-lg'
                             : 'bg-zinc-900 text-white hover:text-white border-zinc-800 hover:bg-zinc-800'
                         }`}
                       >
                         <div className="font-heading font-extrabold text-xs sm:text-sm">{opt.label}</div>
-                        <div className={`text-[10px] font-bold mt-0.5 ${cls === opt.id ? 'text-slate-800' : 'text-zinc-400'}`}>{opt.sub}</div>
+                        <div className={`text-xs font-bold mt-0.5 ${cls === opt.id ? 'text-slate-800' : 'text-zinc-400'}`}>{opt.sub}</div>
                       </button>
                     ))}
                   </div>
@@ -105,8 +105,8 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
 
                 {/* 2. Exam Focus Pills */}
                 <div>
-                  <label className="block text-xs font-black text-white uppercase tracking-widest mb-3 flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-cyan-400 text-slate-950 text-[10px] flex items-center justify-center font-black">2</span>
+                  <label className="block text-xs font-bold text-white uppercase tracking-widest mb-3 flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-indigo-400 text-slate-950 text-xs flex items-center justify-center font-bold">2</span>
                     <span className="text-white">Target Exam Focus</span>
                   </label>
 
@@ -117,12 +117,12 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
                         onClick={() => setExam(opt.id)}
                         className={`p-3.5 rounded-2xl text-left transition-all duration-300 border cursor-pointer ${
                           exam === opt.id
-                            ? 'bg-white text-slate-950 font-black border-white shadow-lg'
+                            ? 'bg-white text-slate-950 font-bold border-white shadow-lg'
                             : 'bg-zinc-900 text-white hover:text-white border-zinc-800 hover:bg-zinc-800'
                         }`}
                       >
                         <div className="font-heading font-extrabold text-xs sm:text-sm">{opt.label}</div>
-                        <div className={`text-[10px] font-bold mt-0.5 ${exam === opt.id ? 'text-slate-800' : 'text-zinc-400'}`}>{opt.sub}</div>
+                        <div className={`text-xs font-bold mt-0.5 ${exam === opt.id ? 'text-slate-800' : 'text-zinc-400'}`}>{opt.sub}</div>
                       </button>
                     ))}
                   </div>
@@ -130,8 +130,8 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
 
                 {/* 3. Learning Format Pills */}
                 <div>
-                  <label className="block text-xs font-black text-white uppercase tracking-widest mb-3 flex items-center gap-2">
-                    <span className="w-5 h-5 rounded-full bg-cyan-400 text-slate-950 text-[10px] flex items-center justify-center font-black">3</span>
+                  <label className="block text-xs font-bold text-white uppercase tracking-widest mb-3 flex items-center gap-2">
+                    <span className="w-5 h-5 rounded-full bg-indigo-400 text-slate-950 text-xs flex items-center justify-center font-bold">3</span>
                     <span className="text-white">Learning Format</span>
                   </label>
 
@@ -144,12 +144,12 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
                           onClick={() => setMode(opt.id)}
                           className={`p-3.5 rounded-2xl transition-all duration-300 border cursor-pointer flex items-center gap-3 ${
                             mode === opt.id
-                              ? 'bg-cyan-400 text-slate-950 font-black border-cyan-300 shadow-lg shadow-cyan-400/20'
+                              ? 'bg-indigo-400 text-slate-950 font-bold border-indigo-300 shadow-lg shadow-indigo-400/20'
                               : 'bg-zinc-900 text-white hover:text-white border-zinc-800 hover:bg-zinc-800'
                           }`}
                         >
-                          <ModeIcon className={`w-4 h-4 shrink-0 ${mode === opt.id ? 'text-slate-950' : 'text-cyan-400'}`} />
-                          <span className="text-xs font-extrabold">{opt.label}</span>
+                          <ModeIcon className={`w-4 h-4 shrink-0 ${mode === opt.id ? 'text-slate-950' : 'text-indigo-400'}`} />
+                          <span className="text-xs font-semibold">{opt.label}</span>
                         </button>
                       );
                     })}
@@ -161,56 +161,56 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
               {/* Right Output Telemetry Vault */}
               <div className="lg:col-span-5 bg-black border-2 border-zinc-800 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden">
                 
-                <div className="absolute -right-16 -top-16 w-48 h-48 bg-cyan-400/10 rounded-full blur-2xl pointer-events-none"></div>
+                <div className="absolute -right-16 -top-16 w-48 h-48 bg-indigo-400/10 rounded-full blur-2xl pointer-events-none"></div>
 
                 <div>
                   {/* Top Badge */}
                   <div className="flex items-center justify-between pb-4 border-b border-zinc-800 mb-6">
-                    <span className="text-[10px] font-black text-cyan-400 uppercase tracking-widest flex items-center gap-1.5">
-                      <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
+                    <span className="text-xs font-bold text-indigo-400 uppercase tracking-widest flex items-center gap-1.5">
+                      <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
                       ESTIMATED TUITION
                     </span>
-                    <span className="text-[10px] font-black bg-white/10 text-white border border-white/20 px-2.5 py-0.5 rounded-md uppercase">
+                    <span className="text-xs font-bold bg-white/10 text-white border border-white/20 px-2.5 py-0.5 rounded-md uppercase">
                       NO HIDDEN COSTS
                     </span>
                   </div>
 
                   {/* Dynamic Currency Counter */}
                   <div className="mb-4">
-                    <span className="text-xs text-white/90 font-extrabold uppercase tracking-wider block mb-1">
+                    <span className="text-xs text-white/90 font-semibold uppercase tracking-wider block mb-1">
                       Annual All-Inclusive Fee
                     </span>
-                    <div className="font-heading font-black text-4xl sm:text-5xl text-white tracking-tight">
+                    <div className="font-heading font-extrabold text-4xl sm:text-5xl text-white tracking-tight">
                       ₹{fee.toLocaleString('en-IN')}
                     </div>
-                    <span className="text-[11px] text-white/80 font-bold block mt-1">
+                    <span className="text-xs text-white/80 font-bold block mt-1">
                       *Covers study materials, testing platform & daily doubts.
                     </span>
                   </div>
 
                   {/* Seat Availability Telemetry */}
                   <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 mb-6">
-                    <div className="flex justify-between items-center text-xs font-extrabold mb-2">
+                    <div className="flex justify-between items-center text-xs font-semibold mb-2">
                       <span className="text-white flex items-center gap-1.5">
-                        <Zap className="w-3.5 h-3.5 text-cyan-400 fill-cyan-400" />
+                        <Zap className="w-3.5 h-3.5 text-indigo-400 fill-indigo-400" />
                         Micro-Batch Seat Status
                       </span>
-                      <span className="text-cyan-400 font-black">{seats} Seats Left</span>
+                      <span className="text-indigo-400 font-bold">{seats} Seats Left</span>
                     </div>
                     <div className="h-2 bg-black rounded-full overflow-hidden mb-2 border border-zinc-800">
                       <div 
-                        className="h-full bg-gradient-to-r from-cyan-400 to-teal-400 rounded-full transition-all duration-500"
+                        className="h-full bg-gradient-to-r from-indigo-400 to-indigo-400 rounded-full transition-all duration-500"
                         style={{ width: `${(seats / 12) * 100}%` }}
                       ></div>
                     </div>
-                    <div className="text-[10px] text-white/80 font-bold flex justify-between">
+                    <div className="text-xs text-white/80 font-bold flex justify-between">
                       <span>Strictly Capped Batch</span>
                       <span>Intake Closing Soon</span>
                     </div>
                   </div>
 
                   {/* Included Perks Checklist */}
-                  <div className="space-y-2.5 text-xs font-extrabold text-white mb-8 pt-2">
+                  <div className="space-y-2.5 text-xs font-semibold text-white mb-8 pt-2">
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                       <span>100% Direct Ex-HOD FIITJEE & VMC Faculty</span>
@@ -219,8 +219,8 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
                       <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                       <span>Same-day board doubt clearing slots</span>
                     </div>
-                    <div className="flex items-center gap-2 text-cyan-300">
-                      <Award className="w-4 h-4 text-cyan-400 shrink-0" />
+                    <div className="flex items-center gap-2 text-indigo-300">
+                      <Award className="w-4 h-4 text-indigo-400 shrink-0" />
                       <span>Eligible for up to {scholarship}% Ex-HOD Merit Scholarship</span>
                     </div>
                   </div>

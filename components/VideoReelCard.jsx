@@ -39,7 +39,7 @@ export default function VideoReelCard({ file, name, exam, result, quote }) {
   };
 
   return (
-    <div className="group relative bg-black rounded-2xl overflow-hidden border-2 border-zinc-800 hover:border-cyan-400 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.6)] hover:shadow-[0_20px_40px_-8px_rgba(34,211,238,0.2)] transition-all duration-300 flex flex-col">
+    <div className="group relative bg-black rounded-2xl overflow-hidden border-2 border-zinc-800 hover:border-indigo-400 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.6)] hover:shadow-[0_20px_40px_-8px_rgba(34,211,238,0.2)] transition-all duration-300 flex flex-col">
 
       {/* 9:16 Vertical Reel Video */}
       <div className="relative aspect-[9/16] bg-zinc-950 overflow-hidden">
@@ -57,11 +57,11 @@ export default function VideoReelCard({ file, name, exam, result, quote }) {
         <button
           onClick={toggleMute}
           aria-label={muted ? 'Unmute video' : 'Mute video'}
-          className="absolute bottom-3 right-3 z-20 w-8 h-8 rounded-full bg-black/70 border border-zinc-700 hover:border-cyan-400 text-white flex items-center justify-center transition-all hover:scale-110 cursor-pointer"
+          className="absolute bottom-3 right-3 z-20 w-8 h-8 rounded-full bg-black/70 border border-zinc-700 hover:border-indigo-400 text-white flex items-center justify-center transition-all hover:scale-110 cursor-pointer"
         >
           {muted
             ? <VolumeX className="w-3.5 h-3.5 text-white" />
-            : <Volume2 className="w-3.5 h-3.5 text-cyan-300" />
+            : <Volume2 className="w-3.5 h-3.5 text-indigo-300" />
           }
         </button>
 
@@ -73,10 +73,10 @@ export default function VideoReelCard({ file, name, exam, result, quote }) {
       <div className="p-4 border-t border-zinc-800 flex-1">
         <div className="flex items-start justify-between gap-2 mb-1.5">
           <div>
-            <div className="font-heading font-black text-white text-sm group-hover:text-cyan-300 transition-colors leading-tight">
+            <div className="font-heading font-extrabold text-white text-sm group-hover:text-indigo-300 transition-colors leading-tight">
               {name}
             </div>
-            <div className="text-[10px] font-bold text-cyan-400 mt-0.5">
+            <div className="text-xs font-bold text-indigo-400 mt-0.5">
               {exam} · <span className="text-emerald-400">{result}</span>
             </div>
           </div>
@@ -86,7 +86,7 @@ export default function VideoReelCard({ file, name, exam, result, quote }) {
             ))}
           </div>
         </div>
-        <p className="text-white/60 text-[11px] leading-relaxed font-medium italic">
+        <p className="text-white/60 text-xs leading-relaxed font-medium italic">
           {quote}
         </p>
       </div>

@@ -163,7 +163,9 @@ export default function Modals({
       `Hi BmClasses, I have submitted my admission application on the website. Please contact me for my diagnostic session and counseling call.`;
 
     const encoded = encodeURIComponent(textMessage);
-    window.open(`https://wa.me/919899818241?text=${encoded}`, '_blank');
+    const waUrl = `https://wa.me/919899818241?text=${encoded}`;
+    // Popup blockers reject window.open after an await; fall back to same-tab navigation
+    if (!window.open(waUrl, '_blank')) window.location.href = waUrl;
 
     setSubmitting(false);
     setSubmitted(true);
@@ -184,7 +186,7 @@ export default function Modals({
       {/* REGISTER MODAL */}
       {registerOpen && (
         <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xl flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-          <div className="bg-white rounded-3xl max-w-lg w-full max-h-[92vh] overflow-y-auto relative shadow-2xl border border-slate-200 text-slate-900 animate-float my-auto">
+          <div className="bg-white rounded-3xl max-w-lg w-full max-h-[92vh] overflow-y-auto relative shadow-2xl border border-slate-200 text-slate-900 my-auto">
             
             {/* Modal Header Banner */}
             <div className="bg-black text-white p-6 sm:p-8 rounded-t-3xl relative overflow-hidden border-b border-zinc-800">
@@ -199,13 +201,13 @@ export default function Modals({
                 <X className="w-4 h-4" />
               </button>
 
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-400/20 border border-cyan-400/30 text-cyan-300 text-[10px] sm:text-xs font-black uppercase tracking-wider mb-3">
-                <ShieldCheck className="w-3.5 h-3.5 text-cyan-300 shrink-0" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-400/20 border border-indigo-400/30 text-indigo-300 text-xs sm:text-xs font-bold uppercase tracking-wider mb-3">
+                <ShieldCheck className="w-3.5 h-3.5 text-indigo-300 shrink-0" />
                 <span>Ex-HOD Diagnostic & Counseling Call</span>
               </div>
 
-              <h3 className="font-heading text-2xl sm:text-3xl font-black leading-tight tracking-tight text-white">
-                Register for <span className="text-cyan-300">BmClasses</span>
+              <h3 className="font-heading text-2xl sm:text-3xl font-extrabold leading-tight tracking-tight text-white">
+                Register for <span className="text-indigo-300">BmClasses</span>
               </h3>
               <p className="text-xs sm:text-sm text-slate-300 font-medium mt-1">
                 Book your 1-on-1 diagnostic session directly with Senior Ex-HODs of FIITJEE & VMC.
@@ -219,9 +221,9 @@ export default function Modals({
                   
                   {/* Input 1: Student Full Name */}
                   <div>
-                    <label className="block text-xs font-black text-slate-900 uppercase tracking-wider mb-1 flex items-center justify-between">
+                    <label className="block text-xs font-bold text-slate-900 uppercase tracking-wider mb-1 flex items-center justify-between">
                       <span>Student Full Name</span>
-                      <span className="text-cyan-600 font-black text-[10px]">* Required</span>
+                      <span className="text-indigo-600 font-bold text-xs">* Required</span>
                     </label>
                     <input 
                       type="text" 
@@ -229,15 +231,15 @@ export default function Modals({
                       value={studentName}
                       onChange={(e) => setStudentName(e.target.value)}
                       placeholder="e.g. Rahul Sharma"
-                      className="w-full pl-4 pr-4 py-3 rounded-2xl border-2 border-slate-200/90 text-sm focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600/20 font-extrabold text-slate-900 bg-slate-50/80 focus:bg-white transition-all shadow-xs"
+                      className="w-full pl-4 pr-4 py-3 rounded-2xl border-2 border-slate-200/90 text-sm focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600/20 font-semibold text-slate-900 bg-slate-50/80 focus:bg-white transition-all shadow-xs"
                     />
                   </div>
 
                   {/* Input 2: Parent Mobile Number (Strict 10 Digits) */}
                   <div>
-                    <label className="block text-xs font-black text-slate-900 uppercase tracking-wider mb-1 flex items-center justify-between">
+                    <label className="block text-xs font-bold text-slate-900 uppercase tracking-wider mb-1 flex items-center justify-between">
                       <span>Mobile Number (10 Digits)</span>
-                      <span className="text-cyan-600 font-black text-[10px]">* Exactly 10 Digits</span>
+                      <span className="text-indigo-600 font-bold text-xs">* Exactly 10 Digits</span>
                     </label>
                     <input 
                       type="tel" 
@@ -246,20 +248,20 @@ export default function Modals({
                       value={phoneNumber}
                       onChange={handlePhoneChange}
                       placeholder="e.g. 9899818241"
-                      className={`w-full pl-4 pr-4 py-3 rounded-2xl border-2 text-sm focus:outline-none font-extrabold text-slate-900 transition-all shadow-xs ${
+                      className={`w-full pl-4 pr-4 py-3 rounded-2xl border-2 text-sm focus:outline-none font-semibold text-slate-900 transition-all shadow-xs ${
                         phoneError ? 'border-red-500 bg-red-50/30' : 'border-slate-200/90 bg-slate-50/80 focus:border-indigo-600 focus:bg-white'
                       }`}
                     />
                     {phoneError && (
-                      <p className="text-[11px] font-bold text-red-600 mt-1">{phoneError}</p>
+                      <p className="text-xs font-bold text-red-600 mt-1">{phoneError}</p>
                     )}
                   </div>
 
                   {/* Input 3: Email ID */}
                   <div>
-                    <label className="block text-xs font-black text-slate-900 uppercase tracking-wider mb-1 flex items-center justify-between">
+                    <label className="block text-xs font-bold text-slate-900 uppercase tracking-wider mb-1 flex items-center justify-between">
                       <span>Email Address</span>
-                      <span className="text-cyan-600 font-black text-[10px]">* Valid Email Required</span>
+                      <span className="text-indigo-600 font-bold text-xs">* Valid Email Required</span>
                     </label>
                     <input 
                       type="email" 
@@ -267,25 +269,25 @@ export default function Modals({
                       value={email}
                       onChange={handleEmailChange}
                       placeholder="e.g. rahul.sharma@gmail.com"
-                      className={`w-full pl-4 pr-4 py-3 rounded-2xl border-2 text-sm focus:outline-none font-extrabold text-slate-900 transition-all shadow-xs ${
+                      className={`w-full pl-4 pr-4 py-3 rounded-2xl border-2 text-sm focus:outline-none font-semibold text-slate-900 transition-all shadow-xs ${
                         emailError ? 'border-red-500 bg-red-50/30' : 'border-slate-200/90 bg-slate-50/80 focus:border-indigo-600 focus:bg-white'
                       }`}
                     />
                     {emailError && (
-                      <p className="text-[11px] font-bold text-red-600 mt-1">{emailError}</p>
+                      <p className="text-xs font-bold text-red-600 mt-1">{emailError}</p>
                     )}
                   </div>
 
                   {/* Input 4: Target Program */}
                   <div>
-                    <label className="block text-xs font-black text-slate-900 uppercase tracking-wider mb-1 flex items-center justify-between">
+                    <label className="block text-xs font-bold text-slate-900 uppercase tracking-wider mb-1 flex items-center justify-between">
                       <span>Target Program & Course</span>
-                      <span className="text-indigo-600 font-black text-[10px]">Capped 10-15 Batch</span>
+                      <span className="text-indigo-600 font-bold text-xs">Capped 10-15 Batch</span>
                     </label>
                     <select 
                       value={selectedProgram}
                       onChange={(e) => setSelectedProgram(e.target.value)}
-                      className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200/90 text-sm focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600/20 font-extrabold text-slate-900 bg-slate-50/80 focus:bg-white transition-all shadow-xs cursor-pointer"
+                      className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200/90 text-sm focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600/20 font-semibold text-slate-900 bg-slate-50/80 focus:bg-white transition-all shadow-xs cursor-pointer"
                     >
                       {PROGRAMS_DATA.map((prog, pIdx) => (
                         <option key={pIdx} value={`${prog.title} (${prog.category})`}>
@@ -299,14 +301,14 @@ export default function Modals({
                   <button 
                     type="submit" 
                     disabled={submitting}
-                    className="w-full bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-black py-3.5 rounded-2xl transition-all text-sm sm:text-base shadow-xl shadow-indigo-200 hover:-translate-y-0.5 active:scale-95 cursor-pointer flex items-center justify-center gap-2 border border-indigo-400/30 disabled:opacity-50"
+                    className="w-full bg-gradient-to-r from-indigo-600 via-indigo-700 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700 text-white font-bold py-3.5 rounded-2xl transition-all text-sm sm:text-base shadow-xl shadow-indigo-200 hover:-translate-y-0.5 active:scale-95 cursor-pointer flex items-center justify-center gap-2 border border-indigo-400/30 disabled:opacity-50"
                   >
                     <span>{submitting ? 'Submitting Application...' : 'Submit & Save Application'}</span>
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-300" />
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-indigo-300" />
                   </button>
 
                   {/* Trust Micro Footer */}
-                  <div className="pt-1 text-center text-[11px] font-extrabold text-slate-500 flex items-center justify-center gap-2">
+                  <div className="pt-1 text-center text-xs font-semibold text-slate-500 flex items-center justify-center gap-2">
                     <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>Saved to Admin Database • 100% Privacy Guaranteed</span>
                   </div>
@@ -319,10 +321,10 @@ export default function Modals({
                   </div>
 
                   <div>
-                    <span className="text-[10px] font-black uppercase tracking-widest text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
+                    <span className="text-xs font-bold uppercase tracking-widest text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
                       APPLICATION SAVED & REGISTERED
                     </span>
-                    <h3 className="font-heading text-2xl font-black text-slate-950 mt-2">Registration Submitted!</h3>
+                    <h3 className="font-heading text-2xl font-extrabold text-slate-950 mt-2">Registration Submitted!</h3>
                     <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed max-w-sm mx-auto mt-1">
                       Thank you, <strong className="text-slate-900">{studentName}</strong>. Your application has been saved to our database and forwarded to Senior HOD counselors.
                     </p>
@@ -331,19 +333,19 @@ export default function Modals({
                   <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs font-bold text-slate-800 space-y-1.5 text-left">
                     <div className="flex justify-between border-b border-slate-200/80 pb-1.5">
                       <span className="text-slate-500">Target Program:</span>
-                      <span className="text-indigo-700 font-extrabold">{selectedProgram}</span>
+                      <span className="text-indigo-700 font-semibold">{selectedProgram}</span>
                     </div>
                     <div className="flex justify-between border-b border-slate-200/80 pb-1.5">
                       <span className="text-slate-500">Mobile Number:</span>
-                      <span className="text-slate-900 font-extrabold">{phoneNumber}</span>
+                      <span className="text-slate-900 font-semibold">{phoneNumber}</span>
                     </div>
                     <div className="flex justify-between border-b border-slate-200/80 pb-1.5">
                       <span className="text-slate-500">Email Address:</span>
-                      <span className="text-slate-900 font-extrabold">{email}</span>
+                      <span className="text-slate-900 font-semibold">{email}</span>
                     </div>
                     <div className="flex justify-between pt-0.5">
                       <span className="text-slate-500">Destination Counselor:</span>
-                      <span className="text-emerald-700 font-black">+91 98998 18241</span>
+                      <span className="text-emerald-700 font-bold">+91 98998 18241</span>
                     </div>
                   </div>
 
@@ -352,14 +354,14 @@ export default function Modals({
                       href={`https://wa.me/919899818241?text=${encodeURIComponent(`Hi BmClasses, I have submitted my admission application for ${selectedProgram}. My name is ${studentName}.`)}`} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="w-full bg-[#25D366] hover:bg-emerald-600 text-white font-extrabold text-xs sm:text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
+                      className="w-full bg-[#25D366] hover:bg-emerald-600 text-white font-semibold text-xs sm:text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
                     >
                       <WhatsAppIcon className="w-4 h-4 text-white" /> Connect Directly on WhatsApp (+91 98998 18241)
                     </a>
 
                     <button 
                       onClick={handleReset}
-                      className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-extrabold text-xs py-3 rounded-2xl transition-colors cursor-pointer"
+                      className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs py-3 rounded-2xl transition-colors cursor-pointer"
                     >
                       Close Window
                     </button>

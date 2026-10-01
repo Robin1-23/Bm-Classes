@@ -14,7 +14,7 @@ export default function BespokeFeeBreakdown() {
       waiver: '40% Fee Waiver',
       tierName: 'Presidential Ex-HOD Scholar',
       badge: 'TOP MERIT TIER',
-      badgeBg: 'bg-cyan-400 text-slate-950',
+      badgeBg: 'bg-indigo-400 text-slate-950',
     },
     {
       range: '90% to 94% Marks',
@@ -56,16 +56,16 @@ export default function BespokeFeeBreakdown() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-white border-b border-slate-200/80">
+    <section className="py-20 lg:py-28 bg-white border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-16">
         
         {/* SCHOLARSHIP TIER MATRIX TABLE */}
         <div>
           <ScrollReveal delay={100} direction="up" className="text-center max-w-3xl mx-auto mb-12">
-            <span className="text-xs font-black tracking-widest uppercase text-cyan-900 bg-cyan-100 border border-cyan-200 px-3.5 py-1.5 rounded-full">
+            <span className="text-xs font-bold tracking-widest uppercase text-indigo-900 bg-indigo-100 border border-indigo-200 px-3.5 py-1.5 rounded-full">
               TRANSPARENT SCHOLARSHIP MATRIX
             </span>
-            <h2 className="font-heading text-2xl sm:text-4xl font-black text-slate-950 mt-3">
+            <h2 className="font-heading font-extrabold tracking-[-0.03em] text-3xl sm:text-5xl text-slate-950 mt-3">
               Official Ex-HOD Merit Scholarship Policy
             </h2>
             <p className="text-slate-600 text-sm font-medium mt-2">
@@ -77,7 +77,7 @@ export default function BespokeFeeBreakdown() {
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="border-b border-slate-800 text-xs font-black uppercase tracking-wider text-slate-400">
+                  <tr className="border-b border-slate-800 text-xs font-bold uppercase tracking-wider text-slate-400">
                     <th className="pb-4 px-4">Board Mark Range</th>
                     <th className="pb-4 px-4">Scholarship Waiver %</th>
                     <th className="pb-4 px-4">Scholar Tier Category</th>
@@ -90,13 +90,13 @@ export default function BespokeFeeBreakdown() {
                       <td className="py-4 px-4 font-mono font-bold text-slate-200">
                         {tier.range}
                       </td>
-                      <td className="py-4 px-4 font-black text-cyan-300 text-base">
+                      <td className="py-4 px-4 font-bold text-indigo-300 text-base">
                         {tier.waiver}
                       </td>
-                      <td className="py-4 px-4 font-extrabold text-white">
+                      <td className="py-4 px-4 font-semibold text-white">
                         <div className="flex items-center gap-2">
                           <span>{tier.tierName}</span>
-                          <span className={`text-[9px] font-black px-2 py-0.5 rounded ${tier.badgeBg}`}>
+                          <span className={`text-xs font-bold px-2 py-0.5 rounded ${tier.badgeBg}`}>
                             {tier.badge}
                           </span>
                         </div>
@@ -104,9 +104,9 @@ export default function BespokeFeeBreakdown() {
                       <td className="py-4 px-4 text-right">
                         <button
                           onClick={openSeatLock}
-                          className="bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs px-3.5 py-2 rounded-xl transition-all inline-flex items-center gap-1 cursor-pointer shadow-sm border border-emerald-400/40"
+                          className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs px-3.5 py-2 rounded-xl transition-all inline-flex items-center gap-1 cursor-pointer shadow-sm border border-emerald-400/40"
                         >
-                          <Lock className="w-3.5 h-3.5 text-cyan-300" />
+                          <Lock className="w-3.5 h-3.5 text-indigo-300" />
                           <span>Lock Waiver</span>
                         </button>
                       </td>
@@ -122,13 +122,13 @@ export default function BespokeFeeBreakdown() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           
           {/* 100% Fee Inclusions Box */}
-          <div className="bg-[#faf8f5] border border-slate-200 rounded-3xl p-8 flex flex-col justify-between">
+          <div className="bg-[#faf6f0] border border-slate-200 rounded-3xl p-8 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2 text-indigo-700 text-xs font-black uppercase tracking-widest mb-2">
+              <div className="flex items-center gap-2 text-indigo-700 text-xs font-bold uppercase tracking-widest mb-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                 <span>100% INCLUSIVE ACADEMIC PACKAGE</span>
               </div>
-              <h3 className="font-heading text-2xl font-black text-slate-950 mb-4">
+              <h3 className="font-heading text-2xl font-extrabold text-slate-950 mb-4">
                 What is Included in Your Course Fee?
               </h3>
               <p className="text-slate-600 text-xs sm:text-sm font-medium mb-6">
@@ -145,7 +145,7 @@ export default function BespokeFeeBreakdown() {
               </div>
             </div>
 
-            <div className="mt-8 pt-6 border-t border-slate-200 flex items-center justify-between text-xs font-extrabold text-slate-700">
+            <div className="mt-8 pt-6 border-t border-slate-200 flex items-center justify-between text-xs font-semibold text-slate-700">
               <span>Flexible Installments Available</span>
               <span className="text-indigo-600">3-Part Payment Schedule</span>
             </div>
@@ -154,12 +154,12 @@ export default function BespokeFeeBreakdown() {
           {/* Zero Hidden Costs Guarantee */}
           <div className="bg-black text-white rounded-3xl p-8 border border-zinc-800 shadow-xl flex flex-col justify-between">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-400/20 border border-cyan-400/30 text-cyan-300 text-xs font-black uppercase tracking-wider mb-4">
-                <ShieldCheck className="w-4 h-4 text-cyan-300" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-400/20 border border-indigo-400/30 text-indigo-300 text-xs font-bold uppercase tracking-wider mb-4">
+                <ShieldCheck className="w-4 h-4 text-indigo-300" />
                 <span>EX-HOD TRANSPARENCY PROMISE</span>
               </div>
 
-              <h3 className="font-heading text-2xl sm:text-3xl font-black text-white tracking-tight">
+              <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
                 Zero Hidden Costs. 100% Fee Clarity.
               </h3>
 
@@ -169,15 +169,15 @@ export default function BespokeFeeBreakdown() {
 
               <div className="mt-6 space-y-3 text-xs sm:text-sm font-bold text-slate-200">
                 <div className="bg-white/5 border border-white/10 p-3.5 rounded-xl flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-cyan-300 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-indigo-300 shrink-0" />
                   <span>No separate test series or exam portal charges</span>
                 </div>
                 <div className="bg-white/5 border border-white/10 p-3.5 rounded-xl flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-cyan-300 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-indigo-300 shrink-0" />
                   <span>No additional doubt counter fees</span>
                 </div>
                 <div className="bg-white/5 border border-white/10 p-3.5 rounded-xl flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-cyan-300 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-indigo-300 shrink-0" />
                   <span>No mid-session study material price hikes</span>
                 </div>
               </div>
@@ -186,7 +186,7 @@ export default function BespokeFeeBreakdown() {
             <div className="mt-8 pt-6 border-t border-slate-800">
               <button
                 onClick={openRegister}
-                className="w-full bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black text-sm py-4 rounded-2xl transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                className="w-full bg-indigo-400 hover:bg-indigo-300 text-slate-950 font-bold text-sm py-4 rounded-2xl transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer"
               >
                 <span>Apply & Lock Your Scholarship</span>
                 <ArrowRight className="w-4 h-4" />

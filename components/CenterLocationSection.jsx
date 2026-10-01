@@ -28,23 +28,23 @@ export default function CenterLocationSection({ onOpenRegister }) {
   };
 
   return (
-    <section className="bg-[#faf6f0] text-slate-950 py-20 sm:py-28 border-b border-[#ede6dd] relative overflow-hidden" id="location">
+    <section className="bg-[#faf6f0] text-slate-950 py-20 lg:py-28 border-b border-[#ede6dd] relative overflow-hidden" id="location">
       
       {/* Background Ambient Warm Cream Glows */}
       <div className="absolute top-1/3 left-10 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-orange-100/30 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Section Header */}
         <ScrollReveal delay={100} direction="up" className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#e8dfd5] text-indigo-700 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#e8dfd5] text-indigo-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
             <span>GURGAON ACADEMIC CENTER</span>
           </div>
           
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight leading-[1.15]">
-            Visit Our <span className="font-serif italic font-normal text-indigo-600">Gurgaon Center</span>
+          <h2 className="font-heading font-extrabold tracking-[-0.03em] text-4xl sm:text-5xl lg:text-6xl text-slate-950 leading-[1.15]">
+            Visit Our <span className="text-indigo-600">Gurgaon Center</span>
           </h2>
           
           <p className="text-slate-600 text-base sm:text-lg mt-3 font-semibold leading-relaxed max-w-xl mx-auto">
@@ -61,34 +61,34 @@ export default function CenterLocationSection({ onOpenRegister }) {
               
               <div>
                 <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
-                  <span className="text-[10px] font-black uppercase tracking-wider bg-[#f5efe6] text-indigo-700 border border-[#e2d8cc] px-3 py-1 rounded-full flex items-center gap-1.5">
+                  <span className="text-xs font-bold uppercase tracking-wider bg-[#f5efe6] text-indigo-700 border border-[#e2d8cc] px-3 py-1 rounded-full flex items-center gap-1.5">
                     <ShieldCheck className="w-3.5 h-3.5 text-indigo-600" />
                     OFFICIAL ACADEMIC CENTER
                   </span>
-                  <span className="text-xs font-black text-emerald-700 flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span className="text-xs font-bold text-emerald-700 flex items-center gap-1">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
                     Open Today 8am-8pm
                   </span>
                 </div>
 
-                <h3 className="font-heading text-2xl font-black text-slate-950 mb-3">
+                <h3 className="font-heading text-2xl font-extrabold text-slate-950 mb-3">
                   Chemistry classes by BM sir
                 </h3>
 
                 <div className="space-y-2.5 mb-6 text-xs font-semibold text-slate-700">
                   <div className="bg-[#f5efe6] border border-[#e8dfd5] p-4 rounded-2xl">
-                    <span className="text-[10px] font-black text-indigo-700 uppercase block mb-1">OFFICIAL CENTER ADDRESS</span>
-                    <span className="leading-snug text-slate-950 font-extrabold text-sm block">House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon</span>
+                    <span className="text-xs font-bold text-indigo-700 uppercase block mb-1">OFFICIAL CENTER ADDRESS</span>
+                    <span className="leading-snug text-slate-950 font-semibold text-sm block">House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon</span>
                     <span className="text-slate-600 text-xs mt-1 block">Landmark: Near DPS-45 School</span>
                   </div>
 
                   <div className="grid grid-cols-2 gap-2 text-xs pt-1">
                     <div className="bg-[#f5efe6] border border-[#e8dfd5] p-2.5 rounded-xl">
-                      <div className="text-[9px] font-black text-indigo-700 uppercase">CONTACT DESK</div>
-                      <div className="font-extrabold text-slate-950 text-[11px]">9899818241 / 9999495938</div>
+                      <div className="text-xs font-bold text-indigo-700 uppercase">CONTACT DESK</div>
+                      <div className="font-semibold text-slate-950 text-xs">9899818241 / 9999495938</div>
                     </div>
                     <div className="bg-[#f5efe6] border border-[#e8dfd5] p-2.5 rounded-xl">
-                      <div className="text-[9px] font-black text-indigo-700 uppercase">SOCIAL MEDIA</div>
+                      <div className="text-xs font-bold text-indigo-700 uppercase">SOCIAL MEDIA</div>
                       <div className="flex items-center gap-2.5 mt-1.5">
                         <a href="https://www.facebook.com/share/1PFmnYsfRK/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                           <Facebook className="w-4 h-4 text-[#1877F2] hover:scale-110 transition-transform" />
@@ -111,7 +111,7 @@ export default function CenterLocationSection({ onOpenRegister }) {
                   href={googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-black text-xs py-3 rounded-full transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs py-3 rounded-full transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <Navigation className="w-4 h-4 fill-white text-white" />
                   <span>Open Google Maps Directions</span>
@@ -123,7 +123,7 @@ export default function CenterLocationSection({ onOpenRegister }) {
                     href={whatsappUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 font-extrabold text-xs py-2.5 rounded-full transition-all flex items-center justify-center gap-1.5 shadow-2xs"
+                    className="bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 font-semibold text-xs py-2.5 rounded-full transition-all flex items-center justify-center gap-1.5 shadow-2xs"
                   >
                     <WhatsAppIcon className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span>WhatsApp Desk</span>
@@ -131,7 +131,7 @@ export default function CenterLocationSection({ onOpenRegister }) {
 
                   <a
                     href={phoneUrl}
-                    className="bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 font-extrabold text-xs py-2.5 rounded-full transition-all flex items-center justify-center gap-1.5 shadow-2xs"
+                    className="bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 font-semibold text-xs py-2.5 rounded-full transition-all flex items-center justify-center gap-1.5 shadow-2xs"
                   >
                     <Phone className="w-3.5 h-3.5 text-indigo-600" />
                     <span>Call Center</span>
@@ -150,9 +150,9 @@ export default function CenterLocationSection({ onOpenRegister }) {
               <div className="bg-[#f5efe6] border-b border-[#e8dfd5] px-5 py-3.5 flex items-center justify-between z-10">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-indigo-600" />
-                  <span className="font-heading font-black text-xs text-slate-950">Sector 45 Center (Near DPS-45 School)</span>
+                  <span className="font-heading font-extrabold text-xs text-slate-950">Sector 45 Center (Near DPS-45 School)</span>
                 </div>
-                <span className="text-[10px] font-mono font-bold text-slate-600">Gurgaon, Haryana</span>
+                <span className="text-xs font-mono font-bold text-slate-600">Gurgaon, Haryana</span>
               </div>
 
               {/* Embedded Google Map iFrame */}
@@ -177,7 +177,7 @@ export default function CenterLocationSection({ onOpenRegister }) {
                   href={googleMapsUrl} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-indigo-600 hover:underline font-extrabold flex items-center gap-1"
+                  className="text-indigo-600 hover:underline font-semibold flex items-center gap-1"
                 >
                   <span>Get Directions</span>
                   <ExternalLink className="w-3 h-3 text-indigo-600" />
@@ -198,7 +198,7 @@ export default function CenterLocationSection({ onOpenRegister }) {
                   <WhatsAppIcon className="w-6 h-6 text-emerald-600" />
                 </div>
                 <div>
-                  <h4 className="font-heading font-black text-lg text-slate-950">
+                  <h4 className="font-heading font-extrabold text-lg text-slate-950">
                     Share Center Details with Parents on WhatsApp
                   </h4>
                   <p className="text-slate-600 text-xs mt-0.5 font-medium">
@@ -212,7 +212,7 @@ export default function CenterLocationSection({ onOpenRegister }) {
                   href={whatsappShareUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs px-4 py-2.5 rounded-full transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer w-full sm:w-auto"
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs px-4 py-2.5 rounded-full transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer w-full sm:w-auto"
                 >
                   <Share2 className="w-3.5 h-3.5 text-white" />
                   <span>Share on WhatsApp</span>

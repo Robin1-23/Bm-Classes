@@ -52,7 +52,7 @@ export default function BespokeCenterGuide() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-white text-slate-950 border-b border-slate-200/80 relative overflow-hidden">
+    <section className="py-20 lg:py-28 bg-white text-slate-950 border-b border-slate-200/80 relative overflow-hidden">
       
       {/* Background Soft Glow */}
       <div className="absolute top-1/3 left-10 w-96 h-96 bg-indigo-50/60 rounded-full blur-3xl pointer-events-none"></div>
@@ -62,12 +62,12 @@ export default function BespokeCenterGuide() {
         {/* 1-ON-1 DIAGNOSTIC SESSION AGENDA */}
         <div>
           <ScrollReveal delay={100} direction="up" className="text-center max-w-3xl mx-auto mb-10">
-            <span className="text-xs font-black tracking-wider uppercase text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-3.5 py-1.5 rounded-full inline-flex items-center gap-2">
+            <span className="text-xs font-bold tracking-wider uppercase text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-3.5 py-1.5 rounded-full inline-flex items-center gap-2">
               <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
               <span>CENTER COUNSELING PROCESS</span>
             </span>
-            <h2 className="font-heading text-2xl sm:text-4xl font-black text-slate-950 mt-3 tracking-tight">
-              What Happens During Your <span className="font-serif italic font-normal text-indigo-600">Center Visit?</span>
+            <h2 className="font-heading font-extrabold tracking-[-0.03em] text-3xl sm:text-5xl text-slate-950 mt-3">
+              What Happens During Your <span className="text-indigo-600">Center Visit?</span>
             </h2>
           </ScrollReveal>
 
@@ -79,15 +79,15 @@ export default function BespokeCenterGuide() {
                   <div className="bg-white border border-slate-200/90 rounded-3xl p-6 flex flex-col justify-between hover:border-indigo-400 transition-all shadow-[0_10px_30px_-5px_rgba(15,23,42,0.05)] h-full">
                     <div>
                       <div className="flex items-center justify-between mb-3">
-                        <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 border border-indigo-200/80 font-black flex items-center justify-center">
+                        <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 border border-indigo-200/80 font-bold flex items-center justify-center">
                           <Icon className="w-5 h-5" />
                         </div>
-                        <span className="font-mono text-lg font-black text-slate-400">
+                        <span className="font-mono text-lg font-bold text-slate-400">
                           #{step.step}
                         </span>
                       </div>
 
-                      <h3 className="font-heading font-black text-slate-950 text-base mb-1">
+                      <h3 className="font-heading font-extrabold text-slate-950 text-base mb-1">
                         {step.title}
                       </h3>
 
@@ -106,7 +106,7 @@ export default function BespokeCenterGuide() {
                       </div>
                     </div>
 
-                    <div className="pt-3 mt-4 border-t border-slate-100 text-xs font-black text-indigo-600 flex items-center gap-1">
+                    <div className="pt-3 mt-4 border-t border-slate-100 text-xs font-bold text-indigo-600 flex items-center gap-1">
                       <span>Ex-HOD Direct Session</span>
                       <ArrowRight className="w-3.5 h-3.5 text-indigo-600" />
                     </div>
@@ -122,13 +122,13 @@ export default function BespokeCenterGuide() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             
             <div className="lg:col-span-6 space-y-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 text-cyan-300 border border-slate-700 text-xs font-black uppercase tracking-wider">
-                <Navigation className="w-3.5 h-3.5 text-cyan-400" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 text-indigo-300 border border-slate-700 text-xs font-bold uppercase tracking-wider">
+                <Navigation className="w-3.5 h-3.5 text-indigo-400" />
                 <span>GURGAON CENTER DIRECTIONS</span>
               </div>
 
-              <h3 className="font-heading text-2xl sm:text-3xl font-black text-white tracking-tight">
-                How to Reach <span className="font-serif italic font-normal text-cyan-300">Chemistry classes by BM sir</span>
+              <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                How to Reach <span className="text-indigo-300">Chemistry classes by BM sir</span>
               </h3>
 
               <p className="text-zinc-300 text-xs sm:text-sm font-medium leading-relaxed">
@@ -140,7 +140,7 @@ export default function BespokeCenterGuide() {
                   href={CENTER_INFO.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-indigo-600 hover:bg-indigo-500 text-white font-black text-xs px-5 py-3.5 rounded-full transition-all shadow-md inline-flex items-center gap-2 cursor-pointer"
+                  className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs px-5 py-3.5 rounded-full transition-all shadow-md inline-flex items-center gap-2 cursor-pointer"
                 >
                   <MapPin className="w-4 h-4 text-white" />
                   <span>Open 1-Tap Google Maps Navigation</span>
@@ -151,9 +151,9 @@ export default function BespokeCenterGuide() {
             <div className="lg:col-span-6 space-y-2.5">
               {landmarks.map((lm, lIdx) => (
                 <div key={lIdx} className="bg-slate-900 border border-slate-800 rounded-2xl p-3.5 hover:border-slate-700 transition-all">
-                  <div className="flex items-center justify-between text-xs font-black text-cyan-300 mb-0.5">
+                  <div className="flex items-center justify-between text-xs font-bold text-indigo-300 mb-0.5">
                     <span>{lm.from}</span>
-                    <span className="font-mono text-[10px] text-cyan-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">
+                    <span className="font-mono text-xs text-indigo-400 bg-slate-950 px-2 py-0.5 rounded border border-slate-800">
                       {lm.dist}
                     </span>
                   </div>

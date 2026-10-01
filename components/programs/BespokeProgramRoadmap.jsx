@@ -86,7 +86,7 @@ export default function BespokeProgramRoadmap() {
   ];
 
   return (
-    <section className="py-14 sm:py-20 bg-white text-slate-950 border-b border-slate-200/80 relative overflow-hidden">
+    <section className="py-20 lg:py-28 bg-white text-slate-950 border-b border-slate-200/80 relative overflow-hidden">
       
       {/* Background Ambient Glow */}
       <div className="absolute top-1/4 left-10 w-96 h-96 bg-indigo-50/60 rounded-full blur-3xl pointer-events-none"></div>
@@ -96,7 +96,7 @@ export default function BespokeProgramRoadmap() {
         {/* 1. 3-PHASE PEDAGOGY ROADMAP */}
         <div>
           <ScrollReveal delay={100} direction="up" className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-xs font-black tracking-wider uppercase text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-3.5 py-1.5 rounded-full inline-flex items-center gap-2">
+            <span className="text-xs font-bold tracking-wider uppercase text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-3.5 py-1.5 rounded-full inline-flex items-center gap-2">
               <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
               <FoldText
                 text="CLEAR ADMISSION FLOW"
@@ -106,11 +106,11 @@ export default function BespokeProgramRoadmap() {
                 duration={0.45}
                 stagger={0.015}
                 fontSize="12px"
-                fontWeight={900}
+                fontWeight={600}
                 color="#4338ca"
               />
             </span>
-            <h2 className="font-heading tracking-tight mt-3">
+            <h2 className="font-heading font-extrabold tracking-[-0.03em] mt-3">
               <span className="sr-only">Simple 5-step journey to your target rank.</span>
               <FoldText
                 text="Simple 5-step journey to your target rank."
@@ -120,7 +120,7 @@ export default function BespokeProgramRoadmap() {
                 duration={0.6}
                 stagger={0.04}
                 fontSize="clamp(1.75rem, 4vw, 2.5rem)"
-                fontWeight={900}
+                fontWeight={800}
                 color="#020617"
               />
             </h2>
@@ -140,19 +140,19 @@ export default function BespokeProgramRoadmap() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className={`font-mono text-xs font-black ${activePhase === idx ? 'text-indigo-400' : 'text-slate-500'}`}>
+                    <span className={`font-mono text-xs font-bold ${activePhase === idx ? 'text-indigo-400' : 'text-slate-500'}`}>
                       {p.num}
                     </span>
-                    <span className={`text-[10px] font-black px-2 py-0.5 rounded-full border ${activePhase === idx ? 'bg-slate-800 text-slate-200 border-slate-700' : 'bg-white text-slate-700 border-slate-200'}`}>
+                    <span className={`text-xs font-bold px-2 py-0.5 rounded-full border ${activePhase === idx ? 'bg-slate-800 text-slate-200 border-slate-700' : 'bg-white text-slate-700 border-slate-200'}`}>
                       {p.months}
                     </span>
                   </div>
-                  <h3 className="font-heading font-black text-base leading-snug">
+                  <h3 className="font-heading font-extrabold text-base leading-snug">
                     {p.title}
                   </h3>
                 </div>
 
-                <div className={`mt-3 pt-3 border-t text-xs font-extrabold flex items-center gap-1 ${activePhase === idx ? 'border-slate-800 text-indigo-400' : 'border-slate-200/80 text-indigo-600'}`}>
+                <div className={`mt-3 pt-3 border-t text-xs font-semibold flex items-center gap-1 ${activePhase === idx ? 'border-slate-800 text-indigo-400' : 'border-slate-200/80 text-indigo-600'}`}>
                   <span>Phase Deliverables</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </div>
@@ -164,14 +164,14 @@ export default function BespokeProgramRoadmap() {
           <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-sm relative overflow-hidden">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-100 mb-5">
               <div>
-                <span className="text-[10px] font-black uppercase tracking-wider text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-2.5 py-1 rounded-full">
+                <span className="text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-2.5 py-1 rounded-full">
                   {phases[activePhase].badge}
                 </span>
-                <h3 className="font-heading text-xl font-black text-slate-950 mt-2">
+                <h3 className="font-heading text-xl font-extrabold text-slate-950 mt-2">
                   {phases[activePhase].title}
                 </h3>
               </div>
-              <span className="font-mono text-xs font-black bg-slate-950 text-white px-3 py-1 rounded-xl self-start sm:self-auto shadow-xs">
+              <span className="font-mono text-xs font-bold bg-slate-950 text-white px-3 py-1 rounded-xl self-start sm:self-auto shadow-xs">
                 {phases[activePhase].months}
               </span>
             </div>
@@ -197,18 +197,18 @@ export default function BespokeProgramRoadmap() {
         <div className="bg-slate-950 rounded-3xl p-6 sm:p-10 text-white shadow-2xl relative overflow-hidden border border-slate-800">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-800 mb-6">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800 text-cyan-300 border border-slate-700 text-xs font-black uppercase tracking-wider mb-2">
-                <Users className="w-3.5 h-3.5 text-cyan-400" />
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800 text-indigo-300 border border-slate-700 text-xs font-bold uppercase tracking-wider mb-2">
+                <Users className="w-3.5 h-3.5 text-indigo-400" />
                 <span>MICRO-BATCH CAP: 10-15 STUDENTS</span>
               </div>
-              <h3 className="font-heading text-xl sm:text-2xl font-black text-white tracking-tight">
+              <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-white tracking-tight">
                 Live Batch Seats & Timetable
               </h3>
             </div>
 
             <button
               onClick={openSeatLock}
-              className="bg-indigo-600 hover:bg-indigo-500 text-white font-black text-xs px-5 py-3.5 rounded-full transition-all shadow-md flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
+              className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs px-5 py-3.5 rounded-full transition-all shadow-md flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
             >
               <Lock className="w-4 h-4 text-white" />
               <span>Lock Seat in Active Batch</span>
@@ -220,20 +220,20 @@ export default function BespokeProgramRoadmap() {
               <div key={bIdx} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-slate-700 transition-all">
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <span className="font-heading font-black text-sm text-white">{batch.batchName}</span>
-                    <span className="text-[9px] font-extrabold px-2 py-0.5 rounded-full border bg-slate-800 text-cyan-300 border-slate-700">
+                    <span className="font-heading font-extrabold text-sm text-white">{batch.batchName}</span>
+                    <span className="text-xs font-semibold px-2 py-0.5 rounded-full border bg-slate-800 text-indigo-300 border-slate-700">
                       {batch.status}
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-1.5 text-xs text-cyan-300 font-mono font-bold mt-1">
-                    <Calendar className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                  <div className="flex items-center gap-1.5 text-xs text-indigo-300 font-mono font-bold mt-1">
+                    <Calendar className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
                     <span>{batch.timing}</span>
                   </div>
                 </div>
 
-                <div className="pt-3 mt-3 border-t border-slate-800 flex items-center justify-between text-xs font-extrabold">
-                  <span className="text-cyan-400">{batch.seatsLeft}</span>
+                <div className="pt-3 mt-3 border-t border-slate-800 flex items-center justify-between text-xs font-semibold">
+                  <span className="text-indigo-400">{batch.seatsLeft}</span>
                   <button onClick={openSeatLock} className="text-indigo-400 hover:text-indigo-300 cursor-pointer flex items-center gap-1">
                     <span>Reserve Seat</span>
                     <ArrowRight className="w-3.5 h-3.5 text-indigo-400" />

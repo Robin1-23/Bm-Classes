@@ -18,10 +18,22 @@ const PROGRAM_OPTIONS = [
   'General Inquiry / Diagnostic Session'
 ];
 
+// Attach the admin session token to API calls
+const authFetch = (url, options = {}) => {
+  let token = '';
+  try {
+    token = sessionStorage.getItem('bm_admin_token') || '';
+  } catch (err) {}
+  return fetch(url, { ...options, headers: { ...options.headers, Authorization: `Bearer ${token}` } });
+};
+
+// Neutralise spreadsheet formula injection from public form input
+const csvCell = (value) => `"${String(value ?? '').replace(/^[=+\-@\t\r]/, "'$&").replace(/"/g, '""')}"`;
+
 const STATUS_OPTIONS = [
-  { value: 'New Lead', label: 'New Lead', color: 'bg-cyan-950/80 text-cyan-400 border-cyan-800/60' },
-  { value: 'Contacted', label: 'Contacted', color: 'bg-blue-950/80 text-blue-400 border-blue-800/60' },
-  { value: 'Counseling Booked', label: 'Counseling Booked', color: 'bg-purple-950/80 text-purple-400 border-purple-800/60' },
+  { value: 'New Lead', label: 'New Lead', color: 'bg-indigo-950/80 text-indigo-400 border-indigo-800/60' },
+  { value: 'Contacted', label: 'Contacted', color: 'bg-indigo-950/80 text-indigo-400 border-indigo-800/60' },
+  { value: 'Counseling Booked', label: 'Counseling Booked', color: 'bg-indigo-950/80 text-indigo-400 border-indigo-800/60' },
   { value: 'Admitted', label: 'Admitted', color: 'bg-emerald-950/80 text-emerald-400 border-emerald-800/60' },
   { value: 'Follow Up', label: 'Follow Up', color: 'bg-amber-950/80 text-amber-400 border-amber-800/60' },
 ];
@@ -78,7 +90,7 @@ export default function AdminPage() {
   useEffect(() => {
     try {
       const token = sessionStorage.getItem('bm_admin_token');
-      if (token && typeof token === 'string' && token.startsWith('BM_AUTH_')) {
+      if (token) {
         setIsAuthenticated(true);
       }
     } catch (err) {}
@@ -115,7 +127,6 @@ export default function AdminPage() {
         setIsAuthenticated(true);
         setPasscode('');
         setPassError(false);
-        fetchApplications();
       } else {
         setPassError(true);
         setPassErrorMsg(data.message || 'Incorrect passcode. Please try again.');
@@ -143,7 +154,15 @@ export default function AdminPage() {
     setLoading(true);
     let serverApps = [];
     try {
-      const res = await fetch('/api/applications', { cache: 'no-store' });
+      const res = await authFetch('/api/applications', { cache: 'no-store' });
+      if (res.status === 401) {
+        try {
+          sessionStorage.removeItem('bm_admin_token');
+        } catch (err) {}
+        setIsAuthenticated(false);
+        setLoading(false);
+        return;
+      }
       const data = await res.json();
       if (data.success && Array.isArray(data.applications)) {
         serverApps = data.applications;
@@ -196,7 +215,7 @@ export default function AdminPage() {
     if (!confirm(`Are you sure you want to delete the record for "${targetName}"?`)) return;
 
     try {
-      await fetch(`/api/applications?id=${id}`, { method: 'DELETE' });
+      await authFetch(`/api/applications?id=${encodeURIComponent(id)}`, { method: 'DELETE' });
     } catch (err) {
       console.error('API delete error:', err);
     }
@@ -222,7 +241,7 @@ export default function AdminPage() {
     );
 
     try {
-      await fetch('/api/applications', {
+      await authFetch('/api/applications', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id, status: newStatus }),
@@ -262,7 +281,7 @@ export default function AdminPage() {
     );
 
     try {
-      await fetch('/api/applications', {
+      await authFetch('/api/applications', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id, notes: cleanNotes }),
@@ -323,7 +342,7 @@ export default function AdminPage() {
 
     let createdApp = null;
     try {
-      const res = await fetch('/api/applications', {
+      const res = await authFetch('/api/applications', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -379,7 +398,7 @@ export default function AdminPage() {
       
       for (const item of parsed) {
         if (item.studentName && item.phoneNumber) {
-          await fetch('/api/applications', {
+          await authFetch('/api/applications', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(item),
@@ -418,18 +437,18 @@ export default function AdminPage() {
     ];
     
     const rows = applications.map((app) => [
-      `"${app.id || ''}"`,
-      `"${(app.studentName || '').replace(/"/g, '""')}"`,
-      `"${app.phoneNumber || ''}"`,
-      `"${(app.email || '').replace(/"/g, '""')}"`,
-      `"${(app.selectedProgram || '').replace(/"/g, '""')}"`,
-      `"${app.marksPercentage ? app.marksPercentage + '%' : 'N/A'}"`,
-      `"${app.lockPassId || 'N/A'}"`,
-      `"${(app.source || 'Website Submission').replace(/"/g, '""')}"`,
-      `"${(app.status || 'New Lead').replace(/"/g, '""')}"`,
-      `"${(app.notes || '').replace(/"/g, '""')}"`,
-      `"${app.submittedAt || ''}"`,
-    ]);
+      app.id,
+      app.studentName,
+      app.phoneNumber,
+      app.email,
+      app.selectedProgram,
+      app.marksPercentage ? app.marksPercentage + '%' : 'N/A',
+      app.lockPassId || 'N/A',
+      app.source || 'Website Submission',
+      app.status || 'New Lead',
+      app.notes,
+      app.submittedAt,
+    ].map(csvCell));
 
     const csvContent = '\uFEFF' + [headers.join(','), ...rows.map((e) => e.join(','))].join('\n');
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
@@ -466,19 +485,19 @@ export default function AdminPage() {
     return (
       <div className="min-h-screen bg-black text-white flex items-center justify-center p-4 pt-28 sm:pt-36 pb-16">
         <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl p-8 sm:p-10 max-w-md w-full shadow-2xl relative overflow-hidden my-auto">
-          <div className="absolute top-0 right-0 w-48 h-48 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-48 h-48 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-          <div className="w-12 h-12 rounded-2xl bg-cyan-950/80 border border-cyan-800/40 text-cyan-400 font-black flex items-center justify-center mb-6">
-            <Lock className="w-6 h-6 text-cyan-400" />
+          <div className="w-12 h-12 rounded-2xl bg-indigo-950/80 border border-indigo-800/40 text-indigo-400 font-bold flex items-center justify-center mb-6">
+            <Lock className="w-6 h-6 text-indigo-400" />
           </div>
 
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-800/40 text-cyan-400 text-xs font-black uppercase tracking-wider mb-2">
-            <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-950/60 border border-indigo-800/40 text-indigo-400 text-xs font-bold uppercase tracking-wider mb-2">
+            <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
             <span>ADMISSION DESK PANEL</span>
           </div>
 
-          <h1 className="font-heading text-2xl sm:text-3xl font-black text-white tracking-tight">
-            BM CLASSES <span className="text-cyan-400">Admin Portal</span>
+          <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+            BM CLASSES <span className="text-indigo-400">Admin Portal</span>
           </h1>
           <p className="text-zinc-400 text-xs mt-1 font-medium mb-6">
             Enter passkey to view, manage, add, and sync student course applications across mobile & desktop.
@@ -486,21 +505,21 @@ export default function AdminPage() {
 
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
-              <label className="block text-xs font-black text-zinc-300 uppercase tracking-wider mb-1.5 flex items-center justify-between">
+              <label className="block text-xs font-bold text-zinc-300 uppercase tracking-wider mb-1.5 flex items-center justify-between">
                 <span>Admin Passkey</span>
                 <button
                   type="button"
                   onClick={() => setShowPasscode(!showPasscode)}
-                  className="text-[11px] font-bold text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1.5 cursor-pointer focus:outline-none"
+                  className="text-xs font-bold text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1.5 cursor-pointer focus:outline-none"
                 >
-                  <Key className="w-3.5 h-3.5 text-cyan-400" />
+                  <Key className="w-3.5 h-3.5 text-indigo-400" />
                   <span>{showPasscode ? 'Hide Password' : 'Show Password'}</span>
                 </button>
               </label>
 
               <div className="relative">
-                <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-cyan-400 pointer-events-none">
-                  <Key className="w-4 h-4 text-cyan-400" />
+                <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-indigo-400 pointer-events-none">
+                  <Key className="w-4 h-4 text-indigo-400" />
                 </div>
 
                 <input
@@ -509,19 +528,19 @@ export default function AdminPage() {
                   value={passcode}
                   onChange={(e) => setPasscode(e.target.value)}
                   placeholder="Enter admin passcode..."
-                  className="w-full pl-10 pr-11 py-3 rounded-2xl bg-black border-2 border-zinc-800 text-white font-extrabold text-sm focus:outline-none focus:border-cyan-400 transition-all"
+                  className="w-full pl-10 pr-11 py-3 rounded-2xl bg-black border-2 border-zinc-800 text-white font-semibold text-sm focus:outline-none focus:border-indigo-400 transition-all"
                 />
 
                 <button
                   type="button"
                   onClick={() => setShowPasscode(!showPasscode)}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-cyan-300 transition-colors cursor-pointer p-1"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-indigo-300 transition-colors cursor-pointer p-1"
                   title={showPasscode ? 'Hide Password' : 'Show Password'}
                 >
                   {showPasscode ? (
-                    <EyeOff className="w-4 h-4 text-cyan-400" />
+                    <EyeOff className="w-4 h-4 text-indigo-400" />
                   ) : (
-                    <Eye className="w-4 h-4 text-zinc-400 hover:text-cyan-400" />
+                    <Eye className="w-4 h-4 text-zinc-400 hover:text-indigo-400" />
                   )}
                 </button>
               </div>
@@ -534,7 +553,7 @@ export default function AdminPage() {
             <button
               type="submit"
               disabled={isAuthenticating}
-              className="w-full bg-cyan-400 hover:bg-cyan-300 text-black font-black py-3.5 rounded-2xl transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer text-sm"
+              className="w-full bg-indigo-400 hover:bg-indigo-300 text-black font-bold py-3.5 rounded-2xl transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer text-sm"
             >
               {isAuthenticating ? (
                 <>
@@ -556,8 +575,8 @@ export default function AdminPage() {
       
       {/* Toast Notification */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-cyan-950 border-2 border-cyan-500 text-cyan-200 px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 font-bold text-xs animate-bounce">
-          <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+        <div className="fixed bottom-6 right-6 z-50 bg-indigo-950 border-2 border-indigo-500 text-indigo-200 px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 font-bold text-xs animate-bounce">
+          <CheckCircle2 className="w-4 h-4 text-indigo-400 shrink-0" />
           <span>{toastMessage}</span>
         </div>
       )}
@@ -566,12 +585,12 @@ export default function AdminPage() {
         
         {/* Header Bar */}
         <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
           <div>
             <div className="flex items-center gap-2 mb-2 flex-wrap">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-800/60 text-emerald-400 text-xs font-black uppercase tracking-wider">
-                <Globe className="w-3.5 h-3.5 text-emerald-400 animate-pulse" />
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-800/60 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+                <Globe className="w-3.5 h-3.5 text-emerald-400" />
                 <span>CROSS-DEVICE CLOUD SYNC ACTIVE</span>
               </span>
               {lastSyncTime && (
@@ -580,8 +599,8 @@ export default function AdminPage() {
                 </span>
               )}
             </div>
-            <h1 className="font-heading text-2xl sm:text-4xl font-black text-white tracking-tight">
-              Student Application <span className="font-serif italic font-normal text-cyan-300">Admin Panel</span>
+            <h1 className="font-heading text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+              Student Application <span className="text-indigo-300">Admin Panel</span>
             </h1>
             <p className="text-zinc-400 text-xs sm:text-sm font-medium mt-1">
               Live admission telemetry persistent across all mobile phones, tablets, and laptops.
@@ -591,7 +610,7 @@ export default function AdminPage() {
           <div className="flex items-center gap-3 shrink-0 flex-wrap">
             <button
               onClick={() => setIsAddModalOpen(true)}
-              className="bg-cyan-400 hover:bg-cyan-300 text-black font-black text-xs px-5 py-3 rounded-2xl transition-all shadow-lg flex items-center gap-2 cursor-pointer"
+              className="bg-indigo-400 hover:bg-indigo-300 text-black font-bold text-xs px-5 py-3 rounded-2xl transition-all shadow-lg flex items-center gap-2 cursor-pointer"
             >
               <Plus className="w-4 h-4 text-black stroke-[3]" />
               <span>+ Add Lead</span>
@@ -599,32 +618,32 @@ export default function AdminPage() {
 
             <button
               onClick={fetchApplications}
-              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 font-extrabold text-xs px-4 py-3 rounded-2xl transition-all flex items-center gap-2 cursor-pointer"
+              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 font-semibold text-xs px-4 py-3 rounded-2xl transition-all flex items-center gap-2 cursor-pointer"
               title="Force Sync Cloud Data"
             >
-              <RefreshCw className={`w-4 h-4 text-cyan-400 ${loading ? 'animate-spin' : ''}`} />
+              <RefreshCw className={`w-4 h-4 text-indigo-400 ${loading ? 'animate-spin' : ''}`} />
               <span>{loading ? 'Syncing...' : 'Cloud Sync'}</span>
             </button>
 
             <button
               onClick={handleExportExcel}
-              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-extrabold text-xs px-4 py-3 rounded-2xl transition-all flex items-center gap-2 cursor-pointer"
+              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-semibold text-xs px-4 py-3 rounded-2xl transition-all flex items-center gap-2 cursor-pointer"
             >
-              <Download className="w-4 h-4 text-cyan-400" />
+              <Download className="w-4 h-4 text-indigo-400" />
               <span>Export CSV</span>
             </button>
 
             <button
               onClick={() => setIsBackupModalOpen(true)}
-              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 font-extrabold text-xs px-3.5 py-3 rounded-2xl transition-all cursor-pointer"
+              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 font-semibold text-xs px-3.5 py-3 rounded-2xl transition-all cursor-pointer"
               title="Backup & Transfer Data"
             >
-              <Database className="w-4 h-4 text-purple-400" />
+              <Database className="w-4 h-4 text-indigo-400" />
             </button>
 
             <button
               onClick={handleLogout}
-              className="bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 hover:text-red-300 font-extrabold text-xs px-4 py-3 rounded-2xl transition-all flex items-center gap-2 cursor-pointer shadow-sm"
+              className="bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 hover:text-red-300 font-semibold text-xs px-4 py-3 rounded-2xl transition-all flex items-center gap-2 cursor-pointer shadow-sm"
               title="Logout & Return to Home Screen"
             >
               <LogOut className="w-4 h-4 text-red-400" />
@@ -655,23 +674,23 @@ export default function AdminPage() {
           return (
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-5">
-                <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest block">TOTAL APPLICATIONS</span>
-                <span className="font-mono text-3xl font-black text-cyan-400 mt-1 block">{applications.length}</span>
+                <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest block">TOTAL APPLICATIONS</span>
+                <span className="font-mono text-3xl font-bold text-indigo-400 mt-1 block">{applications.length}</span>
               </div>
 
               <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-5">
-                <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest block">JEE MAIN & ADVANCED</span>
-                <span className="font-mono text-3xl font-black text-white mt-1 block">{jeeCount}</span>
+                <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest block">JEE MAIN & ADVANCED</span>
+                <span className="font-mono text-3xl font-bold text-white mt-1 block">{jeeCount}</span>
               </div>
 
               <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-5">
-                <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest block">NEET UG MEDICAL</span>
-                <span className="font-mono text-3xl font-black text-emerald-400 mt-1 block">{neetCount}</span>
+                <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest block">NEET UG MEDICAL</span>
+                <span className="font-mono text-3xl font-bold text-emerald-400 mt-1 block">{neetCount}</span>
               </div>
 
               <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-5">
-                <span className="text-[10px] font-black text-zinc-400 uppercase tracking-widest block">CLASS 9TH & 10TH</span>
-                <span className="font-mono text-3xl font-black text-purple-400 mt-1 block">{foundationCount}</span>
+                <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest block">CLASS 9TH & 10TH</span>
+                <span className="font-mono text-3xl font-bold text-indigo-400 mt-1 block">{foundationCount}</span>
               </div>
             </div>
           );
@@ -688,7 +707,7 @@ export default function AdminPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search student name, phone, email, program or notes..."
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-cyan-400"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-indigo-400"
             />
           </div>
 
@@ -696,9 +715,9 @@ export default function AdminPage() {
           <div className="flex items-center gap-1.5 overflow-x-auto w-full lg:w-auto pb-1 lg:pb-0">
             <button
               onClick={() => setStatusFilter('all')}
-              className={`px-3 py-1.5 rounded-xl text-xs font-black transition-all shrink-0 cursor-pointer ${
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer ${
                 statusFilter === 'all'
-                  ? 'bg-cyan-400 text-black shadow-md'
+                  ? 'bg-indigo-400 text-black shadow-md'
                   : 'bg-black text-zinc-400 hover:text-white border border-zinc-800'
               }`}
             >
@@ -713,7 +732,7 @@ export default function AdminPage() {
                   onClick={() => setStatusFilter(st.value)}
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer ${
                     statusFilter === st.value
-                      ? 'bg-zinc-800 text-white border border-zinc-700 font-black'
+                      ? 'bg-zinc-800 text-white border border-zinc-700 font-bold'
                       : 'bg-black text-zinc-400 hover:text-white border border-zinc-900'
                   }`}
                 >
@@ -732,7 +751,7 @@ export default function AdminPage() {
         <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl overflow-hidden shadow-2xl">
           {loading ? (
             <div className="p-12 text-center text-zinc-400 text-sm font-bold flex flex-col items-center justify-center gap-3">
-              <RefreshCw className="w-6 h-6 text-cyan-400 animate-spin" />
+              <RefreshCw className="w-6 h-6 text-indigo-400 animate-spin" />
               <span>Syncing live student applications from cloud database...</span>
             </div>
           ) : filteredApps.length === 0 ? (
@@ -742,7 +761,7 @@ export default function AdminPage() {
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full text-left text-xs">
-                <thead className="bg-black border-b border-zinc-800 text-zinc-400 uppercase tracking-wider font-black text-[10px]">
+                <thead className="bg-black border-b border-zinc-800 text-zinc-400 uppercase tracking-wider font-bold text-xs">
                   <tr>
                     <th className="p-4">App ID & Date</th>
                     <th className="p-4">Student Name</th>
@@ -768,21 +787,21 @@ export default function AdminPage() {
                         
                         {/* App ID & Date */}
                         <td className="p-4 font-mono">
-                          <span className="text-cyan-400 font-bold block">{app.id}</span>
-                          <span className="text-[10px] text-zinc-500 font-medium block mt-0.5">{app.submittedAt}</span>
+                          <span className="text-indigo-400 font-bold block">{app.id}</span>
+                          <span className="text-xs text-zinc-500 font-medium block mt-0.5">{app.submittedAt}</span>
                         </td>
 
                         {/* Student Name */}
                         <td className="p-4">
-                          <span className="font-heading font-black text-white text-sm block">{app.studentName}</span>
+                          <span className="font-heading font-extrabold text-white text-sm block">{app.studentName}</span>
                           <div className="flex items-center gap-1.5 mt-1 flex-wrap">
-                            <span className="text-[10px] font-bold text-zinc-400 bg-zinc-900 border border-zinc-800 px-2 py-0.5 rounded">
+                            <span className="text-xs font-bold text-zinc-400 bg-zinc-900 border border-zinc-800 px-2 py-0.5 rounded">
                               {app.source || 'Website Submission'}
                             </span>
                             {app.notes && (
                               <button
                                 onClick={() => openNotesModal(app)}
-                                className="text-[10px] font-bold text-amber-400 bg-amber-950/60 border border-amber-800/50 px-2 py-0.5 rounded flex items-center gap-1 cursor-pointer hover:bg-amber-900/60"
+                                className="text-xs font-bold text-amber-400 bg-amber-950/60 border border-amber-800/50 px-2 py-0.5 rounded flex items-center gap-1 cursor-pointer hover:bg-amber-900/60"
                                 title="View Notes"
                               >
                                 <StickyNote className="w-3 h-3 text-amber-400" />
@@ -794,36 +813,36 @@ export default function AdminPage() {
 
                         {/* Mobile Number */}
                         <td className="p-4 font-mono">
-                          <a href={`tel:+91${app.phoneNumber}`} className="text-white font-extrabold hover:text-cyan-300 flex items-center gap-1.5">
-                            <Phone className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                          <a href={`tel:+91${app.phoneNumber}`} className="text-white font-semibold hover:text-indigo-300 flex items-center gap-1.5">
+                            <Phone className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
                             <span>+91 {app.phoneNumber}</span>
                           </a>
                         </td>
 
                         {/* Email Address */}
                         <td className="p-4">
-                          <a href={`mailto:${app.email}`} className="text-zinc-300 font-bold hover:text-cyan-300 flex items-center gap-1.5">
-                            <Mail className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                          <a href={`mailto:${app.email}`} className="text-zinc-300 font-bold hover:text-indigo-300 flex items-center gap-1.5">
+                            <Mail className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
                             <span>{app.email || 'N/A'}</span>
                           </a>
                         </td>
 
                         {/* Target Program */}
                         <td className="p-4">
-                          <span className="font-extrabold text-cyan-300 block max-w-xs">{app.selectedProgram}</span>
+                          <span className="font-semibold text-indigo-300 block max-w-xs">{app.selectedProgram}</span>
                         </td>
 
                         {/* Marks / Lock Pass */}
                         <td className="p-4 text-center">
                           {app.marksPercentage ? (
-                            <span className="inline-block bg-cyan-950 text-cyan-300 border border-cyan-800 px-2.5 py-1 rounded-lg text-[10px] font-black">
+                            <span className="inline-block bg-indigo-950 text-indigo-300 border border-indigo-800 px-2.5 py-1 rounded-lg text-xs font-bold">
                               {app.marksPercentage}% Marks
                             </span>
                           ) : (
-                            <span className="text-zinc-500 font-mono text-[10px]">Standard</span>
+                            <span className="text-zinc-500 font-mono text-xs">Standard</span>
                           )}
                           {app.lockPassId && (
-                            <span className="block font-mono text-[10px] text-emerald-400 mt-1 font-bold">
+                            <span className="block font-mono text-xs text-emerald-400 mt-1 font-bold">
                               #{app.lockPassId}
                             </span>
                           )}
@@ -835,7 +854,7 @@ export default function AdminPage() {
                             <select
                               value={app.status || 'New Lead'}
                               onChange={(e) => handleStatusChange(app.id, e.target.value)}
-                              className={`appearance-none font-extrabold text-[11px] px-3 py-1.5 rounded-xl border transition-all cursor-pointer focus:outline-none ${currentStatusObj.color}`}
+                              className={`appearance-none font-semibold text-xs px-3 py-1.5 rounded-xl border transition-all cursor-pointer focus:outline-none ${currentStatusObj.color}`}
                             >
                               {STATUS_OPTIONS.map((st) => (
                                 <option key={st.value} value={st.value} className="bg-zinc-950 text-white font-bold">
@@ -901,13 +920,13 @@ export default function AdminPage() {
             </button>
 
             <div className="flex items-center gap-2 mb-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-950 border border-cyan-800 text-cyan-400 text-[10px] font-black uppercase tracking-wider">
-                <UserPlus className="w-3.5 h-3.5 text-cyan-400" />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-950 border border-indigo-800 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+                <UserPlus className="w-3.5 h-3.5 text-indigo-400" />
                 <span>MANUAL ENTRY</span>
               </span>
             </div>
 
-            <h2 className="font-heading text-xl sm:text-2xl font-black text-white">Add Student Application</h2>
+            <h2 className="font-heading text-xl sm:text-2xl font-extrabold text-white">Add Student Application</h2>
             <p className="text-zinc-400 text-xs mt-1 mb-6">Record phone calls, walk-ins, or manual course registrations directly into the admin desk.</p>
 
             {addError && (
@@ -925,7 +944,7 @@ export default function AdminPage() {
                   value={addForm.studentName}
                   onChange={(e) => setAddForm({ ...addForm, studentName: e.target.value })}
                   placeholder="Full name of student..."
-                  className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-cyan-400"
+                  className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-indigo-400"
                 />
               </div>
 
@@ -939,7 +958,7 @@ export default function AdminPage() {
                     value={addForm.phoneNumber}
                     onChange={(e) => setAddForm({ ...addForm, phoneNumber: e.target.value.replace(/\D/g, '') })}
                     placeholder="10-digit number..."
-                    className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-mono text-xs focus:outline-none focus:border-cyan-400"
+                    className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-mono text-xs focus:outline-none focus:border-indigo-400"
                   />
                 </div>
 
@@ -951,7 +970,7 @@ export default function AdminPage() {
                     value={addForm.email}
                     onChange={(e) => setAddForm({ ...addForm, email: e.target.value })}
                     placeholder="name@email.com..."
-                    className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-cyan-400"
+                    className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-indigo-400"
                   />
                 </div>
               </div>
@@ -961,7 +980,7 @@ export default function AdminPage() {
                 <select
                   value={addForm.selectedProgram}
                   onChange={(e) => setAddForm({ ...addForm, selectedProgram: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-cyan-400"
+                  className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-indigo-400"
                 >
                   {PROGRAM_OPTIONS.map((prog, idx) => (
                     <option key={idx} value={prog}>{prog}</option>
@@ -979,7 +998,7 @@ export default function AdminPage() {
                     value={addForm.marksPercentage}
                     onChange={(e) => setAddForm({ ...addForm, marksPercentage: e.target.value })}
                     placeholder="e.g. 92"
-                    className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-mono text-xs focus:outline-none focus:border-cyan-400"
+                    className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-mono text-xs focus:outline-none focus:border-indigo-400"
                   />
                 </div>
 
@@ -988,7 +1007,7 @@ export default function AdminPage() {
                   <select
                     value={addForm.status}
                     onChange={(e) => setAddForm({ ...addForm, status: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-cyan-400"
+                    className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-indigo-400"
                   >
                     {STATUS_OPTIONS.map((st) => (
                       <option key={st.value} value={st.value}>{st.label}</option>
@@ -1004,7 +1023,7 @@ export default function AdminPage() {
                   value={addForm.source}
                   onChange={(e) => setAddForm({ ...addForm, source: e.target.value })}
                   placeholder="e.g. Phone Call, Walk-In, Referral..."
-                  className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-cyan-400"
+                  className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-indigo-400"
                 />
               </div>
 
@@ -1015,7 +1034,7 @@ export default function AdminPage() {
                   value={addForm.notes}
                   onChange={(e) => setAddForm({ ...addForm, notes: e.target.value })}
                   placeholder="Counseling preferences, parent notes, follow-up date..."
-                  className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-cyan-400"
+                  className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-indigo-400"
                 />
               </div>
 
@@ -1030,7 +1049,7 @@ export default function AdminPage() {
                 <button
                   type="submit"
                   disabled={isSaving}
-                  className="px-6 py-2.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-black font-black text-xs shadow-lg cursor-pointer flex items-center gap-2"
+                  className="px-6 py-2.5 rounded-xl bg-indigo-400 hover:bg-indigo-300 text-black font-bold text-xs shadow-lg cursor-pointer flex items-center gap-2"
                 >
                   {isSaving ? 'Saving Application...' : 'Save Student Application'}
                 </button>
@@ -1052,13 +1071,13 @@ export default function AdminPage() {
             </button>
 
             <div className="flex items-center gap-2 mb-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-950 border border-amber-800 text-amber-400 text-[10px] font-black uppercase tracking-wider">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-950 border border-amber-800 text-amber-400 text-xs font-bold uppercase tracking-wider">
                 <StickyNote className="w-3.5 h-3.5 text-amber-400" />
                 <span>INTERNAL COUNSELING NOTES</span>
               </span>
             </div>
 
-            <h2 className="font-heading text-lg font-black text-white">{activeNotesApp.studentName}</h2>
+            <h2 className="font-heading text-lg font-extrabold text-white">{activeNotesApp.studentName}</h2>
             <p className="text-zinc-400 text-xs mt-0.5 mb-4">{activeNotesApp.selectedProgram} • {activeNotesApp.phoneNumber}</p>
 
             <form onSubmit={handleSaveNotes} className="space-y-4">
@@ -1069,7 +1088,7 @@ export default function AdminPage() {
                   value={notesText}
                   onChange={(e) => setNotesText(e.target.value)}
                   placeholder="Enter counseling feedback, preferred timing, diagnostic test marks, parent requirements..."
-                  className="w-full px-4 py-3 rounded-2xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-cyan-400"
+                  className="w-full px-4 py-3 rounded-2xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-indigo-400"
                 />
               </div>
 
@@ -1084,7 +1103,7 @@ export default function AdminPage() {
                 <button
                   type="submit"
                   disabled={isSavingNotes}
-                  className="px-5 py-2.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-black font-black text-xs cursor-pointer"
+                  className="px-5 py-2.5 rounded-xl bg-indigo-400 hover:bg-indigo-300 text-black font-bold text-xs cursor-pointer"
                 >
                   {isSavingNotes ? 'Saving Notes...' : 'Save Notes'}
                 </button>
@@ -1106,13 +1125,13 @@ export default function AdminPage() {
             </button>
 
             <div className="flex items-center gap-2 mb-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-950 border border-purple-800 text-purple-400 text-[10px] font-black uppercase tracking-wider">
-                <Database className="w-3.5 h-3.5 text-purple-400" />
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-950 border border-indigo-800 text-indigo-400 text-xs font-bold uppercase tracking-wider">
+                <Database className="w-3.5 h-3.5 text-indigo-400" />
                 <span>CROSS-DEVICE DATA SYNC & BACKUP</span>
               </span>
             </div>
 
-            <h2 className="font-heading text-xl font-black text-white">Import / Backup JSON Leads</h2>
+            <h2 className="font-heading text-xl font-extrabold text-white">Import / Backup JSON Leads</h2>
             <p className="text-zinc-400 text-xs mt-1 mb-4">Copy your JSON data to transfer leads to another phone or paste JSON to import leads.</p>
 
             <div className="space-y-4">
@@ -1124,7 +1143,7 @@ export default function AdminPage() {
                       navigator.clipboard.writeText(JSON.stringify(applications, null, 2));
                       showToast('Copied all JSON applications to clipboard!');
                     }}
-                    className="text-xs font-bold text-cyan-400 hover:underline cursor-pointer"
+                    className="text-xs font-bold text-indigo-400 hover:underline cursor-pointer"
                   >
                     Copy Current JSON ({applications.length})
                   </button>
@@ -1134,7 +1153,7 @@ export default function AdminPage() {
                   value={importJsonText}
                   onChange={(e) => setImportJsonText(e.target.value)}
                   placeholder='Paste JSON array here e.g. [{"studentName":"Rahul", "phoneNumber":"9899818241", ...}]'
-                  className="w-full px-4 py-3 rounded-2xl bg-black border border-zinc-800 text-white font-mono text-xs focus:outline-none focus:border-cyan-400"
+                  className="w-full px-4 py-3 rounded-2xl bg-black border border-zinc-800 text-white font-mono text-xs focus:outline-none focus:border-indigo-400"
                 />
               </div>
 
@@ -1149,7 +1168,7 @@ export default function AdminPage() {
                 <button
                   type="button"
                   onClick={handleImportJson}
-                  className="px-5 py-2.5 rounded-xl bg-purple-500 hover:bg-purple-400 text-black font-black text-xs cursor-pointer flex items-center gap-1.5"
+                  className="px-5 py-2.5 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-black font-bold text-xs cursor-pointer flex items-center gap-1.5"
                 >
                   <Upload className="w-3.5 h-3.5 text-black" />
                   <span>Import Records</span>

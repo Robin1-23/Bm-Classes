@@ -13,10 +13,10 @@ const REELS = [
     faculty: 'KONIKA MAM',
     role: 'Head of Biology (20 Yrs Exp)',
     videoUrl: '/videos/learning1.mp4',
-    badgeColor: 'from-pink-500 to-emerald-600',
-    borderColor: 'border-pink-400/40',
-    accentText: 'text-pink-400',
-    btnColor: 'bg-pink-500 text-white hover:bg-pink-400',
+    badgeColor: 'from-amber-500 to-emerald-600',
+    borderColor: 'border-amber-400/40',
+    accentText: 'text-amber-400',
+    btnColor: 'bg-amber-500 text-white hover:bg-amber-400',
     tag: 'BIOLOGY',
     duration: '0:30',
   },
@@ -26,7 +26,7 @@ const REELS = [
     faculty: 'KONIKA MAM',
     role: 'Head of Biology & Chemistry',
     videoUrl: '/videos/learning2.mp4',
-    badgeColor: 'from-emerald-500 to-teal-600',
+    badgeColor: 'from-emerald-500 to-indigo-600',
     borderColor: 'border-emerald-400/40',
     accentText: 'text-emerald-400',
     btnColor: 'bg-emerald-400 text-slate-950 hover:bg-emerald-300',
@@ -39,10 +39,10 @@ const REELS = [
     faculty: 'BM SIR',
     role: 'Ex-FIITJEE & VMC HOD Chemistry (20+ Yrs Exp)',
     videoUrl: '/videos/learn3.mp4',
-    badgeColor: 'from-cyan-500 to-indigo-600',
-    borderColor: 'border-cyan-400/40',
-    accentText: 'text-cyan-400',
-    btnColor: 'bg-cyan-400 text-slate-950 hover:bg-cyan-300',
+    badgeColor: 'from-indigo-500 to-indigo-600',
+    borderColor: 'border-indigo-400/40',
+    accentText: 'text-indigo-400',
+    btnColor: 'bg-indigo-400 text-slate-950 hover:bg-indigo-300',
     tag: 'CHEMISTRY',
     duration: '0:40',
   },
@@ -52,10 +52,10 @@ const REELS = [
     faculty: 'KONIKA MAM',
     role: 'Head of Biology & Chemistry (20 Yrs Exp)',
     videoUrl: '/videos/learn4.mp4',
-    badgeColor: 'from-pink-500 to-purple-600',
-    borderColor: 'border-pink-400/40',
-    accentText: 'text-pink-400',
-    btnColor: 'bg-pink-500 text-white hover:bg-pink-400',
+    badgeColor: 'from-amber-500 to-indigo-600',
+    borderColor: 'border-amber-400/40',
+    accentText: 'text-amber-400',
+    btnColor: 'bg-amber-500 text-white hover:bg-amber-400',
     tag: 'KONIKA MAM',
     duration: '0:32',
   },
@@ -65,10 +65,10 @@ const REELS = [
     faculty: 'KONIKA MAM',
     role: 'Head of Biology & Chemistry (20 Yrs Exp)',
     videoUrl: '/videos/learn5.mp4',
-    badgeColor: 'from-pink-500 to-purple-600',
-    borderColor: 'border-pink-400/40',
-    accentText: 'text-pink-400',
-    btnColor: 'bg-pink-500 text-white hover:bg-pink-400',
+    badgeColor: 'from-amber-500 to-indigo-600',
+    borderColor: 'border-amber-400/40',
+    accentText: 'text-amber-400',
+    btnColor: 'bg-amber-500 text-white hover:bg-amber-400',
     tag: 'KONIKA MAM',
     duration: '0:38',
   },
@@ -78,10 +78,10 @@ const REELS = [
     faculty: 'BM SIR',
     role: 'Ex-FIITJEE & VMC HOD Chemistry (20+ Yrs Exp)',
     videoUrl: '/videos/learn6.mp4',
-    badgeColor: 'from-cyan-500 to-indigo-600',
-    borderColor: 'border-cyan-400/40',
-    accentText: 'text-cyan-400',
-    btnColor: 'bg-cyan-400 text-slate-950 hover:bg-cyan-300',
+    badgeColor: 'from-indigo-500 to-indigo-600',
+    borderColor: 'border-indigo-400/40',
+    accentText: 'text-indigo-400',
+    btnColor: 'bg-indigo-400 text-slate-950 hover:bg-indigo-300',
     tag: 'BM SIR',
     duration: '0:34',
   },
@@ -91,7 +91,7 @@ const REELS = [
     faculty: 'BM SIR',
     role: 'Ex-Academic Head VMC & Ex-FIITJEE',
     videoUrl: '/videos/learn7.mp4',
-    badgeColor: 'from-amber-500 to-orange-600',
+    badgeColor: 'from-amber-500 to-amber-600',
     borderColor: 'border-amber-400/40',
     accentText: 'text-amber-400',
     btnColor: 'bg-amber-400 text-slate-950 hover:bg-amber-300',
@@ -149,7 +149,7 @@ export default function ReelShowcaseSection() {
   };
 
   return (
-    <section className="py-20 sm:py-28 bg-white text-slate-950 relative overflow-hidden border-b border-slate-200/80">
+    <section className="py-20 lg:py-28 bg-white text-slate-950 relative overflow-hidden border-b border-slate-200/80">
       
       {/* Background Ambient Lighting Orbs */}
       <div className="absolute top-0 right-10 w-96 h-96 bg-indigo-50/70 rounded-full blur-3xl pointer-events-none"></div>
@@ -161,7 +161,7 @@ export default function ReelShowcaseSection() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12 sm:mb-16">
           <div className="text-center md:text-left max-w-2xl">
             <ScrollReveal delay={100} direction="down">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
                 <Sparkles className="w-4 h-4 text-indigo-600" />
                 <FoldText
                   text="HYBRID LEARNING"
@@ -171,14 +171,14 @@ export default function ReelShowcaseSection() {
                   duration={0.45}
                   stagger={0.015}
                   fontSize="12px"
-                  fontWeight={900}
+                  fontWeight={600}
                   color="#4338ca"
                 />
               </div>
             </ScrollReveal>
 
             <ScrollReveal delay={150} direction="up">
-              <h2 className="font-heading tracking-tight leading-tight">
+              <h2 className="font-heading font-extrabold tracking-[-0.03em] leading-tight">
                 <span className="sr-only">See Our Faculty Teaching Live</span>
                 <FoldText
                   text="See Our Faculty Teaching Live"
@@ -187,8 +187,8 @@ export default function ReelShowcaseSection() {
                   trigger="scroll"
                   duration={0.6}
                   stagger={0.04}
-                  fontSize="clamp(1.75rem, 4vw, 3rem)"
-                  fontWeight={900}
+                  fontSize="clamp(2.1rem, 4.6vw, 3.5rem)"
+                  fontWeight={800}
                   color="#020617"
                 />
               </h2>
@@ -242,31 +242,31 @@ export default function ReelShowcaseSection() {
 
                 {/* Top Overlay: Duration Only */}
                 <div className="relative z-10 p-4 flex items-center justify-end">
-                  <span className="text-[11px] font-black text-zinc-300 bg-black/70 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/10">
+                  <span className="text-xs font-bold text-zinc-300 bg-black/70 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/10">
                     {reel.duration}
                   </span>
                 </div>
 
                 {/* Center Play Button Icon */}
                 <div className="relative z-10 flex-1 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-white/20 border-2 border-white/50 text-white flex items-center justify-center backdrop-blur-md group-hover/card:scale-115 group-hover/card:bg-cyan-400 group-hover/card:text-slate-950 group-hover/card:border-cyan-400 transition-all duration-300 shadow-2xl pl-1">
+                  <div className="w-16 h-16 rounded-full bg-white/20 border-2 border-white/50 text-white flex items-center justify-center backdrop-blur-md group-hover/card:scale-115 group-hover/card:bg-indigo-400 group-hover/card:text-slate-950 group-hover/card:border-indigo-400 transition-all duration-300 shadow-2xl pl-1">
                     <Play className="w-7 h-7 fill-current" />
                   </div>
                 </div>
 
                 {/* Bottom Info & CTA */}
                 <div className="relative z-10 p-5 bg-gradient-to-t from-slate-950 via-slate-950/95 to-transparent flex flex-col gap-1.5">
-                  <div className="text-xs font-black uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
-                    <UserCheck className="w-4 h-4 text-cyan-400" />
+                  <div className="text-xs font-bold uppercase tracking-wider text-indigo-400 flex items-center gap-1.5">
+                    <UserCheck className="w-4 h-4 text-indigo-400" />
                     <span>{reel.faculty}</span>
                   </div>
 
-                  <div className="mt-1 pt-2 border-t border-zinc-800/80 flex items-center justify-between text-xs font-black text-white group-hover/card:text-cyan-300">
+                  <div className="mt-1 pt-2 border-t border-zinc-800/80 flex items-center justify-between text-xs font-bold text-white group-hover/card:text-indigo-300">
                     <span className="flex items-center gap-1.5">
-                      <Play className="w-3.5 h-3.5 fill-current text-cyan-400" />
+                      <Play className="w-3.5 h-3.5 fill-current text-indigo-400" />
                       <span>Watch Teaching Reel</span>
                     </span>
-                    <ArrowRight className="w-4 h-4 text-cyan-400 group-hover/card:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 text-indigo-400 group-hover/card:translate-x-1 transition-transform" />
                   </div>
                 </div>
 
@@ -277,7 +277,7 @@ export default function ReelShowcaseSection() {
           {/* Swipe Indicator Bar */}
           <div className="flex items-center justify-between text-xs font-semibold text-zinc-500 mt-2 px-2">
             <span className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+              <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
               <span>Swipe left or use arrows to view all teaching reels</span>
             </span>
           </div>
@@ -293,17 +293,17 @@ export default function ReelShowcaseSection() {
             {/* Top Modal Bar */}
             <div className="absolute top-0 left-0 right-0 z-30 p-4 bg-gradient-to-b from-black/90 via-black/50 to-transparent flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <div className={`w-9 h-9 rounded-2xl bg-gradient-to-tr ${activeReel.badgeColor} flex items-center justify-center font-black text-xs text-white shadow-md`}>
+                <div className={`w-9 h-9 rounded-2xl bg-gradient-to-tr ${activeReel.badgeColor} flex items-center justify-center font-bold text-xs text-white shadow-md`}>
                   <Award className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <div className="text-xs font-black text-white flex items-center gap-1.5">
+                  <div className="text-xs font-bold text-white flex items-center gap-1.5">
                     <span>{activeReel.faculty}</span>
-                    <span className="text-[9px] px-1.5 py-0.2 rounded bg-cyan-400/20 text-cyan-300 font-extrabold border border-cyan-400/30">
+                    <span className="text-xs px-1.5 py-0.2 rounded bg-indigo-400/20 text-indigo-300 font-semibold border border-indigo-400/30">
                       CLASSROOM REEL
                     </span>
                   </div>
-                  <div className="text-[10px] text-zinc-300 font-bold">{activeReel.role}</div>
+                  <div className="text-xs text-zinc-300 font-bold">{activeReel.role}</div>
                 </div>
               </div>
 
@@ -312,7 +312,7 @@ export default function ReelShowcaseSection() {
                   onClick={toggleMute}
                   className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-colors cursor-pointer border border-white/10"
                 >
-                  {isMuted ? <VolumeX className="w-4 h-4 text-red-400" /> : <Volume2 className="w-4 h-4 text-cyan-400" />}
+                  {isMuted ? <VolumeX className="w-4 h-4 text-red-400" /> : <Volume2 className="w-4 h-4 text-indigo-400" />}
                 </button>
                 <button
                   onClick={handleClose}
@@ -355,7 +355,7 @@ export default function ReelShowcaseSection() {
                   handleClose();
                   if (openRegister) openRegister();
                 }}
-                className={`w-full ${activeReel.btnColor} font-black py-3.5 rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2 text-xs sm:text-sm cursor-pointer`}
+                className={`w-full ${activeReel.btnColor} font-bold py-3.5 rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2 text-xs sm:text-sm cursor-pointer`}
               >
                 <span>Book Free Trial Batch with {activeReel.faculty}</span>
                 <ArrowRight className="w-4 h-4" />

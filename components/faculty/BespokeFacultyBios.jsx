@@ -18,7 +18,7 @@ export default function BespokeFacultyBios() {
       exRole: 'Ex-HOD VMC Gurgaon',
       education: 'NIT Rourkela Alumni',
       topRanks: 'AIR 18, AIR 102, AIR 350',
-      badgeBg: 'bg-cyan-400 text-slate-950',
+      badgeBg: 'bg-indigo-400 text-slate-950',
       bio: '20+ years mastering Chemistry. Eliminates rote memorization through first-principles electron push mechanisms & inorganic shortcuts.',
       methods: [
         'First-principles Organic reaction mechanisms',
@@ -54,7 +54,7 @@ export default function BespokeFacultyBios() {
       exRole: '18 Yrs FIITJEE · 2 Yrs NIIT · 2 Yrs PMT OASIS',
       education: 'Senior Science Educator',
       topRanks: 'Online & 1-on-1 Science Lead',
-      badgeBg: 'bg-pink-600 text-white',
+      badgeBg: 'bg-amber-600 text-white',
       bio: '22 years teaching experience (18 Years at FIITJEE, 2 Years at NIIT e-Gurucool, 2 Years at PMT OASIS). Science Teacher | Online (9th–12th) + 1-on-1 personalized classes.',
       methods: [
         'Dedicated 1-on-1 personalized online classes',
@@ -66,15 +66,15 @@ export default function BespokeFacultyBios() {
   ];
 
   return (
-    <section className="py-14 sm:py-20 bg-white border-b border-slate-200/80">
+    <section className="py-20 lg:py-28 bg-white border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-14">
         
         {/* SECTION HEADER */}
         <ScrollReveal delay={100} direction="up" className="text-center max-w-2xl mx-auto">
-          <span className="text-xs font-black tracking-widest uppercase text-cyan-900 bg-cyan-100 border border-cyan-200 px-3.5 py-1.5 rounded-full">
+          <span className="text-xs font-bold tracking-widest uppercase text-indigo-900 bg-indigo-100 border border-indigo-200 px-3.5 py-1.5 rounded-full">
             FACULTY PEDAGOGY BREAKDOWN
           </span>
-          <h2 className="font-heading text-2xl sm:text-3xl font-black text-slate-950 mt-3">
+          <h2 className="font-heading font-extrabold tracking-[-0.03em] text-3xl sm:text-4xl text-slate-950 mt-3">
             Learn Directly from Senior Ex-HODs
           </h2>
           <p className="text-slate-600 text-xs sm:text-sm font-medium mt-1">
@@ -86,7 +86,7 @@ export default function BespokeFacultyBios() {
         <div className="space-y-8">
           {mentors.map((m, idx) => (
             <ScrollReveal key={idx} delay={150 * (idx + 1)} direction="up">
-              <div className="bg-[#faf8f5] border-2 border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm relative overflow-hidden group hover:border-indigo-400 transition-all">
+              <div className="bg-[#faf6f0] border-2 border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm relative overflow-hidden group hover:border-indigo-400 transition-all">
                 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                   
@@ -102,15 +102,15 @@ export default function BespokeFacultyBios() {
                           />
                         </div>
                       ) : (
-                        <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full bg-slate-950 text-cyan-300 font-heading font-black text-2xl flex items-center justify-center shadow-xl border-2 border-white ring-4 ring-indigo-500/20 shrink-0">
+                        <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full bg-slate-950 text-indigo-300 font-heading font-extrabold text-2xl flex items-center justify-center shadow-xl border-2 border-white ring-4 ring-indigo-500/20 shrink-0">
                           {m.name.split(' ').map(n => n[0]).join('')}
                         </div>
                       )}
                       <div>
-                        <span className={`text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded ${m.badgeBg}`}>
+                        <span className={`text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded ${m.badgeBg}`}>
                           {m.exRole}
                         </span>
-                        <h3 className="font-heading font-black text-slate-950 text-lg mt-0.5 leading-snug">
+                        <h3 className="font-heading font-extrabold text-slate-950 text-lg mt-0.5 leading-snug">
                           {m.name}
                         </h3>
                         <p className="text-xs font-bold text-indigo-600">{m.role}</p>
@@ -119,7 +119,7 @@ export default function BespokeFacultyBios() {
 
                     <div className="bg-white border border-slate-200 rounded-xl p-3 space-y-2 text-xs font-bold text-slate-700 shadow-xs">
                       <div className="flex items-center gap-2 text-slate-900">
-                        <Award className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                        <Award className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
                         <span>{m.experience}</span>
                       </div>
                       <div className="flex items-center gap-2 text-slate-900">
@@ -134,7 +134,7 @@ export default function BespokeFacultyBios() {
 
                     <button
                       onClick={openRegister}
-                      className="w-full bg-slate-950 hover:bg-slate-800 text-white font-extrabold text-xs py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                      className="w-full bg-slate-950 hover:bg-slate-800 text-white font-semibold text-xs py-2.5 rounded-xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                     >
                       <span>Book Call with {m.name.split(' ')[0]} Sir</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -144,10 +144,10 @@ export default function BespokeFacultyBios() {
                   {/* Right Column: Bio & Pedagogy Methods (8 cols) */}
                   <div className="lg:col-span-8 space-y-4">
                     <div>
-                      <span className="text-[9px] font-black uppercase tracking-widest text-indigo-600 block mb-0.5">
+                      <span className="text-xs font-bold uppercase tracking-widest text-indigo-600 block mb-0.5">
                         PEDAGOGY FOCUS
                       </span>
-                      <h4 className="font-heading font-black text-slate-950 text-base mb-1.5">
+                      <h4 className="font-heading font-extrabold text-slate-950 text-base mb-1.5">
                         {m.pedagogyFocus}
                       </h4>
                       <p className="text-slate-600 text-xs font-medium leading-relaxed">
@@ -157,19 +157,19 @@ export default function BespokeFacultyBios() {
 
                     {/* Quote Box */}
                     <div className="bg-black text-white rounded-xl p-4 border border-zinc-800">
-                      <p className="text-xs font-semibold italic text-cyan-300">
+                      <p className="text-xs font-semibold italic text-indigo-300">
                         {m.quote}
                       </p>
                     </div>
 
                     {/* Core Teaching Methods */}
                     <div>
-                      <h5 className="text-[10px] font-black uppercase tracking-widest text-slate-900 mb-2">
+                      <h5 className="text-xs font-bold uppercase tracking-widest text-slate-900 mb-2">
                         Direct Delivery Pillars:
                       </h5>
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                         {m.methods.map((method, mIdx) => (
-                          <div key={mIdx} className="bg-white border border-slate-200 rounded-lg p-2.5 text-[11px] font-bold text-slate-800 flex items-start gap-1.5 shadow-xs">
+                          <div key={mIdx} className="bg-white border border-slate-200 rounded-lg p-2.5 text-xs font-bold text-slate-800 flex items-start gap-1.5 shadow-xs">
                             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
                             <span>{method}</span>
                           </div>

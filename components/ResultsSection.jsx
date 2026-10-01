@@ -14,8 +14,8 @@ const REVIEWS_VIDEO_DATA = [
     badge: 'AIR RANKER',
     file: '/videos/review1.mp4',
     quote: 'BM Sir\'s teaching helped me build a strong foundation and conceptual clarity.',
-    badgeBg: 'from-cyan-500 to-indigo-600',
-    borderColor: 'border-cyan-400/40',
+    badgeBg: 'from-indigo-500 to-indigo-600',
+    borderColor: 'border-indigo-400/40',
     duration: '0:35',
   },
   {
@@ -25,7 +25,7 @@ const REVIEWS_VIDEO_DATA = [
     badge: 'JEE QUALIFIER',
     file: '/videos/review2.mp4',
     quote: 'Cleared all conceptual doubts and made Chemistry easy to understand.',
-    badgeBg: 'from-emerald-500 to-teal-600',
+    badgeBg: 'from-emerald-500 to-indigo-600',
     borderColor: 'border-emerald-400/40',
     duration: '0:30',
   },
@@ -36,8 +36,8 @@ const REVIEWS_VIDEO_DATA = [
     badge: '99%+ PERCENTILE',
     file: '/videos/review3.mp4',
     quote: 'Daily DPPs, regular mock tests and timely doubt clarity helped me a lot.',
-    badgeBg: 'from-purple-500 to-pink-600',
-    borderColor: 'border-purple-400/40',
+    badgeBg: 'from-indigo-500 to-amber-600',
+    borderColor: 'border-indigo-400/40',
     duration: '0:40',
   },
   {
@@ -47,7 +47,7 @@ const REVIEWS_VIDEO_DATA = [
     badge: 'TOP RANKER',
     file: '/videos/review4.mp4',
     quote: 'One-on-one doubt solving sessions helped me achieve top score.',
-    badgeBg: 'from-amber-500 to-orange-600',
+    badgeBg: 'from-amber-500 to-amber-600',
     borderColor: 'border-amber-400/40',
     duration: '0:32',
   },
@@ -58,8 +58,8 @@ const REVIEWS_VIDEO_DATA = [
     badge: 'BEST RESULT',
     file: '/videos/review5.mp4',
     quote: 'Direct 1-on-1 Ex-HOD mentorship transformed my problem solving speed.',
-    badgeBg: 'from-pink-500 to-emerald-600',
-    borderColor: 'border-pink-400/40',
+    badgeBg: 'from-amber-500 to-emerald-600',
+    borderColor: 'border-amber-400/40',
     duration: '0:38',
   },
   {
@@ -69,7 +69,7 @@ const REVIEWS_VIDEO_DATA = [
     badge: 'AIR TOP RANKER',
     file: '/videos/review6.mp4',
     quote: 'Small 10-15 student micro-batch attention made all the difference.',
-    badgeBg: 'from-indigo-500 to-cyan-600',
+    badgeBg: 'from-indigo-500 to-indigo-600',
     borderColor: 'border-indigo-400/40',
     duration: '0:42',
   },
@@ -80,8 +80,8 @@ const REVIEWS_VIDEO_DATA = [
     badge: 'STUDENT REVIEW',
     file: '/videos/review7.mp4',
     quote: 'First-principles teaching and zero-backlog doubt solving helped me excel.',
-    badgeBg: 'from-cyan-500 to-emerald-600',
-    borderColor: 'border-cyan-400/40',
+    badgeBg: 'from-indigo-500 to-emerald-600',
+    borderColor: 'border-indigo-400/40',
     duration: '0:36',
   },
 ];
@@ -165,17 +165,17 @@ export default function ResultsSection() {
   };
 
   return (
-    <section className="bg-[#faf6f0] text-slate-950 py-20 sm:py-28 border-b border-[#ede6dd] relative overflow-hidden" id="results">
+    <section className="bg-[#faf6f0] text-slate-950 py-20 lg:py-28 border-b border-[#ede6dd] relative overflow-hidden" id="results">
       
       {/* Background Ambient Warm Cream Glows */}
       <div className="absolute top-1/3 left-10 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-orange-100/30 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Header */}
         <ScrollReveal delay={100} direction="up" className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#e8dfd5] text-indigo-700 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#e8dfd5] text-indigo-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
             <FoldText
               text="REAL GOOGLE REVIEWS & STUDENT RANKERS"
@@ -185,12 +185,12 @@ export default function ResultsSection() {
               duration={0.45}
               stagger={0.015}
               fontSize="12px"
-              fontWeight={900}
+              fontWeight={600}
               color="#4338ca"
             />
           </div>
           
-          <h2 className="font-heading tracking-tight leading-[1.15] mt-1 mb-2">
+          <h2 className="font-heading font-extrabold tracking-[-0.03em] leading-[1.15] mt-1 mb-2">
             <span className="sr-only">Clarity That Parents & Students Remember</span>
             <FoldText
               text="Clarity That Parents & Students Remember"
@@ -199,8 +199,8 @@ export default function ResultsSection() {
               trigger="scroll"
               duration={0.6}
               stagger={0.04}
-              fontSize="clamp(1.75rem, 4vw, 3rem)"
-              fontWeight={900}
+              fontSize="clamp(2.1rem, 4.6vw, 3.5rem)"
+              fontWeight={800}
               color="#020617"
             />
           </h2>
@@ -216,11 +216,11 @@ export default function ResultsSection() {
             {ranks.map((rank, idx) => (
               <div 
                 key={idx}
-                className="bg-white text-slate-950 px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl font-heading font-black text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 border border-[#e8dfd5] shadow-xs hover:border-indigo-400 hover:scale-105 transition-all cursor-default text-center"
+                className="bg-white text-slate-950 px-3 sm:px-5 py-2.5 sm:py-3 rounded-2xl whitespace-nowrap font-heading font-extrabold text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 border border-[#e8dfd5] shadow-xs hover:border-indigo-400 transition-all cursor-default text-center"
               >
                 <Trophy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500 shrink-0" />
-                <span className="text-slate-500 text-[10px] sm:text-xs">JEE ADV</span>
-                <span className="text-indigo-600 font-black">{rank}</span>
+                <span className="text-slate-500 text-xs sm:text-xs">JEE ADV</span>
+                <span className="text-indigo-600 font-bold">{rank}</span>
               </div>
             ))}
           </div>
@@ -244,7 +244,7 @@ export default function ResultsSection() {
                         <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
-                    <span className="text-[10px] font-black bg-[#f5efe6] text-slate-800 border border-[#e2d8cc] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                    <span className="text-xs font-bold bg-[#f5efe6] text-slate-800 border border-[#e2d8cc] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                       Google Review
                     </span>
                   </div>
@@ -256,10 +256,10 @@ export default function ResultsSection() {
 
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                   <div>
-                    <div className="font-heading font-black text-slate-950 text-sm group-hover:text-indigo-600 transition-colors">
+                    <div className="font-heading font-extrabold text-slate-950 text-sm group-hover:text-indigo-600 transition-colors">
                       {rev.author}
                     </div>
-                    <div className="text-[11px] font-bold text-slate-600 mt-0.5">
+                    <div className="text-xs font-bold text-slate-600 mt-0.5">
                       {rev.sub}
                     </div>
                   </div>
@@ -277,12 +277,12 @@ export default function ResultsSection() {
         {/* Section Header with Left/Right Laptop Control Arrows */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-10 sm:mb-12">
           <div className="text-center md:text-left max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-black uppercase tracking-wider mb-3 shadow-xs">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
               <Trophy className="w-4 h-4 text-indigo-600" />
               <span>STUDENT RANKER REELS (6 REELS)</span>
             </div>
 
-            <h3 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-black text-slate-950 tracking-tight leading-tight">
+            <h3 className="font-heading font-extrabold tracking-[-0.03em] text-3xl sm:text-4xl lg:text-5xl text-slate-950 leading-tight">
               Watch Student <span className="text-indigo-600">Video Reviews</span>
             </h3>
           </div>
@@ -316,7 +316,7 @@ export default function ResultsSection() {
               <div 
                 key={rev.id}
                 onClick={() => handleOpenReview(rev)}
-                className={`snap-start shrink-0 w-[280px] sm:w-[310px] group/card relative bg-zinc-950 rounded-3xl overflow-hidden border ${rev.borderColor} hover:border-cyan-400/80 transition-all duration-500 shadow-2xl hover:shadow-cyan-500/20 cursor-pointer flex flex-col h-[460px] sm:h-[480px]`}
+                className={`snap-start shrink-0 w-[280px] sm:w-[310px] group/card relative bg-zinc-950 rounded-3xl overflow-hidden border ${rev.borderColor} hover:border-indigo-400/80 transition-all duration-500 shadow-2xl hover:shadow-indigo-500/20 cursor-pointer flex flex-col h-[460px] sm:h-[480px]`}
               >
                 {/* Background Video Preview (Silent Loop) */}
                 <div className="absolute inset-0 z-0 overflow-hidden bg-zinc-900">
@@ -334,35 +334,35 @@ export default function ResultsSection() {
 
                 {/* Top Duration Badge Overlay */}
                 <div className="relative z-10 p-4 flex items-center justify-end">
-                  <span className="text-[11px] font-black text-zinc-300 bg-black/70 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/10">
+                  <span className="text-xs font-bold text-zinc-300 bg-black/70 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/10">
                     {rev.duration}
                   </span>
                 </div>
 
                 {/* Center Play Button Icon */}
                 <div className="relative z-10 flex-1 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-white/20 border-2 border-white/50 text-white flex items-center justify-center backdrop-blur-md group-hover/card:scale-115 group-hover/card:bg-cyan-400 group-hover/card:text-slate-950 group-hover/card:border-cyan-400 transition-all duration-300 shadow-2xl pl-1">
+                  <div className="w-16 h-16 rounded-full bg-white/20 border-2 border-white/50 text-white flex items-center justify-center backdrop-blur-md group-hover/card:scale-115 group-hover/card:bg-indigo-400 group-hover/card:text-slate-950 group-hover/card:border-indigo-400 transition-all duration-300 shadow-2xl pl-1">
                     <Play className="w-7 h-7 fill-current" />
                   </div>
                 </div>
 
                 {/* Bottom Info & CTA */}
                 <div className="relative z-10 p-5 bg-gradient-to-t from-slate-950 via-slate-950/95 to-transparent flex flex-col gap-1.5">
-                  <div className="text-xs font-black uppercase tracking-wider text-cyan-400 flex items-center gap-1.5">
-                    <UserCheck className="w-4 h-4 text-cyan-400" />
+                  <div className="text-xs font-bold uppercase tracking-wider text-indigo-400 flex items-center gap-1.5">
+                    <UserCheck className="w-4 h-4 text-indigo-400" />
                     <span>{rev.name}</span>
                   </div>
 
-                  <div className="text-[11px] font-bold text-zinc-300">
+                  <div className="text-xs font-bold text-zinc-300">
                     {rev.exam}
                   </div>
 
-                  <div className="mt-1 pt-2 border-t border-zinc-800/80 flex items-center justify-between text-xs font-black text-white group-hover/card:text-cyan-300">
+                  <div className="mt-1 pt-2 border-t border-zinc-800/80 flex items-center justify-between text-xs font-bold text-white group-hover/card:text-indigo-300">
                     <span className="flex items-center gap-1.5">
-                      <Play className="w-3.5 h-3.5 fill-current text-cyan-400" />
+                      <Play className="w-3.5 h-3.5 fill-current text-indigo-400" />
                       <span>Watch Review Reel</span>
                     </span>
-                    <ArrowRight className="w-4 h-4 text-cyan-400 group-hover/card:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-4 h-4 text-indigo-400 group-hover/card:translate-x-1 transition-transform" />
                   </div>
                 </div>
 
@@ -373,7 +373,7 @@ export default function ResultsSection() {
           {/* Swipe Indicator Bar */}
           <div className="flex items-center justify-between text-xs font-semibold text-zinc-500 mt-2 px-2">
             <span className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+              <span className="w-2 h-2 rounded-full bg-indigo-400"></span>
               <span>Swipe left or use arrows to view all student reviews</span>
             </span>
           </div>
@@ -389,17 +389,17 @@ export default function ResultsSection() {
             {/* Top Modal Bar */}
             <div className="absolute top-0 left-0 right-0 z-30 p-4 bg-gradient-to-b from-black/90 via-black/50 to-transparent flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <div className={`w-9 h-9 rounded-2xl bg-gradient-to-tr ${activeReviewVideo.badgeBg} flex items-center justify-center font-black text-xs text-white shadow-md`}>
+                <div className={`w-9 h-9 rounded-2xl bg-gradient-to-tr ${activeReviewVideo.badgeBg} flex items-center justify-center font-bold text-xs text-white shadow-md`}>
                   <Award className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <div className="text-xs font-black text-white flex items-center gap-1.5">
+                  <div className="text-xs font-bold text-white flex items-center gap-1.5">
                     <span>{activeReviewVideo.name}</span>
-                    <span className="text-[9px] px-1.5 py-0.2 rounded bg-cyan-400/20 text-cyan-300 font-extrabold border border-cyan-400/30">
+                    <span className="text-xs px-1.5 py-0.2 rounded bg-indigo-400/20 text-indigo-300 font-semibold border border-indigo-400/30">
                       STUDENT REVIEW
                     </span>
                   </div>
-                  <div className="text-[10px] text-zinc-300 font-bold">{activeReviewVideo.exam}</div>
+                  <div className="text-xs text-zinc-300 font-bold">{activeReviewVideo.exam}</div>
                 </div>
               </div>
 
@@ -408,7 +408,7 @@ export default function ResultsSection() {
                   onClick={toggleMute}
                   className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-colors cursor-pointer border border-white/10"
                 >
-                  {isMuted ? <VolumeX className="w-4 h-4 text-red-400" /> : <Volume2 className="w-4 h-4 text-cyan-400" />}
+                  {isMuted ? <VolumeX className="w-4 h-4 text-red-400" /> : <Volume2 className="w-4 h-4 text-indigo-400" />}
                 </button>
                 <button
                   onClick={handleClose}
@@ -451,7 +451,7 @@ export default function ResultsSection() {
                   handleClose();
                   if (openRegister) openRegister();
                 }}
-                className="w-full bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-black py-3.5 rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2 text-xs sm:text-sm cursor-pointer"
+                className="w-full bg-indigo-400 hover:bg-indigo-300 text-slate-950 font-bold py-3.5 rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2 text-xs sm:text-sm cursor-pointer"
               >
                 <span>Book Free Trial Batch at BM Classes</span>
                 <ArrowRight className="w-4 h-4" />

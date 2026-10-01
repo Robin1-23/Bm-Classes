@@ -36,17 +36,17 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
   };
 
   return (
-    <section className="bg-[#faf6f0] text-slate-900 py-20 sm:py-28 relative overflow-hidden border-b border-[#ede6dd]" id="programs">
+    <section className="bg-[#faf6f0] text-slate-900 py-20 lg:py-28 relative overflow-hidden border-b border-[#ede6dd]" id="programs">
       
       {/* Background Ambient Warm Cream Glow Blobs */}
       <div className="absolute top-1/4 right-5 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-10 left-5 w-96 h-96 bg-orange-100/30 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-10 left-5 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Section Header */}
         <ScrollReveal delay={100} direction="down" className="text-center max-w-3xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#e8dfd5] text-indigo-700 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#e8dfd5] text-indigo-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
             <FoldText
               text="ACADEMIC PROGRAMS"
@@ -56,11 +56,11 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
               duration={0.45}
               stagger={0.015}
               fontSize="12px"
-              fontWeight={900}
+              fontWeight={600}
               color="#4338ca"
             />
           </div>
-          <h2 className="font-heading leading-tight tracking-tight mt-1 mb-2">
+          <h2 className="font-heading font-extrabold tracking-[-0.03em] leading-tight mt-1 mb-2">
             <span className="sr-only">Courses Built for Top AIR Ranks</span>
             <FoldText
               text="Courses Built for Top AIR Ranks"
@@ -69,8 +69,8 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
               trigger="scroll"
               duration={0.6}
               stagger={0.04}
-              fontSize="clamp(1.75rem, 4vw, 3rem)"
-              fontWeight={900}
+              fontSize="clamp(2.1rem, 4.6vw, 3.5rem)"
+              fontWeight={800}
               color="#020617"
             />
           </h2>
@@ -92,7 +92,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`px-5 py-2.5 rounded-full text-xs font-black transition-all cursor-pointer ${
+                className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                   activeTab === tab.id
                     ? 'bg-slate-950 text-white shadow-lg border border-slate-800 scale-105'
                     : 'bg-white text-slate-700 border border-[#e8dfd5] hover:border-indigo-300 hover:bg-white shadow-xs'
@@ -112,7 +112,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
           {/* ========================================================= */}
           {isVisible(['jee', 'neet']) && (
             <ScrollReveal delay={200} direction="up" className={`${getColSpan(1)} flex transition-all duration-300`}>
-              <div className="bg-white text-slate-900 border border-slate-200/80 rounded-[32px] p-6 sm:p-9 relative overflow-hidden flex flex-col justify-between shadow-[0_20px_45px_-10px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_65px_-12px_rgba(99,102,241,0.22),0_12px_24px_rgba(0,0,0,0.04)] hover:border-indigo-400/80 hover:-translate-y-2 transition-all duration-300 w-full group">
+              <div className="bg-white text-slate-900 border border-slate-200/80 rounded-3xl p-6 sm:p-9 relative overflow-hidden flex flex-col justify-between shadow-[0_20px_45px_-10px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_65px_-12px_rgba(99,102,241,0.22),0_12px_24px_rgba(0,0,0,0.04)] hover:border-indigo-400/80 hover:-translate-y-2 transition-all duration-300 w-full group">
               
               {/* Top Soft Ambient Glow */}
               <div className="absolute -right-20 -top-20 w-80 h-80 bg-indigo-100/50 rounded-full blur-3xl pointer-events-none"></div>
@@ -121,20 +121,20 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                 {/* Top Row: Circular Icon (Left) & Saved/Badge Tag (Right) */}
                 <div className="flex items-center justify-between gap-3 pb-5 border-b border-slate-100 mb-6 relative z-10">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-200/80 text-indigo-700 flex items-center justify-center font-black shadow-2xs group-hover:scale-105 transition-transform">
+                    <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-200/80 text-indigo-700 flex items-center justify-center font-bold shadow-2xs group-hover:scale-105 transition-transform">
                       <Target className="w-6 h-6 text-indigo-600" />
                     </div>
                     <div>
-                      <span className="text-[10px] font-black tracking-widest text-indigo-700 uppercase block">
+                      <span className="text-xs font-bold tracking-widest text-indigo-700 uppercase block">
                         FLAGSHIP BATCH
                       </span>
-                      <span className="text-xs font-extrabold text-slate-500">
+                      <span className="text-xs font-semibold text-slate-500">
                         Starts 6th April · Classes 11th, 12th & Droppers
                       </span>
                     </div>
                   </div>
 
-                  <span className="bg-slate-100 text-slate-800 border border-slate-200/80 text-[10px] font-black px-3.5 py-1.5 rounded-xl uppercase tracking-wider flex items-center gap-1.5 shadow-2xs">
+                  <span className="bg-slate-100 text-slate-800 border border-slate-200/80 text-xs font-bold px-3.5 py-1.5 rounded-xl uppercase tracking-wider flex items-center gap-1.5 shadow-2xs">
                     <Flame className="w-3.5 h-3.5 fill-indigo-600 text-indigo-600" />
                     <span>Capped 10–15 Batch</span>
                   </span>
@@ -144,7 +144,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                 <div className="text-xs font-bold text-slate-500 mb-1 relative z-10">
                   JEE Main, Advanced & NEET UG
                 </div>
-                <h3 className="font-heading text-2xl sm:text-3xl font-black text-slate-950 mb-3 group-hover:text-indigo-600 transition-colors relative z-10 leading-tight tracking-tight">
+                <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-950 mb-3 group-hover:text-indigo-600 transition-colors relative z-10 leading-tight tracking-tight">
                   Class 11th & 12th Integrated Master Program
                 </h3>
 
@@ -171,8 +171,8 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                     <img src="/bm_sir.jpg" alt="BM Sir" className="inline-block h-10 w-10 rounded-full ring-2 ring-indigo-500 object-cover" />
                     <img src="/konika_mam.jpg" alt="Konika Ma'am" className="inline-block h-10 w-10 rounded-full ring-2 ring-emerald-500 object-cover" />
                   </div>
-                  <div className="text-xs font-extrabold text-slate-700">
-                    Direct Mentorship by <span className="text-indigo-700 font-black">BM Sir (Chemistry HOD)</span> & <span className="text-emerald-700 font-black">Konika Ma'am (Biology Head)</span>
+                  <div className="text-xs font-semibold text-slate-700">
+                    Direct Mentorship by <span className="text-indigo-700 font-bold">BM Sir (Chemistry HOD)</span> & <span className="text-emerald-700 font-bold">Konika Ma'am (Biology Head)</span>
                   </div>
                 </div>
               </div>
@@ -180,16 +180,16 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
               {/* Card Footer CTA Row matching uploaded image */}
               <div className="pt-4 border-t border-slate-100 relative z-10 flex items-center justify-between flex-wrap gap-4">
                 <div>
-                  <div className="font-heading font-black text-slate-950 text-lg">Limited Seats</div>
+                  <div className="font-heading font-extrabold text-slate-950 text-lg">Limited Seats</div>
                   <div className="text-xs text-slate-500 font-bold">Only 3 Seats Remaining for 2024–25</div>
                 </div>
 
                 <button
                   onClick={() => handleRegister('Class 11th & 12th Integrated JEE & NEET')}
-                  className="bg-slate-950 hover:bg-indigo-600 text-white font-black text-xs px-6 py-3 rounded-2xl transition-all shadow-sm flex items-center gap-2 cursor-pointer ml-auto"
+                  className="bg-slate-950 hover:bg-indigo-600 text-white font-bold text-xs px-6 py-3 rounded-2xl transition-all shadow-sm flex items-center gap-2 cursor-pointer ml-auto"
                 >
                   <span>Apply now</span>
-                  <ArrowRight className="w-4 h-4 text-cyan-300" />
+                  <ArrowRight className="w-4 h-4 text-indigo-300" />
                 </button>
               </div>
 
@@ -202,23 +202,23 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
           {/* ========================================================= */}
           {isVisible(['neet']) && (
             <ScrollReveal delay={250} direction="up" className={`${getColSpan(2)} flex transition-all duration-300`}>
-              <div className="bg-white border border-slate-200/80 rounded-[32px] p-6 sm:p-8 text-slate-900 shadow-[0_20px_45px_-10px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_65px_-12px_rgba(16,185,129,0.22),0_12px_24px_rgba(0,0,0,0.04)] hover:border-emerald-400/80 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between w-full">
+              <div className="bg-white border border-slate-200/80 rounded-3xl p-6 sm:p-8 text-slate-900 shadow-[0_20px_45px_-10px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_65px_-12px_rgba(16,185,129,0.22),0_12px_24px_rgba(0,0,0,0.04)] hover:border-emerald-400/80 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between w-full">
                 <div>
                   {/* Top Row */}
                   <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-5">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-200/80 text-emerald-600 flex items-center justify-center font-black shadow-2xs group-hover:scale-105 transition-transform">
+                      <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-200/80 text-emerald-600 flex items-center justify-center font-bold shadow-2xs group-hover:scale-105 transition-transform">
                         <Stethoscope className="w-6 h-6 text-emerald-600" />
                       </div>
                       <div>
-                        <span className="text-[10px] font-black tracking-widest text-emerald-600 uppercase block">
+                        <span className="text-xs font-bold tracking-widest text-emerald-600 uppercase block">
                           KONIKA MA'AM · 20 YRS EXP
                         </span>
                         <span className="text-xs font-bold text-slate-500">NEET Botany & Boards</span>
                       </div>
                     </div>
 
-                    <span className="text-[10px] font-black bg-slate-100 text-slate-800 border border-slate-200/80 px-3 py-1 rounded-xl uppercase tracking-wider shadow-2xs">
+                    <span className="text-xs font-bold bg-slate-100 text-slate-800 border border-slate-200/80 px-3 py-1 rounded-xl uppercase tracking-wider shadow-2xs">
                       360/360 BIO
                     </span>
                   </div>
@@ -226,7 +226,7 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                   <div className="text-xs font-bold text-slate-500 mb-1">
                     Class 9th–12th & NEET UG
                   </div>
-                  <h3 className="font-heading text-xl sm:text-2xl font-black text-slate-950 mb-2 group-hover:text-emerald-600 transition-colors leading-snug tracking-tight">
+                  <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-slate-950 mb-2 group-hover:text-emerald-600 transition-colors leading-snug tracking-tight">
                     Biology Excellence Master Batch
                   </h3>
 
@@ -249,8 +249,8 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
 
                   <div className="flex items-center gap-3 p-2.5 rounded-2xl bg-slate-50 border border-slate-200/80 mb-5">
                     <img src="/konika_mam.jpg" alt="Konika Ma'am" className="h-9 w-9 rounded-full ring-2 ring-emerald-500 object-cover shrink-0" />
-                    <div className="text-[11px] font-bold text-slate-700">
-                      Guided by <strong className="text-slate-950 font-black">Konika Ma'am</strong> (Ex-FIITJEE KVPY Batch)
+                    <div className="text-xs font-bold text-slate-700">
+                      Guided by <strong className="text-slate-950 font-bold">Konika Ma'am</strong> (Ex-FIITJEE KVPY Batch)
                     </div>
                   </div>
                 </div>
@@ -258,16 +258,16 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                 {/* Card Footer CTA Row matching uploaded image */}
                 <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-4">
                   <div>
-                    <div className="font-heading font-black text-slate-950 text-lg">NEET Medical</div>
+                    <div className="font-heading font-extrabold text-slate-950 text-lg">NEET Medical</div>
                     <div className="text-xs text-slate-500 font-bold">100% NCERT Mastery</div>
                   </div>
 
                   <button
                     onClick={() => handleRegister('Biology Excellence Program')}
-                    className="bg-slate-950 hover:bg-emerald-600 text-white font-black text-xs px-5 py-2.5 rounded-2xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+                    className="bg-slate-950 hover:bg-emerald-600 text-white font-bold text-xs px-5 py-2.5 rounded-2xl transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
                   >
                     <span>Apply now</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-cyan-300" />
+                    <ArrowRight className="w-3.5 h-3.5 text-indigo-300" />
                   </button>
                 </div>
               </div>
@@ -279,23 +279,23 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
           {/* ========================================================= */}
           {isVisible(['oneonone']) && (
             <ScrollReveal delay={300} direction="up" className={`${getColSpan(3)} flex transition-all duration-300`}>
-              <div className="bg-white border border-slate-200/80 rounded-[32px] p-6 text-slate-900 shadow-[0_20px_45px_-10px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_65px_-12px_rgba(236,72,153,0.22),0_12px_24px_rgba(0,0,0,0.04)] hover:border-pink-400/80 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between w-full">
+              <div className="bg-white border border-slate-200/80 rounded-3xl p-6 text-slate-900 shadow-[0_20px_45px_-10px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_65px_-12px_rgba(236,72,153,0.22),0_12px_24px_rgba(0,0,0,0.04)] hover:border-amber-400/80 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between w-full">
                 <div>
                   {/* Top Row */}
                   <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-4">
-                    <div className="w-11 h-11 rounded-full bg-slate-50 border border-slate-200/80 text-pink-600 flex items-center justify-center font-black shadow-2xs group-hover:scale-105 transition-transform">
-                      <UserCheck className="w-5 h-5 text-pink-600" />
+                    <div className="w-11 h-11 rounded-full bg-slate-50 border border-slate-200/80 text-amber-600 flex items-center justify-center font-bold shadow-2xs group-hover:scale-105 transition-transform">
+                      <UserCheck className="w-5 h-5 text-amber-600" />
                     </div>
-                    <span className="text-[10px] font-black bg-slate-100 text-slate-800 border border-slate-200/80 px-3 py-1 rounded-xl uppercase tracking-wider shadow-2xs">
+                    <span className="text-xs font-bold bg-slate-100 text-slate-800 border border-slate-200/80 px-3 py-1 rounded-xl uppercase tracking-wider shadow-2xs">
                       22 YRS EXP
                     </span>
                   </div>
 
-                  <div className="text-[10px] font-black tracking-widest text-pink-600 uppercase block mb-1">
+                  <div className="text-xs font-bold tracking-widest text-amber-600 uppercase block mb-1">
                     CHUMKI MA'AM · EX-FIITJEE
                   </div>
 
-                  <h3 className="font-heading text-lg font-black text-slate-950 mb-2 group-hover:text-pink-600 transition-colors leading-snug tracking-tight">
+                  <h3 className="font-heading text-lg font-extrabold text-slate-950 mb-2 group-hover:text-amber-600 transition-colors leading-snug tracking-tight">
                     Science Teacher | Online (9th–12th) + 1-on-1
                   </h3>
 
@@ -314,9 +314,9 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                   </div>
 
                   <div className="flex items-center gap-3 p-2 rounded-2xl bg-slate-50 border border-slate-200/80 mb-4">
-                    <img src="/chumki_mam.jpeg" alt="Chumki Ma'am" className="h-8 w-8 rounded-full ring-2 ring-pink-400 object-cover shrink-0" />
+                    <img src="/chumki_mam.jpeg" alt="Chumki Ma'am" className="h-8 w-8 rounded-full ring-2 ring-amber-400 object-cover shrink-0" />
                     <div className="text-[10.5px] font-bold text-slate-700">
-                      Taught by <strong className="text-slate-950 font-black">Chumki Ma'am</strong> (18 Yrs FIITJEE)
+                      Taught by <strong className="text-slate-950 font-bold">Chumki Ma'am</strong> (18 Yrs FIITJEE)
                     </div>
                   </div>
                 </div>
@@ -324,16 +324,16 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                 {/* Card Footer CTA Row matching uploaded image */}
                 <div className="pt-3.5 border-t border-slate-100 flex items-center justify-between gap-3">
                   <div>
-                    <div className="font-heading font-black text-slate-950 text-base">1-on-1 Online</div>
-                    <div className="text-[11px] text-slate-500 font-bold">Personalized Pace</div>
+                    <div className="font-heading font-extrabold text-slate-950 text-base">1-on-1 Online</div>
+                    <div className="text-xs text-slate-500 font-bold">Personalized Pace</div>
                   </div>
 
                   <button
                     onClick={() => handleRegister('Science Teacher Online (9th-12th) + 1-on-1')}
-                    className="bg-slate-950 hover:bg-pink-600 text-white font-black text-xs px-4 py-2.5 rounded-2xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                    className="bg-slate-950 hover:bg-amber-600 text-white font-bold text-xs px-4 py-2.5 rounded-2xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                   >
                     <span>Apply now</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-cyan-300" />
+                    <ArrowRight className="w-3.5 h-3.5 text-indigo-300" />
                   </button>
                 </div>
               </div>
@@ -345,23 +345,23 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
           {/* ========================================================= */}
           {isVisible(['foundation']) && (
             <ScrollReveal delay={350} direction="up" className={`${getColSpan(4)} flex transition-all duration-300`}>
-              <div className="bg-white border border-slate-200/80 rounded-[32px] p-6 text-slate-900 shadow-[0_20px_45px_-10px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_65px_-12px_rgba(99,102,241,0.22),0_12px_24px_rgba(0,0,0,0.04)] hover:border-indigo-400/80 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between w-full">
+              <div className="bg-white border border-slate-200/80 rounded-3xl p-6 text-slate-900 shadow-[0_20px_45px_-10px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_65px_-12px_rgba(99,102,241,0.22),0_12px_24px_rgba(0,0,0,0.04)] hover:border-indigo-400/80 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between w-full">
                 <div>
                   {/* Top Row */}
                   <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-4">
-                    <div className="w-11 h-11 rounded-full bg-slate-50 border border-slate-200/80 text-indigo-600 flex items-center justify-center font-black shadow-2xs group-hover:scale-105 transition-transform">
+                    <div className="w-11 h-11 rounded-full bg-slate-50 border border-slate-200/80 text-indigo-600 flex items-center justify-center font-bold shadow-2xs group-hover:scale-105 transition-transform">
                       <TrendingUp className="w-5 h-5 text-indigo-600" />
                     </div>
-                    <span className="text-[10px] font-black bg-slate-100 text-slate-800 border border-slate-200/80 px-3 py-1 rounded-xl uppercase tracking-wider shadow-2xs">
+                    <span className="text-xs font-bold bg-slate-100 text-slate-800 border border-slate-200/80 px-3 py-1 rounded-xl uppercase tracking-wider shadow-2xs">
                       STARTS 12TH MARCH
                     </span>
                   </div>
 
-                  <div className="text-[10px] font-black tracking-widest text-indigo-600 uppercase block mb-1">
+                  <div className="text-xs font-bold tracking-widest text-indigo-600 uppercase block mb-1">
                     CLASSES 9TH & 10TH · CBSE & OLYMPIAD
                   </div>
 
-                  <h3 className="font-heading text-lg font-black text-slate-950 mb-2 group-hover:text-indigo-600 transition-colors leading-snug tracking-tight">
+                  <h3 className="font-heading text-lg font-extrabold text-slate-950 mb-2 group-hover:text-indigo-600 transition-colors leading-snug tracking-tight">
                     Class 9th & 10th Maths & Science Foundation
                   </h3>
 
@@ -380,11 +380,11 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                   </div>
 
                   <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-3 space-y-1.5 mb-4">
-                    <div className="flex items-center gap-2 text-xs font-extrabold text-slate-900">
+                    <div className="flex items-center gap-2 text-xs font-semibold text-slate-900">
                       <Check className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
                       <span>Board competency paper mastery</span>
                     </div>
-                    <div className="flex items-center gap-2 text-xs font-extrabold text-slate-900">
+                    <div className="flex items-center gap-2 text-xs font-semibold text-slate-900">
                       <Check className="w-3.5 h-3.5 text-indigo-600 shrink-0" />
                       <span>Early IIT JEE & NEET analytical mindset</span>
                     </div>
@@ -394,16 +394,16 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                 {/* Card Footer CTA Row matching uploaded image */}
                 <div className="pt-3.5 border-t border-slate-100 flex items-center justify-between gap-3">
                   <div>
-                    <div className="font-heading font-black text-slate-950 text-base">Class 9th / 10th</div>
-                    <div className="text-[11px] text-slate-500 font-bold">Foundation Batch</div>
+                    <div className="font-heading font-extrabold text-slate-950 text-base">Class 9th / 10th</div>
+                    <div className="text-xs text-slate-500 font-bold">Foundation Batch</div>
                   </div>
 
                   <button
                     onClick={() => handleRegister('Class 9th & 10th Foundation')}
-                    className="bg-slate-950 hover:bg-indigo-600 text-white font-black text-xs px-4 py-2.5 rounded-2xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                    className="bg-slate-950 hover:bg-indigo-600 text-white font-bold text-xs px-4 py-2.5 rounded-2xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                   >
                     <span>Apply now</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-cyan-300" />
+                    <ArrowRight className="w-3.5 h-3.5 text-indigo-300" />
                   </button>
                 </div>
               </div>
@@ -415,23 +415,23 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
           {/* ========================================================= */}
           {isVisible(['oneonone', 'jee', 'neet']) && (
             <ScrollReveal delay={400} direction="up" className={`${getColSpan(5)} flex transition-all duration-300`}>
-              <div className="bg-white border border-slate-200/80 rounded-[32px] p-6 text-slate-900 shadow-[0_20px_45px_-10px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_65px_-12px_rgba(245,158,11,0.22),0_12px_24px_rgba(0,0,0,0.04)] hover:border-amber-400/80 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between w-full">
+              <div className="bg-white border border-slate-200/80 rounded-3xl p-6 text-slate-900 shadow-[0_20px_45px_-10px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_65px_-12px_rgba(245,158,11,0.22),0_12px_24px_rgba(0,0,0,0.04)] hover:border-amber-400/80 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between w-full">
                 <div>
                   {/* Top Row */}
                   <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-4">
-                    <div className="w-11 h-11 rounded-full bg-slate-50 border border-slate-200/80 text-amber-600 flex items-center justify-center font-black shadow-2xs group-hover:scale-105 transition-transform">
+                    <div className="w-11 h-11 rounded-full bg-slate-50 border border-slate-200/80 text-amber-600 flex items-center justify-center font-bold shadow-2xs group-hover:scale-105 transition-transform">
                       <HelpCircle className="w-5 h-5 text-amber-600" />
                     </div>
-                    <span className="text-[10px] font-black bg-slate-100 text-slate-800 border border-slate-200/80 px-3 py-1 rounded-xl uppercase tracking-wider shadow-2xs">
+                    <span className="text-xs font-bold bg-slate-100 text-slate-800 border border-slate-200/80 px-3 py-1 rounded-xl uppercase tracking-wider shadow-2xs">
                       SAME-DAY DOUBTS
                     </span>
                   </div>
 
-                  <div className="text-[10px] font-black tracking-widest text-amber-600 uppercase block mb-1">
+                  <div className="text-xs font-bold tracking-widest text-amber-600 uppercase block mb-1">
                     1-ON-1 DOUBTS & BOARD PYQS
                   </div>
 
-                  <h3 className="font-heading text-lg font-black text-slate-950 mb-2 group-hover:text-amber-600 transition-colors leading-snug tracking-tight">
+                  <h3 className="font-heading text-lg font-extrabold text-slate-950 mb-2 group-hover:text-amber-600 transition-colors leading-snug tracking-tight">
                     1-on-1 Board Doubt Clearing & PYQ Shortcut Drills
                   </h3>
 
@@ -450,11 +450,11 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                   </div>
 
                   <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-3 space-y-1.5 mb-4">
-                    <div className="flex items-center gap-2 text-xs font-extrabold text-slate-900">
+                    <div className="flex items-center gap-2 text-xs font-semibold text-slate-900">
                       <Check className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                       <span>Same-day board doubt resolution</span>
                     </div>
-                    <div className="flex items-center gap-2 text-xs font-extrabold text-slate-900">
+                    <div className="flex items-center gap-2 text-xs font-semibold text-slate-900">
                       <Check className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                       <span>Direct Ex-HOD 1-on-1 interaction</span>
                     </div>
@@ -464,16 +464,16 @@ export default function ProgramsSection({ onOpenRegister, onOpenSeatLock }) {
                 {/* Card Footer CTA Row matching uploaded image */}
                 <div className="pt-3.5 border-t border-slate-100 flex items-center justify-between gap-3">
                   <div>
-                    <div className="font-heading font-black text-slate-950 text-base">Doubt Session</div>
-                    <div className="text-[11px] text-slate-500 font-bold">1-on-1 Slot</div>
+                    <div className="font-heading font-extrabold text-slate-950 text-base">Doubt Session</div>
+                    <div className="text-xs text-slate-500 font-bold">1-on-1 Slot</div>
                   </div>
 
                   <button
                     onClick={() => handleRegister('1-on-1 Doubt & PYQ Drills')}
-                    className="bg-slate-950 hover:bg-amber-500 text-white font-black text-xs px-4 py-2.5 rounded-2xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                    className="bg-slate-950 hover:bg-amber-500 text-white font-bold text-xs px-4 py-2.5 rounded-2xl transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                   >
                     <span>Apply now</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-cyan-300" />
+                    <ArrowRight className="w-3.5 h-3.5 text-indigo-300" />
                   </button>
                 </div>
               </div>

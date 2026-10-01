@@ -14,30 +14,18 @@ export default function SectionHeader({
   className = '',
 }) {
   return (
-    <ScrollReveal delay={100} direction="up" className={`text-center max-w-3xl mx-auto mb-14 sm:mb-18 ${className}`}>
+    <ScrollReveal delay={100} direction="up" className={`text-center max-w-3xl mx-auto mb-12 sm:mb-16 ${className}`}>
       {badgeText && (
-        <div className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wider mb-4 shadow-xs ${
-          dark 
-            ? 'bg-white/10 border border-white/10 text-cyan-300'
-            : 'bg-indigo-50 border border-indigo-200/80 text-indigo-700'
+        <div className={`inline-flex items-center gap-2 mb-4 text-xs font-semibold uppercase tracking-[0.18em] ${
+          dark ? 'text-amber-300' : 'text-indigo-700'
         }`}>
-          <BadgeIcon className={`w-3.5 h-3.5 ${dark ? 'text-cyan-300' : 'text-indigo-600'}`} />
-          <FoldText
-            text={badgeText}
-            splitBy="char"
-            hinge="top"
-            trigger="scroll"
-            duration={0.45}
-            stagger={0.015}
-            fontSize="12px"
-            fontWeight={900}
-            color={dark ? '#67e8f9' : '#4338ca'}
-          />
+          <BadgeIcon className="w-3.5 h-3.5" />
+          <span>{badgeText}</span>
         </div>
       )}
-      
+
       {title && (
-        <h2 className="font-heading leading-[1.15] tracking-tight mt-1 mb-2">
+        <h2 className="font-heading font-extrabold tracking-[-0.03em] leading-[1.08]">
           <span className="sr-only">{title}</span>
           <FoldText
             text={title}
@@ -46,15 +34,15 @@ export default function SectionHeader({
             trigger="scroll"
             duration={0.6}
             stagger={0.04}
-            fontSize="clamp(1.75rem, 4vw, 3rem)"
-            fontWeight={900}
-            color={dark ? '#ffffff' : '#020617'}
+            fontSize="clamp(2.1rem, 4.6vw, 3.5rem)"
+            fontWeight={800}
+            color={dark ? '#ffffff' : '#0b1020'}
           />
         </h2>
       )}
-      
+
       {subtitle && (
-        <p className={`text-base sm:text-lg mt-3 font-medium leading-relaxed max-w-xl mx-auto ${
+        <p className={`text-base sm:text-lg mt-4 leading-relaxed max-w-xl mx-auto ${
           dark ? 'text-slate-300' : 'text-slate-600'
         }`}>
           {subtitle}

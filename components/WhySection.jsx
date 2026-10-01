@@ -151,7 +151,7 @@ export default function WhySection({ hidePedagogy = false }) {
   const currentDim = dimensions[selectedDimension];
 
   return (
-    <section className="relative bg-white text-slate-950 py-20 sm:py-28 border-b border-slate-200/80 overflow-hidden" id="why-bmclasses">
+    <section className="relative bg-white text-slate-950 py-20 lg:py-28 border-b border-slate-200/80 overflow-hidden" id="why-bmclasses">
       
       {/* Background Soft Glows */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-indigo-50/60 rounded-full blur-3xl pointer-events-none"></div>
@@ -161,7 +161,7 @@ export default function WhySection({ hidePedagogy = false }) {
         
         {/* Header */}
         <ScrollReveal delay={100} direction="up" className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
             <Sparkles className="w-4 h-4 text-indigo-600" />
             <FoldText
               text="PEDAGOGY DIFFERENCE"
@@ -171,12 +171,12 @@ export default function WhySection({ hidePedagogy = false }) {
               duration={0.45}
               stagger={0.015}
               fontSize="12px"
-              fontWeight={900}
+              fontWeight={600}
               color="#4338ca"
             />
           </div>
           
-          <h2 className="font-heading tracking-tight leading-[1.15] mt-1 mb-2">
+          <h2 className="font-heading font-extrabold tracking-[-0.03em] leading-[1.15] mt-1 mb-2">
             <span className="sr-only">Conceptual Depth Over Mechanical Drills</span>
             <FoldText
               text="Conceptual Depth Over Mechanical Drills"
@@ -185,8 +185,8 @@ export default function WhySection({ hidePedagogy = false }) {
               trigger="scroll"
               duration={0.6}
               stagger={0.04}
-              fontSize="clamp(1.75rem, 4vw, 3rem)"
-              fontWeight={900}
+              fontSize="clamp(2.1rem, 4.6vw, 3.5rem)"
+              fontWeight={800}
               color="#020617"
             />
           </h2>
@@ -202,15 +202,15 @@ export default function WhySection({ hidePedagogy = false }) {
             const Icon = pillar.icon;
             return (
               <ScrollReveal key={idx} delay={150 * (idx + 1)} direction="up" className="flex">
-                <div className="bg-white border border-slate-200/80 rounded-[32px] p-7 sm:p-8 text-slate-950 shadow-[0_20px_45px_-10px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_65px_-12px_rgba(99,102,241,0.22),0_12px_24px_rgba(0,0,0,0.04)] hover:border-indigo-400/80 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between overflow-hidden h-full w-full">
+                <div className="bg-white border border-slate-200/80 rounded-3xl p-7 sm:p-8 text-slate-950 shadow-[0_20px_45px_-10px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_65px_-12px_rgba(99,102,241,0.22),0_12px_24px_rgba(0,0,0,0.04)] hover:border-indigo-400/80 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between overflow-hidden h-full w-full">
                   
                   <div>
                     {/* Top Row: Circular Icon & Tag */}
                     <div className="flex items-center justify-between pb-5 border-b border-slate-100 mb-6">
-                      <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-200/80 text-indigo-600 flex items-center justify-center font-black shadow-2xs group-hover:scale-105 transition-transform">
+                      <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-200/80 text-indigo-600 flex items-center justify-center font-bold shadow-2xs group-hover:scale-105 transition-transform">
                         <Icon className="w-6 h-6 text-indigo-600" />
                       </div>
-                      <span className="text-[10px] font-black tracking-wider uppercase text-slate-800 bg-slate-100 border border-slate-200/80 px-3 py-1.5 rounded-xl shadow-2xs">
+                      <span className="text-xs font-bold tracking-wider uppercase text-slate-800 bg-slate-100 border border-slate-200/80 px-3 py-1.5 rounded-xl shadow-2xs">
                         {pillar.tag}
                       </span>
                     </div>
@@ -219,7 +219,7 @@ export default function WhySection({ hidePedagogy = false }) {
                       Pillar #{pillar.num}
                     </div>
 
-                    <h3 className="font-heading text-xl sm:text-2xl font-black text-slate-950 mb-3 leading-snug tracking-tight group-hover:text-indigo-600 transition-colors">
+                    <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-slate-950 mb-3 leading-snug tracking-tight group-hover:text-indigo-600 transition-colors">
                       {pillar.title}
                     </h3>
                     <p className="text-slate-600 text-xs sm:text-sm font-semibold leading-relaxed mb-6 bg-slate-50 p-3.5 rounded-2xl border border-slate-200/60">
@@ -230,11 +230,11 @@ export default function WhySection({ hidePedagogy = false }) {
                   {/* Card Footer matching reference card style */}
                   <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
                     <div>
-                      <div className="font-heading font-black text-slate-950 text-base">{pillar.stats}</div>
-                      <div className="text-[11px] text-slate-500 font-bold">Standard Metric</div>
+                      <div className="font-heading font-extrabold text-slate-950 text-base">{pillar.stats}</div>
+                      <div className="text-xs text-slate-500 font-bold">Standard Metric</div>
                     </div>
 
-                    <span className="bg-slate-950 text-white font-extrabold text-xs px-4 py-2.5 rounded-2xl shadow-xs">
+                    <span className="bg-slate-950 text-white font-semibold text-xs px-4 py-2.5 rounded-2xl shadow-xs">
                       Active
                     </span>
                   </div>
@@ -252,11 +252,11 @@ export default function WhySection({ hidePedagogy = false }) {
             
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-slate-100 mb-8">
               <div>
-                <span className="text-[10px] font-black tracking-widest text-indigo-600 uppercase block mb-1">
+                <span className="text-xs font-bold tracking-widest text-indigo-600 uppercase block mb-1">
                   PEDAGOGY COMPARISON DECK
                 </span>
-                <h3 className="font-heading text-2xl sm:text-3xl font-black text-slate-950">
-                  Why Micro-Batches <span className="font-serif italic font-normal text-indigo-600">Outperform Mass Coaching</span>
+                <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-950">
+                  Why Micro-Batches <span className="text-indigo-600">Outperform Mass Coaching</span>
                 </h3>
               </div>
 
@@ -266,7 +266,7 @@ export default function WhySection({ hidePedagogy = false }) {
                   <button
                     key={dim.id}
                     onClick={() => setSelectedDimension(dIdx)}
-                    className={`px-4 py-2.5 rounded-full text-xs font-black transition-all cursor-pointer whitespace-nowrap ${
+                    className={`px-4 py-2.5 rounded-full text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
                       selectedDimension === dIdx
                         ? 'bg-slate-950 text-white shadow-md'
                         : 'bg-slate-50 text-slate-700 border border-slate-200/80 hover:bg-slate-100'
@@ -286,19 +286,19 @@ export default function WhySection({ hidePedagogy = false }) {
                 <div>
                   <div className="space-y-2 mb-5">
                     <div className="flex items-center justify-between">
-                      <span className="text-[11px] font-black tracking-wider text-slate-500 uppercase">
+                      <span className="text-xs font-bold tracking-wider text-slate-500 uppercase">
                         MASS FACTORY SYSTEM
                       </span>
-                      <span className="text-[10px] font-extrabold text-slate-500">Standard Industry</span>
+                      <span className="text-xs font-semibold text-slate-500">Standard Industry</span>
                     </div>
                     <div>
-                      <span className="inline-flex items-center gap-1.5 bg-slate-200 text-slate-800 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider">
+                      <span className="inline-flex items-center gap-1.5 bg-slate-200 text-slate-800 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
                         <span>{currentDim.factory.badge}</span>
                       </span>
                     </div>
                   </div>
 
-                  <h4 className="font-heading font-black text-lg sm:text-xl text-slate-950 mb-2">
+                  <h4 className="font-heading font-extrabold text-lg sm:text-xl text-slate-950 mb-2">
                     {currentDim.factory.headline}
                   </h4>
 
@@ -310,9 +310,9 @@ export default function WhySection({ hidePedagogy = false }) {
                 {/* Telemetry Meter */}
                 <div className="space-y-4 pt-4 border-t border-slate-200/80">
                   <div>
-                    <div className="flex justify-between text-xs font-extrabold mb-1">
+                    <div className="flex justify-between text-xs font-semibold mb-1">
                       <span className="text-slate-600">Individual Attention Score</span>
-                      <span className="text-slate-950 font-black">{currentDim.factory.attentionScore}%</span>
+                      <span className="text-slate-950 font-bold">{currentDim.factory.attentionScore}%</span>
                     </div>
                     <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
                       <div 
@@ -324,7 +324,7 @@ export default function WhySection({ hidePedagogy = false }) {
 
                   <div className="bg-white border border-slate-200/80 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2 text-xs">
                     <span className="text-slate-600 font-semibold">Doubt Delay Window:</span>
-                    <span className="font-extrabold text-slate-950">{currentDim.factory.doubtSpeed}</span>
+                    <span className="font-semibold text-slate-950">{currentDim.factory.doubtSpeed}</span>
                   </div>
                 </div>
 
@@ -336,23 +336,23 @@ export default function WhySection({ hidePedagogy = false }) {
                 <div>
                   <div className="space-y-2 mb-5 relative z-10">
                     <div className="flex items-center justify-between">
-                      <span className="text-[11px] font-black tracking-wider text-cyan-300 uppercase">
+                      <span className="text-xs font-bold tracking-wider text-indigo-300 uppercase">
                         BMCLASSES STANDARD
                       </span>
-                      <span className="flex items-center gap-1.5 text-[10px] font-extrabold text-emerald-400">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                      <span className="flex items-center gap-1.5 text-xs font-semibold text-emerald-400">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
                         Verified Metric
                       </span>
                     </div>
                     <div>
-                      <span className="inline-flex items-center gap-1.5 bg-indigo-600 text-white px-3.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider shadow-sm">
+                      <span className="inline-flex items-center gap-1.5 bg-indigo-600 text-white px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
                         <ShieldCheck className="w-3.5 h-3.5 text-white shrink-0" />
                         <span>{currentDim.bmclasses.badge}</span>
                       </span>
                     </div>
                   </div>
 
-                  <h4 className="font-heading font-black text-lg sm:text-xl text-white mb-2 relative z-10">
+                  <h4 className="font-heading font-extrabold text-lg sm:text-xl text-white mb-2 relative z-10">
                     {currentDim.bmclasses.headline}
                   </h4>
 
@@ -364,9 +364,9 @@ export default function WhySection({ hidePedagogy = false }) {
                 {/* Telemetry Meter */}
                 <div className="space-y-4 pt-4 border-t border-zinc-800 relative z-10">
                   <div>
-                    <div className="flex justify-between text-xs font-extrabold mb-1">
+                    <div className="flex justify-between text-xs font-semibold mb-1">
                       <span className="text-zinc-200">Individual Attention Score</span>
-                      <span className="text-cyan-300 font-black">{currentDim.bmclasses.attentionScore}%</span>
+                      <span className="text-indigo-300 font-bold">{currentDim.bmclasses.attentionScore}%</span>
                     </div>
                     <div className="h-2 bg-zinc-900 rounded-full overflow-hidden">
                       <div 
@@ -378,8 +378,8 @@ export default function WhySection({ hidePedagogy = false }) {
 
                   <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2 text-xs">
                     <span className="text-zinc-200 font-semibold">Doubt Clearing Speed:</span>
-                    <span className="font-black text-cyan-300 flex items-center gap-1 shrink-0">
-                      <Zap className="w-3.5 h-3.5 fill-cyan-400 text-cyan-400 shrink-0" />
+                    <span className="font-bold text-indigo-300 flex items-center gap-1 shrink-0">
+                      <Zap className="w-3.5 h-3.5 fill-indigo-400 text-indigo-400 shrink-0" />
                       <span>{currentDim.bmclasses.doubtSpeed}</span>
                     </span>
                   </div>
@@ -393,7 +393,7 @@ export default function WhySection({ hidePedagogy = false }) {
             <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600 font-medium relative z-10">
               <div className="flex items-center gap-2">
                 <Layers className="w-4 h-4 text-indigo-600 shrink-0" />
-                <span>Comparing Dimension: <strong className="text-slate-950 font-extrabold">{currentDim.subtitle}</strong></span>
+                <span>Comparing Dimension: <strong className="text-slate-950 font-semibold">{currentDim.subtitle}</strong></span>
               </div>
             </div>
 

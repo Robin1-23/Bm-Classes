@@ -51,17 +51,17 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
       ></div>
 
       {/* Background Soft Glows */}
-      <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-indigo-400/20 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-0 right-10 w-96 h-96 bg-indigo-400/20 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* TOP HERO CTA SECTION */}
         <div className="text-center max-w-3xl mx-auto mb-16 pt-4">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
             Join Gurgaon's #1 Academy <br className="hidden sm:inline" /> at speed + scale.
           </h2>
-          <p className="text-purple-100 text-sm sm:text-base font-medium max-w-xl mx-auto mb-8 leading-relaxed">
+          <p className="text-indigo-100 text-sm sm:text-base font-medium max-w-xl mx-auto mb-8 leading-relaxed">
             BM Classes' cutting edge Ex-HOD technology & micro-batches seamlessly match students with top rankers.
           </p>
 
@@ -76,19 +76,19 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
                   setContactInput(e.target.value);
                   if (inputError) setInputError('');
                 }}
-                className={`w-full sm:w-72 bg-white/20 text-white placeholder-purple-200 border ${
+                className={`w-full sm:w-72 bg-white/20 text-white placeholder-indigo-200 border ${
                   inputError ? 'border-amber-300 ring-2 ring-amber-300' : 'border-white/30'
                 } rounded-2xl px-5 py-3.5 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-amber-300 transition-all`}
               />
               <button
                 type="submit"
-                className="w-full sm:w-auto bg-[#f5a623] hover:bg-[#e09516] text-slate-950 font-black text-sm px-7 py-3.5 rounded-2xl shadow-lg transition-transform hover:scale-[1.02] cursor-pointer whitespace-nowrap"
+                className="w-full sm:w-auto bg-[#f5a623] hover:bg-[#e09516] text-slate-950 font-bold text-sm px-7 py-3.5 rounded-2xl shadow-lg transition-transform hover:scale-[1.02] cursor-pointer whitespace-nowrap"
               >
                 Contact Me
               </button>
             </form>
             {inputError && (
-              <p className="text-amber-300 text-xs font-bold mt-2.5 text-center animate-pulse">
+              <p className="text-amber-300 text-xs font-bold mt-2.5 text-center">
                 ⚠️ {inputError}
               </p>
             )}
@@ -100,16 +100,16 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
           
           {/* Col 1: Brand Logo & Tagline (4 cols) */}
           <div className="md:col-span-4">
-            <Link href="/" className="inline-flex items-center gap-3 font-heading text-2xl font-black tracking-tight text-white mb-4">
+            <Link href="/" className="inline-flex items-center gap-3 font-heading text-2xl font-extrabold tracking-tight text-white mb-4">
               <div className="w-10 h-10 rounded-xl bg-amber-400 p-1 flex items-center justify-center shadow-md shrink-0">
-                <span className="font-heading font-black text-slate-950 text-xl">BM</span>
+                <span className="font-heading font-extrabold text-slate-950 text-xl">BM</span>
               </div>
-              <span className="text-2xl font-heading font-black tracking-tight text-white uppercase">
+              <span className="text-2xl font-heading font-extrabold tracking-tight text-white uppercase">
                 BM CLASSES
               </span>
             </Link>
 
-            <p className="text-purple-100 text-xs sm:text-sm leading-relaxed max-w-sm font-normal">
+            <p className="text-indigo-100 text-xs sm:text-sm leading-relaxed max-w-sm font-normal">
               BM Classes uses Ex-HOD tech + humans to help students scale their IIT JEE & NEET preparation needs across Gurgaon seamlessly.
             </p>
           </div>
@@ -119,7 +119,7 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
             <h4 className="font-bold text-white text-sm tracking-wide mb-5">
               Company
             </h4>
-            <ul className="space-y-3 text-xs sm:text-sm font-medium text-purple-100">
+            <ul className="space-y-3 text-xs sm:text-sm font-medium text-indigo-100">
               <li>
                 <Link href="/programs" className="hover:text-amber-300 transition-colors">
                   Academic Programs
@@ -148,7 +148,7 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
             <h4 className="font-bold text-white text-sm tracking-wide mb-5">
               More Links
             </h4>
-            <ul className="space-y-3 text-xs sm:text-sm font-medium text-purple-100">
+            <ul className="space-y-3 text-xs sm:text-sm font-medium text-indigo-100">
               <li>
                 <Link href="/results" className="hover:text-amber-300 transition-colors">
                   For IIT JEE Aspirants
@@ -178,7 +178,7 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
             <h4 className="font-bold text-white text-sm tracking-wide mb-5">
               Contact Details
             </h4>
-            <ul className="space-y-4 text-xs sm:text-sm font-medium text-purple-100">
+            <ul className="space-y-4 text-xs sm:text-sm font-medium text-indigo-100">
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-white shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
@@ -203,7 +203,7 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
         </div>
 
         {/* BOTTOM BAR WITH SOCIAL ICONS */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-medium text-purple-200">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-medium text-indigo-200">
           <div>
             © {new Date().getFullYear()} BM Classes Gurgaon. All rights reserved.
           </div>

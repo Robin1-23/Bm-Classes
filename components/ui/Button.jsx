@@ -12,14 +12,14 @@ export default function Button({
   href,
   ...props
 }) {
-  const baseStyles = 'inline-flex items-center justify-center font-black rounded-2xl transition-all duration-300 cursor-pointer active:scale-95 text-center';
+  const baseStyles = 'inline-flex items-center justify-center font-semibold rounded-full transition-colors duration-200 cursor-pointer active:scale-[0.98] text-center min-h-[44px]';
 
   const variantStyles = {
-    primary: 'bg-indigo-600 hover:bg-indigo-700 text-white shadow-md shadow-indigo-500/25 border border-indigo-500',
+    primary: 'bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm',
     secondary: 'bg-white hover:bg-indigo-50/50 text-slate-800 border border-slate-200 hover:border-indigo-300',
-    accent: 'bg-gradient-to-r from-cyan-400 to-teal-400 hover:from-cyan-300 hover:to-teal-300 text-slate-950 shadow-xl shadow-cyan-500/10 hover:shadow-cyan-500/25',
+    accent: 'bg-amber-400 hover:bg-amber-300 text-slate-950 shadow-sm',
     dark: 'bg-slate-950 hover:bg-indigo-600 text-white shadow-sm',
-    whatsapp: 'bg-[#25D366] hover:bg-emerald-500 text-white shadow-md',
+    whatsapp: 'bg-[#25D366] hover:bg-[#1ebe5a] text-white shadow-sm',
   };
 
   const sizeStyles = {

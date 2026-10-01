@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { checkPasscode, createToken } from '@/lib/adminAuth';
 
 export async function POST(req) {
   try {
@@ -41,15 +42,11 @@ export async function POST(req) {
       );
     }
 
-    // Strict equality comparison
-    if (trimmedPasscode === expectedPasscode) {
-      // Generate a secure session token timestamp hash
-      const authHeaderToken = `BM_AUTH_${Buffer.from(`BM_SESSION_${Date.now()}_${expectedPasscode}`).toString('base64')}`;
-
+    if (checkPasscode(trimmedPasscode)) {
       return NextResponse.json({
         success: true,
         message: 'Authentication successful.',
-        token: authHeaderToken,
+        token: createToken(),
       });
     } else {
       return NextResponse.json(

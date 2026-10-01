@@ -19,7 +19,7 @@ export default function BespokeWhyUsDetails() {
       title: '15 High-Yield Advanced Twists',
       desc: 'Curated 15 Advanced problems per chapter instead of 200+ drills.',
       tag: 'Zero Rote Drills',
-      badgeBg: 'bg-cyan-50 text-cyan-900 border-cyan-200',
+      badgeBg: 'bg-indigo-50 text-indigo-900 border-indigo-200',
       bullets: ['Pattern Recognition', 'High-Yield Curation'],
     },
     {
@@ -35,7 +35,7 @@ export default function BespokeWhyUsDetails() {
       title: 'Weekly AI Rank Telemetry Review',
       desc: 'Chapter accuracy heatmaps & 1-on-1 parent progress tracking.',
       tag: 'AIR Telemetry',
-      badgeBg: 'bg-purple-50 text-purple-800 border-purple-200',
+      badgeBg: 'bg-indigo-50 text-indigo-800 border-indigo-200',
       bullets: ['Weekly Diagnostic', '1-on-1 Parent Calls'],
     },
   ];
@@ -62,24 +62,24 @@ export default function BespokeWhyUsDetails() {
   ];
 
   return (
-    <section className="py-14 sm:py-20 bg-black text-white border-b border-zinc-900 relative overflow-hidden">
+    <section className="py-20 lg:py-28 bg-black text-white border-b border-zinc-900 relative overflow-hidden">
       
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/3 left-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-1/3 left-10 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 space-y-16">
         
         {/* 1. THE MICRO-BATCH MANIFESTO */}
         <ScrollReveal delay={100} direction="up">
           <div className="bg-black rounded-3xl p-6 sm:p-10 text-white border-2 border-zinc-800 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div className="absolute top-0 right-0 w-80 h-80 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-800/40 text-cyan-400 text-xs font-black uppercase tracking-wider mb-3">
-              <ShieldCheck className="w-4 h-4 text-cyan-400" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-950/60 border border-indigo-800/40 text-indigo-400 text-xs font-bold uppercase tracking-wider mb-3">
+              <ShieldCheck className="w-4 h-4 text-indigo-400" />
               <span>THE 10-15 MICRO-BATCH MANIFESTO</span>
             </div>
 
-            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight leading-tight max-w-3xl text-white">
+            <h2 className="font-heading font-extrabold tracking-[-0.03em] text-3xl sm:text-4xl lg:text-5xl leading-tight max-w-3xl text-white">
               Why Mass Coaching Halls Fail JEE Ranks
             </h2>
 
@@ -90,45 +90,45 @@ export default function BespokeWhyUsDetails() {
             {/* Crisp Punchy Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 pt-6 border-t border-zinc-800">
               <div className="bg-zinc-950 border border-zinc-800/90 rounded-2xl p-4">
-                <span className="text-cyan-400 font-mono text-base font-black block">10-15 Students</span>
-                <h4 className="text-white font-extrabold text-xs mt-1">Known By Name & Goals</h4>
+                <span className="text-indigo-400 font-mono text-base font-bold block">10-15 Students</span>
+                <h4 className="text-white font-semibold text-xs mt-1">Known By Name & Goals</h4>
                 <div className="space-y-1 mt-2">
-                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-zinc-300">
-                    <Zap className="w-3 h-3 text-cyan-400 shrink-0" />
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-zinc-300">
+                    <Zap className="w-3 h-3 text-indigo-400 shrink-0" />
                     <span>Personal speed tracking</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-zinc-300">
-                    <Zap className="w-3 h-3 text-cyan-400 shrink-0" />
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-zinc-300">
+                    <Zap className="w-3 h-3 text-indigo-400 shrink-0" />
                     <span>Weak chapter heatmaps</span>
                   </div>
                 </div>
               </div>
 
               <div className="bg-zinc-950 border border-zinc-800/90 rounded-2xl p-4">
-                <span className="text-cyan-400 font-mono text-base font-black block">100% Ex-HOD Taught</span>
-                <h4 className="text-white font-extrabold text-xs mt-1">Zero Junior TA Swaps</h4>
+                <span className="text-indigo-400 font-mono text-base font-bold block">100% Ex-HOD Taught</span>
+                <h4 className="text-white font-semibold text-xs mt-1">Zero Junior TA Swaps</h4>
                 <div className="space-y-1 mt-2">
-                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-zinc-300">
-                    <Zap className="w-3 h-3 text-cyan-400 shrink-0" />
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-zinc-300">
+                    <Zap className="w-3 h-3 text-indigo-400 shrink-0" />
                     <span>FIITJEE & VMC HODs</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-zinc-300">
-                    <Zap className="w-3 h-3 text-cyan-400 shrink-0" />
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-zinc-300">
+                    <Zap className="w-3 h-3 text-indigo-400 shrink-0" />
                     <span>Direct daily lectures</span>
                   </div>
                 </div>
               </div>
 
               <div className="bg-zinc-950 border border-zinc-800/90 rounded-2xl p-4">
-                <span className="text-cyan-400 font-mono text-base font-black block">Same-Day Board Solve</span>
-                <h4 className="text-white font-extrabold text-xs mt-1">Zero Queue Waiting</h4>
+                <span className="text-indigo-400 font-mono text-base font-bold block">Same-Day Board Solve</span>
+                <h4 className="text-white font-semibold text-xs mt-1">Zero Queue Waiting</h4>
                 <div className="space-y-1 mt-2">
-                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-zinc-300">
-                    <Zap className="w-3 h-3 text-cyan-400 shrink-0" />
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-zinc-300">
+                    <Zap className="w-3 h-3 text-indigo-400 shrink-0" />
                     <span>Live board clearing</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-[11px] font-bold text-zinc-300">
-                    <Zap className="w-3 h-3 text-cyan-400 shrink-0" />
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-zinc-300">
+                    <Zap className="w-3 h-3 text-indigo-400 shrink-0" />
                     <span>Any study material</span>
                   </div>
                 </div>
@@ -138,14 +138,14 @@ export default function BespokeWhyUsDetails() {
         </ScrollReveal>
 
         {/* 2. 24-HOUR DAY IN THE LIFE TIMELINE — VERY LIGHT CRISP BACKGROUND SECTION */}
-        <div className="bg-[#faf8f5] text-slate-900 border-2 border-slate-200/90 rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden">
+        <div className="bg-[#faf6f0] text-slate-900 border-2 border-slate-200/90 rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden">
           <ScrollReveal delay={150} direction="up" className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-xs font-black tracking-widest uppercase text-indigo-700 bg-indigo-50 border border-indigo-200 px-4 py-1.5 rounded-full inline-flex items-center gap-2 shadow-xs">
+            <span className="text-xs font-bold tracking-widest uppercase text-indigo-700 bg-indigo-50 border border-indigo-200 px-4 py-1.5 rounded-full inline-flex items-center gap-2 shadow-xs">
               <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
               <span>DAILY ACADEMIC TIMELINE</span>
             </span>
-            <h2 className="font-heading text-3xl sm:text-4xl font-black text-slate-950 tracking-tight mt-3">
-              Daily Ranker Routine at <span className="font-serif italic font-normal text-indigo-700">BmClasses</span>
+            <h2 className="font-heading font-extrabold tracking-[-0.03em] text-4xl sm:text-5xl text-slate-950 mt-3">
+              Daily Ranker Routine at <span className="text-indigo-700">BmClasses</span>
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm font-medium mt-2">
               A structured, high-yield day designed for maximum retention and same-day doubt resolution.
@@ -160,17 +160,17 @@ export default function BespokeWhyUsDetails() {
                   <div>
                     {/* Time & Tag Row */}
                     <div className="flex items-center justify-between pb-3 border-b border-slate-200/80 mb-3">
-                      <span className="font-mono text-xs font-black text-indigo-700 flex items-center gap-1 bg-indigo-50 px-2 py-0.5 rounded-lg border border-indigo-100 shadow-xs">
+                      <span className="font-mono text-xs font-bold text-indigo-700 flex items-center gap-1 bg-indigo-50 px-2 py-0.5 rounded-lg border border-indigo-100 shadow-xs">
                         <Clock className="w-3 h-3 text-indigo-600" />
                         {item.time}
                       </span>
-                      <span className={`text-[9px] font-black px-2 py-0.5 rounded-md border ${item.badgeBg}`}>
+                      <span className={`text-xs font-bold px-2 py-0.5 rounded-md border ${item.badgeBg}`}>
                         {item.tag}
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="font-heading font-black text-slate-950 text-base mb-1.5 group-hover:text-indigo-600 transition-colors leading-snug">
+                    <h3 className="font-heading font-extrabold text-slate-950 text-base mb-1.5 group-hover:text-indigo-600 transition-colors leading-snug">
                       {item.title}
                     </h3>
 
@@ -182,7 +182,7 @@ export default function BespokeWhyUsDetails() {
                     {/* Bullets */}
                     <div className="space-y-1 pt-2 border-t border-slate-200/80">
                       {item.bullets.map((b, bIdx) => (
-                        <div key={bIdx} className="flex items-center gap-1.5 text-[11px] font-bold text-slate-800">
+                        <div key={bIdx} className="flex items-center gap-1.5 text-xs font-bold text-slate-800">
                           <Zap className="w-3 h-3 text-indigo-600 shrink-0" />
                           <span>{b}</span>
                         </div>
@@ -191,7 +191,7 @@ export default function BespokeWhyUsDetails() {
                   </div>
 
                   {/* 3D Footer Accent */}
-                  <div className="pt-3 mt-3 border-t border-slate-200/80 text-xs font-black text-indigo-600 flex items-center justify-between">
+                  <div className="pt-3 mt-3 border-t border-slate-200/80 text-xs font-bold text-indigo-600 flex items-center justify-between">
                     <span>Micro-Batch Rigor</span>
                     <ArrowRight className="w-3.5 h-3.5 text-indigo-600 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -205,11 +205,11 @@ export default function BespokeWhyUsDetails() {
         {/* 3. CURATION METHODOLOGY */}
         <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl p-6 sm:p-8 text-white">
           <ScrollReveal delay={150} direction="up" className="max-w-2xl mb-6">
-            <span className="text-xs font-black tracking-widest uppercase text-cyan-400 bg-cyan-950/60 border border-cyan-800/40 px-3 py-1 rounded-full">
+            <span className="text-xs font-bold tracking-widest uppercase text-indigo-400 bg-indigo-950/60 border border-indigo-800/40 px-3 py-1 rounded-full">
               CURATION METHODOLOGY
             </span>
-            <h2 className="font-heading text-2xl sm:text-3xl font-black text-white mt-2">
-              15 High-Yield Questions vs <span className="font-serif italic font-normal text-cyan-300">200 Duplicate Drills</span>
+            <h2 className="font-heading font-extrabold tracking-[-0.03em] text-3xl sm:text-4xl text-white mt-2">
+              15 High-Yield Questions vs <span className="text-indigo-300">200 Duplicate Drills</span>
             </h2>
           </ScrollReveal>
 
@@ -218,17 +218,17 @@ export default function BespokeWhyUsDetails() {
               const Icon = pillar.icon;
               return (
                 <ScrollReveal key={pIdx} delay={150 * (pIdx + 1)} direction="up">
-                  <div className="bg-black rounded-2xl p-4 sm:p-5 border border-zinc-800 relative group hover:border-cyan-400 transition-all">
+                  <div className="bg-black rounded-2xl p-4 sm:p-5 border border-zinc-800 relative group hover:border-indigo-400 transition-all">
                     <div className="flex items-center justify-between mb-2">
-                      <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-800 text-cyan-400 font-black flex items-center justify-center">
+                      <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-800 text-indigo-400 font-bold flex items-center justify-center">
                         <Icon className="w-4 h-4" />
                       </div>
-                      <span className="font-mono font-black text-zinc-400 text-sm">
+                      <span className="font-mono font-bold text-zinc-400 text-sm">
                         #{pillar.step}
                       </span>
                     </div>
 
-                    <h3 className="font-heading font-black text-white text-sm mb-1 group-hover:text-cyan-300 transition-colors">
+                    <h3 className="font-heading font-extrabold text-white text-sm mb-1 group-hover:text-indigo-300 transition-colors">
                       {pillar.title}
                     </h3>
 

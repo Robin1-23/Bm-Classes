@@ -11,8 +11,8 @@ const FLOATING_REELS = [
     faculty: 'Konika Ma\'am',
     role: 'Head of Biology (20 Yrs Exp)',
     videoUrl: '/videos/learning1.mp4',
-    badgeColor: 'from-pink-500 to-emerald-600',
-    btnColor: 'bg-pink-500 text-white hover:bg-pink-400',
+    badgeColor: 'from-amber-500 to-emerald-600',
+    btnColor: 'bg-amber-500 text-white hover:bg-amber-400',
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const FLOATING_REELS = [
     faculty: 'Konika Ma\'am',
     role: 'Head of Biology & Chemistry',
     videoUrl: '/videos/learning2.mp4',
-    badgeColor: 'from-emerald-500 to-teal-600',
+    badgeColor: 'from-emerald-500 to-indigo-600',
     btnColor: 'bg-emerald-400 text-slate-950 hover:bg-emerald-300',
   },
   {
@@ -29,8 +29,8 @@ const FLOATING_REELS = [
     faculty: 'BM Sir',
     role: 'Ex-FIITJEE & VMC HOD Chemistry',
     videoUrl: '/videos/learn3.mp4',
-    badgeColor: 'from-cyan-500 to-indigo-600',
-    btnColor: 'bg-cyan-400 text-slate-950 hover:bg-cyan-300',
+    badgeColor: 'from-indigo-500 to-indigo-600',
+    btnColor: 'bg-indigo-400 text-slate-950 hover:bg-indigo-300',
   },
   {
     id: 4,
@@ -38,8 +38,8 @@ const FLOATING_REELS = [
     faculty: 'Konika Ma\'am',
     role: 'Head of Biology & Chemistry',
     videoUrl: '/videos/learn4.mp4',
-    badgeColor: 'from-pink-500 to-purple-600',
-    btnColor: 'bg-pink-500 text-white hover:bg-pink-400',
+    badgeColor: 'from-amber-500 to-indigo-600',
+    btnColor: 'bg-amber-500 text-white hover:bg-amber-400',
   },
   {
     id: 5,
@@ -47,8 +47,8 @@ const FLOATING_REELS = [
     faculty: 'Konika Ma\'am',
     role: 'Head of Biology (20 Yrs Exp)',
     videoUrl: '/videos/learn5.mp4',
-    badgeColor: 'from-pink-500 to-purple-600',
-    btnColor: 'bg-pink-500 text-white hover:bg-pink-400',
+    badgeColor: 'from-amber-500 to-indigo-600',
+    btnColor: 'bg-amber-500 text-white hover:bg-amber-400',
   },
   {
     id: 6,
@@ -56,8 +56,8 @@ const FLOATING_REELS = [
     faculty: 'BM Sir',
     role: 'Ex-HOD Chemistry (20+ Yrs Exp)',
     videoUrl: '/videos/learn6.mp4',
-    badgeColor: 'from-cyan-500 to-indigo-600',
-    btnColor: 'bg-cyan-400 text-slate-950 hover:bg-cyan-300',
+    badgeColor: 'from-indigo-500 to-indigo-600',
+    btnColor: 'bg-indigo-400 text-slate-950 hover:bg-indigo-300',
   },
   {
     id: 7,
@@ -65,8 +65,8 @@ const FLOATING_REELS = [
     faculty: 'BM Sir',
     role: 'Senior HOD Chemistry',
     videoUrl: '/videos/learn7.mp4',
-    badgeColor: 'from-cyan-500 to-indigo-600',
-    btnColor: 'bg-cyan-400 text-slate-950 hover:bg-cyan-300',
+    badgeColor: 'from-indigo-500 to-indigo-600',
+    btnColor: 'bg-indigo-400 text-slate-950 hover:bg-indigo-300',
   },
 ];
 
@@ -78,6 +78,16 @@ export default function FloatingLiveReelWidget() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalIsPlaying, setModalIsPlaying] = useState(true);
   const [modalIsMuted, setModalIsMuted] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
+
+  // Stay out of the way until the visitor scrolls past the hero; start minimised on phones
+  useEffect(() => {
+    if (window.innerWidth < 1024) setIsMinimized(true);
+    const onScroll = () => setPastHero(window.scrollY > window.innerHeight);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const videoRef = useRef(null);
   const fullModalVideoRef = useRef(null);
@@ -130,7 +140,7 @@ export default function FloatingLiveReelWidget() {
     }
   };
 
-  if (isClosed) return null;
+  if (isClosed || (!pastHero && !isModalOpen)) return null;
 
   return (
     <>
@@ -139,27 +149,25 @@ export default function FloatingLiveReelWidget() {
         <div className="fixed bottom-24 right-3 lg:bottom-28 lg:right-8 z-40">
           <button
             onClick={() => setIsMinimized(false)}
-            className="bg-black/90 hover:bg-black text-white border border-cyan-400/50 px-3 py-2 rounded-full shadow-2xl flex items-center gap-2 group hover:scale-105 transition-all cursor-pointer"
+            className="bg-black/90 hover:bg-black text-white border border-indigo-400/50 px-3 py-2 rounded-full shadow-2xl flex items-center gap-2 group hover:scale-105 transition-all cursor-pointer"
           >
             <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-500"></span>
             </span>
-            <span className="text-[11px] font-black tracking-wide text-white">Live Classroom Reel</span>
-            <Sparkles className="w-3.5 h-3.5 text-cyan-400 group-hover:rotate-12 transition-transform" />
+            <span className="text-xs font-bold tracking-wide text-white">Live Classroom Reel</span>
+            <Sparkles className="w-3.5 h-3.5 text-indigo-400 group-hover:rotate-12 transition-transform" />
           </button>
         </div>
       ) : (
         <div className="fixed bottom-24 right-3 lg:bottom-28 lg:right-8 z-40 w-36 sm:w-40 lg:w-44 transition-all duration-300">
           <div 
             onClick={handleExpand}
-            className="relative bg-slate-950 border-2 border-cyan-400/60 hover:border-cyan-300 rounded-2xl overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.85)] cursor-pointer group transition-all transform hover:-translate-y-1"
+            className="relative bg-slate-950 border-2 border-indigo-400/60 hover:border-indigo-300 rounded-2xl overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.85)] cursor-pointer group transition-all transform hover:-translate-y-1"
           >
             {/* Top Header Bar */}
             <div className="absolute top-1.5 left-1.5 right-1.5 z-20 flex items-center justify-between pointer-events-none">
-              <div className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-black/80 backdrop-blur-md border border-red-500/50 text-[9px] font-black text-white shadow-xs">
+              <div className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-black/80 backdrop-blur-md border border-red-500/50 text-xs font-bold text-white shadow-xs">
                 <span className="relative flex h-1.5 w-1.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-red-500"></span>
                 </span>
                 <span>LIVE DEMO</span>
@@ -174,7 +182,7 @@ export default function FloatingLiveReelWidget() {
                   className="p-1 rounded-full bg-black/75 hover:bg-black text-white transition-colors cursor-pointer"
                   title={isMuted ? "Unmute" : "Mute"}
                 >
-                  {isMuted ? <VolumeX className="w-2.5 h-2.5 text-zinc-300" /> : <Volume2 className="w-2.5 h-2.5 text-cyan-400" />}
+                  {isMuted ? <VolumeX className="w-2.5 h-2.5 text-zinc-300" /> : <Volume2 className="w-2.5 h-2.5 text-indigo-400" />}
                 </button>
 
                 <button
@@ -206,7 +214,7 @@ export default function FloatingLiveReelWidget() {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent pointer-events-none"></div>
 
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/30 pointer-events-none">
-                <div className="w-8 h-8 rounded-full bg-cyan-400 text-slate-950 flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+                <div className="w-8 h-8 rounded-full bg-indigo-400 text-slate-950 flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
                   <Maximize2 className="w-4 h-4" />
                 </div>
               </div>
@@ -214,16 +222,16 @@ export default function FloatingLiveReelWidget() {
 
             {/* Bottom Title Bar */}
             <div className="p-2 bg-slate-950 border-t border-slate-800">
-              <div className="text-[9px] text-cyan-400 font-extrabold mb-0.5">
+              <div className="text-xs text-indigo-400 font-semibold mb-0.5">
                 <span>{currentReel.faculty}</span>
               </div>
 
-              <p className="text-[11px] font-bold text-white leading-tight line-clamp-1 group-hover:text-cyan-300 transition-colors">
+              <p className="text-xs font-bold text-white leading-tight line-clamp-1 group-hover:text-indigo-300 transition-colors">
                 {currentReel.title}
               </p>
 
-              <div className="mt-1 pt-1 border-t border-slate-800/80 text-[8.5px] font-black text-slate-300 text-center">
-                <span className="text-cyan-400 uppercase tracking-wider">Tap to Expand ➔</span>
+              <div className="mt-1 pt-1 border-t border-slate-800/80 text-[8.5px] font-bold text-slate-300 text-center">
+                <span className="text-indigo-400 uppercase tracking-wider">Tap to Expand ➔</span>
               </div>
             </div>
           </div>
@@ -238,17 +246,17 @@ export default function FloatingLiveReelWidget() {
             {/* Top Modal Header */}
             <div className="absolute top-0 left-0 right-0 z-30 p-4 bg-gradient-to-b from-black/90 via-black/50 to-transparent flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <div className={`w-9 h-9 rounded-2xl bg-gradient-to-tr ${currentReel.badgeColor} flex items-center justify-center font-black text-xs text-white shadow-md`}>
+                <div className={`w-9 h-9 rounded-2xl bg-gradient-to-tr ${currentReel.badgeColor} flex items-center justify-center font-bold text-xs text-white shadow-md`}>
                   <Award className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <div className="text-xs font-black text-white flex items-center gap-1.5">
+                  <div className="text-xs font-bold text-white flex items-center gap-1.5">
                     <span>{currentReel.faculty}</span>
-                    <span className="text-[9px] px-1.5 py-0.2 rounded bg-cyan-400/20 text-cyan-300 font-extrabold border border-cyan-400/30">
+                    <span className="text-xs px-1.5 py-0.2 rounded bg-indigo-400/20 text-indigo-300 font-semibold border border-indigo-400/30">
                       LIVE CLASSROOM REEL
                     </span>
                   </div>
-                  <div className="text-[10px] text-zinc-300 font-bold">{currentReel.role}</div>
+                  <div className="text-xs text-zinc-300 font-bold">{currentReel.role}</div>
                 </div>
               </div>
 
@@ -257,7 +265,7 @@ export default function FloatingLiveReelWidget() {
                   onClick={toggleModalMute}
                   className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center backdrop-blur-md transition-colors cursor-pointer border border-white/10"
                 >
-                  {modalIsMuted ? <VolumeX className="w-4 h-4 text-red-400" /> : <Volume2 className="w-4 h-4 text-cyan-400" />}
+                  {modalIsMuted ? <VolumeX className="w-4 h-4 text-red-400" /> : <Volume2 className="w-4 h-4 text-indigo-400" />}
                 </button>
                 <button
                   onClick={handleCloseModal}
@@ -304,7 +312,7 @@ export default function FloatingLiveReelWidget() {
                   handleCloseModal();
                   if (openRegister) openRegister();
                 }}
-                className={`w-full ${currentReel.btnColor} font-black py-3.5 rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2 text-xs sm:text-sm cursor-pointer`}
+                className={`w-full ${currentReel.btnColor} font-bold py-3.5 rounded-2xl shadow-xl transition-all flex items-center justify-center gap-2 text-xs sm:text-sm cursor-pointer`}
               >
                 <span>Book Free Trial Batch with {currentReel.faculty}</span>
                 <ArrowRight className="w-4 h-4" />

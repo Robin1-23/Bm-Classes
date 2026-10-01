@@ -92,7 +92,7 @@ export default function BespokeHallOfFame() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-white text-slate-950 border-b border-slate-200/80 relative overflow-hidden">
+    <section className="py-20 lg:py-28 bg-white text-slate-950 border-b border-slate-200/80 relative overflow-hidden">
       
       {/* Ambient Glow */}
       <div className="absolute top-1/3 right-10 w-96 h-96 bg-indigo-50/60 rounded-full blur-3xl pointer-events-none"></div>
@@ -102,12 +102,12 @@ export default function BespokeHallOfFame() {
         {/* HALL OF FAME CARDS */}
         <div>
           <ScrollReveal delay={100} direction="up" className="text-center max-w-3xl mx-auto mb-10">
-            <span className="text-xs font-black tracking-wider uppercase text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-3.5 py-1.5 rounded-full inline-flex items-center gap-2">
+            <span className="text-xs font-bold tracking-wider uppercase text-indigo-700 bg-indigo-50 border border-indigo-200/80 px-3.5 py-1.5 rounded-full inline-flex items-center gap-2">
               <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
               <span>HALL OF FAME 2020-2026</span>
             </span>
-            <h2 className="font-heading text-2xl sm:text-4xl font-black text-slate-950 mt-3 tracking-tight">
-              Verified Top AIR <span className="font-serif italic font-normal text-indigo-600">Ranker Case Studies</span>
+            <h2 className="font-heading font-extrabold tracking-[-0.03em] text-3xl sm:text-5xl text-slate-950 mt-3">
+              Verified Top AIR <span className="text-indigo-600">Ranker Case Studies</span>
             </h2>
           </ScrollReveal>
 
@@ -118,24 +118,24 @@ export default function BespokeHallOfFame() {
                   <div>
                     <div className="flex items-center justify-between pb-3.5 border-b border-slate-100 mb-4">
                       <div className="flex items-center gap-3">
-                        <span className={`font-mono text-base font-black px-3.5 py-1 rounded-xl shadow-xs ${ranker.badgeBg}`}>
+                        <span className={`font-mono text-base font-bold px-3.5 py-1 rounded-xl shadow-xs ${ranker.badgeBg}`}>
                           {ranker.rank}
                         </span>
                         <div>
-                          <h3 className="font-heading font-black text-slate-950 text-base sm:text-lg leading-tight">
+                          <h3 className="font-heading font-extrabold text-slate-950 text-base sm:text-lg leading-tight">
                             {ranker.name}
                           </h3>
                           <p className="text-xs font-bold text-indigo-600">{ranker.exam} Ranker</p>
                         </div>
                       </div>
 
-                      <span className="text-[10px] font-extrabold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-lg">
+                      <span className="text-xs font-semibold text-slate-600 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded-lg">
                         {ranker.school}
                       </span>
                     </div>
 
                     <div className="bg-slate-50 border border-slate-200/80 rounded-xl p-3.5 mb-4">
-                      <div className="flex items-center justify-between text-xs font-black text-slate-900">
+                      <div className="flex items-center justify-between text-xs font-bold text-slate-900">
                         <span className="text-indigo-600 flex items-center gap-1.5">
                           <GraduationCap className="w-4 h-4 text-indigo-600" />
                           {ranker.college}
@@ -157,11 +157,11 @@ export default function BespokeHallOfFame() {
                     </div>
                   </div>
 
-                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-extrabold">
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold">
                     <span className="text-slate-500">Ex-HOD Mentored</span>
                     <button
                       onClick={() => openVideo(`${ranker.name} - AIR Ranker Journey`)}
-                      className="text-indigo-600 hover:text-indigo-800 transition-colors flex items-center gap-1 cursor-pointer font-black"
+                      className="text-indigo-600 hover:text-indigo-800 transition-colors flex items-center gap-1 cursor-pointer font-bold"
                     >
                       <PlayCircle className="w-4 h-4 text-indigo-600" />
                       <span>Watch Interview</span>
@@ -176,12 +176,12 @@ export default function BespokeHallOfFame() {
         {/* GURGAON PARENT REVIEWS */}
         <div className="bg-slate-950 text-white rounded-3xl p-6 sm:p-10 shadow-2xl border border-slate-800 relative overflow-hidden">
           <ScrollReveal delay={100} direction="up" className="max-w-2xl mb-8">
-            <span className="text-xs font-black tracking-wider uppercase text-cyan-300 bg-slate-800 border border-slate-700 px-3.5 py-1.5 rounded-full inline-flex items-center gap-2">
-              <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+            <span className="text-xs font-bold tracking-wider uppercase text-indigo-300 bg-slate-800 border border-slate-700 px-3.5 py-1.5 rounded-full inline-flex items-center gap-2">
+              <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
               <span>PARENT TESTIMONIALS</span>
             </span>
-            <h2 className="font-heading text-2xl sm:text-3xl font-black text-white mt-2">
-              Verified Gurgaon <span className="font-serif italic font-normal text-cyan-300">Parent Reviews</span>
+            <h2 className="font-heading font-extrabold tracking-[-0.03em] text-3xl sm:text-4xl text-white mt-2">
+              Verified Gurgaon <span className="text-indigo-300">Parent Reviews</span>
             </h2>
           </ScrollReveal>
 
@@ -202,8 +202,8 @@ export default function BespokeHallOfFame() {
                   </div>
 
                   <div className="pt-3 border-t border-slate-800">
-                    <h4 className="font-heading font-black text-white text-xs">{rev.parentName}</h4>
-                    <p className="text-[11px] font-bold text-cyan-300">{rev.student}</p>
+                    <h4 className="font-heading font-extrabold text-white text-xs">{rev.parentName}</h4>
+                    <p className="text-xs font-bold text-indigo-300">{rev.student}</p>
                   </div>
                 </div>
               </ScrollReveal>

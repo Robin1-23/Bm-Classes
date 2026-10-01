@@ -5,6 +5,7 @@ import PageHeader from '@/components/ui/PageHeader';
 import BespokeCenterGuide from '@/components/contact/BespokeCenterGuide';
 import CenterLocationSection from '@/components/CenterLocationSection';
 import CalculatorSection from '@/components/CalculatorSection';
+import LocalSeoKeywordsSection from '@/components/LocalSeoKeywordsSection';
 import { useModal } from '@/context/ModalContext';
 
 export default function ContactPage() {
@@ -26,6 +27,7 @@ export default function ContactPage() {
         onOpenRegister={openRegister}
         onOpenSeatLock={openSeatLock}
       />
+      <LocalSeoKeywordsSection />
     </>
   );
 }

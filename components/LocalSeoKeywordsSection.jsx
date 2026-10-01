@@ -45,7 +45,7 @@ export default function LocalSeoKeywordsSection() {
   };
 
   return (
-    <section className="py-20 sm:py-28 bg-white text-slate-950 border-b border-slate-200/80 relative overflow-hidden">
+    <section className="py-20 lg:py-28 bg-white text-slate-950 border-b border-slate-200/80 relative overflow-hidden">
       
       {/* Soft Ambient Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-slate-100/50 rounded-full blur-3xl pointer-events-none"></div>
@@ -55,7 +55,7 @@ export default function LocalSeoKeywordsSection() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
           <ScrollReveal delay={100} direction="down">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-black uppercase tracking-wider mb-4 shadow-xs">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
               <MapPin className="w-3.5 h-3.5 text-indigo-600" />
               <FoldText
                 text="GURGAON #1 RANKED IIT JEE & NEET ACADEMY"
@@ -65,14 +65,14 @@ export default function LocalSeoKeywordsSection() {
                 duration={0.45}
                 stagger={0.015}
                 fontSize="12px"
-                fontWeight={900}
+                fontWeight={600}
                 color="#4338ca"
               />
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={150} direction="up">
-            <h2 className="font-heading tracking-tight leading-tight mb-4">
+            <h2 className="font-heading font-extrabold tracking-[-0.03em] leading-tight mb-4">
               <span className="sr-only">Best IIT JEE Coaching & Best NEET Coaching in Gurgaon Sector 52</span>
               <FoldText
                 text="Best IIT JEE Coaching & Best NEET Coaching in Gurgaon Sector 52"
@@ -81,8 +81,8 @@ export default function LocalSeoKeywordsSection() {
                 trigger="scroll"
                 duration={0.6}
                 stagger={0.04}
-                fontSize="clamp(1.75rem, 4vw, 3rem)"
-                fontWeight={900}
+                fontSize="clamp(2.1rem, 4.6vw, 3.5rem)"
+                fontWeight={800}
                 color="#020617"
               />
             </h2>
@@ -103,7 +103,7 @@ export default function LocalSeoKeywordsSection() {
             curveAmount={35}
             direction="left"
             interactive={true}
-            className="fill-indigo-950 text-base sm:text-lg font-black tracking-widest uppercase"
+            className="fill-indigo-950 text-base sm:text-lg font-bold tracking-widest uppercase"
           />
         </ScrollReveal>
 
@@ -129,7 +129,7 @@ export default function LocalSeoKeywordsSection() {
                 ].map((kw, idx) => (
                   <div 
                     key={idx}
-                    className="bg-white border-2 border-slate-200/90 hover:border-indigo-500 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-extrabold text-slate-900 shadow-2xs hover:shadow-md transition-all flex items-center gap-2 shrink-0 cursor-default"
+                    className="bg-white border-2 border-slate-200/90 hover:border-indigo-500 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold text-slate-900 shadow-2xs hover:shadow-md transition-all flex items-center gap-2 shrink-0 cursor-default"
                   >
                     <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
                     <span>{kw}</span>
@@ -157,9 +157,9 @@ export default function LocalSeoKeywordsSection() {
                 ].map((kw, idx) => (
                   <div 
                     key={idx}
-                    className="bg-slate-950 text-white border border-slate-800 hover:border-indigo-400 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-extrabold shadow-sm transition-all flex items-center gap-2 shrink-0 cursor-default"
+                    className="bg-slate-950 text-white border border-slate-800 hover:border-indigo-400 px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-semibold shadow-sm transition-all flex items-center gap-2 shrink-0 cursor-default"
                   >
-                    <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-indigo-400 shrink-0" />
                     <span>{kw}</span>
                   </div>
                 ))}
@@ -172,7 +172,7 @@ export default function LocalSeoKeywordsSection() {
         <div className="max-w-3xl mx-auto">
           <ScrollReveal delay={300} direction="up">
             <div className="text-center mb-8">
-              <h3 className="font-heading text-xl sm:text-2xl font-black text-slate-950">
+              <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-slate-950">
                 Frequently Asked Questions — Gurgaon Admissions
               </h3>
             </div>
@@ -186,7 +186,7 @@ export default function LocalSeoKeywordsSection() {
                     onClick={() => toggleFaq(idx)}
                     className="w-full px-5 py-4 text-left flex items-center justify-between gap-4 cursor-pointer focus:outline-none hover:bg-slate-50 transition-colors"
                   >
-                    <span className="font-heading font-black text-sm sm:text-base text-slate-950 leading-snug">
+                    <span className="font-heading font-extrabold text-sm sm:text-base text-slate-950 leading-snug">
                       {faq.question}
                     </span>
                     <div className={`w-7 h-7 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 transition-transform duration-300 shrink-0 ${openFaq === idx ? 'rotate-180 bg-indigo-600 text-white' : ''}`}>

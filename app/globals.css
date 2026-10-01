@@ -1,17 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Black+Han+Sans&family=Chakra+Petch:wght@700;900&family=Geist:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer utilities {
-  .font-allen {
-    font-family: 'Archivo Black', 'Impact', 'Black Han Sans', 'Chakra Petch', sans-serif !important;
-    font-weight: 900 !important;
-    text-transform: uppercase !important;
-    letter-spacing: -0.02em !important;
-  }
-}
 
 @layer base {
   html {
@@ -153,4 +143,21 @@
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Accessibility: visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
