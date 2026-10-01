@@ -6,7 +6,7 @@ import ScrollReveal from '@/components/ScrollReveal';
 import { useModal } from '@/context/ModalContext';
 
 export default function BespokeFeeBreakdown() {
-  const { openSeatLock, openRegister } = useModal();
+  const { openRegister } = useModal();
 
   const scholarshipTiers = [
     {
@@ -103,11 +103,11 @@ export default function BespokeFeeBreakdown() {
                       </td>
                       <td className="py-4 px-4 text-right">
                         <button
-                          onClick={openSeatLock}
+                          onClick={() => openRegister()}
                           className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs px-3.5 py-2 rounded-xl transition-all inline-flex items-center gap-1 cursor-pointer shadow-sm border border-emerald-400/40"
                         >
                           <Lock className="w-3.5 h-3.5 text-indigo-300" />
-                          <span>Lock Waiver</span>
+                          <span>Claim waiver</span>
                         </button>
                       </td>
                     </tr>

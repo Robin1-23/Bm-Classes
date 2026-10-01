@@ -37,14 +37,12 @@ export default function WhySection({ hidePedagogy = false }) {
       bmclasses: {
         headline: '100% Taught Directly by Ex-HODs',
         details: 'BM Sir (Ex-VMC HOD) & Konika Ma’am (Ex-FIITJEE) teach every single lecture directly.',
-        attentionScore: 98,
         doubtSpeed: 'Same-Day Board Resolution',
         badge: 'EX-FIITJEE & VMC HODs',
       },
       factory: {
         headline: 'Senior Faculty Swapped for TAs',
         details: 'Senior faculty handle demos; daily lectures are delegated to junior assistants.',
-        attentionScore: 18,
         doubtSpeed: '2-3 Weeks Delay',
         badge: 'UNMONITORED ASSISTANTS',
       }
@@ -56,14 +54,12 @@ export default function WhySection({ hidePedagogy = false }) {
       bmclasses: {
         headline: 'Strictly Capped at 10–15 Aspirants',
         details: 'Every student is known by name, rank goal, speed, and specific subject weaknesses.',
-        attentionScore: 100,
         doubtSpeed: 'Immediate Board Clarification',
         badge: 'MICRO BATCH CAP',
       },
       factory: {
         headline: '150 to 200+ Crowded Lecture Halls',
         details: 'Students become anonymous numbers in mega halls with zero individual tracking.',
-        attentionScore: 8,
         doubtSpeed: 'Queued Counter Slots',
         badge: 'MASS HALLS',
       }
@@ -75,14 +71,12 @@ export default function WhySection({ hidePedagogy = false }) {
       bmclasses: {
         headline: 'Same-Day Board Resolution with HODs',
         details: 'Doubts solved directly on the board on the exact same day — zero queue waiting.',
-        attentionScore: 95,
         doubtSpeed: 'Same Day Resolution',
         badge: 'BOARD RESOLUTION',
       },
       factory: {
         headline: 'Queued Doubt Counter Slots',
         details: 'Long queues at doubt counters with assistants struggling on Advanced twists.',
-        attentionScore: 20,
         doubtSpeed: '14-21 Days Delay',
         badge: 'QUEUED COUNTERS',
       }
@@ -94,14 +88,12 @@ export default function WhySection({ hidePedagogy = false }) {
       bmclasses: {
         headline: '15 High-Yield Advanced Twists / Topic',
         details: 'Hand-picked problem sets teaching conceptual twists and pattern recognition.',
-        attentionScore: 92,
         doubtSpeed: 'High Conceptual Depth',
         badge: 'HIGH YIELD CURATION',
       },
       factory: {
         headline: '200+ Repetitive Template Drills',
         details: 'Bulk mechanical near-duplicate drills that create fatigue without real mastery.',
-        attentionScore: 28,
         doubtSpeed: 'Rote Drills',
         badge: 'BULK DRILLS',
       }
@@ -113,14 +105,12 @@ export default function WhySection({ hidePedagogy = false }) {
       bmclasses: {
         headline: 'Weekly 1-on-1 Diagnostic Telemetry',
         details: 'Weekly chapter diagnostics, weak-area heatmaps, and 1-on-1 HOD progress reviews.',
-        attentionScore: 96,
         doubtSpeed: 'Weekly 1-on-1 Reviews',
         badge: 'LIVE TELEMETRY',
       },
       factory: {
         headline: 'Posted Rank Lists with Zero Feedback',
         details: 'Rank lists posted publicly on notice boards with zero diagnostic feedback.',
-        attentionScore: 14,
         doubtSpeed: 'End-of-Term Shocks',
         badge: 'UNREVIEWED MARKS',
       }
@@ -255,21 +245,7 @@ export default function WhySection({ hidePedagogy = false }) {
                   </p>
                 </div>
 
-                {/* Telemetry Meter */}
                 <div className="space-y-4 pt-4 border-t border-slate-200/80">
-                  <div>
-                    <div className="flex justify-between text-xs font-semibold mb-1">
-                      <span className="text-slate-600">Individual attention</span>
-                      <span className="text-slate-950 font-bold">{currentDim.factory.attentionScore}%</span>
-                    </div>
-                    <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-slate-400 rounded-full transition-all duration-700" 
-                        style={{ width: `${currentDim.factory.attentionScore}%` }}
-                      ></div>
-                    </div>
-                  </div>
-
                   <div className="bg-white border border-slate-200/80 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2 text-xs">
                     <span className="text-slate-600 font-semibold">Doubt waiting time</span>
                     <span className="font-semibold text-slate-950">{currentDim.factory.doubtSpeed}</span>
@@ -305,21 +281,7 @@ export default function WhySection({ hidePedagogy = false }) {
                   </p>
                 </div>
 
-                {/* Telemetry Meter */}
                 <div className="space-y-4 pt-4 border-t border-zinc-800 relative z-10">
-                  <div>
-                    <div className="flex justify-between text-xs font-semibold mb-1">
-                      <span className="text-zinc-200">Individual attention</span>
-                      <span className="text-indigo-300 font-bold">{currentDim.bmclasses.attentionScore}%</span>
-                    </div>
-                    <div className="h-2 bg-zinc-900 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-indigo-500 rounded-full transition-all duration-700" 
-                        style={{ width: `${currentDim.bmclasses.attentionScore}%` }}
-                      ></div>
-                    </div>
-                  </div>
-
                   <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2 text-xs">
                     <span className="text-zinc-200 font-semibold">Doubt waiting time</span>
                     <span className="font-bold text-indigo-300 flex items-center gap-1 shrink-0">

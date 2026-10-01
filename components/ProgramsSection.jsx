@@ -29,7 +29,6 @@ const PROGRAMS = [
       ['Track record', 'AIR 18 & AIR 22'],
     ],
     faces: ['/bm_sir.jpg', '/konika_mam.jpg'],
-    seats: '3 seats left',
     applyAs: 'Class 11th & 12th Integrated JEE & NEET',
   },
   {
@@ -43,7 +42,6 @@ const PROGRAMS = [
       ['Boards', 'CBSE, ICSE, IB'],
     ],
     faces: ['/konika_mam.jpg'],
-    seats: '2 seats left',
     applyAs: 'Biology Excellence Program',
   },
   {
@@ -128,9 +126,7 @@ function ProgramCard({ program, wide, onApply }) {
       </dl>
 
       <div className="mt-auto pt-8 flex items-center justify-between gap-4">
-        <span className={`text-sm font-medium ${dark ? 'text-amber-300' : 'text-amber-700'}`}>
-          {program.seats || ''}
-        </span>
+        <span className={`text-sm ${dark ? 'text-slate-400' : 'text-slate-500'}`}>Max 15 per batch</span>
         <button
           onClick={() => onApply(program.applyAs)}
           className={`inline-flex items-center gap-2 h-11 px-5 rounded-full text-sm font-semibold transition-colors cursor-pointer ${

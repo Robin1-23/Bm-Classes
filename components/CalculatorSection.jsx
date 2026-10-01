@@ -7,15 +7,13 @@ import SectionHeader from '@/components/ui/SectionHeader';
 import Button from '@/components/ui/Button';
 import { useModal } from '@/context/ModalContext';
 
-export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
+export default function CalculatorSection({ onOpenRegister }) {
   const modal = useModal();
   const handleRegister = onOpenRegister || modal.openRegister;
-  const handleSeatLock = onOpenSeatLock || modal.openSeatLock;
   const [cls, setCls] = useState('dropper');
   const [exam, setExam] = useState('advanced');
   const [mode, setMode] = useState('smallbatch');
   const [fee, setFee] = useState(110000);
-  const [seats, setSeats] = useState(3);
   const [scholarship, setScholarship] = useState(15);
 
   useEffect(() => {
@@ -30,7 +28,6 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
     if (mode === 'oneonone') base *= 1.6;
 
     setFee(Math.round(base));
-    setSeats(cls === '11' ? 4 : cls === '12' ? 2 : 3);
     setScholarship(exam === 'advanced' ? 25 : 15);
   }, [cls, exam, mode]);
 
@@ -64,7 +61,7 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
           badgeIcon={Calculator}
           badgeText="NO HIDDEN FEES"
           title="Know your fee in 10 seconds."
-          subtitle="Pick your class and exam. See your fee, your scholarship and the seats left."
+          subtitle="Pick your class and exam. See your fee and your scholarship instantly."
         />
 
         {/* MODERN INTERACTIVE STUDIO CONSOLE */}
@@ -183,27 +180,6 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
                     <span className="text-xs text-white/80 font-bold block mt-1">
                       *Covers study materials, testing platform & daily doubts.
                     </span>
-                  </div>
-
-                  {/* Seat Availability Telemetry */}
-                  <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 mb-6">
-                    <div className="flex justify-between items-center text-xs font-semibold mb-2">
-                      <span className="text-white flex items-center gap-1.5">
-                        <Zap className="w-3.5 h-3.5 text-indigo-400 fill-indigo-400" />
-                        Micro-Batch Seat Status
-                      </span>
-                      <span className="text-indigo-400 font-bold">{seats} Seats Left</span>
-                    </div>
-                    <div className="h-2 bg-black rounded-full overflow-hidden mb-2 border border-zinc-800">
-                      <div 
-                        className="h-full bg-gradient-to-r from-indigo-400 to-indigo-400 rounded-full transition-all duration-500"
-                        style={{ width: `${(seats / 12) * 100}%` }}
-                      ></div>
-                    </div>
-                    <div className="text-xs text-white/80 font-bold flex justify-between">
-                      <span>Strictly Capped Batch</span>
-                      <span>Intake Closing Soon</span>
-                    </div>
                   </div>
 
                   {/* Included Perks Checklist */}

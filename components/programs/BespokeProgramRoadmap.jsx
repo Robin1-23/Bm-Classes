@@ -8,7 +8,7 @@ import FoldText from '@/components/ui/FoldText';
 
 export default function BespokeProgramRoadmap() {
   const [activePhase, setActivePhase] = useState(0);
-  const { openSeatLock } = useModal();
+  const { openRegister } = useModal();
 
   const phases = [
     {
@@ -49,39 +49,6 @@ export default function BespokeProgramRoadmap() {
         'Personalized weak-topic revision roadmaps',
         '1-on-1 strategy calls with Senior Ex-HOD Mentors',
       ],
-    },
-  ];
-
-  const batchSchedules = [
-    {
-      batchName: 'Class 12th JEE & NEET (Starts 12th March)',
-      timing: 'Dedicated JEE Advanced · Annual IITian Interaction',
-      seatsLeft: '2 Seats Left of 12',
-      status: 'Starts 12th March',
-    },
-    {
-      batchName: 'Class 11th JEE & NEET (Starts 6th April)',
-      timing: 'Personalised Small Batches · Ex-HOD Taught',
-      seatsLeft: '3 Seats Left of 12',
-      status: 'Starts 6th April',
-    },
-    {
-      batchName: 'Class 10th Maths & Science (Starts 12th March)',
-      timing: 'Competency-Based Learning · Updated NCERT',
-      seatsLeft: '3 Seats Left of 15',
-      status: 'Starts 12th March',
-    },
-    {
-      batchName: 'Class 9th Maths & Science (Starts 14th March)',
-      timing: 'Updated NCERT Syllabus · Small Capped Batch',
-      seatsLeft: '4 Seats Left of 15',
-      status: 'Starts 14th March',
-    },
-    {
-      batchName: 'Biology Special — Konika Ma\'am (20 Yrs Exp)',
-      timing: 'NEET Botany & CBSE/ICSE/IB · Digital Board',
-      seatsLeft: '2 Seats Left of 12',
-      status: '20 Yrs Exp',
     },
   ];
 
@@ -193,55 +160,6 @@ export default function BespokeProgramRoadmap() {
         </div>
 
         {/* 2. BATCH TIMETABLE & SEAT ALLOCATION STATUS */}
-        <div className="bg-slate-950 rounded-3xl p-6 sm:p-10 text-white shadow-2xl relative overflow-hidden border border-slate-800">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-800 mb-6">
-            <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800 text-indigo-300 border border-slate-700 text-xs font-bold uppercase tracking-wider mb-2">
-                <Users className="w-3.5 h-3.5 text-indigo-400" />
-                <span>MICRO-BATCH CAP: 10-15 STUDENTS</span>
-              </div>
-              <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-white tracking-tight">
-                Live Batch Seats & Timetable
-              </h3>
-            </div>
-
-            <button
-              onClick={openSeatLock}
-              className="bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs px-5 py-3.5 rounded-full transition-all shadow-md flex items-center justify-center gap-1.5 cursor-pointer shrink-0"
-            >
-              <Lock className="w-4 h-4 text-white" />
-              <span>Lock Seat in Active Batch</span>
-            </button>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {batchSchedules.map((batch, bIdx) => (
-              <div key={bIdx} className="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between hover:border-slate-700 transition-all">
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <span className="font-heading font-extrabold text-sm text-white">{batch.batchName}</span>
-                    <span className="text-xs font-semibold px-2 py-0.5 rounded-full border bg-slate-800 text-indigo-300 border-slate-700">
-                      {batch.status}
-                    </span>
-                  </div>
-
-                  <div className="flex items-center gap-1.5 text-xs text-indigo-300 font-mono font-bold mt-1">
-                    <Calendar className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
-                    <span>{batch.timing}</span>
-                  </div>
-                </div>
-
-                <div className="pt-3 mt-3 border-t border-slate-800 flex items-center justify-between text-xs font-semibold">
-                  <span className="text-indigo-400">{batch.seatsLeft}</span>
-                  <button onClick={openSeatLock} className="text-indigo-400 hover:text-indigo-300 cursor-pointer flex items-center gap-1">
-                    <span>Reserve Seat</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-indigo-400" />
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
 
       </div>
     </section>

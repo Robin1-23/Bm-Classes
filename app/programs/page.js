@@ -8,7 +8,7 @@ import CalculatorSection from '@/components/CalculatorSection';
 import { useModal } from '@/context/ModalContext';
 
 export default function ProgramsPage() {
-  const { openRegister, openSeatLock } = useModal();
+  const { openRegister } = useModal();
 
   return (
     <>
@@ -21,11 +21,9 @@ export default function ProgramsPage() {
       <BespokeProgramRoadmap />
       <ProgramsSection 
         onOpenRegister={openRegister}
-        onOpenSeatLock={openSeatLock}
       />
       <CalculatorSection 
         onOpenRegister={openRegister}
-        onOpenSeatLock={openSeatLock}
       />
     </>
   );

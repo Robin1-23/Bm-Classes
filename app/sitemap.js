@@ -45,11 +45,5 @@ export default function sitemap() {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
   ];
 }

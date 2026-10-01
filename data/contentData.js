@@ -89,7 +89,6 @@ export const PROGRAMS_DATA = [
     icon: BookOpen,
     desc: 'Dedicated JEE Advanced & NEET batches with annual IITian student interactions and regular test analysis.',
     badgeText: 'STARTS 12TH MARCH',
-    seatsLeft: '2 Seats Left',
     tags: ['Starts 12th March', 'IITian Interaction', 'Recorded Lectures', 'Offline + Online'],
     bullets: [
       'Annual interaction with IITian students',
@@ -108,7 +107,6 @@ export const PROGRAMS_DATA = [
     icon: Target,
     desc: 'Build strong first-principles foundation in small capped batches taught 100% directly by Ex-HODs.',
     badgeText: 'STARTS 6TH APRIL',
-    seatsLeft: '3 Seats Left',
     tags: ['Starts 6th April', 'Small Batch Cap', 'Recorded Lectures', 'Offline + Online'],
     bullets: [
       'Personalised small-batch attention',
@@ -127,7 +125,6 @@ export const PROGRAMS_DATA = [
     icon: Stethoscope,
     desc: 'Interactive digital board classes for CBSE, ICSE/IB & NEET Botany by Konika Ma\'am (20 Yrs Exp).',
     badgeText: 'DIGITAL BOARD · 20 YRS EXP',
-    seatsLeft: '2 Seats Left',
     tags: ['Interactive Digital Board', 'NEET Botany', 'CBSE / ICSE / IB', 'Board PYQs'],
     bullets: [
       'Interactive digital board learning',
@@ -146,7 +143,6 @@ export const PROGRAMS_DATA = [
     icon: TrendingUp,
     desc: 'Competency-based learning for Class 10th board mastery as per updated NCERT syllabus.',
     badgeText: 'STARTS 12TH MARCH',
-    seatsLeft: '3 Seats Left',
     tags: ['Starts 12th March', 'Maths & Science', 'Competency-Based', 'NCERT Syllabus'],
     bullets: [
       'Competency-based board mastery',
@@ -165,7 +161,6 @@ export const PROGRAMS_DATA = [
     icon: Users,
     desc: 'Build strong early analytical thinking for Class 9th Maths & Science in micro-batches.',
     badgeText: 'STARTS 14TH MARCH',
-    seatsLeft: '4 Seats Left',
     tags: ['Starts 14th March', 'Maths & Science', 'Updated NCERT', 'Offline + Online'],
     bullets: [
       'Updated NCERT syllabus focus',
@@ -183,7 +178,6 @@ export const PROGRAMS_DATA = [
     startDate: 'Daily Slots Available',
     icon: HelpCircle,
     badgeText: '100% DOUBT CLEARING',
-    seatsLeft: '2 Seats Left',
     desc: 'Daily 1-on-1 board doubt resolution directly with Ex-HODs — zero queue waiting.',
     tags: ['Same-Day Doubts', 'Board & PYQs', 'Small Batches'],
     bullets: [

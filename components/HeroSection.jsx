@@ -7,7 +7,7 @@ import { Award, ShieldCheck, Trophy, GraduationCap, Flame, ArrowRight, Star } fr
 import ScrollReveal from '@/components/ScrollReveal';
 import { useModal } from '@/context/ModalContext';
 import FoldText from '@/components/ui/FoldText';
-export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
+export default function HeroSection({ onOpenRegister }) {
   const modal = useModal();
   const handleRegister = onOpenRegister || modal.openRegister;
   const [mobileNum, setMobileNum] = useState('');

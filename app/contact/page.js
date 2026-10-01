@@ -5,11 +5,10 @@ import PageHeader from '@/components/ui/PageHeader';
 import BespokeCenterGuide from '@/components/contact/BespokeCenterGuide';
 import CenterLocationSection from '@/components/CenterLocationSection';
 import CalculatorSection from '@/components/CalculatorSection';
-import LocalSeoKeywordsSection from '@/components/LocalSeoKeywordsSection';
 import { useModal } from '@/context/ModalContext';
 
 export default function ContactPage() {
-  const { openRegister, openSeatLock } = useModal();
+  const { openRegister } = useModal();
 
   return (
     <>
@@ -25,9 +24,7 @@ export default function ContactPage() {
       />
       <CalculatorSection 
         onOpenRegister={openRegister}
-        onOpenSeatLock={openSeatLock}
       />
-      <LocalSeoKeywordsSection />
     </>
   );
 }

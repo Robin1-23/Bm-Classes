@@ -7,7 +7,6 @@ import { PROGRAMS_DATA, CENTER_INFO } from '@/data/contentData';
 
 export default function Modals({
   registerOpen,
-  loginOpen,
   videoTitle,
   preselectedProgram,
   prefilledPhone,
