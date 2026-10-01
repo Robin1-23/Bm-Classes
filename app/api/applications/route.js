@@ -155,7 +155,7 @@ export async function POST(req) {
 
     const cleanEmail = String(email || '').trim();
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!cleanEmail || !emailRegex.test(cleanEmail)) {
+    if (cleanEmail && !emailRegex.test(cleanEmail)) {
       return NextResponse.json({ success: false, message: 'Please provide a valid email address.' }, { status: 400 });
     }
 

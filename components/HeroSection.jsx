@@ -157,10 +157,10 @@ export default function HeroSection({ onOpenRegister }) {
           <ScrollReveal delay={350} direction="up">
             <div className="flex items-center justify-center lg:justify-start gap-4 mb-8">
               <Link 
-                href="/programs" 
-                className="text-xs font-bold text-slate-800 hover:text-indigo-600 flex items-center gap-1.5 transition-colors underline underline-offset-4"
+                href="/#book-demo"
+                className="text-sm font-semibold text-slate-800 hover:text-indigo-600 flex items-center gap-1.5 transition-colors underline underline-offset-4"
               >
-                <span>View All Academic Batches ➔</span>
+                <span>Or book a free demo class →</span>
               </Link>
             </div>
           </ScrollReveal>

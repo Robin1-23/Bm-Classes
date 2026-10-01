@@ -192,6 +192,12 @@ export default function ProgramsSection({ onOpenRegister }) {
             );
           })}
         </div>
+
+        <p className="text-center mt-10">
+          <a href="/programs#timetable" className="text-sm font-semibold text-indigo-700 hover:text-indigo-900 underline underline-offset-4">
+            See batch timings and fees →
+          </a>
+        </p>
       </div>
     </section>
   );

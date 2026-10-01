@@ -4,6 +4,7 @@ import React from 'react';
 import PageHeader from '@/components/ui/PageHeader';
 import BespokeProgramRoadmap from '@/components/programs/BespokeProgramRoadmap';
 import ProgramsSection from '@/components/ProgramsSection';
+import BatchTimetable from '@/components/BatchTimetable';
 import CalculatorSection from '@/components/CalculatorSection';
 import { useModal } from '@/context/ModalContext';
 
@@ -22,6 +23,7 @@ export default function ProgramsPage() {
       <ProgramsSection 
         onOpenRegister={openRegister}
       />
+      <BatchTimetable />
       <CalculatorSection 
         onOpenRegister={openRegister}
       />

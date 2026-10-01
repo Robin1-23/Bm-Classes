@@ -10,6 +10,7 @@ import ProgramsSection from '@/components/ProgramsSection';
 import WhySection from '@/components/WhySection';
 import CalculatorSection from '@/components/CalculatorSection';
 import AdmissionJourneySection from '@/components/AdmissionJourneySection';
+import DemoBookingSection from '@/components/DemoBookingSection';
 import CenterLocationSection from '@/components/CenterLocationSection';
 import { useModal } from '@/context/ModalContext';
 
@@ -28,6 +29,7 @@ export default function Home() {
       <WhySection hidePedagogy />
       <CalculatorSection onOpenRegister={openRegister} />
       <AdmissionJourneySection onOpenRegister={openRegister} />
+      <DemoBookingSection />
       <CenterLocationSection onOpenRegister={openRegister} />
     </>
   );
