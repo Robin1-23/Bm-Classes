@@ -3,7 +3,7 @@
 import React, { useState, useRef } from 'react';
 import { Play, X, Volume2, VolumeX, Sparkles, ArrowRight, Award, UserCheck, ChevronLeft, ChevronRight } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
-import LazyVideo from '@/components/ui/LazyVideo';
+import VideoCard from '@/components/ui/VideoCard';
 import FoldText from '@/components/ui/FoldText';
 import { useModal } from '@/context/ModalContext';
 
@@ -220,52 +220,7 @@ export default function ReelShowcaseSection() {
             className="flex gap-5 sm:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-6 pt-2 px-1 scroll-smooth"
           >
             {REELS.map((reel, index) => (
-              <div 
-                key={reel.id}
-                onClick={() => handleOpenReel(reel)}
-                className={`snap-start shrink-0 w-[280px] sm:w-[310px] group/card relative bg-slate-950 rounded-3xl overflow-hidden border-2 border-white ring-1 ring-slate-200/80 shadow-[0_20px_45px_-10px_rgba(15,23,42,0.18)] hover:shadow-[0_30px_70px_-10px_rgba(99,102,241,0.3)] hover:-translate-y-2.5 transition-all duration-500 cursor-pointer flex flex-col h-[460px] sm:h-[480px]`}
-              >
-                {/* Background Video Preview (Silent Loop) */}
-                <div className="absolute inset-0 z-0 overflow-hidden bg-zinc-900">
-                  <LazyVideo
-                    src={reel.videoUrl}
-                    className="w-full h-full object-cover object-center transition-opacity duration-300 opacity-65 group-hover/card:opacity-85"
-                  />
-                  {/* Dark Vignette Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-black/60 pointer-events-none"></div>
-                </div>
-
-                {/* Top Overlay: Duration Only */}
-                <div className="relative z-10 p-4 flex items-center justify-end">
-                  <span className="text-xs font-bold text-zinc-300 bg-black/70 px-2.5 py-0.5 rounded-full border border-white/10">
-                    {reel.duration}
-                  </span>
-                </div>
-
-                {/* Center Play Button Icon */}
-                <div className="relative z-10 flex-1 flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-white/20 border-2 border-white/50 text-white flex items-center justify-center group-hover/card:scale-115 group-hover/card:bg-indigo-400 group-hover/card:text-slate-950 group-hover/card:border-indigo-400 transition-all duration-300 shadow-2xl pl-1">
-                    <Play className="w-7 h-7 fill-current" />
-                  </div>
-                </div>
-
-                {/* Bottom Info & CTA */}
-                <div className="relative z-10 p-5 bg-gradient-to-t from-slate-950 via-slate-950/95 to-transparent flex flex-col gap-1.5">
-                  <div className="text-xs font-bold uppercase tracking-wider text-indigo-400 flex items-center gap-1.5">
-                    <UserCheck className="w-4 h-4 text-indigo-400" />
-                    <span>{reel.faculty}</span>
-                  </div>
-
-                  <div className="mt-1 pt-2 border-t border-zinc-800/80 flex items-center justify-between text-xs font-bold text-white group-hover/card:text-indigo-300">
-                    <span className="flex items-center gap-1.5">
-                      <Play className="w-3.5 h-3.5 fill-current text-indigo-400" />
-                      <span>Watch Teaching Reel</span>
-                    </span>
-                    <ArrowRight className="w-4 h-4 text-indigo-400 group-hover/card:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-
-              </div>
+              <VideoCard key={reel.id} src={reel.videoUrl} duration={reel.duration} title={reel.title} subtitle={reel.role} onClick={() => handleOpenReel(reel)} />
             ))}
           </div>
 
