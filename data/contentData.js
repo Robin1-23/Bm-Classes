@@ -18,14 +18,12 @@ export const CENTER_INFO = {
   instagramUrl: 'https://instagram.com/chemistrybybighnarajsir',
   hours: 'Mon - Sun: 8:00 AM - 8:00 PM',
   rating: '4.9/5',
-  reviewsCount: '120+ Parent Reviews',
-  // Google reviews widget. Replace the two links with your Google Business Profile links:
-  // "Read reviews" = your profile's reviews URL; "Write a review" = Profile → Ask for reviews → share link.
+  reviewsCount: '65 Google reviews',
+  // Google Business Profile ("Chemistry By Bighnaraj Sir"). Update rating/count as reviews grow.
   googleRating: '4.9',
-  googleReviewCount: '120+',
-  googleReviewsUrl: 'https://www.google.com/maps/search/?api=1&query=Chemistry+classes+by+BM+sir+Sector+45+Gurgaon',
-  googleWriteReviewUrl: 'https://www.google.com/maps/search/?api=1&query=Chemistry+classes+by+BM+sir+Sector+45+Gurgaon',
-  address: 'House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon',
+  googleReviewCount: '65',
+  googleReviewsUrl: 'https://maps.google.com/?cid=5853186131892736630',
+  googleWriteReviewUrl: 'https://maps.google.com/?cid=5853186131892736630',
   googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=Chemistry+classes+by+BM+sir+House+no+-+1411p,+1st+floor,+sec-45,+near+DPS-45+school+Gurgaon',
   
   centres: [
