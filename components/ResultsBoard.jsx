@@ -5,6 +5,8 @@ import { Trophy, Play, X } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { SITE_CONTENT } from '@/data/siteContent';
 
+const TINTS = ['bg-[#f3f1ff]', 'bg-[#eef7ea]', 'bg-[#fdf4e6]', 'bg-[#eef4ff]', 'bg-[#fbf0ee]'];
+
 const initials = (name) =>
   name.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join('');
 
@@ -44,21 +46,21 @@ export default function ResultsBoard() {
         )}
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-          {shown.map((r) => {
+          {shown.map((r, idx) => {
             const Card = r.video ? 'button' : 'div';
             return (
               <Card
                 key={r.id}
                 onClick={r.video ? () => setVideo(r) : undefined}
-                className={`group text-left bg-white border border-slate-200 rounded-2xl overflow-hidden transition-all duration-300 ${
-                  r.video ? 'cursor-pointer hover:border-indigo-300 hover:shadow-[0_18px_40px_-18px_rgba(15,23,42,0.25)]' : ''
+                className={`group text-left bg-white border border-slate-200/70 rounded-[28px] p-2 transition-all duration-300 ${
+                  r.video ? 'cursor-pointer hover:-translate-y-1 hover:shadow-[0_28px_50px_-28px_rgba(15,23,42,0.35)]' : ''
                 }`}
               >
-                <div className="relative aspect-square bg-[#eef1ff] flex items-center justify-center overflow-hidden">
+                <div className={`relative aspect-square rounded-[22px] ${TINTS[idx % TINTS.length]} flex items-center justify-center overflow-hidden`}>
                   {r.photo ? (
                     <img src={r.photo} alt={r.name} loading="lazy" decoding="async" className="w-full h-full object-cover object-top" />
                   ) : (
-                    <span className="font-heading font-extrabold text-4xl text-indigo-700/80 tracking-tight">{initials(r.name)}</span>
+                    <span className="font-heading font-extrabold text-5xl text-slate-900/70 tracking-tight">{initials(r.name)}</span>
                   )}
                   {r.video && (
                     <span className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 bg-white/95 text-slate-900 text-xs font-semibold pl-1 pr-3 py-1 rounded-full shadow-sm">
@@ -69,7 +71,7 @@ export default function ResultsBoard() {
                     </span>
                   )}
                 </div>
-                <div className="p-4 sm:p-5">
+                <div className="px-3 pt-4 pb-3">
                   <p className="font-heading font-extrabold text-xl sm:text-2xl tracking-[-0.02em] text-slate-950 leading-tight">
                     {r.result || r.exam}
                   </p>

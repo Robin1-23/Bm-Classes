@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Target, TrendingUp, Users, CheckCircle2, Sparkles, Zap, ShieldCheck, Layers } from 'lucide-react';
+import { Target, TrendingUp, Users, CheckCircle2, Sparkles, Zap, ShieldCheck, ArrowUpRight } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 import FoldText from '@/components/ui/FoldText';
 
@@ -10,24 +10,40 @@ export default function WhySection({ hidePedagogy = false }) {
 
   const pillars = [
     {
-      num: '01',
-      title: 'Fewer questions. Better ones.',
-      desc: 'Fifteen hand-picked questions per chapter, each with a twist that JEE Advanced and NEET love to test.',
-      highlights: ['15 curated questions per chapter', 'Advanced-pattern twists', 'Derivations, not shortcuts alone'],
+      lead: 'Fewer questions.',
+      soft: 'Better ones.',
+      desc: '15 hand-picked questions per chapter, each with the twist JEE and NEET love to test.',
+      icon: Target,
+      theme: 'indigo',
     },
     {
-      num: '02',
-      title: 'A check-up every week.',
-      desc: 'A short test every week, reviewed by the HOD with you and your parents, so mistakes get fixed before they become habits.',
-      highlights: ['Weekly diagnostic test', 'HOD and parent review', 'A plan for weak topics'],
+      lead: 'A check-up',
+      soft: 'every week.',
+      desc: 'A short weekly test, reviewed by the HOD with you and your parents.',
+      icon: TrendingUp,
+      theme: 'white',
     },
     {
-      num: '03',
-      title: 'Your teacher knows your name.',
-      desc: 'With 15 students at most, the HOD knows your target rank and your pace, and solves your doubts on the board.',
-      highlights: ['10–15 students per batch', 'Doubts solved the same day', 'Direct access to the HODs'],
+      lead: 'Your teacher',
+      soft: 'knows your name.',
+      desc: 'Fifteen students at most, so the HOD knows your target and your pace.',
+      icon: Users,
+      theme: 'white',
+    },
+    {
+      lead: 'Doubts solved',
+      soft: 'the same day.',
+      desc: 'Stuck after class? Sit with the HOD and leave with the answer.',
+      icon: Zap,
+      theme: 'navy',
     },
   ];
+
+  const THEMES = {
+    indigo: { card: 'bg-indigo-600 text-white border-indigo-600', soft: 'text-indigo-200', desc: 'text-indigo-100', btn: 'bg-white text-indigo-700', art: 'text-white/15' },
+    navy: { card: 'bg-[#0b1020] text-white border-[#0b1020]', soft: 'text-slate-400', desc: 'text-slate-300', btn: 'bg-white text-slate-950', art: 'text-white/10' },
+    white: { card: 'bg-white text-slate-950 border-slate-200', soft: 'text-slate-400', desc: 'text-slate-600', btn: 'bg-slate-950 text-white', art: 'text-indigo-100' },
+  };
 
   const dimensions = [
     {
@@ -164,27 +180,36 @@ export default function WhySection({ hidePedagogy = false }) {
         </ScrollReveal>
 
         {/* BESPOKE ACADEMIC CARDS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-lg sm:max-w-none mx-auto mb-20">
-          {pillars.map((pillar, idx) => (
-            <ScrollReveal key={pillar.num} delay={120 * (idx + 1)} direction="up" className="flex">
-              <article className="w-full bg-white border border-slate-200 rounded-2xl p-7 sm:p-8 transition-all duration-300 hover:border-indigo-300 hover:shadow-[0_18px_40px_-18px_rgba(15,23,42,0.25)]">
-                <span className="font-heading font-extrabold text-5xl tracking-[-0.04em] text-indigo-600/90">{pillar.num}</span>
-                <h3 className="font-heading font-extrabold text-2xl tracking-[-0.02em] text-slate-950 mt-5">{pillar.title}</h3>
-                <p className="text-[15px] text-slate-600 leading-relaxed mt-3">{pillar.desc}</p>
-                <ul className="mt-6 pt-5 border-t border-slate-100 space-y-2 text-sm text-slate-700">
-                  {pillar.highlights.map((h) => (
-                    <li key={h} className="flex gap-2.5">
-                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-indigo-600 shrink-0" />
-                      {h}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            </ScrollReveal>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto mb-20">
+          {pillars.map((p, idx) => {
+            const t = THEMES[p.theme];
+            const Icon = p.icon;
+            return (
+              <ScrollReveal key={p.lead} delay={80 * idx} direction="up">
+                <article className={`group relative overflow-hidden h-full min-h-[250px] rounded-[28px] border p-7 sm:p-9 flex flex-col ${t.card}`}>
+                  <Icon
+                    aria-hidden="true"
+                    strokeWidth={1.25}
+                    className={`absolute -right-6 -bottom-6 w-44 h-44 sm:w-52 sm:h-52 ${t.art} transition-transform duration-500 group-hover:-rotate-6 group-hover:scale-105`}
+                  />
+                  <h3 className="relative font-heading font-semibold text-[30px] sm:text-[34px] leading-[1.08] tracking-[-0.025em] max-w-[13ch]">
+                    {p.lead}
+                    <span className={`block ${t.soft}`}>{p.soft}</span>
+                  </h3>
+                  <p className={`relative text-[15px] leading-relaxed mt-4 max-w-[30ch] ${t.desc}`}>{p.desc}</p>
+                  <a href="/#book-demo" className="relative mt-auto pt-8 inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-wide w-fit">
+                    <span className={`w-10 h-10 rounded-full flex items-center justify-center ${t.btn}`}>
+                      <ArrowUpRight className="w-4 h-4" />
+                    </span>
+                    See it in a demo
+                  </a>
+                </article>
+              </ScrollReveal>
+            );
+          })}
         </div>
 
-        {/* INTERACTIVE SIDE BY SIDE */}
+        {/* INTERACTIVE PEDAGOGY COMPARISON DECK */}
         {!hidePedagogy && (
         <ScrollReveal delay={200} direction="up">
           <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-10 text-slate-950 shadow-[0_15px_40px_-10px_rgba(15,23,42,0.08)] relative overflow-hidden">

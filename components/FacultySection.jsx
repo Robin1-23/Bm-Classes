@@ -39,8 +39,8 @@ export default function FacultySection({ onOpenRegister }) {
             const videoUrl = videoUrls[idx % videoUrls.length];
             return (
               <ScrollReveal key={mentor.id} delay={100 * (idx + 1)} direction="up" className="flex">
-                <article className="group flex flex-col w-full bg-white border border-slate-200 rounded-2xl overflow-hidden transition-all duration-300 hover:border-indigo-300 hover:shadow-[0_18px_40px_-18px_rgba(15,23,42,0.25)]">
-                  <div className="relative aspect-[4/3] bg-slate-100 overflow-hidden">
+                <article className="group flex flex-col w-full bg-white border border-slate-200/70 rounded-[28px] p-2 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_50px_-28px_rgba(15,23,42,0.35)]">
+                  <div className="relative aspect-[4/3] bg-[#eef1ff] rounded-[22px] overflow-hidden">
                     <img loading="lazy" decoding="async"
                       src={mentor.image}
                       alt={mentor.name}
@@ -57,7 +57,7 @@ export default function FacultySection({ onOpenRegister }) {
                     </button>
                   </div>
 
-                  <div className="flex flex-col flex-1 p-6">
+                  <div className="flex flex-col flex-1 px-4 pt-5 pb-2">
                     <p className="text-sm font-semibold text-indigo-700">{mentor.role} · {mentor.exp}</p>
                     <h3 className="font-heading font-extrabold text-2xl tracking-[-0.02em] text-slate-950 mt-1">{mentor.name}</h3>
                     <p className="text-sm text-slate-500 mt-0.5">{mentor.subject}</p>
@@ -70,10 +70,14 @@ export default function FacultySection({ onOpenRegister }) {
                       ))}
                     </ul>
 
-                    <div className="mt-auto pt-5">
+                    <div className="mt-auto pt-5 flex items-center gap-3">
+                      <div className="min-w-0">
+                        <p className="text-sm font-semibold text-slate-900 leading-tight">1-on-1 or batch</p>
+                        <p className="text-sm text-slate-500 leading-tight mt-0.5">{mentor.exp} teaching</p>
+                      </div>
                       <button
                         onClick={() => handleRegister(mentor.name)}
-                        className="flex items-center justify-center gap-2 w-full h-11 rounded-full border border-slate-300 text-slate-900 text-sm font-semibold transition-colors group-hover:bg-slate-950 group-hover:border-slate-950 group-hover:text-white cursor-pointer"
+                        className="ml-auto shrink-0 inline-flex items-center gap-1.5 h-11 px-5 rounded-full bg-slate-950 hover:bg-indigo-600 text-white text-sm font-semibold transition-colors cursor-pointer"
                       >
                         Book a session
                         <ArrowRight className="w-4 h-4" />

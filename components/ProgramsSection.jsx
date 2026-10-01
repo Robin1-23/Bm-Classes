@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Sparkles, ArrowRight } from 'lucide-react';
+import { Sparkles, ArrowRight, ArrowUpRight, CalendarCheck } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 import SectionHeader from '@/components/ui/SectionHeader';
 import { useModal } from '@/context/ModalContext';
@@ -18,127 +18,121 @@ const PROGRAMS = [
   {
     id: 'integrated',
     tabs: ['jee', 'neet'],
-    featured: true,
-    audience: 'Class 11 & 12 · JEE Main, Advanced & NEET',
+    meta: 'Class 11 & 12 · JEE & NEET',
     title: 'JEE & NEET Integrated Programme',
-    desc: 'Two years of Physics, Chemistry and Biology taught by the HODs themselves, with PYQ practice every day and doubts cleared the same day.',
-    facts: [
-      ['Starts', '6 April'],
-      ['Batch size', '10–15 students'],
-      ['Taught by', 'BM Sir & Konika Ma’am'],
-      ['Track record', 'AIR 18 & AIR 22'],
-    ],
+    desc: 'Two years with the HODs, daily PYQ practice and same-day doubts.',
+    tint: 'bg-[#f3f1ff]',
     faces: ['/bm_sir.jpg', '/konika_mam.jpg'],
+    by: 'BM Sir & Konika Ma’am',
+    note: 'Starts 6 April',
     applyAs: 'Class 11th & 12th Integrated JEE & NEET',
   },
   {
     id: 'biology',
     tabs: ['neet'],
-    audience: 'Class 9–12 & NEET',
+    meta: 'Class 9–12 & NEET',
     title: 'Biology with Konika Ma’am',
-    desc: 'NCERT, line by line, on an interactive digital board. Built for NEET Biology and for CBSE, ICSE and IB boards.',
-    facts: [
-      ['Covers', 'Botany & Zoology'],
-      ['Boards', 'CBSE, ICSE, IB'],
-    ],
+    desc: 'NCERT line by line on a digital board. NEET, CBSE, ICSE and IB.',
+    tint: 'bg-[#eef7ea]',
     faces: ['/konika_mam.jpg'],
+    by: 'Konika Ma’am',
+    note: '20 years teaching',
     applyAs: 'Biology Excellence Program',
   },
   {
     id: 'foundation',
     tabs: ['foundation'],
-    audience: 'Class 9 & 10 · CBSE & Olympiad',
+    meta: 'Class 9 & 10 · CBSE & Olympiad',
     title: 'Maths & Science Foundation',
-    desc: 'Score well in boards now, and build the problem-solving habit JEE and NEET will ask for later.',
-    facts: [
-      ['Starts', '12 & 14 March'],
-      ['Syllabus', 'Updated NCERT'],
-    ],
+    desc: 'Score well in boards now. Build the JEE and NEET habit early.',
+    tint: 'bg-[#fdf4e6]',
+    by: 'Small batches',
+    note: 'Starts 12 & 14 March',
     applyAs: 'Class 9th & 10th Foundation',
   },
   {
     id: 'science-online',
     tabs: ['oneonone'],
-    audience: 'Class 9–12 · Online',
+    meta: 'Class 9–12 · Online',
     title: '1-on-1 Science with Chumki Ma’am',
-    desc: 'Personal online classes with a teacher who spent 18 years at FIITJEE. Your pace, your syllabus, your doubts.',
-    facts: [
-      ['Format', '1-on-1 or small group'],
-      ['Experience', '22 years'],
-    ],
+    desc: '18 years at FIITJEE. Your pace, your syllabus, your doubts.',
+    tint: 'bg-[#eef4ff]',
     faces: ['/chumki_mam.jpeg'],
+    by: 'Chumki Ma’am',
+    note: '1-on-1 or small group',
     applyAs: 'Science Teacher Online (9th-12th) + 1-on-1',
   },
   {
     id: 'doubts',
     tabs: ['oneonone', 'jee', 'neet'],
-    audience: '1-on-1 · Boards & PYQs',
+    meta: '1-on-1 · Boards & PYQs',
     title: 'Doubt clearing with the HODs',
-    desc: 'Bring any question you’re stuck on. Sit with BM Sir or another Ex-HOD and leave with it solved, plus the PYQ shortcuts that go with it.',
-    facts: [
-      ['Slots', 'Daily'],
-      ['Wait time', 'Same day'],
-    ],
+    desc: 'Bring any question you’re stuck on. Leave with it solved.',
+    tint: 'bg-[#fbf0ee]',
+    faces: ['/bm_sir.jpg'],
+    by: 'BM Sir & Ex-HODs',
+    note: 'Daily slots',
     applyAs: '1-on-1 Doubt & PYQ Drills',
   },
 ];
 
-function ProgramCard({ program, wide, onApply }) {
-  const dark = wide;
+function ProgramCard({ program, onApply }) {
   return (
-    <article
-      className={`group h-full flex flex-col rounded-2xl p-6 sm:p-8 border transition-all duration-300 ${
-        dark
-          ? 'bg-[#0b1020] border-[#0b1020] text-white'
-          : 'bg-white border-slate-200 text-slate-900 hover:border-indigo-300 hover:shadow-[0_18px_40px_-18px_rgba(15,23,42,0.25)]'
-      }`}
-    >
-      <div className="flex items-start justify-between gap-4">
-        <p className={`text-sm font-semibold ${dark ? 'text-amber-300' : 'text-indigo-700'}`}>{program.audience}</p>
-        {program.faces && (
+    <article className="group h-full flex flex-col rounded-[28px] bg-white p-2 border border-slate-200/70 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_50px_-28px_rgba(15,23,42,0.35)]">
+      <button
+        onClick={() => onApply(program.applyAs)}
+        className={`flex-1 text-left rounded-[22px] ${program.tint} p-6 sm:p-7 flex flex-col min-h-[250px] cursor-pointer`}
+      >
+        <p className="text-sm font-semibold text-slate-700">{program.meta}</p>
+        <h3 className="font-heading font-semibold text-[28px] leading-[1.12] tracking-[-0.025em] text-slate-900 mt-5 max-w-[15ch]">
+          {program.title}
+        </h3>
+        <p className="text-[15px] text-slate-600 leading-relaxed mt-3 max-w-[34ch]">{program.desc}</p>
+        <ArrowRight className="w-6 h-6 text-slate-900 mt-auto self-end transition-transform group-hover:translate-x-1" />
+      </button>
+
+      <div className="flex items-center gap-3 px-3 sm:px-4 py-3.5">
+        {program.faces ? (
           <div className="flex -space-x-2 shrink-0">
             {program.faces.map((src) => (
-              <img loading="lazy" decoding="async"
-                key={src}
-                src={src}
-                alt=""
-                className={`w-9 h-9 rounded-full object-cover object-top ring-2 ${dark ? 'ring-[#0b1020]' : 'ring-white'}`}
-              />
+              <img key={src} src={src} alt="" loading="lazy" decoding="async" className="w-10 h-10 rounded-full object-cover object-top ring-2 ring-white" />
             ))}
           </div>
+        ) : (
+          <span className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center shrink-0">
+            <Sparkles className="w-4 h-4 text-slate-600" />
+          </span>
         )}
-      </div>
-
-      <h3 className={`font-heading font-extrabold tracking-[-0.02em] mt-2 ${wide ? 'text-3xl sm:text-4xl' : 'text-2xl'}`}>
-        {program.title}
-      </h3>
-      <p className={`leading-relaxed mt-3 ${wide ? 'text-base sm:text-lg max-w-xl' : 'text-[15px]'} ${dark ? 'text-slate-300' : 'text-slate-600'}`}>
-        {program.desc}
-      </p>
-
-      <dl className={`grid gap-x-6 gap-y-4 mt-6 pt-6 border-t ${wide ? 'grid-cols-2 sm:grid-cols-4' : 'grid-cols-2'} ${dark ? 'border-white/10' : 'border-slate-100'}`}>
-        {program.facts.map(([label, value]) => (
-          <div key={label}>
-            <dt className={`text-xs ${dark ? 'text-slate-400' : 'text-slate-500'}`}>{label}</dt>
-            <dd className="text-sm font-semibold mt-0.5">{value}</dd>
-          </div>
-        ))}
-      </dl>
-
-      <div className="mt-auto pt-8 flex items-center justify-between gap-4">
-        <span className={`text-sm ${dark ? 'text-slate-400' : 'text-slate-500'}`}>Max 15 per batch</span>
+        <div className="min-w-0">
+          <p className="text-sm font-semibold text-slate-900 leading-tight">{program.by}</p>
+          <p className="text-sm text-slate-500 leading-tight mt-0.5">{program.note}</p>
+        </div>
         <button
           onClick={() => onApply(program.applyAs)}
-          className={`inline-flex items-center gap-2 h-11 px-5 rounded-full text-sm font-semibold transition-colors cursor-pointer ${
-            dark
-              ? 'bg-white text-slate-950 hover:bg-amber-300'
-              : 'bg-slate-950 text-white hover:bg-indigo-600'
-          }`}
+          className="ml-auto shrink-0 h-11 px-5 rounded-full bg-slate-950 hover:bg-indigo-600 text-white text-sm font-semibold transition-colors cursor-pointer"
         >
           Apply
-          <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
         </button>
       </div>
+    </article>
+  );
+}
+
+// Fills the last grid slot: an invitation for families who aren't sure yet
+function DemoCard() {
+  return (
+    <article className="h-full min-h-[330px] flex flex-col rounded-[28px] bg-[#0b1020] p-8 text-white">
+      <CalendarCheck className="w-8 h-8 text-amber-300" />
+      <h3 className="font-heading font-semibold text-[28px] leading-[1.12] tracking-[-0.025em] mt-5">
+        Not sure which batch?
+        <span className="block text-slate-400">Try a class first.</span>
+      </h3>
+      <a href="/#book-demo" className="mt-auto pt-8 inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-wide">
+        <span className="w-10 h-10 rounded-full bg-white text-slate-950 flex items-center justify-center">
+          <ArrowUpRight className="w-4 h-4" />
+        </span>
+        Book a free demo
+      </a>
     </article>
   );
 }
@@ -177,20 +171,17 @@ export default function ProgramsSection({ onOpenRegister }) {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {visible.map((program, idx) => {
-            const wide = program.featured && activeTab === 'all';
-            return (
-              <ScrollReveal
-                key={program.id}
-                delay={80 * idx}
-                direction="up"
-                className={wide ? 'md:col-span-2' : ''}
-              >
-                <ProgramCard program={program} wide={wide} onApply={handleRegister} />
-              </ScrollReveal>
-            );
-          })}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {visible.map((program, idx) => (
+            <ScrollReveal key={program.id} delay={70 * idx} direction="up">
+              <ProgramCard program={program} onApply={handleRegister} />
+            </ScrollReveal>
+          ))}
+          {activeTab === 'all' && (
+            <ScrollReveal delay={350} direction="up">
+              <DemoCard />
+            </ScrollReveal>
+          )}
         </div>
 
         <p className="text-center mt-10">

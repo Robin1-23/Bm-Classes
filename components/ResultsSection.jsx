@@ -97,6 +97,8 @@ const GoogleG = (props) => (
   </svg>
 );
 
+const DOTS = { backgroundImage: 'radial-gradient(rgba(15,23,42,0.07) 1px, transparent 1.3px)', backgroundSize: '14px 14px' };
+
 const WRITTEN_REVIEWS = [
   {
     quote: "We enrolled our son in BM Sir's Chemistry classes towards the end of Class XI, and it has been a wonderful decision. We have seen a significant improvement not only in his academic performance but, more importantly, in his enthusiasm to learn, practice, and continuously improve. Thank you, Sir, for your invaluable guidance and support.",
@@ -237,28 +239,64 @@ export default function ResultsSection() {
 
       </div>
 
-      {/* Google rating summary */}
-      <ScrollReveal direction="up" className="max-w-6xl mx-auto px-4 sm:px-6 mb-6">
-        <div className="bg-white border border-slate-200 rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-5">
-          <div className="flex items-center gap-4">
-            <GoogleG className="w-10 h-10 shrink-0" />
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-heading font-extrabold text-3xl tracking-[-0.02em] text-slate-950">{CENTER_INFO.googleRating}</span>
-                <span className="flex text-amber-400" aria-label={`${CENTER_INFO.googleRating} out of 5 stars`}>
-                  {[0, 1, 2, 3, 4].map((i) => <Star key={i} className="w-5 h-5 fill-amber-400" />)}
-                </span>
-              </div>
-              <p className="text-sm text-slate-500">{CENTER_INFO.googleReviewCount} reviews on Google</p>
+      {/* Google reviews bento */}
+      <ScrollReveal direction="up" className="max-w-6xl mx-auto px-4 sm:px-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <a
+            href={CENTER_INFO.googleReviewsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group md:col-span-2 rounded-[28px] bg-[#c9d8e8] p-7 sm:p-9 flex flex-col min-h-[230px] text-[#14304f]"
+            style={DOTS}
+          >
+            <GoogleG className="w-9 h-9" />
+            <p className="font-heading text-3xl sm:text-4xl tracking-[-0.025em] leading-[1.1] mt-auto pt-8">
+              Parents rate us
+              <span className="block font-extrabold">{CENTER_INFO.googleRating} on Google</span>
+            </p>
+            <div className="flex items-center justify-between gap-4 mt-4">
+              <span className="flex text-amber-500" aria-label={`${CENTER_INFO.googleRating} out of 5 stars`}>
+                {[0, 1, 2, 3, 4].map((i) => <Star key={i} className="w-5 h-5 fill-amber-400" />)}
+              </span>
+              <span className="text-sm font-semibold underline underline-offset-4 group-hover:no-underline">Read all reviews</span>
             </div>
-          </div>
-          <div className="flex gap-2">
-            <a href={CENTER_INFO.googleReviewsUrl} target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none inline-flex items-center justify-center h-11 px-5 rounded-full border border-slate-300 text-sm font-semibold text-slate-900 hover:border-slate-500 transition-colors">
-              Read all reviews
-            </a>
-            <a href={CENTER_INFO.googleWriteReviewUrl} target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none inline-flex items-center justify-center h-11 px-5 rounded-full bg-slate-950 hover:bg-indigo-600 text-sm font-semibold text-white transition-colors">
+          </a>
+
+          <div className="rounded-[28px] bg-[#dccff7] p-7 sm:p-9 flex flex-col min-h-[230px] text-[#3b2370]" style={DOTS}>
+            <div className="flex -space-x-2">
+              {['/bm_sir.jpg', '/konika_mam.jpg', '/chumki_mam.jpeg'].map((src) => (
+                <img key={src} src={src} alt="" loading="lazy" decoding="async" className="w-11 h-11 rounded-full object-cover object-top ring-2 ring-[#dccff7]" />
+              ))}
+            </div>
+            <p className="font-heading text-3xl tracking-[-0.025em] leading-[1.1] mt-auto pt-8">
+              <span className="font-extrabold">{CENTER_INFO.googleReviewCount}</span> families
+              <span className="block">reviewed us</span>
+            </p>
+            <a
+              href={CENTER_INFO.googleWriteReviewUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 w-fit h-10 px-4 inline-flex items-center rounded-full bg-white/80 hover:bg-white text-sm font-semibold transition-colors"
+            >
               Write a review
             </a>
+          </div>
+
+          <div className="md:col-span-3 rounded-[28px] bg-[#d6e7c2] p-7 sm:p-9 grid md:grid-cols-[1fr_minmax(0,420px)] gap-6 items-center text-[#22401a]" style={DOTS}>
+            <p className="font-heading text-3xl sm:text-4xl tracking-[-0.025em] leading-[1.1]">
+              In their
+              <span className="block font-extrabold">own words</span>
+            </p>
+            <figure className="bg-white rounded-2xl p-6 shadow-[0_18px_40px_-24px_rgba(15,23,42,0.4)]">
+              <span aria-hidden="true" className="font-heading font-extrabold text-4xl leading-none text-slate-300">“</span>
+              <blockquote className="text-[15px] text-slate-700 leading-relaxed -mt-2">
+                {WRITTEN_REVIEWS[0].quote.split('. ')[0]}.
+              </blockquote>
+              <figcaption className="mt-4 text-sm">
+                <span className="font-semibold text-slate-950">{WRITTEN_REVIEWS[0].author}</span>
+                <span className="block text-slate-500">{WRITTEN_REVIEWS[0].sub}</span>
+              </figcaption>
+            </figure>
           </div>
         </div>
       </ScrollReveal>
