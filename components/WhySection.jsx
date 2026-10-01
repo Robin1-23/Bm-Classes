@@ -11,42 +11,21 @@ export default function WhySection({ hidePedagogy = false }) {
   const pillars = [
     {
       num: '01',
-      icon: Target,
-      tag: 'CONCEPTUAL DEPTH',
-      title: 'First-principles problem solving',
-      desc: '15 handpicked high-yield questions per chapter teaching deep conceptual twists for JEE Advanced & NEET.',
-      stats: '15 High-Yield Qs / Topic',
-      highlights: [
-        'Curated 15-question chapter sets',
-        'Focus on Advanced pattern twists',
-        'Deep derivation & concept mastery',
-      ],
+      title: 'Fewer questions. Better ones.',
+      desc: 'Fifteen hand-picked questions per chapter, each with a twist that JEE Advanced and NEET love to test.',
+      highlights: ['15 curated questions per chapter', 'Advanced-pattern twists', 'Derivations, not shortcuts alone'],
     },
     {
       num: '02',
-      icon: TrendingUp,
-      tag: 'PERSONAL DIAGNOSTICS',
-      title: 'Weekly 1-on-1 diagnostic feedback',
-      desc: 'Weekly diagnostic tests & HOD progress reviews to systematically remove calculation & concept errors.',
-      stats: 'Weekly Diagnostic Feedback',
-      highlights: [
-        'Weekly diagnostic reports',
-        '1-on-1 parent & HOD reviews',
-        'Targeted weak-area action plans',
-      ],
+      title: 'A check-up every week.',
+      desc: 'A short test every week, reviewed by the HOD with you and your parents, so mistakes get fixed before they become habits.',
+      highlights: ['Weekly diagnostic test', 'HOD and parent review', 'A plan for weak topics'],
     },
     {
       num: '03',
-      icon: Users,
-      tag: 'MICRO BATCH CAP',
-      title: 'Capped 10–15 batch precision',
-      desc: 'Known individually by name, target rank, and learning pace. Doubts resolved directly on the board.',
-      stats: 'Strict 10-15 Batch Limit',
-      highlights: [
-        'Capped 10–15 student batches',
-        'Same-day board doubt solving',
-        'Direct Ex-HOD accessibility',
-      ],
+      title: 'Your teacher knows your name.',
+      desc: 'With 15 students at most, the HOD knows your target rank and your pace, and solves your doubts on the board.',
+      highlights: ['10–15 students per batch', 'Doubts solved the same day', 'Direct access to the HODs'],
     },
   ];
 
@@ -198,54 +177,26 @@ export default function WhySection({ hidePedagogy = false }) {
 
         {/* BESPOKE ACADEMIC CARDS */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-lg sm:max-w-none mx-auto mb-20">
-          {pillars.map((pillar, idx) => {
-            const Icon = pillar.icon;
-            return (
-              <ScrollReveal key={idx} delay={150 * (idx + 1)} direction="up" className="flex">
-                <div className="bg-white border border-slate-200/80 rounded-3xl p-7 sm:p-8 text-slate-950 shadow-[0_20px_45px_-10px_rgba(0,0,0,0.06),0_8px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_65px_-12px_rgba(99,102,241,0.22),0_12px_24px_rgba(0,0,0,0.04)] hover:border-indigo-400/80 hover:-translate-y-2 transition-all duration-300 relative group flex flex-col justify-between overflow-hidden h-full w-full">
-                  
-                  <div>
-                    {/* Top Row: Circular Icon & Tag */}
-                    <div className="flex items-center justify-between pb-5 border-b border-slate-100 mb-6">
-                      <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-200/80 text-indigo-600 flex items-center justify-center font-bold shadow-2xs group-hover:scale-105 transition-transform">
-                        <Icon className="w-6 h-6 text-indigo-600" />
-                      </div>
-                      <span className="text-xs font-bold tracking-wider uppercase text-slate-800 bg-slate-100 border border-slate-200/80 px-3 py-1.5 rounded-xl shadow-2xs">
-                        {pillar.tag}
-                      </span>
-                    </div>
-
-                    <div className="text-xs font-bold text-slate-500 mb-1">
-                      Pillar #{pillar.num}
-                    </div>
-
-                    <h3 className="font-heading text-xl sm:text-2xl font-extrabold text-slate-950 mb-3 leading-snug tracking-tight group-hover:text-indigo-600 transition-colors">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-slate-600 text-xs sm:text-sm font-semibold leading-relaxed mb-6 bg-slate-50 p-3.5 rounded-2xl border border-slate-200/60">
-                      {pillar.desc}
-                    </p>
-                  </div>
-
-                  {/* Card Footer matching reference card style */}
-                  <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
-                    <div>
-                      <div className="font-heading font-extrabold text-slate-950 text-base">{pillar.stats}</div>
-                      <div className="text-xs text-slate-500 font-bold">Standard Metric</div>
-                    </div>
-
-                    <span className="bg-slate-950 text-white font-semibold text-xs px-4 py-2.5 rounded-2xl shadow-xs">
-                      Active
-                    </span>
-                  </div>
-
-                </div>
-              </ScrollReveal>
-            );
-          })}
+          {pillars.map((pillar, idx) => (
+            <ScrollReveal key={pillar.num} delay={120 * (idx + 1)} direction="up" className="flex">
+              <article className="w-full bg-white border border-slate-200 rounded-2xl p-7 sm:p-8 transition-all duration-300 hover:border-indigo-300 hover:shadow-[0_18px_40px_-18px_rgba(15,23,42,0.25)]">
+                <span className="font-heading font-extrabold text-5xl tracking-[-0.04em] text-indigo-600/90">{pillar.num}</span>
+                <h3 className="font-heading font-extrabold text-2xl tracking-[-0.02em] text-slate-950 mt-5">{pillar.title}</h3>
+                <p className="text-[15px] text-slate-600 leading-relaxed mt-3">{pillar.desc}</p>
+                <ul className="mt-6 pt-5 border-t border-slate-100 space-y-2 text-sm text-slate-700">
+                  {pillar.highlights.map((h) => (
+                    <li key={h} className="flex gap-2.5">
+                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-indigo-600 shrink-0" />
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </ScrollReveal>
+          ))}
         </div>
 
-        {/* INTERACTIVE PEDAGOGY COMPARISON DECK */}
+        {/* INTERACTIVE SIDE BY SIDE */}
         {!hidePedagogy && (
         <ScrollReveal delay={200} direction="up">
           <div className="bg-white border border-slate-200/90 rounded-3xl p-6 sm:p-10 text-slate-950 shadow-[0_15px_40px_-10px_rgba(15,23,42,0.08)] relative overflow-hidden">
@@ -253,7 +204,7 @@ export default function WhySection({ hidePedagogy = false }) {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-slate-100 mb-8">
               <div>
                 <span className="text-xs font-bold tracking-widest text-indigo-600 uppercase block mb-1">
-                  PEDAGOGY COMPARISON DECK
+                  SIDE BY SIDE
                 </span>
                 <h3 className="font-heading text-2xl sm:text-3xl font-extrabold text-slate-950">
                   Why Micro-Batches <span className="text-indigo-600">Outperform Mass Coaching</span>
@@ -287,9 +238,8 @@ export default function WhySection({ hidePedagogy = false }) {
                   <div className="space-y-2 mb-5">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold tracking-wider text-slate-500 uppercase">
-                        MASS FACTORY SYSTEM
+                        A typical big institute
                       </span>
-                      <span className="text-xs font-semibold text-slate-500">Standard Industry</span>
                     </div>
                     <div>
                       <span className="inline-flex items-center gap-1.5 bg-slate-200 text-slate-800 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
@@ -311,7 +261,7 @@ export default function WhySection({ hidePedagogy = false }) {
                 <div className="space-y-4 pt-4 border-t border-slate-200/80">
                   <div>
                     <div className="flex justify-between text-xs font-semibold mb-1">
-                      <span className="text-slate-600">Individual Attention Score</span>
+                      <span className="text-slate-600">Individual attention</span>
                       <span className="text-slate-950 font-bold">{currentDim.factory.attentionScore}%</span>
                     </div>
                     <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
@@ -323,7 +273,7 @@ export default function WhySection({ hidePedagogy = false }) {
                   </div>
 
                   <div className="bg-white border border-slate-200/80 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2 text-xs">
-                    <span className="text-slate-600 font-semibold">Doubt Delay Window:</span>
+                    <span className="text-slate-600 font-semibold">Doubt waiting time</span>
                     <span className="font-semibold text-slate-950">{currentDim.factory.doubtSpeed}</span>
                   </div>
                 </div>
@@ -337,11 +287,7 @@ export default function WhySection({ hidePedagogy = false }) {
                   <div className="space-y-2 mb-5 relative z-10">
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold tracking-wider text-indigo-300 uppercase">
-                        BMCLASSES STANDARD
-                      </span>
-                      <span className="flex items-center gap-1.5 text-xs font-semibold text-emerald-400">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                        Verified Metric
+                        BM Classes
                       </span>
                     </div>
                     <div>
@@ -365,7 +311,7 @@ export default function WhySection({ hidePedagogy = false }) {
                 <div className="space-y-4 pt-4 border-t border-zinc-800 relative z-10">
                   <div>
                     <div className="flex justify-between text-xs font-semibold mb-1">
-                      <span className="text-zinc-200">Individual Attention Score</span>
+                      <span className="text-zinc-200">Individual attention</span>
                       <span className="text-indigo-300 font-bold">{currentDim.bmclasses.attentionScore}%</span>
                     </div>
                     <div className="h-2 bg-zinc-900 rounded-full overflow-hidden">
@@ -377,7 +323,7 @@ export default function WhySection({ hidePedagogy = false }) {
                   </div>
 
                   <div className="bg-zinc-900 border border-zinc-800 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2 text-xs">
-                    <span className="text-zinc-200 font-semibold">Doubt Clearing Speed:</span>
+                    <span className="text-zinc-200 font-semibold">Doubt waiting time</span>
                     <span className="font-bold text-indigo-300 flex items-center gap-1 shrink-0">
                       <Zap className="w-3.5 h-3.5 fill-indigo-400 text-indigo-400 shrink-0" />
                       <span>{currentDim.bmclasses.doubtSpeed}</span>
@@ -387,14 +333,6 @@ export default function WhySection({ hidePedagogy = false }) {
 
               </div>
 
-            </div>
-
-            {/* Deck Footer */}
-            <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600 font-medium relative z-10">
-              <div className="flex items-center gap-2">
-                <Layers className="w-4 h-4 text-indigo-600 shrink-0" />
-                <span>Comparing Dimension: <strong className="text-slate-950 font-semibold">{currentDim.subtitle}</strong></span>
-              </div>
             </div>
 
           </div>

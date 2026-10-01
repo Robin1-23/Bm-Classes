@@ -74,15 +74,14 @@ export default function FloatingLiveReelWidget() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMuted, setIsMuted] = useState(true);
   const [isClosed, setIsClosed] = useState(false);
-  const [isMinimized, setIsMinimized] = useState(false);
+  const [isMinimized, setIsMinimized] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalIsPlaying, setModalIsPlaying] = useState(true);
   const [modalIsMuted, setModalIsMuted] = useState(false);
   const [pastHero, setPastHero] = useState(false);
 
-  // Stay out of the way until the visitor scrolls past the hero; start minimised on phones
+  // Stay out of the way: hidden until past the hero, and minimised until opened
   useEffect(() => {
-    if (window.innerWidth < 1024) setIsMinimized(true);
     const onScroll = () => setPastHero(window.scrollY > window.innerHeight);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
