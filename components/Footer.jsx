@@ -42,14 +42,8 @@ export default function Footer({ onOpenRegister, onOpenLogin }) {
   };
 
   return (
-    <footer className="relative bg-[#5b1ce6] text-white pt-20 pb-12 overflow-hidden font-sans" id="contact">
+    <footer className="relative bg-[#0b1020] text-white pt-20 pb-12 overflow-hidden font-sans" id="contact">
       
-      {/* Top Left Organic Yellow Accent Shape */}
-      <div 
-        className="absolute -top-16 -left-16 w-64 h-64 sm:w-80 sm:h-80 bg-amber-400 rounded-[100%] pointer-events-none"
-        style={{ borderRadius: '0% 0% 100% 0% / 0% 0% 100% 0%' }}
-      ></div>
-
       {/* Background Soft Glows */}
       <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-indigo-400/20 rounded-full blur-3xl pointer-events-none"></div>
       <div className="absolute bottom-0 right-10 w-96 h-96 bg-indigo-400/20 rounded-full blur-3xl pointer-events-none"></div>

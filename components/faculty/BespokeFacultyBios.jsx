@@ -86,7 +86,7 @@ export default function BespokeFacultyBios() {
         <div className="space-y-8">
           {mentors.map((m, idx) => (
             <ScrollReveal key={idx} delay={150 * (idx + 1)} direction="up">
-              <div className="bg-[#faf6f0] border-2 border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm relative overflow-hidden group hover:border-indigo-400 transition-all">
+              <div className="bg-[#f5f7ff] border-2 border-slate-200 rounded-3xl p-6 sm:p-8 shadow-sm relative overflow-hidden group hover:border-indigo-400 transition-all">
                 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                   

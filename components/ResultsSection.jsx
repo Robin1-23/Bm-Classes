@@ -165,17 +165,17 @@ export default function ResultsSection() {
   };
 
   return (
-    <section className="bg-[#faf6f0] text-slate-950 py-20 lg:py-28 border-b border-[#ede6dd] relative overflow-hidden" id="results">
+    <section className="bg-[#f5f7ff] text-slate-950 py-20 lg:py-28 border-b border-[#e3e8f5] relative overflow-hidden" id="results">
       
       {/* Background Ambient Warm Cream Glows */}
-      <div className="absolute top-1/3 left-10 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-1/3 left-10 w-96 h-96 bg-indigo-100/40 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-indigo-100/30 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Header */}
         <ScrollReveal delay={100} direction="up" className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#e8dfd5] text-indigo-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#e3e8f5] text-indigo-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
             <FoldText
               text="REAL GOOGLE REVIEWS & STUDENT RANKERS"
@@ -216,7 +216,7 @@ export default function ResultsSection() {
             {ranks.map((rank, idx) => (
               <div 
                 key={idx}
-                className="bg-white text-slate-950 px-3 sm:px-5 py-2.5 sm:py-3 rounded-2xl whitespace-nowrap font-heading font-extrabold text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 border border-[#e8dfd5] shadow-xs hover:border-indigo-400 transition-all cursor-default text-center"
+                className="bg-white text-slate-950 px-3 sm:px-5 py-2.5 sm:py-3 rounded-2xl whitespace-nowrap font-heading font-extrabold text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 border border-[#e3e8f5] shadow-xs hover:border-indigo-400 transition-all cursor-default text-center"
               >
                 <Trophy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500 shrink-0" />
                 <span className="text-slate-500 text-xs sm:text-xs">JEE ADV</span>
@@ -235,7 +235,7 @@ export default function ResultsSection() {
             {[...WRITTEN_REVIEWS, ...WRITTEN_REVIEWS].map((rev, idx) => (
               <div 
                 key={idx}
-                className="w-[310px] sm:w-[380px] lg:w-[410px] bg-white text-slate-950 border border-[#e8dfd5] hover:border-indigo-400 rounded-3xl p-6 sm:p-7 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_45px_-10px_rgba(99,102,241,0.15)] hover:-translate-y-2.5 transition-all duration-300 flex flex-col justify-between shrink-0 group cursor-pointer relative"
+                className="w-[310px] sm:w-[380px] lg:w-[410px] bg-white text-slate-950 border border-[#e3e8f5] hover:border-indigo-400 rounded-3xl p-6 sm:p-7 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_45px_-10px_rgba(99,102,241,0.15)] hover:-translate-y-2.5 transition-all duration-300 flex flex-col justify-between shrink-0 group cursor-pointer relative"
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-100">
@@ -244,7 +244,7 @@ export default function ResultsSection() {
                         <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
                       ))}
                     </div>
-                    <span className="text-xs font-bold bg-[#f5efe6] text-slate-800 border border-[#e2d8cc] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                    <span className="text-xs font-bold bg-[#eef1ff] text-slate-800 border border-[#e3e8f5] px-2.5 py-0.5 rounded-full uppercase tracking-wider">
                       Google Review
                     </span>
                   </div>

@@ -298,7 +298,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFaqSchema) }}
         />
       </head>
-      <body className="font-body bg-[#faf6f0] text-slate-900 antialiased selection:bg-indigo-600 selection:text-white">
+      <body className="font-body bg-[#f5f7ff] text-slate-900 antialiased selection:bg-indigo-600 selection:text-white">
         <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
       </body>
     </html>

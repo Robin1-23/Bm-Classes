@@ -28,17 +28,17 @@ export default function CenterLocationSection({ onOpenRegister }) {
   };
 
   return (
-    <section className="bg-[#faf6f0] text-slate-950 py-20 lg:py-28 border-b border-[#ede6dd] relative overflow-hidden" id="location">
+    <section className="bg-[#f5f7ff] text-slate-950 py-20 lg:py-28 border-b border-[#e3e8f5] relative overflow-hidden" id="location">
       
       {/* Background Ambient Warm Cream Glows */}
-      <div className="absolute top-1/3 left-10 w-96 h-96 bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-amber-100/30 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-1/3 left-10 w-96 h-96 bg-indigo-100/40 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-indigo-100/30 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Section Header */}
         <ScrollReveal delay={100} direction="up" className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#e8dfd5] text-indigo-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#e3e8f5] text-indigo-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
             <span>GURGAON ACADEMIC CENTER</span>
           </div>
@@ -57,11 +57,11 @@ export default function CenterLocationSection({ onOpenRegister }) {
           
           {/* Left Details Card */}
           <ScrollReveal delay={150} direction="up" className="lg:col-span-6">
-            <div className="bg-white border border-[#e8dfd5] rounded-3xl p-6 sm:p-8 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.05)] hover:border-indigo-400 transition-all flex flex-col justify-between h-full">
+            <div className="bg-white border border-[#e3e8f5] rounded-3xl p-6 sm:p-8 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.05)] hover:border-indigo-400 transition-all flex flex-col justify-between h-full">
               
               <div>
                 <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
-                  <span className="text-xs font-bold uppercase tracking-wider bg-[#f5efe6] text-indigo-700 border border-[#e2d8cc] px-3 py-1 rounded-full flex items-center gap-1.5">
+                  <span className="text-xs font-bold uppercase tracking-wider bg-[#eef1ff] text-indigo-700 border border-[#e3e8f5] px-3 py-1 rounded-full flex items-center gap-1.5">
                     <ShieldCheck className="w-3.5 h-3.5 text-indigo-600" />
                     OFFICIAL ACADEMIC CENTER
                   </span>
@@ -76,18 +76,18 @@ export default function CenterLocationSection({ onOpenRegister }) {
                 </h3>
 
                 <div className="space-y-2.5 mb-6 text-xs font-semibold text-slate-700">
-                  <div className="bg-[#f5efe6] border border-[#e8dfd5] p-4 rounded-2xl">
+                  <div className="bg-[#eef1ff] border border-[#e3e8f5] p-4 rounded-2xl">
                     <span className="text-xs font-bold text-indigo-700 uppercase block mb-1">OFFICIAL CENTER ADDRESS</span>
                     <span className="leading-snug text-slate-950 font-semibold text-sm block">House no - 1411p, 1st floor, sec-45, near DPS-45 school, Gurgaon</span>
                     <span className="text-slate-600 text-xs mt-1 block">Landmark: Near DPS-45 School</span>
                   </div>
 
                   <div className="grid grid-cols-2 gap-2 text-xs pt-1">
-                    <div className="bg-[#f5efe6] border border-[#e8dfd5] p-2.5 rounded-xl">
+                    <div className="bg-[#eef1ff] border border-[#e3e8f5] p-2.5 rounded-xl">
                       <div className="text-xs font-bold text-indigo-700 uppercase">CONTACT DESK</div>
                       <div className="font-semibold text-slate-950 text-xs">9899818241 / 9999495938</div>
                     </div>
-                    <div className="bg-[#f5efe6] border border-[#e8dfd5] p-2.5 rounded-xl">
+                    <div className="bg-[#eef1ff] border border-[#e3e8f5] p-2.5 rounded-xl">
                       <div className="text-xs font-bold text-indigo-700 uppercase">SOCIAL MEDIA</div>
                       <div className="flex items-center gap-2.5 mt-1.5">
                         <a href="https://www.facebook.com/share/1PFmnYsfRK/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
@@ -144,10 +144,10 @@ export default function CenterLocationSection({ onOpenRegister }) {
 
           {/* Right Interactive Embedded Map Container */}
           <ScrollReveal delay={200} direction="up" className="lg:col-span-6 h-full min-h-[350px]">
-            <div className="bg-white border border-[#e8dfd5] rounded-3xl overflow-hidden shadow-[0_10px_30px_-5px_rgba(0,0,0,0.05)] h-full flex flex-col relative group hover:border-indigo-400 transition-all">
+            <div className="bg-white border border-[#e3e8f5] rounded-3xl overflow-hidden shadow-[0_10px_30px_-5px_rgba(0,0,0,0.05)] h-full flex flex-col relative group hover:border-indigo-400 transition-all">
               
               {/* Top Banner overlay */}
-              <div className="bg-[#f5efe6] border-b border-[#e8dfd5] px-5 py-3.5 flex items-center justify-between z-10">
+              <div className="bg-[#eef1ff] border-b border-[#e3e8f5] px-5 py-3.5 flex items-center justify-between z-10">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-indigo-600" />
                   <span className="font-heading font-extrabold text-xs text-slate-950">Sector 45 Center (Near DPS-45 School)</span>
@@ -171,7 +171,7 @@ export default function CenterLocationSection({ onOpenRegister }) {
               </div>
 
               {/* Bottom Quick Bar */}
-              <div className="bg-[#f5efe6] border-t border-[#e8dfd5] px-5 py-3 flex items-center justify-between text-xs text-slate-700 font-medium">
+              <div className="bg-[#eef1ff] border-t border-[#e3e8f5] px-5 py-3 flex items-center justify-between text-xs text-slate-700 font-medium">
                 <span>Near Huda City Centre Metro</span>
                 <a 
                   href={googleMapsUrl} 
@@ -191,7 +191,7 @@ export default function CenterLocationSection({ onOpenRegister }) {
 
         {/* WHATSAPP QUICK SHARE CARD */}
         <ScrollReveal delay={200} direction="up" className="max-w-3xl mx-auto">
-          <div className="bg-white border border-[#e8dfd5] rounded-3xl p-6 sm:p-8 text-slate-950 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.05)] relative overflow-hidden">
+          <div className="bg-white border border-[#e3e8f5] rounded-3xl p-6 sm:p-8 text-slate-950 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.05)] relative overflow-hidden">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200/80 flex items-center justify-center shrink-0">

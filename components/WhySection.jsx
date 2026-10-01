@@ -151,7 +151,7 @@ export default function WhySection({ hidePedagogy = false }) {
   const currentDim = dimensions[selectedDimension];
 
   return (
-    <section className="relative bg-white text-slate-950 py-20 lg:py-28 border-b border-slate-200/80 overflow-hidden" id="why-bmclasses">
+    <section className="relative bg-[#f5f7ff] text-slate-950 py-20 lg:py-28 border-b border-slate-200/80 overflow-hidden" id="why-bmclasses">
       
       {/* Background Soft Glows */}
       <div className="absolute top-1/4 -left-20 w-96 h-96 bg-indigo-50/60 rounded-full blur-3xl pointer-events-none"></div>

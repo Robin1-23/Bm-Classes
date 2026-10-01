@@ -122,7 +122,7 @@ export default function BespokeFeeBreakdown() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           
           {/* 100% Fee Inclusions Box */}
-          <div className="bg-[#faf6f0] border border-slate-200 rounded-3xl p-8 flex flex-col justify-between">
+          <div className="bg-[#f5f7ff] border border-slate-200 rounded-3xl p-8 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 text-indigo-700 text-xs font-bold uppercase tracking-widest mb-2">
                 <CheckCircle2 className="w-4 h-4 text-emerald-500" />

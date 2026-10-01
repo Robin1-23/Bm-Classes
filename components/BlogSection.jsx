@@ -22,7 +22,7 @@ export default function BlogSection() {
   ];
 
   return (
-    <section className="bg-[#faf6f0] py-20 lg:py-28 border-b border-slate-200/80" id="blog">
+    <section className="bg-[#f5f7ff] py-20 lg:py-28 border-b border-slate-200/80" id="blog">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         
         <ScrollReveal delay={100} direction="up" className="text-center max-w-2xl mx-auto mb-16">

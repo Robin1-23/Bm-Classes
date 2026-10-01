@@ -76,7 +76,7 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
   const marqueeItems = [...badges, ...badges];
 
   return (
-    <section className="relative bg-[#faf6f0] pt-28 xs:pt-32 sm:pt-36 lg:pt-40 pb-16 sm:pb-24 overflow-hidden border-b border-slate-100">
+    <section className="relative bg-white pt-28 xs:pt-32 sm:pt-36 lg:pt-40 pb-16 sm:pb-24 overflow-hidden border-b border-slate-100">
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
         
@@ -191,7 +191,7 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
         <div className="lg:col-span-5 relative w-full mt-4 lg:mt-0">
           <ScrollReveal delay={300} direction="left" className="w-full relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
-              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-[#e8dfd5] shadow-premium bg-white">
+              <div className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-[#e3e8f5] shadow-premium bg-white">
                 <Image
                   src="/CELEBRATION_PHOTO.jpg"
                   alt="BM Classes students celebrating their IIT JEE results with faculty"
@@ -207,7 +207,7 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
                 </div>
               </div>
 
-              <div className="absolute -left-3 sm:-left-6 top-8 bg-white border border-[#e8dfd5] rounded-2xl shadow-premium px-4 py-3 flex items-center gap-3">
+              <div className="absolute -left-3 sm:-left-6 top-8 bg-white border border-[#e3e8f5] rounded-2xl shadow-premium px-4 py-3 flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center">
                   <Award className="w-5 h-5" />
                 </div>
@@ -217,7 +217,7 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
                 </div>
               </div>
 
-              <div className="absolute -right-2 sm:-right-5 top-1/2 bg-white border border-[#e8dfd5] rounded-2xl shadow-premium px-4 py-3">
+              <div className="absolute -right-2 sm:-right-5 top-1/2 bg-white border border-[#e3e8f5] rounded-2xl shadow-premium px-4 py-3">
                 <p className="font-heading font-extrabold text-3xl text-indigo-700 tracking-tight leading-none">10–15</p>
                 <p className="text-xs text-slate-500 mt-1">students per batch</p>
               </div>
@@ -228,10 +228,10 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
       </div>
 
       {/* Marquee Credential Belt */}
-      <div className="bg-white border-y border-[#ede6dd] py-4 sm:py-5 relative z-30 overflow-hidden mt-12 sm:mt-16">
+      <div className="bg-[#f5f7ff] border-y border-[#e3e8f5] py-4 sm:py-5 relative z-30 overflow-hidden mt-12 sm:mt-16">
         
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-white to-transparent z-20"></div>
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-white to-transparent z-20"></div>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#f5f7ff] to-transparent z-20"></div>
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#f5f7ff] to-transparent z-20"></div>
 
         <div className="animate-marquee flex items-center gap-4 sm:gap-8 px-4">
           {marqueeItems.map((item, idx) => {
@@ -239,7 +239,7 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
             return (
               <div 
                 key={idx}
-                className="flex items-center gap-3 bg-[#faf6f0] border border-[#e8dfd5] px-5 py-2.5 rounded-xl text-slate-950 shrink-0 hover:border-indigo-400 transition-all cursor-pointer"
+                className="flex items-center gap-3 bg-white border border-[#e3e8f5] px-5 py-2.5 rounded-xl text-slate-950 shrink-0 hover:border-indigo-400 transition-all cursor-pointer"
               >
                 <div className="w-9 h-9 rounded-lg bg-indigo-600 text-white flex items-center justify-center shrink-0 shadow-xs">
                   <IconComp className="w-4 h-4 text-white" />
@@ -250,7 +250,7 @@ export default function HeroSection({ onOpenRegister, onOpenSeatLock }) {
                     <span className="font-heading font-extrabold text-xs sm:text-sm tracking-wide text-slate-950">
                       {item.title}
                     </span>
-                    <span className="text-xs bg-[#f5efe6] text-slate-800 font-bold px-1.5 py-0.5 rounded border border-[#e2d8cc]">
+                    <span className="text-xs bg-[#eef1ff] text-slate-800 font-bold px-1.5 py-0.5 rounded border border-[#e3e8f5]">
                       {item.metric}
                     </span>
                   </div>

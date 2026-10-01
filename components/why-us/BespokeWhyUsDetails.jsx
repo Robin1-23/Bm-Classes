@@ -138,7 +138,7 @@ export default function BespokeWhyUsDetails() {
         </ScrollReveal>
 
         {/* 2. 24-HOUR DAY IN THE LIFE TIMELINE — VERY LIGHT CRISP BACKGROUND SECTION */}
-        <div className="bg-[#faf6f0] text-slate-900 border-2 border-slate-200/90 rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden">
+        <div className="bg-[#f5f7ff] text-slate-900 border-2 border-slate-200/90 rounded-3xl p-6 sm:p-10 shadow-xl relative overflow-hidden">
           <ScrollReveal delay={150} direction="up" className="text-center max-w-2xl mx-auto mb-10">
             <span className="text-xs font-bold tracking-widest uppercase text-indigo-700 bg-indigo-50 border border-indigo-200 px-4 py-1.5 rounded-full inline-flex items-center gap-2 shadow-xs">
               <Sparkles className="w-3.5 h-3.5 text-indigo-600" />

@@ -21,11 +21,11 @@ export default function FacultySection({ onOpenRegister }) {
   ];
 
   return (
-    <section className="bg-[#faf6f0] py-20 lg:py-28 border-b border-[#ede6dd] relative overflow-hidden" id="faculty">
+    <section className="bg-[#f5f7ff] py-20 lg:py-28 border-b border-[#e3e8f5] relative overflow-hidden" id="faculty">
       
       {/* Background Ambient Warm Cream Glows */}
-      <div className="absolute top-1/3 -left-20 w-80 h-80 bg-amber-100/40 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-10 -right-20 w-80 h-80 bg-amber-100/30 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-1/3 -left-20 w-80 h-80 bg-indigo-100/40 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-10 -right-20 w-80 h-80 bg-indigo-100/30 rounded-full blur-3xl pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         
@@ -106,7 +106,7 @@ export default function FacultySection({ onOpenRegister }) {
                     </div>
 
                     {/* Pedagogy Insight Quote Box */}
-                    <div className="bg-[#f5efe6] border-l-2 border-indigo-600 p-3.5 rounded-r-2xl mb-6 min-h-[64px] flex flex-col justify-center">
+                    <div className="bg-[#eef1ff] border-l-2 border-indigo-600 p-3.5 rounded-r-2xl mb-6 min-h-[64px] flex flex-col justify-center">
                       <div className="text-xs font-bold uppercase tracking-wider text-indigo-600 mb-0.5">
                         Pedagogy Insight
                       </div>

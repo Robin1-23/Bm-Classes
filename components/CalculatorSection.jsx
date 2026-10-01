@@ -52,7 +52,7 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
   ];
 
   return (
-    <section className="bg-black text-white py-20 lg:py-28 relative overflow-hidden border-b border-zinc-800" id="calculator">
+    <section className="bg-[#0b1020] text-white py-20 lg:py-28 relative overflow-hidden border-b border-zinc-800" id="calculator">
       
       {/* Background Ambient Glow Orbs */}
       <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-3xl pointer-events-none"></div>
@@ -71,7 +71,7 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
 
         {/* MODERN INTERACTIVE STUDIO CONSOLE */}
         <ScrollReveal delay={200} direction="up">
-          <div className="max-w-5xl mx-auto bg-[#0a0a0a] border-2 border-zinc-800 backdrop-blur-2xl rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden">
+          <div className="max-w-5xl mx-auto bg-[#111833] border border-white/10 backdrop-blur-2xl rounded-3xl p-6 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden">
             
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               
@@ -159,7 +159,7 @@ export default function CalculatorSection({ onOpenRegister, onOpenSeatLock }) {
               </div>
 
               {/* Right Output Telemetry Vault */}
-              <div className="lg:col-span-5 bg-black border-2 border-zinc-800 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden">
+              <div className="lg:col-span-5 bg-[#0b1020] border border-white/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden">
                 
                 <div className="absolute -right-16 -top-16 w-48 h-48 bg-indigo-400/10 rounded-full blur-2xl pointer-events-none"></div>
 
