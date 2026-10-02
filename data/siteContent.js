@@ -1,15 +1,103 @@
-// Batch timetable (Programs page) and results board (Results page).
-// Edit here and redeploy. Leave a batch field empty to show "Ask us".
-// Results: add `year` to enable the year filter; `photo`/`video` take a /public path.
+// Courses currently offered (from the institute's official posters) and the results board.
+// Edit here and redeploy. Every page, the forms, the admin panel and the SEO data read from this list.
+
+export const CENTRES = ['303, Ayyachi Apartment, Sector 45', 'OD-55, Malibu Towne', '2423, Sector 46'];
+
+export const COURSES = [
+  {
+    id: 'board-2027-chemistry',
+    kind: 'Crash course',
+    tabs: ['boards'],
+    title: '12th Board 2027',
+    subject: 'Chemistry',
+    start: '10 Oct 2026',
+    startISO: '2026-10-10',
+    hours: '35 hours of classes',
+    tests: '20 mock papers',
+    focus: 'Board-focused preparation',
+    mode: 'Hybrid · online + offline',
+    poster: '/posters/board-2027-chemistry.jpg',
+    tint: 'bg-[#eef4ff]',
+  },
+  {
+    id: 'board-2027-biology',
+    kind: 'Crash course',
+    tabs: ['boards'],
+    title: '12th Board 2027',
+    subject: 'Biology',
+    start: '10 Oct 2026',
+    startISO: '2026-10-10',
+    hours: '35 hours of classes',
+    tests: '20 mock papers',
+    focus: 'Board-focused preparation',
+    mode: 'Hybrid · online + offline',
+    poster: '/posters/board-2027-biology.jpg',
+    tint: 'bg-[#eef7ea]',
+  },
+  {
+    id: 'jee-main-2027-chemistry',
+    kind: 'Crash course',
+    tabs: ['jee'],
+    title: 'JEE Main 2027',
+    subject: 'Chemistry',
+    start: '10 Nov 2026',
+    startISO: '2026-11-10',
+    hours: '40 hours of classes',
+    tests: '20 JEE Main mock papers',
+    focus: 'Concept clarity and exam-focused practice',
+    mode: 'Hybrid · online + offline',
+    poster: '/posters/jee-main-2027-chemistry.jpg',
+    tint: 'bg-[#f3f1ff]',
+  },
+  {
+    id: 'neet-2027-chemistry',
+    kind: 'Crash course',
+    tabs: ['neet'],
+    title: 'NEET 2027',
+    subject: 'Chemistry',
+    start: '10 Nov 2026',
+    startISO: '2026-11-10',
+    hours: '40 hours of classes',
+    tests: '20 NEET mock papers',
+    focus: 'NCERT focus, PYQs, mock tests and doubt support',
+    mode: 'Hybrid · online + offline',
+    poster: '/posters/neet-2027-chemistry.jpg',
+    tint: 'bg-[#fbf0ee]',
+  },
+  {
+    id: 'class-10-rapid',
+    kind: 'Rapid course completion',
+    tabs: ['class10'],
+    title: 'Class 10',
+    subject: 'Science & Maths',
+    start: '10 Oct 2026',
+    startISO: '2026-10-10',
+    hours: '70 hrs Science + 70 hrs Maths',
+    tests: '5 part tests + 10 full tests',
+    focus: '4 months, till the board exams. CBSE-NCERT, small batches, notes included',
+    mode: 'Online & offline',
+    poster: '/posters/class-10-rapid-course.jpg',
+    tint: 'bg-[#fdf4e6]',
+  },
+  {
+    id: 'one-on-one-science',
+    kind: '1-on-1 classes',
+    tabs: ['oneonone'],
+    title: '1-on-1 Science',
+    subject: 'with Chumki Ma’am',
+    start: 'Anytime',
+    hours: 'Classes 9–12',
+    tests: 'Your pace, your syllabus',
+    focus: '22 years teaching, 18 of them at FIITJEE',
+    mode: 'Online',
+    faces: ['/chumki_mam.jpeg'],
+    tint: 'bg-[#fefbe8]',
+  },
+];
+
+export const courseName = (c) => `${c.title} ${c.subject}`;
+
 export const SITE_CONTENT = {
-  batches: [
-    { id: 'c12', name: 'Class 12 · JEE & NEET', start: '12 March', timing: '', fee: 'From ₹90,000 / year', mode: 'Offline + online' },
-    { id: 'c11', name: 'Class 11 · JEE & NEET', start: '6 April', timing: '', fee: 'From ₹85,000 / year', mode: 'Offline + online' },
-    { id: 'drop', name: 'Droppers · JEE & NEET', start: '', timing: '', fee: 'From ₹95,000 / year', mode: '' },
-    { id: 'c10', name: 'Class 10 · Maths & Science', start: '12 March', timing: '', fee: '', mode: 'Offline + online' },
-    { id: 'c9', name: 'Class 9 · Maths & Science', start: '14 March', timing: '', fee: '', mode: 'Offline + online' },
-    { id: 'bio', name: 'Biology with Konika Ma’am · Class 9–12 & NEET', start: '', timing: '', fee: '', mode: 'Offline + online' },
-  ],
   results: [
     { id: 'aaryan', name: 'Aaryan Jain', exam: 'JEE Main', result: '99.48 percentile', year: '', photo: '', video: '/videos/review1.mp4' },
     { id: 'shaoni', name: 'Shaoni Mukherjee', exam: 'JEE Main & Advanced', result: 'Qualified both', year: '', photo: '', video: '/videos/review2.mp4' },

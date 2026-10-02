@@ -11,10 +11,10 @@ const COLUMNS = [
   {
     title: 'Programs',
     links: [
-      ['JEE & NEET', '/programs'],
-      ['Biology', '/programs'],
-      ['Class 9 & 10', '/programs'],
-      ['Timetable & fees', '/programs#timetable'],
+      ['12th Boards 2027', '/programs'],
+      ['JEE Main 2027', '/programs'],
+      ['NEET 2027', '/programs'],
+      ['Class 10 rapid course', '/programs'],
     ],
   },
   {
@@ -23,7 +23,6 @@ const COLUMNS = [
       ['Why us', '/why-us'],
       ['Faculty', '/faculty'],
       ['Results', '/results'],
-      ['Fee calculator', '/calculator'],
     ],
   },
   {

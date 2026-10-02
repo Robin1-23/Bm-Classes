@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { COURSES, courseName } from '@/data/siteContent';
 import { 
   ShieldCheck, Download, Search, Trash2, Phone, Mail, CheckCircle2, Lock, 
   Sparkles, RefreshCw, MessageSquare, Plus, Edit3, X, Filter, UserPlus, 
@@ -9,14 +10,7 @@ import {
   Key, Eye, EyeOff
 } from 'lucide-react';
 
-const PROGRAM_OPTIONS = [
-  '2-Year JEE Advanced & Main Integrated Batch (Class 11)',
-  '1-Year JEE Main & Advanced Pinnacle Batch (Class 12)',
-  'XII Pass / Droppers Intensive Ranker Batch',
-  'NEET UG Medical Excellence Batch (Class 11 & 12)',
-  'Class 9th & 10th Foundation & Olympiad Batch',
-  'General Inquiry / Diagnostic Session'
-];
+const PROGRAM_OPTIONS = [...COURSES.map(courseName), 'General enquiry / free demo'];
 
 // Attach the admin session token to API calls
 const authFetch = (url, options = {}) => {

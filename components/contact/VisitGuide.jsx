@@ -7,7 +7,7 @@ import PinnedNote from '@/components/ui/PinnedNote';
 const STEPS = [
   { title: 'Meet the HOD', desc: 'Sit down with BM Sir or Konika Ma’am and talk through your goals, school and syllabus.' },
   { title: 'A short check of your basics', desc: 'A 30-minute check in Physics, Chemistry and Maths, so the advice is about you, not a brochure.' },
-  { title: 'Your plan and batch', desc: 'Leave with a study plan, the right batch and timing, and your fee with any scholarship.' },
+  { title: 'Your plan and batch', desc: 'Leave with a study plan, and the right course and batch timing for you.' },
 ];
 
 const ROUTES = [

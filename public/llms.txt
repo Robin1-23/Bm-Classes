@@ -9,9 +9,9 @@
 - Website: https://www.bm-classes.com
 - Google Maps: https://maps.google.com/?cid=5853186131892736630
 - Batch size: 10–15 students maximum
-- Modes: offline classroom and online; 1-on-1 online Science for Classes 9–12
+- Modes: every crash course is hybrid (online + offline); 1-on-1 Science is online
+- Centres listed on course posters: 303 Ayyachi Apartment (Sector 45), OD-55 Malibu Towne, 2423 Sector 46
 - Results: JEE Advanced AIR 18, AIR 22, AIR 52; JEE Main 99+ percentile
-- Fees: from ₹85,000/year (Class 11), ₹90,000 (Class 12), ₹95,000 (droppers), including study material and tests; merit scholarships up to 40% based on Class X/XI marks
 - Free demo class: available, booked online and confirmed on WhatsApp
 
 ## Faculty
@@ -20,21 +20,20 @@
 - Konika Ma'am: Head of Biology, 20 years; taught the FIITJEE KVPY batch; former faculty at DPS Sushant Lok
 - Chumki Ma'am: Science Lead, 22 years (18 years as senior faculty at FIITJEE); teaches Classes 9–12 online and 1-on-1
 
-## Programmes
+## Courses (2026–27)
 
-- JEE & NEET Integrated Programme (Class 11 & 12)
-- Droppers batch (JEE & NEET)
-- Biology with Konika Ma'am (Class 9–12 & NEET; CBSE, ICSE, IB)
-- Maths & Science Foundation (Class 9 & 10)
-- 1-on-1 Science, online (Class 9–12)
-- Daily doubt-clearing sessions with the HODs
+- 12th Board 2027 Chemistry crash course: 35 hours of classes, 20 mock papers, board-focused, starts 10 October 2026
+- 12th Board 2027 Biology crash course: 35 hours of classes, 20 mock papers, board-focused, starts 10 October 2026
+- JEE Main 2027 Chemistry crash course: 40 hours of classes, 20 JEE Main mock papers, starts 10 November 2026
+- NEET 2027 Chemistry crash course: 40 hours of classes, 20 NEET mock papers, starts 10 November 2026
+- Class 10 Science & Maths rapid course completion: 70 hours Science + 70 hours Maths, 5 part tests + 10 full tests, 4 months till the board exams, starts 10 October 2026
+- 1-on-1 Science with Chumki Ma'am: online, Classes 9–12, start anytime
 
 ## Pages
 
 - [Home](https://www.bm-classes.com/): overview, results, faculty, programmes, FAQ, free demo booking
-- [Programs](https://www.bm-classes.com/programs): all programmes, batch timetable and fees
+- [Courses](https://www.bm-classes.com/programs): all current courses with posters, start dates and details
 - [Faculty](https://www.bm-classes.com/faculty): teacher profiles and teaching videos
 - [Results](https://www.bm-classes.com/results): student results and video reviews
-- [Fee calculator](https://www.bm-classes.com/calculator): yearly fee and scholarship estimate
 - [Why us](https://www.bm-classes.com/why-us): teaching approach
 - [Contact](https://www.bm-classes.com/contact): address, map and directions

@@ -6,8 +6,8 @@ import SectionHeader from '@/components/ui/SectionHeader';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { CENTER_INFO } from '@/data/contentData';
 
-const CLASSES = ['Class 9', 'Class 10', 'Class 11', 'Class 12', 'Dropper'];
-const SUBJECTS = ['Chemistry', 'Physics', 'Maths', 'Biology'];
+const CLASSES = ['Class 9', 'Class 10', 'Class 11', 'Class 12'];
+const SUBJECTS = ['Chemistry', 'Biology', 'Science', 'Maths'];
 // ponytail: fixed slot list; move into data/siteContent.js if timings change often
 const SLOTS = ['10–11 AM', '12–1 PM', '4–5 PM', '6–7 PM'];
 const PERKS = ['A real class with the HOD, not a sales pitch', 'Honest feedback on where you stand', 'No fee, no obligation to join'];
@@ -66,7 +66,7 @@ function Step({ n, title, children }) {
 
 export default function DemoBookingSection() {
   const days = useMemo(nextDays, []);
-  const [form, setForm] = useState({ name: '', phone: '', cls: 'Class 11', subject: 'Chemistry', day: '', slot: '' });
+  const [form, setForm] = useState({ name: '', phone: '', cls: 'Class 12', subject: 'Chemistry', day: '', slot: '' });
   const [error, setError] = useState('');
   const [sending, setSending] = useState(false);
   const [done, setDone] = useState(null);

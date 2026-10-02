@@ -1,5 +1,7 @@
 // Single source of truth for search engines and AI assistants.
 // Keep these facts in sync with the Google Business Profile.
+import { COURSES, CENTRES, courseName } from '@/data/siteContent';
+
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bm-classes.com';
 
 export const BUSINESS = {
@@ -50,13 +52,6 @@ export const FACULTY = [
   },
 ];
 
-export const COURSES = [
-  { name: 'JEE & NEET Integrated Programme (Class 11 & 12)', description: 'Two-year Physics, Chemistry and Biology programme for JEE Main, JEE Advanced and NEET, in batches of 10–15.' },
-  { name: 'Droppers Batch (JEE & NEET)', description: 'Intensive one-year programme for students repeating JEE or NEET.' },
-  { name: 'Biology with Konika Ma’am (Class 9–12 & NEET)', description: 'NCERT Biology taught line by line on a digital board, for NEET and CBSE, ICSE and IB boards.' },
-  { name: 'Maths & Science Foundation (Class 9 & 10)', description: 'Board preparation on the updated NCERT syllabus with early JEE and NEET problem solving.' },
-  { name: '1-on-1 Science, Online (Class 9–12)', description: 'Personal online Science classes with Chumki Ma’am, one-on-one or in small groups.' },
-];
 
 // Shown on the home page AND emitted as FAQPage data, so the two never drift apart.
 export const FAQ = [
@@ -74,11 +69,11 @@ export const FAQ = [
   },
   {
     q: 'Which courses does BM Classes offer?',
-    a: 'JEE and NEET programmes for Class 11, Class 12 and droppers; Biology for Class 9–12 and NEET; Maths and Science foundation for Class 9 and 10; online 1-on-1 Science for Class 9–12; and daily doubt-clearing sessions.',
+    a: 'Crash courses for the 2027 exams: 12th Board Chemistry and 12th Board Biology (35 hours, 20 mock papers, from 10 October 2026), JEE Main Chemistry and NEET Chemistry (40 hours, 20 mock papers, from 10 November 2026); a 4-month Class 10 Science and Maths rapid course (from 10 October 2026); and online 1-on-1 Science for Classes 9–12.',
   },
   {
-    q: 'What are the fees at BM Classes?',
-    a: 'Classroom programmes start from ₹85,000 a year for Class 11, ₹90,000 for Class 12 and ₹95,000 for droppers, including study material and tests. Merit scholarships of up to 40% are available based on Class X/XI marks. The fee calculator on the website shows your exact fee.',
+    q: 'How do I join a course?',
+    a: 'Tap “Join now” on any course on the website, or call or WhatsApp +91 98998 18241. You can also book a free demo class first. The team shares fees and batch timings on the call.',
   },
   {
     q: 'What results have BM Classes students achieved?',
@@ -86,7 +81,7 @@ export const FAQ = [
   },
   {
     q: 'Are online classes available?',
-    a: 'Yes. Most batches run offline and online, and Chumki Ma’am teaches Science online, one-on-one or in small groups, for Classes 9 to 12.',
+    a: 'Yes. Every crash course runs in hybrid mode, so you can join online or at a centre, and Chumki Ma’am teaches Science online, one-on-one, for Classes 9 to 12.',
   },
   {
     q: 'Can I attend a free demo class?',
@@ -157,6 +152,22 @@ export function facultyJsonLd() {
   };
 }
 
+export function courseJsonLd(c) {
+  return {
+    '@type': 'Course',
+    name: courseName(c),
+    description: `${c.kind}: ${c.hours}, ${c.tests}. ${c.focus}.`,
+    provider: { '@id': `${SITE_URL}/#organization` },
+    hasCourseInstance: {
+      '@type': 'CourseInstance',
+      courseMode: c.mode.startsWith('Online') && !c.mode.includes('offline') ? 'online' : 'blended',
+      ...(c.startISO ? { startDate: c.startISO } : {}),
+      location: CENTRES.map((name) => ({ '@type': 'Place', name: `${name}, Gurugram` })),
+    },
+    ...(c.poster ? { image: abs(c.poster) } : {}),
+  };
+}
+
 export function courseListJsonLd() {
   return {
     '@context': 'https://schema.org',
@@ -165,7 +176,7 @@ export function courseListJsonLd() {
     itemListElement: COURSES.map((c, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      item: { '@type': 'Course', name: c.name, description: c.description, provider: { '@id': `${SITE_URL}/#organization` } },
+      item: courseJsonLd(c),
     })),
   };
 }

@@ -3,9 +3,6 @@
 import React from 'react';
 import PageHeader from '@/components/ui/PageHeader';
 import ProgramsSection from '@/components/ProgramsSection';
-import BatchTimetable from '@/components/BatchTimetable';
-import YearRoadmap from '@/components/programs/YearRoadmap';
-import CalculatorSection from '@/components/CalculatorSection';
 import DemoBookingSection from '@/components/DemoBookingSection';
 
 export default function ProgramsPage() {
@@ -14,17 +11,14 @@ export default function ProgramsPage() {
       <PageHeader
         breadcrumb="Courses"
         badgeText="Courses 2026–27"
-        title="Built for ranks,"
-        soft="not roll numbers."
-        subtitle="JEE Main, JEE Advanced and NEET batches of 10–15, taught entirely by former HODs of FIITJEE and VMC."
+        title="Short courses."
+        soft="Serious results."
+        subtitle="Crash courses for the 2027 boards, JEE Main and NEET, a rapid Class 10 course, and 1-on-1 Science. Online and offline."
         tint="bg-[#fdf4e6]"
-        facts={[{"label":"Class 11 starts","value":"6 April"},{"label":"fees from","value":"₹85,000"}]}
-        wide={{"label":"Merit scholarships","value":"Up to 40% off, based on Class X/XI marks"}}
+        facts={[{ label: 'next batch starts', value: '10 Oct' }, { label: 'mock papers', value: 'Up to 20' }]}
+        wide={{ label: 'Every course', value: 'Hybrid: join online or at a centre' }}
       />
       <ProgramsSection />
-      <BatchTimetable />
-      <YearRoadmap />
-      <CalculatorSection />
       <DemoBookingSection />
     </>
   );

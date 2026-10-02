@@ -1,8 +1,8 @@
 import { pageMetadata, breadcrumbJsonLd, JsonLd, courseListJsonLd } from '@/data/seo';
 
 export const metadata = pageMetadata({
-  title: "JEE & NEET Coaching Programs, Class 9–12",
-  description: "JEE Main, JEE Advanced and NEET programmes in Sector 45, Gurugram: Class 11 & 12, droppers, Biology, and Class 9–10 foundation. Batches of 10–15. See timings and fees.",
+  title: "Crash Courses 2027: Boards, JEE Main, NEET & Class 10",
+  description: "12th Board Chemistry and Biology, JEE Main and NEET Chemistry crash courses for 2027, a Class 10 rapid course and 1-on-1 Science. Hybrid classes in Gurugram from 10 Oct 2026.",
   path: '/programs',
 });
 
