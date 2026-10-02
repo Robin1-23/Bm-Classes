@@ -81,22 +81,6 @@ const SOCIALS = [
   },
 ];
 
-// Round sticker badge with text running around the edge
-function Sticker() {
-  return (
-    <svg viewBox="0 0 120 120" className="w-full h-full" aria-hidden="true">
-      <defs>
-        <path id="footer-sticker-ring" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0" />
-      </defs>
-      <circle cx="60" cy="60" r="58" fill="#ffffff" />
-      <text className="font-heading" fontSize="11" fontWeight="700" fill="#0a0a0a">
-        <textPath href="#footer-sticker-ring" textLength="272" lengthAdjust="spacing">EX-HOD FACULTY • SECTOR 45 •</textPath>
-      </text>
-      <text x="60" y="70" textAnchor="middle" className="font-heading" fontSize="30" fontWeight="800" fill="#0a0a0a">BM</text>
-    </svg>
-  );
-}
-
 export default function Footer() {
   const { openRegister } = useModal();
   const [contact, setContact] = useState('');
@@ -199,11 +183,8 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Giant wordmark, scaled to the footer width, with the sticker sitting on it */}
+      {/* Giant wordmark, scaled to the footer width */}
       <div className="relative mt-12 sm:mt-16 px-3 sm:px-6">
-        <div className="absolute left-1/2 -translate-x-1/2 -top-10 sm:-top-14 w-24 h-24 sm:w-32 sm:h-32 rotate-[-12deg] z-10">
-          <Sticker />
-        </div>
         <svg viewBox="0 0 1000 150" className="block w-full translate-y-[14%]" role="img" aria-label="BM Classes">
           <text x="0" y="140" textLength="1000" lengthAdjust="spacingAndGlyphs" className="font-heading" fontWeight="900" fontSize="176" fill="#ffffff">
             BM CLASSES
