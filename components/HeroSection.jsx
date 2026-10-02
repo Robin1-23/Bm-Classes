@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Award, ShieldCheck, Trophy, GraduationCap, Flame, ArrowRight, Star } from 'lucide-react';
+import { ArrowRight, Star } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 import { useModal } from '@/context/ModalContext';
 import { CENTER_INFO } from '@/data/contentData';
@@ -41,40 +41,17 @@ export default function HeroSection({ onOpenRegister }) {
     }
   };
 
-  const badges = [
-    {
-      metric: '15+ Yrs Exp',
-      title: 'EX-FIITJEE HOD',
-      sub: 'Math & Physics Lead',
-      icon: Award,
-    },
-    {
-      metric: '20+ Yrs Exp',
-      title: 'EX-VMC HOD',
-      sub: 'Chemistry HOD',
-      icon: Flame,
-    },
-    {
-      metric: 'AIR 18, 22, 52',
-      title: 'TOP JEE ADVANCED',
-      sub: 'AIR 18, 22, 52, 102 Ranks',
-      icon: Trophy,
-    },
-    {
-      metric: 'Max 10-15',
-      title: 'MICRO BATCHES',
-      sub: 'Strict Student Cap',
-      icon: ShieldCheck,
-    },
-    {
-      metric: 'IIT / NIT',
-      title: 'ALUMNI FACULTY',
-      sub: 'Direct Pedagogy',
-      icon: GraduationCap,
-    },
+  // True, checkable facts only. Rating and review count follow CENTER_INFO.
+  const credentials = [
+    { value: 'AIR 18 · 22 · 52', label: 'JEE Advanced ranks', tint: 'bg-[#f3f1ff]' },
+    { value: '20+ yrs', label: 'former VMC Academic Head', tint: 'bg-[#eef7ea]' },
+    { value: '18 yrs', label: 'at FIITJEE', tint: 'bg-[#fdf4e6]' },
+    { value: '10–15', label: 'students per batch', tint: 'bg-[#fbf0ee]' },
+    { value: `${CENTER_INFO.googleRating} ★`, label: `${CENTER_INFO.googleReviewCount} Google reviews`, tint: 'bg-[#eef4ff]' },
+    { value: '3 centres', label: 'in Gurugram', tint: 'bg-[#fefbe8]' },
+    { value: 'Hybrid', label: 'online + offline', tint: 'bg-[#eef7ea]' },
   ];
-
-  const marqueeItems = [...badges, ...badges];
+  const marqueeItems = [...credentials, ...credentials];
 
   return (
     <section className="relative bg-white pt-28 xs:pt-32 sm:pt-36 lg:pt-40 pb-16 sm:pb-24 overflow-hidden border-b border-slate-100">
@@ -208,43 +185,22 @@ export default function HeroSection({ onOpenRegister }) {
 
       </div>
 
-      {/* Marquee Credential Belt */}
-      <div className="bg-[#f5f7ff] border-y border-[#e3e8f5] py-4 sm:py-5 relative z-30 overflow-hidden mt-12 sm:mt-16">
-        
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-32 bg-gradient-to-r from-[#f5f7ff] to-transparent z-20"></div>
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-32 bg-gradient-to-l from-[#f5f7ff] to-transparent z-20"></div>
-
-        <div className="animate-marquee flex items-center gap-4 sm:gap-8 px-4">
-          {marqueeItems.map((item, idx) => {
-            const IconComp = item.icon;
-            return (
-              <div 
-                key={idx}
-                className="flex items-center gap-3 bg-white border border-[#e3e8f5] px-5 py-2.5 rounded-xl text-slate-950 shrink-0 hover:border-indigo-400 transition-all cursor-pointer"
-              >
-                <div className="w-9 h-9 rounded-lg bg-indigo-600 text-white flex items-center justify-center shrink-0 shadow-xs">
-                  <IconComp className="w-4 h-4 text-white" />
-                </div>
-
-                <div>
-                  <div className="flex items-center gap-2">
-                    <span className="font-heading font-extrabold text-xs sm:text-sm tracking-wide text-slate-950">
-                      {item.title}
-                    </span>
-                    <span className="text-xs bg-[#eef1ff] text-slate-800 font-bold px-1.5 py-0.5 rounded border border-[#e3e8f5]">
-                      {item.metric}
-                    </span>
-                  </div>
-                  <div className="text-xs text-slate-600 font-bold mt-0.5">
-                    {item.sub}
-                  </div>
-                </div>
-
-              </div>
-            );
-          })}
-        </div>
-
+      {/* Credentials strip: pastel pills, gently scrolling (pauses on hover) */}
+      <div className="relative mt-12 sm:mt-16 overflow-hidden py-2" aria-label="Highlights">
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-12 sm:w-32 bg-gradient-to-r from-white to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-12 sm:w-32 bg-gradient-to-l from-white to-transparent z-10" />
+        <ul className="animate-marquee flex items-center gap-3 px-3">
+          {marqueeItems.map((item, idx) => (
+            <li
+              key={idx}
+              aria-hidden={idx >= credentials.length}
+              className={`shrink-0 inline-flex items-baseline gap-2.5 rounded-full ${item.tint} px-5 py-3 border border-white`}
+            >
+              <span className="font-heading font-extrabold text-lg sm:text-xl tracking-[-0.02em] text-slate-950">{item.value}</span>
+              <span className="text-sm text-slate-600 whitespace-nowrap">{item.label}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
