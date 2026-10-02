@@ -2,31 +2,26 @@
 
 import React from 'react';
 import PageHeader from '@/components/ui/PageHeader';
-import BespokeProgramRoadmap from '@/components/programs/BespokeProgramRoadmap';
 import ProgramsSection from '@/components/ProgramsSection';
 import BatchTimetable from '@/components/BatchTimetable';
+import YearRoadmap from '@/components/programs/YearRoadmap';
 import CalculatorSection from '@/components/CalculatorSection';
-import { useModal } from '@/context/ModalContext';
+import DemoBookingSection from '@/components/DemoBookingSection';
 
 export default function ProgramsPage() {
-  const { openRegister } = useModal();
-
   return (
     <>
-      <PageHeader 
-        badgeText="ACADEMIC PROGRAMS 2026-27"
+      <PageHeader
+        badgeText="COURSES 2026–27"
         title="Built for ranks, not roll numbers."
-        subtitle="JEE Main, JEE Advanced and NEET micro-batches, taught 100% by Senior Ex-HODs."
-        breadcrumb="Academic Programs"
+        subtitle="JEE Main, JEE Advanced and NEET batches of 10–15, taught entirely by former HODs of FIITJEE and VMC."
+        breadcrumb="Courses"
       />
-      <BespokeProgramRoadmap />
-      <ProgramsSection 
-        onOpenRegister={openRegister}
-      />
+      <ProgramsSection />
       <BatchTimetable />
-      <CalculatorSection 
-        onOpenRegister={openRegister}
-      />
+      <YearRoadmap />
+      <CalculatorSection />
+      <DemoBookingSection />
     </>
   );
 }

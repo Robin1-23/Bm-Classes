@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useRef, useState, useEffect } from 'react';
-import { Play, Pause, Volume2, VolumeX, Sparkles, ShieldCheck, Award, Maximize } from 'lucide-react';
+import { Play, Pause, Volume2, VolumeX, Maximize } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 
-export default function FacultyIntroVideoCard({ title = "Meet Your Mentors: BM Sir & Konika Ma'am", subtitle = null }) {
+export default function FacultyIntroVideoCard() {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
@@ -104,129 +104,71 @@ export default function FacultyIntroVideoCard({ title = "Meet Your Mentors: BM S
   };
 
   return (
-    <ScrollReveal delay={150} direction="up">
-      <div className="max-w-5xl mx-auto my-10 sm:my-14 px-4 sm:px-6">
-        
-        {/* Sleek Pitch Dark Black Container Card */}
-        <div className="bg-black border-2 border-zinc-800 rounded-3xl overflow-hidden shadow-[0_20px_60px_-10px_rgba(0,0,0,0.8)] hover:border-zinc-700 transition-all relative">
-          
-          {/* Header Banner inside Video Card */}
-          <div className="p-6 sm:p-8 border-b border-zinc-800 bg-gradient-to-r from-zinc-950 via-black to-zinc-950 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-950/60 border border-indigo-800/40 text-indigo-400 text-xs font-bold uppercase tracking-wider mb-2">
-                <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
-                <span>FACULTY INTRODUCTION</span>
-              </div>
-              <h3 className="font-heading font-extrabold text-white text-xl sm:text-2xl lg:text-3xl tracking-tight">
-                {title}
-              </h3>
-              {subtitle && (
-                <p className="text-zinc-300 text-xs sm:text-sm mt-1 font-medium max-w-2xl leading-relaxed">
-                  {subtitle}
-                </p>
-              )}
-            </div>
-
-            {/* Quick Badge */}
-            <div className="hidden lg:flex flex-col items-end shrink-0">
-              <span className="inline-flex items-center gap-1.5 bg-zinc-900 border border-zinc-800 px-3.5 py-1.5 rounded-full text-xs font-bold text-indigo-300">
-                <Award className="w-4 h-4 text-indigo-400" />
-                <span>20+ Yrs Teaching Faculty</span>
-              </span>
-              <span className="text-xs text-zinc-500 font-bold mt-1">2.5 Min HD Video</span>
+    <section className="bg-white py-16 lg:py-24">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+        <ScrollReveal direction="up">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+            <h2 className="font-heading font-extrabold text-3xl sm:text-4xl tracking-[-0.03em] leading-[1.05] text-slate-950">
+              Meet your mentors.
+              <span className="block text-slate-400">BM Sir &amp; Konika Ma’am, in 3 minutes.</span>
+            </h2>
+            <div className="flex flex-wrap gap-2">
+              {['20+ years teaching', '10–15 per batch', 'Same-day doubts'].map((t) => (
+                <span key={t} className="text-xs font-semibold text-slate-700 bg-slate-100 rounded-full px-3 py-1.5">{t}</span>
+              ))}
             </div>
           </div>
 
-          {/* 16:9 Widescreen Inline Player Container */}
-          <div className="relative aspect-video bg-zinc-950 overflow-hidden group cursor-pointer" onClick={togglePlay}>
-            
-            <video
-              ref={videoRef}
-              src="/videos/introductory_video.mp4"
-              playsInline
-              loop
-              preload="none"
-              className="w-full h-full object-cover"
-              onPlay={() => setIsPlaying(true)}
-              onPause={() => setIsPlaying(false)}
-              onEnded={() => setIsPlaying(false)}
-            />
+          <div className="rounded-[28px] bg-white p-2 border border-slate-200/70 shadow-[0_28px_50px_-34px_rgba(15,23,42,0.4)]">
+            <div className="relative aspect-video rounded-[22px] overflow-hidden bg-slate-900 group cursor-pointer" onClick={togglePlay}>
+              <video
+                ref={videoRef}
+                src="/videos/introductory_video.mp4"
+                playsInline
+                loop
+                preload="none"
+                className="w-full h-full object-cover"
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+                onEnded={() => setIsPlaying(false)}
+              />
 
-            {/* Custom Play Overlay (shown when paused) */}
-            {!isPlaying && (
-              <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px] flex items-center justify-center transition-all">
-                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-indigo-400 text-black flex items-center justify-center shadow-[0_0_50px_rgba(34,211,238,0.5)] group-hover:scale-110 transition-all border-4 border-white/20">
-                  <Play className="w-10 h-10 sm:w-12 sm:h-12 fill-black ml-1.5" />
+              {!isPlaying && (
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                  <span className="w-20 h-20 rounded-full bg-white text-black flex items-center justify-center shadow-lg transition-transform group-hover:scale-110">
+                    <Play className="w-8 h-8 fill-black ml-1" />
+                  </span>
                 </div>
+              )}
+
+              <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
+                <button
+                  onClick={toggleMute}
+                  className="w-10 h-10 rounded-full bg-white/95 text-slate-900 flex items-center justify-center hover:bg-white cursor-pointer"
+                  aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+                >
+                  {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+                </button>
+                <button
+                  onClick={handleFullScreen}
+                  className="w-10 h-10 rounded-full bg-white/95 text-slate-900 flex items-center justify-center hover:bg-white cursor-pointer"
+                  aria-label="Full screen"
+                >
+                  <Maximize className="w-4 h-4" />
+                </button>
               </div>
-            )}
 
-            {/* Top Right Floating Controls Bar */}
-            <div className="absolute top-4 right-4 z-20 flex items-center gap-2">
-              <button
-                onClick={toggleMute}
-                className="w-9 h-9 rounded-full bg-black/80 border border-zinc-700 text-white flex items-center justify-center hover:border-indigo-400 transition-all hover:scale-105"
-                aria-label={isMuted ? "Unmute video" : "Mute video"}
-              >
-                {isMuted ? <VolumeX className="w-4 h-4 text-zinc-400" /> : <Volume2 className="w-4 h-4 text-indigo-300" />}
-              </button>
-
-              <button
-                onClick={handleFullScreen}
-                className="w-9 h-9 rounded-full bg-black/80 border border-zinc-700 text-white flex items-center justify-center hover:border-indigo-400 transition-all hover:scale-105"
-                aria-label="Full screen video"
-              >
-                <Maximize className="w-4 h-4 text-white" />
-              </button>
-            </div>
-
-            {/* Bottom Play/Pause Overlay Toggle Indicator */}
-            <div className="absolute bottom-4 left-4 z-20">
               <button
                 onClick={(e) => { e.stopPropagation(); togglePlay(); }}
-                className="inline-flex items-center gap-2 bg-black/80 border border-zinc-700 hover:border-indigo-400 text-white px-4 py-2 rounded-full text-xs font-bold transition-all hover:scale-105"
+                className="absolute bottom-4 left-4 z-20 inline-flex items-center gap-2 h-10 px-4 rounded-full bg-white/95 text-slate-900 text-sm font-semibold hover:bg-white cursor-pointer"
               >
-                {isPlaying ? (
-                  <>
-                    <Pause className="w-3.5 h-3.5 fill-indigo-400 text-indigo-400" />
-                    <span>Pause Video</span>
-                  </>
-                ) : (
-                  <>
-                    <Play className="w-3.5 h-3.5 fill-indigo-400 text-indigo-400" />
-                    <span>Play 2.5 Min Intro</span>
-                  </>
-                )}
+                {isPlaying ? <Pause className="w-3.5 h-3.5 fill-slate-900" /> : <Play className="w-3.5 h-3.5 fill-slate-900" />}
+                {isPlaying ? 'Pause' : 'Play intro'}
               </button>
             </div>
-
-            {/* Dark Vignette Bottom Gradient */}
-            <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
           </div>
-
-          {/* Footer Highlights Row */}
-          <div className="p-5 sm:p-6 bg-zinc-950 border-t border-zinc-800 grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-bold text-zinc-300">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-indigo-400 shrink-0" />
-              <span>100% Senior Mentors</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-indigo-400 shrink-0" />
-              <span>Max 10-15 Student Cap</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-indigo-400 shrink-0" />
-              <span>Same-Day Board Doubts</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-indigo-400 shrink-0" />
-              <span>Annual IITian Interaction</span>
-            </div>
-          </div>
-
-        </div>
-
+        </ScrollReveal>
       </div>
-    </ScrollReveal>
+    </section>
   );
 }

@@ -2,25 +2,22 @@
 
 import React from 'react';
 import PageHeader from '@/components/ui/PageHeader';
-import BespokeCenterGuide from '@/components/contact/BespokeCenterGuide';
 import CenterLocationSection from '@/components/CenterLocationSection';
-import { useModal } from '@/context/ModalContext';
+import VisitGuide from '@/components/contact/VisitGuide';
+import DemoBookingSection from '@/components/DemoBookingSection';
 
 export default function ContactPage() {
-  const { openRegister } = useModal();
-
   return (
     <>
-      <PageHeader 
-        badgeText="SECTOR 45 GURGAON CENTER"
+      <PageHeader
+        badgeText="SECTOR 45, GURUGRAM"
         title="Come see the classroom."
-        subtitle="Book a 1-on-1 counselling session at Flat no 303, Ayyachi Apartment, Block C, Sector 45, near DPS, Gurugram."
-        breadcrumb="Contact Us"
+        subtitle="Meet the HOD, get a plan for your preparation, and see where you’d study."
+        breadcrumb="Contact"
       />
-      <BespokeCenterGuide />
-      <CenterLocationSection 
-        onOpenRegister={openRegister}
-      />
+      <CenterLocationSection />
+      <VisitGuide />
+      <DemoBookingSection />
     </>
   );
 }

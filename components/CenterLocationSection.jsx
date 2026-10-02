@@ -1,232 +1,99 @@
 'use client';
 
 import React, { useState } from 'react';
-import { MapPin, Navigation, Phone, Clock, Share2, Sparkles, CheckCircle2, ShieldCheck, ExternalLink, Facebook, Youtube, Instagram } from 'lucide-react';
-import WhatsAppIcon from '@/components/WhatsAppIcon';
+import { MapPin, Phone, Navigation, Share2, Copy, Check } from 'lucide-react';
+import SectionHeader from '@/components/ui/SectionHeader';
 import ScrollReveal from '@/components/ScrollReveal';
-import { useModal } from '@/context/ModalContext';
+import WhatsAppIcon from '@/components/WhatsAppIcon';
+import { BUSINESS } from '@/data/seo';
+import { CENTER_INFO } from '@/data/contentData';
 
-export default function CenterLocationSection({ onOpenRegister }) {
-  const modal = useModal();
-  const handleRegister = onOpenRegister || modal.openRegister;
+const FULL_ADDRESS = `${BUSINESS.street}, ${BUSINESS.city}, ${BUSINESS.region} ${BUSINESS.postalCode}`;
+const VISIT_WHATSAPP = `https://wa.me/919899818241?text=${encodeURIComponent('Hi BM Classes, I’d like to visit your Sector 45 centre. When can I come?')}`;
+const SHARE_WHATSAPP = `https://api.whatsapp.com/send?text=${encodeURIComponent(
+  `BM Classes (Chemistry By Bighnaraj Sir), IIT JEE & NEET coaching\n${FULL_ADDRESS}\nCall: ${CENTER_INFO.phone}\nMap: ${BUSINESS.googleProfile}`
+)}`;
+
+function Tile({ href, onClick, icon: Icon, label, value, className, external }) {
+  const Tag = href ? 'a' : 'button';
+  return (
+    <Tag
+      href={href}
+      onClick={onClick}
+      {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      className={`group rounded-[22px] p-5 flex flex-col justify-between min-h-[140px] text-left transition-transform hover:-translate-y-0.5 cursor-pointer ${className}`}
+    >
+      <Icon className="w-6 h-6" />
+      <span>
+        <span className="block text-sm opacity-70">{label}</span>
+        <span className="block font-heading font-bold text-lg tracking-[-0.01em] leading-tight mt-0.5">{value}</span>
+      </span>
+    </Tag>
+  );
+}
+
+export default function CenterLocationSection() {
   const [copied, setCopied] = useState(false);
 
-  const centerAddress = "Flat no 303, Ayyachi Apartment, Block C, Uday Nagar, Sector 45, near Delhi Public School, Gurugram, Haryana 122003";
-  const googleMapsUrl = "https://maps.google.com/?cid=5853186131892736630";
-  const phoneUrl = "tel:+919899818241";
-  const whatsappUrl = "https://wa.me/919899818241?text=Hi%20BM%20Sir%2C%20I%20would%20like%20to%20schedule%20a%20center%20visit%20at%20your%20Sector%2045%20centre%20(Ayyachi%20Apartment).";
-
-  const shareText = encodeURIComponent(
-    "Check out Chemistry By Bighnaraj Sir — Premier JEE Advanced, JEE Main & NEET coaching taught 100% directly by BM Sir & Senior Ex-HODs in capped 10-15 student micro-batches!\n\n📍 Center: Flat no 303, Ayyachi Apartment, Block C, Sector 45, near DPS, Gurugram\n📞 Contact: +91 98998 18241"
-  );
-  const whatsappShareUrl = `https://api.whatsapp.com/send?text=${shareText}`;
-
-  const handleCopyDetails = () => {
-    navigator.clipboard.writeText(`Chemistry By Bighnaraj Sir\nAddress: ${centerAddress}\nPhone: +91 98998 18241`);
+  const copyAddress = () => {
+    navigator.clipboard?.writeText(`BM Classes (Chemistry By Bighnaraj Sir)\n${FULL_ADDRESS}\n${CENTER_INFO.phone}`);
     setCopied(true);
-    setTimeout(() => setCopied(false), 3000);
+    setTimeout(() => setCopied(false), 2500);
   };
 
   return (
-    <section className="bg-[#f5f7ff] text-slate-950 py-20 lg:py-28 border-b border-[#e3e8f5] relative overflow-hidden" id="location">
-      
-      {/* Background Ambient Warm Cream Glows */}
+    <section id="location" className="bg-[#f5f7ff] text-slate-950 py-20 lg:py-28 border-b border-[#e3e8f5] scroll-mt-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <SectionHeader
+          badgeIcon={MapPin}
+          badgeText="VISIT US"
+          title="Come say hello."
+          subtitle="Sector 45, Gurugram, near Delhi Public School. Easy to reach from Sushant Lok, Golf Course Road and Sectors 46 and 47."
+        />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-        
-        {/* Section Header */}
-        <ScrollReveal delay={100} direction="up" className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-[#e3e8f5] text-indigo-700 text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
-            <span>GURGAON ACADEMIC CENTER</span>
-          </div>
-          
-          <h2 className="font-heading font-extrabold tracking-[-0.03em] text-4xl sm:text-5xl lg:text-6xl text-slate-950 leading-[1.15]">
-            Visit Our <span className="text-indigo-600">Gurgaon Center</span>
-          </h2>
-          
-          <p className="text-slate-600 text-base sm:text-lg mt-3 font-semibold leading-relaxed max-w-xl mx-auto">
-            Conveniently located in Sector 45 Gurgaon near Delhi Public School. Easy access for students from Sushant Lok, Golf Course Road, Sector 46, 47 & 52.
-          </p>
-        </ScrollReveal>
-
-        {/* INTERACTIVE CENTER MAP & DIRECTIONS CARD */}
-        <div className="grid lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto mb-16">
-          
-          {/* Left Details Card */}
-          <ScrollReveal delay={150} direction="up" className="lg:col-span-6">
-            <div className="bg-white border border-[#e3e8f5] rounded-3xl p-6 sm:p-8 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.05)] hover:border-indigo-400 transition-all flex flex-col justify-between h-full">
-              
-              <div>
-                <div className="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
-                  <span className="text-xs font-bold uppercase tracking-wider bg-[#eef1ff] text-indigo-700 border border-[#e3e8f5] px-3 py-1 rounded-full flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-indigo-600" />
-                    OFFICIAL ACADEMIC CENTER
-                  </span>
-                  <span className="text-xs font-bold text-emerald-700 flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                    Open Today 8am-8pm
-                  </span>
-                </div>
-
-                <h3 className="font-heading text-2xl font-extrabold text-slate-950 mb-3">
-                  Chemistry By Bighnaraj Sir
-                </h3>
-
-                <div className="space-y-2.5 mb-6 text-xs font-semibold text-slate-700">
-                  <div className="bg-[#eef1ff] border border-[#e3e8f5] p-4 rounded-2xl">
-                    <span className="text-xs font-bold text-indigo-700 uppercase block mb-1">OFFICIAL CENTER ADDRESS</span>
-                    <span className="leading-snug text-slate-950 font-semibold text-sm block">Flat no 303, Ayyachi Apartment, Block C, Sector 45, near DPS, Gurugram</span>
-                    <span className="text-slate-600 text-xs mt-1 block">Landmark: Near Delhi Public School, Sector 45</span>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-2 text-xs pt-1">
-                    <div className="bg-[#eef1ff] border border-[#e3e8f5] p-2.5 rounded-xl">
-                      <div className="text-xs font-bold text-indigo-700 uppercase">CONTACT DESK</div>
-                      <div className="font-semibold text-slate-950 text-xs">9899818241 / 9999495938</div>
-                    </div>
-                    <div className="bg-[#eef1ff] border border-[#e3e8f5] p-2.5 rounded-xl">
-                      <div className="text-xs font-bold text-indigo-700 uppercase">SOCIAL MEDIA</div>
-                      <div className="flex items-center gap-2.5 mt-1.5">
-                        <a href="https://www.facebook.com/share/1PFmnYsfRK/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                          <Facebook className="w-4 h-4 text-[#1877F2] hover:scale-110 transition-transform" />
-                        </a>
-                        <a href="https://youtube.com/watch?v=XDQq1L-ldP8&feature=shared" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-                          <Youtube className="w-4 h-4 text-[#FF0000] hover:scale-110 transition-transform" />
-                        </a>
-                        <a href="https://www.instagram.com/bm__classes?igsh=MTB3cjRtZHdwYTBocA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                          <Instagram className="w-4 h-4 text-[#E4405F] hover:scale-110 transition-transform" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        <div className="grid lg:grid-cols-12 gap-5">
+          <ScrollReveal direction="up" className="lg:col-span-5 flex flex-col gap-4">
+            <div className="rounded-[28px] bg-white p-2 border border-slate-200/70">
+              <div className="rounded-[22px] bg-[#f3f1ff] p-6">
+                <p className="text-sm font-semibold text-slate-600">BM Classes · on Google as “{BUSINESS.googleName}”</p>
+                <address className="not-italic font-heading font-semibold text-xl leading-snug tracking-[-0.015em] mt-3">
+                  Flat no 303, Ayyachi Apartment, Block C
+                  <span className="block text-slate-500">Uday Nagar, Sector 45, Gurugram 122003</span>
+                </address>
+                <p className="text-sm text-slate-600 mt-3">Landmark: near Delhi Public School, Sector 45</p>
               </div>
-
-              {/* Primary Actions */}
-              <div className="pt-4 border-t border-slate-100 space-y-2">
-                <a
-                  href={googleMapsUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs py-3 rounded-full transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  <Navigation className="w-4 h-4 fill-white text-white" />
-                  <span>Open Google Maps Directions</span>
-                  <ExternalLink className="w-3.5 h-3.5 text-white" />
-                </a>
-
-                <div className="grid grid-cols-2 gap-2">
-                  <a
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 font-semibold text-xs py-2.5 rounded-full transition-all flex items-center justify-center gap-1.5 shadow-2xs"
-                  >
-                    <WhatsAppIcon className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>WhatsApp Desk</span>
-                  </a>
-
-                  <a
-                    href={phoneUrl}
-                    className="bg-white hover:bg-slate-50 border border-slate-200 text-slate-900 font-semibold text-xs py-2.5 rounded-full transition-all flex items-center justify-center gap-1.5 shadow-2xs"
-                  >
-                    <Phone className="w-3.5 h-3.5 text-indigo-600" />
-                    <span>Call Center</span>
-                  </a>
-                </div>
-              </div>
-
-            </div>
-          </ScrollReveal>
-
-          {/* Right Interactive Embedded Map Container */}
-          <ScrollReveal delay={200} direction="up" className="lg:col-span-6 h-full min-h-[350px]">
-            <div className="bg-white border border-[#e3e8f5] rounded-3xl overflow-hidden shadow-[0_10px_30px_-5px_rgba(0,0,0,0.05)] h-full flex flex-col relative group hover:border-indigo-400 transition-all">
-              
-              {/* Top Banner overlay */}
-              <div className="bg-[#eef1ff] border-b border-[#e3e8f5] px-5 py-3.5 flex items-center justify-between z-10">
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-indigo-600" />
-                  <span className="font-heading font-extrabold text-xs text-slate-950">Sector 45 Centre (near DPS)</span>
-                </div>
-                <span className="text-xs font-mono font-bold text-slate-600">Gurgaon, Haryana</span>
-              </div>
-
-              {/* Embedded Google Map iFrame */}
-              <div className="w-full h-full min-h-[300px] lg:min-h-[380px] relative bg-slate-100">
-                <iframe
-                  title="Chemistry By Bighnaraj Sir Gurgaon Location"
-                  src="https://maps.google.com/maps?q=28.441687,77.064937&z=16&output=embed"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="w-full h-full filter contrast-[1.05]"
-                ></iframe>
-              </div>
-
-              {/* Bottom Quick Bar */}
-              <div className="bg-[#eef1ff] border-t border-[#e3e8f5] px-5 py-3 flex items-center justify-between text-xs text-slate-700 font-medium">
-                <span>Near Huda City Centre Metro</span>
-                <a 
-                  href={googleMapsUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-indigo-600 hover:underline font-semibold flex items-center gap-1"
-                >
-                  <span>Get Directions</span>
-                  <ExternalLink className="w-3 h-3 text-indigo-600" />
-                </a>
-              </div>
-
-            </div>
-          </ScrollReveal>
-
-        </div>
-
-        {/* WHATSAPP QUICK SHARE CARD */}
-        <ScrollReveal delay={200} direction="up" className="max-w-3xl mx-auto">
-          <div className="bg-white border border-[#e3e8f5] rounded-3xl p-6 sm:p-8 text-slate-950 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.05)] relative overflow-hidden">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-200/80 flex items-center justify-center shrink-0">
-                  <WhatsAppIcon className="w-6 h-6 text-emerald-600" />
-                </div>
-                <div>
-                  <h4 className="font-heading font-extrabold text-lg text-slate-950">
-                    Share Center Details with Parents on WhatsApp
-                  </h4>
-                  <p className="text-slate-600 text-xs mt-0.5 font-medium">
-                    Send exact location, contact numbers, and batch details to your parent or guardian.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2 shrink-0 w-full sm:w-auto">
-                <a
-                  href={whatsappShareUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs px-4 py-2.5 rounded-full transition-all shadow-xs flex items-center justify-center gap-1.5 cursor-pointer w-full sm:w-auto"
-                >
-                  <Share2 className="w-3.5 h-3.5 text-white" />
-                  <span>Share on WhatsApp</span>
-                </a>
-
-                <button
-                  onClick={handleCopyDetails}
-                  className="bg-slate-100 hover:bg-slate-200 border border-slate-200 text-slate-900 font-bold text-xs px-4 py-2.5 rounded-full transition-all cursor-pointer whitespace-nowrap"
-                >
-                  {copied ? 'Copied!' : 'Copy Text'}
+              <div className="flex items-center gap-2 px-3 py-3">
+                <button onClick={copyAddress} className="inline-flex items-center gap-2 h-10 px-4 rounded-full border border-slate-300 text-sm font-semibold hover:border-slate-500 cursor-pointer">
+                  {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
+                  {copied ? 'Copied' : 'Copy address'}
                 </button>
+                <a href={SHARE_WHATSAPP} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 h-10 px-4 rounded-full border border-slate-300 text-sm font-semibold hover:border-slate-500">
+                  <Share2 className="w-4 h-4" /> Share
+                </a>
               </div>
             </div>
-          </div>
-        </ScrollReveal>
 
+            <div className="grid grid-cols-2 gap-4">
+              <Tile href={BUSINESS.googleProfile} external icon={Navigation} label="Directions" value="Open in Maps" className="bg-indigo-600 text-white" />
+              <Tile href={`tel:${CENTER_INFO.phoneRaw}`} icon={Phone} label="Call" value={CENTER_INFO.phone.replace('+91 ', '')} className="bg-[#0a0a0a] text-white" />
+              <Tile href={VISIT_WHATSAPP} external icon={WhatsAppIcon} label="WhatsApp" value="Plan a visit" className="bg-[#dcf8e6] text-[#0b5132]" />
+              <Tile href={BUSINESS.googleProfile} external icon={MapPin} label="Google rating" value={`${CENTER_INFO.googleRating} from ${CENTER_INFO.googleReviewCount} reviews`} className="bg-[#fdf4e6] text-slate-900" />
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={100} direction="up" className="lg:col-span-7">
+            <div className="h-full rounded-[28px] bg-white p-2 border border-slate-200/70">
+              <iframe
+                title="Map: BM Classes, Sector 45, Gurugram"
+                src={`https://maps.google.com/maps?q=${BUSINESS.lat},${BUSINESS.lng}&z=16&output=embed`}
+                className="w-full h-full min-h-[360px] lg:min-h-[100%] rounded-[22px] border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+          </ScrollReveal>
+        </div>
       </div>
     </section>
   );

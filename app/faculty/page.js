@@ -3,30 +3,21 @@
 import React from 'react';
 import PageHeader from '@/components/ui/PageHeader';
 import FacultyIntroVideoCard from '@/components/FacultyIntroVideoCard';
-import BespokeFacultyBios from '@/components/faculty/BespokeFacultyBios';
 import FacultySection from '@/components/FacultySection';
-import WhySection from '@/components/WhySection';
-import { useModal } from '@/context/ModalContext';
+import DemoBookingSection from '@/components/DemoBookingSection';
 
 export default function FacultyPage() {
-  const { openRegister } = useModal();
-
   return (
     <>
-      <PageHeader 
-        badgeText="100% EX-FIITJEE & VMC HODs"
+      <PageHeader
+        badgeText="FORMER FIITJEE & VMC HODs"
         title="Legends at the board. Every lecture."
-        subtitle="No junior assistants. No swapped faculty. BM Sir, Konika Ma’am and Chumki Ma’am teach every single lecture."
-        breadcrumb="Ex-HOD Faculty"
+        subtitle="No junior assistants. No swapped faculty. BM Sir, Konika Ma’am and Chumki Ma’am teach every class."
+        breadcrumb="Faculty"
       />
-      <FacultyIntroVideoCard 
-        title="Meet BM Sir & Konika Ma'am (Masterclass Intro)"
-      />
-      <BespokeFacultyBios />
-      <FacultySection 
-        onOpenRegister={openRegister}
-      />
-      <WhySection />
+      <FacultyIntroVideoCard />
+      <FacultySection />
+      <DemoBookingSection />
     </>
   );
 }

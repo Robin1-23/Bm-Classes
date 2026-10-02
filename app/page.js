@@ -26,7 +26,7 @@ export default function Home() {
       <FacultyIntroVideoCard />
       <FacultySection onOpenRegister={openRegister} />
       <ProgramsSection onOpenRegister={openRegister} />
-      <WhySection hidePedagogy />
+      <WhySection />
       <AdmissionJourneySection onOpenRegister={openRegister} />
       <DemoBookingSection />
       <CenterLocationSection onOpenRegister={openRegister} />
