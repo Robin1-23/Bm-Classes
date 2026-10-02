@@ -177,7 +177,7 @@ export default function Footer() {
             <a href={`tel:${CENTER_INFO.phoneRaw}`} className="hover:text-white">{CENTER_INFO.phone}</a>
           </address>
           <p className="text-sm text-white/40 md:text-right">
-            © {new Date().getFullYear()} BM Classes ·{' '}
+            © {new Date().getFullYear()} BM Classes (Chemistry By Bighnaraj Sir) ·{' '}
             <Link href="/admin" className="hover:text-white/70">Admin</Link>
           </p>
         </div>

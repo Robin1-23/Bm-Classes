@@ -12,7 +12,7 @@ export const metadata = {
     template: '%s | BM Classes Gurugram',
   },
   description:
-    'IIT JEE and NEET coaching in Sector 45, Gurugram, taught by former HODs of FIITJEE and VMC in batches of 10–15. JEE Advanced AIR 18, 22, 52. Rated 4.9 on Google. Book a free demo class.',
+    'BM Classes (Chemistry By Bighnaraj Sir on Google Maps): IIT JEE, NEET and board coaching in Gurugram by former FIITJEE and VMC HODs. Rated 4.9 on Google. 3 centres. Book a free demo.',
   applicationName: 'BM Classes',
   alternates: { canonical: '/' },
   openGraph: {
