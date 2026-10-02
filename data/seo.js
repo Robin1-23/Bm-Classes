@@ -57,7 +57,7 @@ export const FACULTY = [
 export const FAQ = [
   {
     q: 'Where is BM Classes in Gurugram?',
-    a: 'BM Classes (listed on Google Maps as “Chemistry By Bighnaraj Sir”) is at Flat no 303, Ayyachi Apartment, Block C, Uday Nagar, Sector 45, near Delhi Public School, Gurugram, Haryana 122003.',
+    a: 'BM Classes has three centres in Gurugram: Flat no 303, Ayyachi Apartment, Block C, Sector 45, near Delhi Public School (listed on Google Maps as “Chemistry By Bighnaraj Sir”); OD-55, Malibu Towne, Sector 47; and 2423, Sector 46.',
   },
   {
     q: 'Who teaches at BM Classes?',
@@ -158,11 +158,12 @@ export function courseJsonLd(c) {
     name: courseName(c),
     description: `${c.kind}: ${c.hours}, ${c.tests}. ${c.focus}.`,
     provider: { '@id': `${SITE_URL}/#organization` },
+    ...(c.teacher ? { instructor: { '@id': `${SITE_URL}/faculty#${c.teacher.startsWith('BM') ? 'bighnaraj-mishra' : c.teacher.startsWith('Konika') ? 'konika' : 'chumki'}` } } : {}),
     hasCourseInstance: {
       '@type': 'CourseInstance',
       courseMode: c.mode.startsWith('Online') && !c.mode.includes('offline') ? 'online' : 'blended',
       ...(c.startISO ? { startDate: c.startISO } : {}),
-      location: CENTRES.map((name) => ({ '@type': 'Place', name: `${name}, Gurugram` })),
+      location: CENTRES.map((centre) => ({ '@type': 'Place', name: `BM Classes, ${centre.name}`, address: centre.address })),
     },
     ...(c.poster ? { image: abs(c.poster) } : {}),
   };

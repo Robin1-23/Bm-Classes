@@ -1,11 +1,47 @@
 // Courses currently offered (from the institute's official posters) and the results board.
 // Edit here and redeploy. Every page, the forms, the admin panel and the SEO data read from this list.
 
-export const CENTRES = ['303, Ayyachi Apartment, Sector 45', 'OD-55, Malibu Towne', '2423, Sector 46'];
+// The three centres from the course posters. Centre 1 is the one on the Google Business Profile.
+export const CENTRES = [
+  {
+    id: 'sector-45',
+    name: 'Sector 45',
+    label: 'Main centre',
+    address: 'Flat no 303, Ayyachi Apartment, Block C, Uday Nagar, Sector 45, near Delhi Public School, Gurugram 122003',
+    short: '303, Ayyachi Apartment, Sector 45',
+    maps: 'https://maps.google.com/?cid=5853186131892736630',
+    embed: 'https://maps.google.com/maps?q=28.441687,77.064937&z=16&output=embed',
+  },
+  {
+    id: 'malibu-towne',
+    name: 'Malibu Towne',
+    label: 'Sector 47',
+    address: 'OD-55, Malibu Towne, Sector 47, Gurugram',
+    short: 'OD-55, Malibu Towne, Sector 47',
+    maps: 'https://www.google.com/maps/search/?api=1&query=OD-55+Malibu+Towne+Sector+47+Gurugram',
+    embed: 'https://maps.google.com/maps?q=OD-55%20Malibu%20Towne%2C%20Sector%2047%2C%20Gurugram&z=16&output=embed',
+  },
+  {
+    id: 'sector-46',
+    name: 'Sector 46',
+    label: 'Gurugram',
+    address: '2423, Sector 46, Gurugram',
+    short: '2423, Sector 46',
+    maps: 'https://www.google.com/maps/search/?api=1&query=2423+Sector+46+Gurugram',
+    embed: 'https://maps.google.com/maps?q=2423%20Sector%2046%2C%20Gurugram&z=16&output=embed',
+  },
+];
+
+const TEACHERS = {
+  bm: { teacher: 'BM Sir', teacherNote: 'Head of Chemistry, 20+ years', faces: ['/bm_sir.jpg'] },
+  konika: { teacher: 'Konika Ma’am', teacherNote: 'Head of Biology, 20 years', faces: ['/konika_mam.jpg'] },
+  chumki: { teacher: 'Chumki Ma’am', teacherNote: '22 years, 18 at FIITJEE', faces: ['/chumki_mam.jpeg'] },
+};
 
 export const COURSES = [
   {
     id: 'board-2027-chemistry',
+    ...TEACHERS.bm,
     kind: 'Crash course',
     tabs: ['boards'],
     title: '12th Board 2027',
@@ -21,6 +57,7 @@ export const COURSES = [
   },
   {
     id: 'board-2027-biology',
+    ...TEACHERS.konika,
     kind: 'Crash course',
     tabs: ['boards'],
     title: '12th Board 2027',
@@ -36,6 +73,7 @@ export const COURSES = [
   },
   {
     id: 'jee-main-2027-chemistry',
+    ...TEACHERS.bm,
     kind: 'Crash course',
     tabs: ['jee'],
     title: 'JEE Main 2027',
@@ -51,6 +89,7 @@ export const COURSES = [
   },
   {
     id: 'neet-2027-chemistry',
+    ...TEACHERS.bm,
     kind: 'Crash course',
     tabs: ['neet'],
     title: 'NEET 2027',
@@ -66,6 +105,8 @@ export const COURSES = [
   },
   {
     id: 'class-10-rapid',
+    ...TEACHERS.chumki,
+    teacher: 'Chumki Ma’am (Science)',
     kind: 'Rapid course completion',
     tabs: ['class10'],
     title: 'Class 10',
@@ -81,6 +122,7 @@ export const COURSES = [
   },
   {
     id: 'one-on-one-science',
+    ...TEACHERS.chumki,
     kind: '1-on-1 classes',
     tabs: ['oneonone'],
     title: '1-on-1 Science',
@@ -90,7 +132,6 @@ export const COURSES = [
     tests: 'Your pace, your syllabus',
     focus: '22 years teaching, 18 of them at FIITJEE',
     mode: 'Online',
-    faces: ['/chumki_mam.jpeg'],
     tint: 'bg-[#fefbe8]',
   },
 ];

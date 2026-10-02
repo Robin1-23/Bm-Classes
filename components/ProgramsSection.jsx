@@ -35,8 +35,6 @@ function CourseCard({ course, onApply, onPoster }) {
             >
               <ImageIcon className="w-3.5 h-3.5" /> Poster
             </button>
-          ) : course.faces ? (
-            <img src={course.faces[0]} alt="" loading="lazy" decoding="async" className="w-10 h-10 rounded-full object-cover object-top ring-2 ring-white" />
           ) : null}
         </div>
         <h3 className="font-heading font-semibold text-[30px] leading-[1.06] tracking-[-0.03em] text-slate-900 mt-5">
@@ -57,7 +55,13 @@ function CourseCard({ course, onApply, onPoster }) {
       </div>
 
       <div className="flex items-center gap-3 px-3 sm:px-4 py-3.5">
-        <p className="text-sm font-semibold text-slate-900 leading-tight">{course.mode}</p>
+        {course.faces && (
+          <img src={course.faces[0]} alt="" loading="lazy" decoding="async" className="w-10 h-10 rounded-full object-cover object-top ring-2 ring-white shrink-0" />
+        )}
+        <div className="min-w-0">
+          <p className="text-sm font-semibold text-slate-900 leading-tight">{course.teacher ? `By ${course.teacher}` : 'BM Classes'}</p>
+          <p className="text-sm text-slate-500 leading-tight mt-0.5">{course.mode}</p>
+        </div>
         <button
           onClick={() => onApply(courseName(course))}
           className="ml-auto shrink-0 h-11 px-5 rounded-full bg-slate-950 hover:bg-indigo-600 text-white text-sm font-semibold transition-colors cursor-pointer"

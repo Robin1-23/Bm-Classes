@@ -11,9 +11,9 @@ const STEPS = [
 ];
 
 const ROUTES = [
-  { from: 'From Sector 45 main road', how: 'Head towards Delhi Public School, Sector 45. Ayyachi Apartment is in Uday Nagar, Block C. Look for Flat 303.', tint: 'bg-[#f3f1ff]' },
-  { from: 'From Golf Course Road', how: 'Turn into Sector 45 and drive towards Delhi Public School. Open the map for turn-by-turn directions.', tint: 'bg-[#eef7ea]' },
-  { from: 'From Sushant Lok & Sector 46/47', how: 'Sector 45 is a short drive away. Use the “Directions” tile above to open Google Maps.', tint: 'bg-[#fdf4e6]' },
+  { from: 'Sector 45 centre', how: 'Head towards Delhi Public School, Sector 45. Ayyachi Apartment is in Uday Nagar, Block C. Look for Flat 303.', tint: 'bg-[#f3f1ff]' },
+  { from: 'Malibu Towne centre', how: 'OD-55, inside Malibu Towne, Sector 47. Pick this centre above and tap Directions.', tint: 'bg-[#eef7ea]' },
+  { from: 'Sector 46 centre', how: 'House 2423, Sector 46. Pick this centre above and tap Directions for turn-by-turn navigation.', tint: 'bg-[#fdf4e6]' },
 ];
 
 export default function VisitGuide() {
@@ -46,7 +46,7 @@ export default function VisitGuide() {
             badgeIcon={Car}
             badgeText="GETTING HERE"
             title="How to reach us."
-            subtitle="We’re in a residential block in Sector 45, a few minutes from Delhi Public School."
+            subtitle="Three centres close to each other in south Gurugram. Choose whichever is nearest."
           />
           <div className="grid md:grid-cols-3 gap-5">
             {ROUTES.map((r, idx) => (

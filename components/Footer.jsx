@@ -6,6 +6,7 @@ import { ArrowRight } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { useModal } from '@/context/ModalContext';
 import { CENTER_INFO } from '@/data/contentData';
+import { CENTRES } from '@/data/siteContent';
 
 const COLUMNS = [
   {
@@ -171,7 +172,7 @@ export default function Footer() {
             ))}
           </div>
           <address className="not-italic text-sm text-white/60 leading-relaxed md:text-center">
-            {CENTER_INFO.centres[0].address}
+            {CENTRES.map((c) => c.short).join(' · ')}
             <br />
             <a href={`tel:${CENTER_INFO.phoneRaw}`} className="hover:text-white">{CENTER_INFO.phone}</a>
           </address>

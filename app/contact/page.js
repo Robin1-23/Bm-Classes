@@ -11,12 +11,12 @@ export default function ContactPage() {
     <>
       <PageHeader
         breadcrumb="Contact"
-        badgeText="Sector 45, Gurugram"
+        badgeText="Sector 45 · Malibu Towne · Sector 46"
         title="Come see"
         soft="the classroom."
         subtitle="Meet the HOD, get a plan for your preparation, and see where you’d study."
         tint="bg-[#eef4ff]"
-        facts={[{"label":"near Delhi Public School","value":"Sector 45"},{"label":"on Google","value":"4.9 ★"}]}
+        facts={[{"label":"centres in Gurugram","value":"3"},{"label":"on Google","value":"4.9 ★"}]}
         wide={{"label":"Call or WhatsApp","value":"+91 98998 18241","href":"tel:+919899818241"}}
       />
       <CenterLocationSection />
