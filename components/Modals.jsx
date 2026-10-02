@@ -1,376 +1,226 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle2, ArrowRight, ShieldCheck, Phone, Mail } from 'lucide-react';
+import { X, CheckCircle2, ArrowRight, User, Phone, Mail } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
-import { PROGRAMS_DATA, CENTER_INFO } from '@/data/contentData';
+import { CENTER_INFO } from '@/data/contentData';
+import { COURSES, courseName } from '@/data/siteContent';
 
-export default function Modals({
-  registerOpen,
-  videoTitle,
-  preselectedProgram,
-  prefilledPhone,
-  onClose,
-}) {
+const GENERAL = 'General enquiry / free demo';
+const OPTIONS = [...COURSES.map((c) => ({ value: courseName(c), title: c.title, sub: c.subject })), { value: GENERAL, title: 'Not sure yet', sub: 'Help me choose' }];
+const EMAIL_RE = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+export default function Modals({ registerOpen, preselectedProgram, prefilledPhone, onClose }) {
   const [studentName, setStudentName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
-  const [selectedProgram, setSelectedProgram] = useState(`${PROGRAMS_DATA[0]?.title} (${PROGRAMS_DATA[0]?.category})`);
-  const [submitted, setSubmitted] = useState(false);
-  const [phoneError, setPhoneError] = useState('');
-  const [emailError, setEmailError] = useState('');
+  const [course, setCourse] = useState(GENERAL);
+  const [error, setError] = useState('');
   const [submitting, setSubmitting] = useState(false);
+  const [done, setDone] = useState(null);
 
+  // Pre-select the course the visitor clicked on
   useEffect(() => {
-    if (preselectedProgram && registerOpen) {
-      const match = PROGRAMS_DATA.find(
-        (p) =>
-          p.id === preselectedProgram ||
-          p.title.toLowerCase().includes(preselectedProgram.toLowerCase()) ||
-          preselectedProgram.toLowerCase().includes(p.title.toLowerCase())
-      );
-      if (match) {
-        setSelectedProgram(`${match.title} (${match.category})`);
-      } else {
-        setSelectedProgram(preselectedProgram);
-      }
-    }
+    if (!registerOpen || !preselectedProgram) return;
+    const wanted = preselectedProgram.toLowerCase();
+    const match = OPTIONS.find((o) => o.value.toLowerCase() === wanted || wanted.includes(o.value.toLowerCase()));
+    setCourse(match ? match.value : GENERAL);
   }, [preselectedProgram, registerOpen]);
 
+  // Carry over the phone or email typed into the hero / footer box
   useEffect(() => {
-    if (prefilledPhone && registerOpen) {
-      const val = prefilledPhone.trim();
-      if (val.includes('@')) {
-        setEmail(val);
-        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if (!emailRegex.test(val)) {
-          setEmailError('Please enter a valid email address.');
-        } else {
-          setEmailError('');
-        }
-      } else {
-        const cleanPhone = val.replace(/\D/g, '').slice(0, 10);
-        setPhoneNumber(cleanPhone);
-        if (cleanPhone.length > 0 && cleanPhone.length < 10) {
-          setPhoneError('Mobile number must be exactly 10 digits.');
-        } else if (cleanPhone.length === 10 && !/^[6-9]\d{9}$/.test(cleanPhone)) {
-          setPhoneError('Please enter a valid 10-digit mobile number starting with 6-9.');
-        } else {
-          setPhoneError('');
-        }
-      }
-    }
+    if (!registerOpen || !prefilledPhone) return;
+    const val = prefilledPhone.trim();
+    if (val.includes('@')) setEmail(val);
+    else setPhoneNumber(val.replace(/\D/g, '').slice(0, 10));
   }, [prefilledPhone, registerOpen]);
 
-  // Phone input handler (only digits up to 10 characters)
-  const handlePhoneChange = (e) => {
-    const val = e.target.value.replace(/\D/g, '').slice(0, 10);
-    setPhoneNumber(val);
-    if (val.length > 0 && val.length < 10) {
-      setPhoneError('Mobile number must be exactly 10 digits.');
-    } else if (val.length === 10 && !/^[6-9]\d{9}$/.test(val)) {
-      setPhoneError('Please enter a valid 10-digit mobile number starting with 6-9.');
-    } else {
-      setPhoneError('');
-    }
-  };
+  // Close on Escape and stop the page scrolling behind the sheet
+  useEffect(() => {
+    if (!registerOpen) return;
+    const onKey = (e) => e.key === 'Escape' && handleClose();
+    window.addEventListener('keydown', onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [registerOpen]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Email input handler
-  const handleEmailChange = (e) => {
-    const val = e.target.value;
-    setEmail(val);
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (val.trim() && !emailRegex.test(val.trim())) {
-      setEmailError('Please enter a valid email address (e.g. name@domain.com).');
-    } else {
-      setEmailError('');
-    }
+  const handleClose = () => {
+    setDone(null);
+    setError('');
+    onClose();
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Strict Validations
-    let hasError = false;
-    const cleanPhone = phoneNumber.replace(/\D/g, '');
-    if (!/^[6-9]\d{9}$/.test(cleanPhone)) {
-      setPhoneError('Please enter a valid 10-digit Indian mobile number.');
-      hasError = true;
-    }
-
+    const phone = phoneNumber.replace(/\D/g, '');
     const cleanEmail = email.trim();
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!cleanEmail || !emailRegex.test(cleanEmail)) {
-      setEmailError('Please enter a valid email address.');
-      hasError = true;
-    }
+    if (!studentName.trim()) return setError('Enter the student’s name.');
+    if (!/^[6-9]\d{9}$/.test(phone)) return setError('Enter a valid 10-digit mobile number.');
+    if (cleanEmail && !EMAIL_RE.test(cleanEmail)) return setError('That email doesn’t look right. You can also leave it empty.');
 
-    if (hasError || !studentName.trim()) return;
+    // Open WhatsApp before any network call so popup blockers allow it
+    const text = encodeURIComponent(
+      `Hi BM Classes, I'd like a call back about ${course}.\n\nStudent: ${studentName.trim()}\nPhone: ${phone}${cleanEmail ? `\nEmail: ${cleanEmail}` : ''}`
+    );
+    const waUrl = `https://wa.me/${CENTER_INFO.phoneRaw.replace(/\D/g, '')}?text=${text}`;
+    const popup = window.open(waUrl, '_blank');
 
     setSubmitting(true);
-
-    const payload = {
-      studentName: studentName.trim(),
-      phoneNumber: cleanPhone,
-      email: cleanEmail,
-      selectedProgram,
-      source: 'Registration Modal',
-    };
-
-    // 1. Save to Server File via API
-    let serverApp = null;
+    const payload = { studentName: studentName.trim(), phoneNumber: phone, email: cleanEmail, selectedProgram: course, source: 'Registration Modal' };
     try {
-      const res = await fetch('/api/applications', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-      const data = await res.json();
-      if (data.success && data.application) {
-        serverApp = data.application;
-      }
+      await fetch('/api/applications', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
     } catch (err) {
-      console.error('Failed to submit application to server API:', err);
+      console.error('Failed to submit application:', err);
     }
-
-    // 2. Save Lead to localStorage as offline fallback
+    // Local copy so the admin desk on this device still sees it if the network failed
     try {
       const existing = JSON.parse(localStorage.getItem('bmclasses_registrations') || '[]');
-      const newLead = serverApp || {
-        id: `REG-${Date.now()}`,
-        ...payload,
-        status: 'New Lead',
-        submittedAt: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
-      };
-      // Prevent duplicates in local storage
-      const filtered = existing.filter(
-        (item) => !(item.phoneNumber === newLead.phoneNumber && item.studentName === newLead.studentName)
-      );
-      filtered.unshift(newLead);
-      localStorage.setItem('bmclasses_registrations', JSON.stringify(filtered));
-    } catch (err) {
-      console.error('Failed to save lead locally:', err);
-    }
-
-    // 3. Format WhatsApp Instant Notification
-    const textMessage = `*📋 NEW BMCLASSES ADMISSION APPLICATION*\n\n` +
-      `*Student Name:* ${studentName}\n` +
-      `*Mobile Number:* ${cleanPhone}\n` +
-      `*Email ID:* ${cleanEmail}\n` +
-      `*Target Program:* ${selectedProgram}\n` +
-      `*Center:* Flat no 303, Ayyachi Apartment, Block C, Sector 45, near DPS, Gurugram\n\n` +
-      `Hi BmClasses, I have submitted my admission application on the website. Please contact me for my diagnostic session and counseling call.`;
-
-    const encoded = encodeURIComponent(textMessage);
-    const waUrl = `https://wa.me/919899818241?text=${encoded}`;
-    // Popup blockers reject window.open after an await; fall back to same-tab navigation
-    if (!window.open(waUrl, '_blank')) window.location.href = waUrl;
+      const rest = existing.filter((r) => !(r.phoneNumber === phone && r.studentName === payload.studentName));
+      rest.unshift({ id: `REG-${Date.now()}`, ...payload, status: 'New Lead', submittedAt: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }) });
+      localStorage.setItem('bmclasses_registrations', JSON.stringify(rest));
+    } catch (err) {}
 
     setSubmitting(false);
-    setSubmitted(true);
+    setDone({ waUrl, popupBlocked: !popup });
+    setStudentName('');
+    setEmail('');
   };
 
-  const handleReset = () => {
-    setSubmitted(false);
-    setStudentName('');
-    setPhoneNumber('');
-    setEmail('');
-    setPhoneError('');
-    setEmailError('');
-    onClose();
-  };
+  if (!registerOpen) return null;
+
+  const input = 'w-full h-12 pl-11 pr-4 rounded-2xl border border-slate-200 bg-white text-[15px] text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 focus:ring-4 focus:ring-slate-900/5 transition';
 
   return (
-    <>
-      {/* REGISTER MODAL */}
-      {registerOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xl flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
-          <div className="bg-white rounded-3xl max-w-lg w-full max-h-[92vh] overflow-y-auto relative shadow-2xl border border-slate-200 text-slate-900 my-auto">
-            
-            {/* Modal Header Banner */}
-            <div className="bg-black text-white p-6 sm:p-8 rounded-t-3xl relative overflow-hidden border-b border-zinc-800">
-
-              {/* Close Button */}
-              <button 
-                onClick={handleReset}
-                className="absolute top-5 right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer z-10"
-                aria-label="Close Registration Modal"
-              >
-                <X className="w-4 h-4" />
-              </button>
-
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-400/20 border border-indigo-400/30 text-indigo-300 text-xs sm:text-xs font-bold uppercase tracking-wider mb-3">
-                <ShieldCheck className="w-3.5 h-3.5 text-indigo-300 shrink-0" />
-                <span>Ex-HOD Diagnostic & Counseling Call</span>
-              </div>
-
-              <h3 className="font-heading text-2xl sm:text-3xl font-extrabold leading-tight tracking-tight text-white">
-                Register for <span className="text-indigo-300">BmClasses</span>
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-300 font-medium mt-1">
-                Book your 1-on-1 diagnostic session directly with Senior Ex-HODs of FIITJEE & VMC.
-              </p>
+    <div
+      className="fixed inset-0 z-[60] bg-slate-950/60 backdrop-blur-sm flex items-end sm:items-center justify-center sm:p-4"
+      onClick={handleClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="register-title"
+    >
+      <div
+        className="w-full sm:max-w-xl max-h-[94vh] overflow-y-auto bg-white rounded-t-[28px] sm:rounded-[28px] p-2 shadow-2xl"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header panel */}
+        <div className="relative rounded-[22px] bg-[#f3f1ff] p-6 sm:p-7">
+          <button
+            onClick={handleClose}
+            aria-label="Close"
+            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white hover:bg-slate-50 text-slate-900 flex items-center justify-center cursor-pointer"
+          >
+            <X className="w-4 h-4" />
+          </button>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-700">Free counselling call</p>
+          <h2 id="register-title" className="font-heading font-extrabold text-3xl sm:text-4xl tracking-[-0.03em] leading-[1.05] text-slate-950 mt-3 pr-10">
+            Join BM Classes.
+            <span className="block text-slate-400">We’ll call you back.</span>
+          </h2>
+          <div className="flex items-center gap-3 mt-5">
+            <div className="flex -space-x-2">
+              {['/bm_sir.jpg', '/konika_mam.jpg', '/chumki_mam.jpeg'].map((src) => (
+                <img key={src} src={src} alt="" className="w-9 h-9 rounded-full object-cover object-top ring-2 ring-[#f3f1ff]" />
+              ))}
             </div>
-
-            {/* Modal Body */}
-            <div className="p-6 sm:p-8">
-              {!submitted ? (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  
-                  {/* Input 1: Student Full Name */}
-                  <div>
-                    <label className="block text-xs font-bold text-slate-900 uppercase tracking-wider mb-1 flex items-center justify-between">
-                      <span>Student Full Name</span>
-                      <span className="text-indigo-600 font-bold text-xs">* Required</span>
-                    </label>
-                    <input 
-                      type="text" 
-                      required 
-                      value={studentName}
-                      onChange={(e) => setStudentName(e.target.value)}
-                      placeholder="e.g. Rahul Sharma"
-                      className="w-full pl-4 pr-4 py-3 rounded-2xl border-2 border-slate-200/90 text-sm focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600/20 font-semibold text-slate-900 bg-slate-50/80 focus:bg-white transition-all shadow-xs"
-                    />
-                  </div>
-
-                  {/* Input 2: Parent Mobile Number (Strict 10 Digits) */}
-                  <div>
-                    <label className="block text-xs font-bold text-slate-900 uppercase tracking-wider mb-1 flex items-center justify-between">
-                      <span>Mobile Number (10 Digits)</span>
-                      <span className="text-indigo-600 font-bold text-xs">* Exactly 10 Digits</span>
-                    </label>
-                    <input 
-                      type="tel" 
-                      required 
-                      maxLength={10}
-                      value={phoneNumber}
-                      onChange={handlePhoneChange}
-                      placeholder="e.g. 9899818241"
-                      className={`w-full pl-4 pr-4 py-3 rounded-2xl border-2 text-sm focus:outline-none font-semibold text-slate-900 transition-all shadow-xs ${
-                        phoneError ? 'border-red-500 bg-red-50/30' : 'border-slate-200/90 bg-slate-50/80 focus:border-indigo-600 focus:bg-white'
-                      }`}
-                    />
-                    {phoneError && (
-                      <p className="text-xs font-bold text-red-600 mt-1">{phoneError}</p>
-                    )}
-                  </div>
-
-                  {/* Input 3: Email ID */}
-                  <div>
-                    <label className="block text-xs font-bold text-slate-900 uppercase tracking-wider mb-1 flex items-center justify-between">
-                      <span>Email Address</span>
-                      <span className="text-indigo-600 font-bold text-xs">* Valid Email Required</span>
-                    </label>
-                    <input 
-                      type="email" 
-                      required 
-                      value={email}
-                      onChange={handleEmailChange}
-                      placeholder="e.g. rahul.sharma@gmail.com"
-                      className={`w-full pl-4 pr-4 py-3 rounded-2xl border-2 text-sm focus:outline-none font-semibold text-slate-900 transition-all shadow-xs ${
-                        emailError ? 'border-red-500 bg-red-50/30' : 'border-slate-200/90 bg-slate-50/80 focus:border-indigo-600 focus:bg-white'
-                      }`}
-                    />
-                    {emailError && (
-                      <p className="text-xs font-bold text-red-600 mt-1">{emailError}</p>
-                    )}
-                  </div>
-
-                  {/* Input 4: Target Program */}
-                  <div>
-                    <label className="block text-xs font-bold text-slate-900 uppercase tracking-wider mb-1 flex items-center justify-between">
-                      <span>Target Program & Course</span>
-                      <span className="text-indigo-600 font-bold text-xs">Capped 10-15 Batch</span>
-                    </label>
-                    <select 
-                      value={selectedProgram}
-                      onChange={(e) => setSelectedProgram(e.target.value)}
-                      className="w-full px-4 py-3 rounded-2xl border-2 border-slate-200/90 text-sm focus:outline-none focus:border-indigo-600 focus:ring-2 focus:ring-indigo-600/20 font-semibold text-slate-900 bg-slate-50/80 focus:bg-white transition-all shadow-xs cursor-pointer"
-                    >
-                      {PROGRAMS_DATA.map((prog, pIdx) => (
-                        <option key={pIdx} value={`${prog.title} (${prog.category})`}>
-                          {prog.title} — {prog.category}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {/* Submit CTA Button */}
-                  <button 
-                    type="submit" 
-                    disabled={submitting}
-                    className="w-full bg-gradient-to-r from-indigo-600 via-indigo-700 to-indigo-600 hover:from-indigo-700 hover:to-indigo-700 text-white font-bold py-3.5 rounded-2xl transition-all text-sm sm:text-base shadow-xl shadow-indigo-200 hover:-translate-y-0.5 active:scale-95 cursor-pointer flex items-center justify-center gap-2 border border-indigo-400/30 disabled:opacity-50"
-                  >
-                    <span>{submitting ? 'Submitting Application...' : 'Submit & Save Application'}</span>
-                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-indigo-300" />
-                  </button>
-
-                  {/* Trust Micro Footer */}
-                  <div className="pt-1 text-center text-xs font-semibold text-slate-500 flex items-center justify-center gap-2">
-                    <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                    <span>Saved to Admin Database • 100% Privacy Guaranteed</span>
-                  </div>
-
-                </form>
-              ) : (
-                <div className="py-6 text-center space-y-5">
-                  <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto shadow-md border-4 border-emerald-50">
-                    <CheckCircle2 className="w-9 h-9" />
-                  </div>
-
-                  <div>
-                    <span className="text-xs font-bold uppercase tracking-widest text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
-                      APPLICATION SAVED & REGISTERED
-                    </span>
-                    <h3 className="font-heading text-2xl font-extrabold text-slate-950 mt-2">Registration Submitted!</h3>
-                    <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed max-w-sm mx-auto mt-1">
-                      Thank you, <strong className="text-slate-900">{studentName}</strong>. Your application has been saved to our database and forwarded to Senior HOD counselors.
-                    </p>
-                  </div>
-
-                  <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs font-bold text-slate-800 space-y-1.5 text-left">
-                    <div className="flex justify-between border-b border-slate-200/80 pb-1.5">
-                      <span className="text-slate-500">Target Program:</span>
-                      <span className="text-indigo-700 font-semibold">{selectedProgram}</span>
-                    </div>
-                    <div className="flex justify-between border-b border-slate-200/80 pb-1.5">
-                      <span className="text-slate-500">Mobile Number:</span>
-                      <span className="text-slate-900 font-semibold">{phoneNumber}</span>
-                    </div>
-                    <div className="flex justify-between border-b border-slate-200/80 pb-1.5">
-                      <span className="text-slate-500">Email Address:</span>
-                      <span className="text-slate-900 font-semibold">{email}</span>
-                    </div>
-                    <div className="flex justify-between pt-0.5">
-                      <span className="text-slate-500">Destination Counselor:</span>
-                      <span className="text-emerald-700 font-bold">+91 98998 18241</span>
-                    </div>
-                  </div>
-
-                  <div className="space-y-2.5 pt-2">
-                    <a 
-                      href={`https://wa.me/919899818241?text=${encodeURIComponent(`Hi BmClasses, I have submitted my admission application for ${selectedProgram}. My name is ${studentName}.`)}`} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="w-full bg-[#25D366] hover:bg-emerald-600 text-white font-semibold text-xs sm:text-sm py-3.5 rounded-2xl flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
-                    >
-                      <WhatsAppIcon className="w-4 h-4 text-white" /> Connect Directly on WhatsApp (+91 98998 18241)
-                    </a>
-
-                    <button 
-                      onClick={handleReset}
-                      className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs py-3 rounded-2xl transition-colors cursor-pointer"
-                    >
-                      Close Window
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
-
+            <p className="text-sm text-slate-600">Talk to the HOD who’ll teach you</p>
           </div>
         </div>
-      )}
-    </>
+
+        {done ? (
+          <div className="px-5 sm:px-7 py-10 text-center">
+            <span className="w-16 h-16 rounded-full bg-[#eef7ea] text-emerald-600 flex items-center justify-center mx-auto">
+              <CheckCircle2 className="w-8 h-8" />
+            </span>
+            <h3 className="font-heading font-extrabold text-2xl tracking-[-0.02em] text-slate-950 mt-5">Request sent</h3>
+            <p className="text-slate-600 mt-2">We’ll reply on WhatsApp and call you back soon.</p>
+            {done.popupBlocked && (
+              <a href={done.waUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 mt-6 h-12 px-6 rounded-full bg-[#25D366] text-white text-sm font-semibold">
+                <WhatsAppIcon className="w-4 h-4" /> Send on WhatsApp
+              </a>
+            )}
+            <button onClick={handleClose} className="block mx-auto mt-5 text-sm font-semibold text-slate-700 underline underline-offset-4 cursor-pointer">
+              Close
+            </button>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} noValidate className="px-4 sm:px-6 pt-6 pb-4 space-y-6">
+            <fieldset>
+              <legend className="text-sm font-semibold text-slate-900 mb-3">Which course?</legend>
+              <div role="radiogroup" className="grid grid-cols-2 gap-2">
+                {OPTIONS.map((o) => {
+                  const active = o.value === course;
+                  return (
+                    <button
+                      key={o.value}
+                      type="button"
+                      role="radio"
+                      aria-checked={active}
+                      onClick={() => {
+                        setCourse(o.value);
+                        setError('');
+                      }}
+                      className={`text-left rounded-2xl border px-3.5 py-2.5 transition-colors cursor-pointer ${
+                        active ? 'bg-slate-950 border-slate-950 text-white' : 'bg-white border-slate-200 text-slate-900 hover:border-slate-400'
+                      }`}
+                    >
+                      <span className="block text-sm font-semibold leading-tight">{o.title}</span>
+                      <span className={`block text-xs mt-0.5 ${active ? 'text-white/70' : 'text-slate-500'}`}>{o.sub}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </fieldset>
+
+            <fieldset className="space-y-3">
+              <legend className="text-sm font-semibold text-slate-900 mb-3">Your details</legend>
+              <div className="grid sm:grid-cols-2 gap-3">
+                <label className="relative block">
+                  <span className="sr-only">Student name</span>
+                  <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                  <input className={input} value={studentName} onChange={(e) => { setStudentName(e.target.value); setError(''); }} placeholder="Student’s name" autoComplete="name" />
+                </label>
+                <label className="relative block">
+                  <span className="sr-only">Mobile number</span>
+                  <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                  <input
+                    className={input}
+                    value={phoneNumber}
+                    onChange={(e) => { setPhoneNumber(e.target.value.replace(/\D/g, '').slice(0, 10)); setError(''); }}
+                    placeholder="Mobile number"
+                    inputMode="numeric"
+                    autoComplete="tel"
+                  />
+                </label>
+              </div>
+              <label className="relative block">
+                <span className="sr-only">Email (optional)</span>
+                <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+                <input className={input} value={email} onChange={(e) => { setEmail(e.target.value); setError(''); }} placeholder="Email (optional)" type="email" autoComplete="email" />
+              </label>
+            </fieldset>
+
+            {error && <p className="text-sm font-semibold text-red-600" role="alert">{error}</p>}
+
+            <div>
+              <button
+                type="submit"
+                disabled={submitting}
+                className="w-full h-12 rounded-full bg-slate-950 hover:bg-indigo-600 disabled:opacity-60 text-white text-sm font-semibold inline-flex items-center justify-center gap-2 transition-colors cursor-pointer"
+              >
+                {submitting ? 'Sending…' : 'Request a call back'}
+                <ArrowRight className="w-4 h-4" />
+              </button>
+              <p className="text-xs text-slate-500 text-center mt-3 flex items-center justify-center gap-1.5">
+                <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366]" /> Opens WhatsApp so we can reach you faster. Your number is only used to contact you.
+              </p>
+            </div>
+          </form>
+        )}
+      </div>
+    </div>
   );
 }

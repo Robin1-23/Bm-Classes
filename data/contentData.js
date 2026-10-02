@@ -1,4 +1,3 @@
-import { COURSES, courseName } from '@/data/siteContent';
 
 export const CENTER_INFO = {
   name: 'BM CLASSES',
@@ -83,5 +82,3 @@ export const MENTORS_DATA = [
   },
 ];
 
-// Course choices for the registration form, built from the course catalogue.
-export const PROGRAMS_DATA = COURSES.map((course) => ({ id: course.id, title: courseName(course), category: course.kind }));
