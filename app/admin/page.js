@@ -25,11 +25,11 @@ const authFetch = (url, options = {}) => {
 const csvCell = (value) => `"${String(value ?? '').replace(/^[=+\-@\t\r]/, "'$&").replace(/"/g, '""')}"`;
 
 const STATUS_OPTIONS = [
-  { value: 'New Lead', label: 'New Lead', color: 'bg-indigo-950/80 text-indigo-400 border-indigo-800/60' },
-  { value: 'Contacted', label: 'Contacted', color: 'bg-indigo-950/80 text-indigo-400 border-indigo-800/60' },
-  { value: 'Counseling Booked', label: 'Counseling Booked', color: 'bg-indigo-950/80 text-indigo-400 border-indigo-800/60' },
-  { value: 'Admitted', label: 'Admitted', color: 'bg-emerald-950/80 text-emerald-400 border-emerald-800/60' },
-  { value: 'Follow Up', label: 'Follow Up', color: 'bg-amber-950/80 text-amber-400 border-amber-800/60' },
+  { value: 'New Lead', label: 'New Lead', color: 'bg-[#eef4ff] text-sky-800 border-sky-200' },
+  { value: 'Contacted', label: 'Contacted', color: 'bg-[#f3f1ff] text-indigo-700 border-indigo-200' },
+  { value: 'Counseling Booked', label: 'Counseling Booked', color: 'bg-[#fdf4e6] text-amber-800 border-amber-200' },
+  { value: 'Admitted', label: 'Admitted', color: 'bg-[#eef7ea] text-emerald-700 border-emerald-200' },
+  { value: 'Follow Up', label: 'Follow Up', color: 'bg-[#fbf0ee] text-rose-700 border-rose-200' },
 ];
 
 export default function AdminPage() {
@@ -316,7 +316,7 @@ export default function AdminPage() {
 
     const cleanEmail = email.trim();
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!cleanEmail || !emailRegex.test(cleanEmail)) {
+    if (cleanEmail && !emailRegex.test(cleanEmail)) {
       setAddError('Please enter a valid email address.');
       return;
     }
@@ -474,576 +474,422 @@ export default function AdminPage() {
     return matchesQuery && matchesStatus;
   });
 
-  // Login Gate
+  const field = 'w-full h-11 px-4 rounded-2xl border border-slate-200 bg-white text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-slate-900 focus:ring-4 focus:ring-slate-900/5 transition';
+  const fieldLabel = 'block text-xs font-semibold text-slate-600 mb-1.5';
+  const ghostBtn = 'h-11 px-4 rounded-full bg-white border border-slate-200 hover:border-slate-400 text-slate-900 text-sm font-semibold inline-flex items-center gap-2 transition-colors cursor-pointer';
+  const pillBtn = 'h-11 px-5 rounded-full bg-slate-950 hover:bg-indigo-600 disabled:opacity-60 text-white text-sm font-semibold inline-flex items-center justify-center gap-2 transition-colors cursor-pointer';
+  const closeBtn = 'absolute top-4 right-4 w-10 h-10 rounded-full bg-white hover:bg-slate-50 text-slate-900 flex items-center justify-center cursor-pointer';
+  const overlay = 'fixed inset-0 z-[60] bg-slate-950/60 backdrop-blur-sm flex items-end sm:items-center justify-center sm:p-4 overflow-y-auto';
+  const sheet = 'w-full bg-white rounded-t-[28px] sm:rounded-[28px] p-2 shadow-2xl max-h-[94vh] overflow-y-auto';
+  const mist = { backgroundImage: 'repeating-linear-gradient(to bottom, transparent 0 39px, #eef1f8 39px 40px)' };
+
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center p-4 pt-28 sm:pt-36 pb-16">
-        <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl p-8 sm:p-10 max-w-md w-full shadow-2xl relative overflow-hidden my-auto">
-
-          <div className="w-12 h-12 rounded-2xl bg-indigo-950/80 border border-indigo-800/40 text-indigo-400 font-bold flex items-center justify-center mb-6">
-            <Lock className="w-6 h-6 text-indigo-400" />
+      <div className="min-h-screen bg-[#f5f7ff] flex items-center justify-center px-4 pt-28 sm:pt-36 pb-16" style={mist}>
+        <div className="w-full max-w-md rounded-[28px] bg-white p-2 border border-slate-200/70 shadow-[0_40px_80px_-40px_rgba(15,23,42,0.35)]">
+          <div className="rounded-[22px] bg-[#f3f1ff] p-6 sm:p-7">
+            <span className="w-12 h-12 rounded-2xl bg-white text-indigo-600 flex items-center justify-center">
+              <Lock className="w-6 h-6" />
+            </span>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-700 mt-6">Admission desk</p>
+            <h1 className="font-heading font-extrabold text-3xl sm:text-4xl tracking-[-0.03em] leading-[1.05] text-slate-950 mt-2">
+              Welcome back.
+              <span className="block text-slate-400">Unlock your leads.</span>
+            </h1>
           </div>
 
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-950/60 border border-indigo-800/40 text-indigo-400 text-xs font-bold uppercase tracking-wider mb-2">
-            <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
-            <span>ADMISSION DESK PANEL</span>
-          </div>
-
-          <h1 className="font-heading text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-            BM CLASSES <span className="text-indigo-400">Admin Portal</span>
-          </h1>
-          <p className="text-zinc-400 text-xs mt-1 font-medium mb-6">
-            Enter passkey to view, manage, add, and sync student course applications across mobile & desktop.
-          </p>
-
-          <form onSubmit={handleLogin} className="space-y-4">
+          <form onSubmit={handleLogin} className="px-4 sm:px-5 pt-6 pb-4 space-y-4">
             <div>
-              <label className="block text-xs font-bold text-zinc-300 uppercase tracking-wider mb-1.5 flex items-center justify-between">
-                <span>Admin Passkey</span>
-                <button
-                  type="button"
-                  onClick={() => setShowPasscode(!showPasscode)}
-                  className="text-xs font-bold text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1.5 cursor-pointer focus:outline-none"
-                >
-                  <Key className="w-3.5 h-3.5 text-indigo-400" />
-                  <span>{showPasscode ? 'Hide Password' : 'Show Password'}</span>
-                </button>
-              </label>
-
+              <label htmlFor="admin-passkey" className={fieldLabel}>Admin passkey</label>
               <div className="relative">
-                <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-indigo-400 pointer-events-none">
-                  <Key className="w-4 h-4 text-indigo-400" />
-                </div>
-
+                <Key className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
                 <input
+                  id="admin-passkey"
                   type={showPasscode ? 'text' : 'password'}
                   required
+                  autoFocus
+                  autoComplete="current-password"
                   value={passcode}
                   onChange={(e) => setPasscode(e.target.value)}
-                  placeholder="Enter admin passcode..."
-                  className="w-full pl-10 pr-11 py-3 rounded-2xl bg-black border-2 border-zinc-800 text-white font-semibold text-sm focus:outline-none focus:border-indigo-400 transition-all"
+                  placeholder="Enter passkey"
+                  className={`${field} h-12 pl-11 pr-12 ${passError ? 'border-red-300' : ''}`}
                 />
-
                 <button
                   type="button"
                   onClick={() => setShowPasscode(!showPasscode)}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-indigo-300 transition-colors cursor-pointer p-1"
-                  title={showPasscode ? 'Hide Password' : 'Show Password'}
+                  aria-label={showPasscode ? 'Hide passkey' : 'Show passkey'}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full text-slate-500 hover:bg-slate-100 flex items-center justify-center cursor-pointer"
                 >
-                  {showPasscode ? (
-                    <EyeOff className="w-4 h-4 text-indigo-400" />
-                  ) : (
-                    <Eye className="w-4 h-4 text-zinc-400 hover:text-indigo-400" />
-                  )}
+                  {showPasscode ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
-
               {passError && (
-                <p className="text-xs font-bold text-red-400 mt-1">{passErrorMsg || 'Incorrect passcode. Please try again.'}</p>
+                <p className="text-sm font-semibold text-red-600 mt-2" role="alert">{passErrorMsg || 'Incorrect passkey. Please try again.'}</p>
               )}
             </div>
 
-            <button
-              type="submit"
-              disabled={isAuthenticating}
-              className="w-full bg-indigo-400 hover:bg-indigo-300 text-black font-bold py-3.5 rounded-2xl transition-all shadow-lg flex items-center justify-center gap-2 cursor-pointer text-sm"
-            >
+            <button type="submit" disabled={isAuthenticating} className={`${pillBtn} w-full h-12`}>
               {isAuthenticating ? (
                 <>
-                  <RefreshCw className="w-4 h-4 text-black animate-spin" />
-                  <span>Verifying Passcode...</span>
+                  <RefreshCw className="w-4 h-4 animate-spin" /> Checking…
                 </>
               ) : (
-                <span>Unlock Admin Panel</span>
+                <>
+                  Unlock admin panel <ShieldCheck className="w-4 h-4" />
+                </>
               )}
             </button>
+            <p className="text-xs text-slate-500 text-center">Staff only. Sessions expire after 12 hours.</p>
           </form>
         </div>
       </div>
     );
   }
 
+  const countBy = (pred) => applications.filter(pred).length;
+  const STATS = [
+    { label: 'All leads', value: applications.length, tint: 'bg-[#f3f1ff]', ink: 'text-indigo-700' },
+    { label: 'New, to call', value: countBy((a) => (a.status || 'New Lead') === 'New Lead'), tint: 'bg-[#eef4ff]', ink: 'text-sky-700' },
+    { label: 'Follow up', value: countBy((a) => a.status === 'Follow Up' || a.status === 'Counseling Booked'), tint: 'bg-[#fdf4e6]', ink: 'text-amber-700' },
+    { label: 'Admitted', value: countBy((a) => a.status === 'Admitted'), tint: 'bg-[#eef7ea]', ink: 'text-emerald-700' },
+  ];
+
   return (
-    <div className="min-h-screen bg-black text-white pt-24 sm:pt-32 pb-20 px-4 sm:px-8">
-      
-      {/* Toast Notification */}
+    <div className="min-h-screen bg-[#f5f7ff] text-slate-950 pt-24 sm:pt-32 pb-20 px-4 sm:px-8" style={mist}>
+      {/* Toast */}
       {toastMessage && (
-        <div className="fixed bottom-6 right-6 z-50 bg-indigo-950 border-2 border-indigo-500 text-indigo-200 px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-3 font-bold text-xs animate-bounce">
-          <CheckCircle2 className="w-4 h-4 text-indigo-400 shrink-0" />
-          <span>{toastMessage}</span>
+        <div role="status" className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[70] bg-slate-950 text-white pl-3 pr-5 h-12 rounded-full shadow-2xl flex items-center gap-2.5 text-sm font-semibold">
+          <span className="w-7 h-7 rounded-full bg-emerald-500 flex items-center justify-center">
+            <Check className="w-4 h-4" />
+          </span>
+          {toastMessage}
         </div>
       )}
 
-      <div className="max-w-7xl mx-auto space-y-8">
-        
-        {/* Header Bar */}
-        <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
-
-          <div>
-            <div className="flex items-center gap-2 mb-2 flex-wrap">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/80 border border-emerald-800/60 text-emerald-400 text-xs font-bold uppercase tracking-wider">
-                <Globe className="w-3.5 h-3.5 text-emerald-400" />
-                <span>CROSS-DEVICE CLOUD SYNC ACTIVE</span>
-              </span>
-              {lastSyncTime && (
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs font-mono font-bold">
-                  <span>Synced: {lastSyncTime}</span>
-                </span>
-              )}
+      <div className="max-w-7xl mx-auto space-y-5">
+        {/* Header */}
+        <div className="rounded-[28px] bg-white p-2 border border-slate-200/70">
+          <div className="rounded-[22px] bg-[#f3f1ff] p-6 sm:p-8 flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-indigo-700">
+                Admission desk{lastSyncTime && <span className="text-slate-500 normal-case tracking-normal font-medium"> · updated {lastSyncTime}</span>}
+              </p>
+              <h1 className="font-heading font-extrabold text-3xl sm:text-5xl tracking-[-0.03em] leading-[1.02] mt-2">
+                Student leads.
+                <span className="block text-slate-400">Call, follow up, admit.</span>
+              </h1>
             </div>
-            <h1 className="font-heading text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-              Student Application <span className="text-indigo-300">Admin Panel</span>
-            </h1>
-            <p className="text-zinc-400 text-xs sm:text-sm font-medium mt-1">
-              Live admission telemetry persistent across all mobile phones, tablets, and laptops.
-            </p>
-          </div>
-
-          <div className="flex items-center gap-3 shrink-0 flex-wrap">
-            <button
-              onClick={() => setIsAddModalOpen(true)}
-              className="bg-indigo-400 hover:bg-indigo-300 text-black font-bold text-xs px-5 py-3 rounded-2xl transition-all shadow-lg flex items-center gap-2 cursor-pointer"
-            >
-              <Plus className="w-4 h-4 text-black stroke-[3]" />
-              <span>+ Add Lead</span>
-            </button>
-
-            <button
-              onClick={fetchApplications}
-              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 font-semibold text-xs px-4 py-3 rounded-2xl transition-all flex items-center gap-2 cursor-pointer"
-              title="Force Sync Cloud Data"
-            >
-              <RefreshCw className={`w-4 h-4 text-indigo-400 ${loading ? 'animate-spin' : ''}`} />
-              <span>{loading ? 'Syncing...' : 'Cloud Sync'}</span>
-            </button>
-
-            <button
-              onClick={handleExportExcel}
-              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-semibold text-xs px-4 py-3 rounded-2xl transition-all flex items-center gap-2 cursor-pointer"
-            >
-              <Download className="w-4 h-4 text-indigo-400" />
-              <span>Export CSV</span>
-            </button>
-
-            <button
-              onClick={() => setIsBackupModalOpen(true)}
-              className="bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-300 font-semibold text-xs px-3.5 py-3 rounded-2xl transition-all cursor-pointer"
-              title="Backup & Transfer Data"
-            >
-              <Database className="w-4 h-4 text-indigo-400" />
-            </button>
-
-            <button
-              onClick={handleLogout}
-              className="bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 hover:text-red-300 font-semibold text-xs px-4 py-3 rounded-2xl transition-all flex items-center gap-2 cursor-pointer shadow-sm"
-              title="Logout & Return to Home Screen"
-            >
-              <LogOut className="w-4 h-4 text-red-400" />
-              <span>Logout</span>
-            </button>
+            <div className="flex flex-wrap items-center gap-2">
+              <button onClick={() => setIsAddModalOpen(true)} className={pillBtn}>
+                <Plus className="w-4 h-4" /> Add lead
+              </button>
+              <button onClick={fetchApplications} className={ghostBtn} title="Reload leads">
+                <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} /> {loading ? 'Loading…' : 'Refresh'}
+              </button>
+              <button onClick={handleExportExcel} className={ghostBtn}>
+                <Download className="w-4 h-4" /> Export CSV
+              </button>
+              <button onClick={() => setIsBackupModalOpen(true)} className={`${ghostBtn} px-3.5`} title="Backup & import" aria-label="Backup and import">
+                <Database className="w-4 h-4" />
+              </button>
+              <button onClick={handleLogout} className={`${ghostBtn} px-3.5 text-red-600 hover:border-red-300`} title="Log out" aria-label="Log out">
+                <LogOut className="w-4 h-4" />
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Stats Metrics Cards */}
-        {(() => {
-          let jeeCount = 0;
-          let neetCount = 0;
-          let foundationCount = 0;
-
-          applications.forEach((a) => {
-            const prog = (a.selectedProgram || '').toLowerCase();
-            if (prog.includes('9th') || prog.includes('10th') || prog.includes('foundation') || prog.includes('pre-nurture')) {
-              foundationCount++;
-            } else if (prog.includes('neet') && !prog.includes('jee')) {
-              neetCount++;
-            } else if (prog.includes('jee')) {
-              jeeCount++;
-            } else if (prog.includes('neet') || prog.includes('medical') || prog.includes('biology')) {
-              neetCount++;
-            }
-          });
-
-          return (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-5">
-                <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest block">TOTAL APPLICATIONS</span>
-                <span className="font-mono text-3xl font-bold text-indigo-400 mt-1 block">{applications.length}</span>
-              </div>
-
-              <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-5">
-                <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest block">JEE MAIN & ADVANCED</span>
-                <span className="font-mono text-3xl font-bold text-white mt-1 block">{jeeCount}</span>
-              </div>
-
-              <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-5">
-                <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest block">NEET UG MEDICAL</span>
-                <span className="font-mono text-3xl font-bold text-emerald-400 mt-1 block">{neetCount}</span>
-              </div>
-
-              <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-5">
-                <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest block">CLASS 9TH & 10TH</span>
-                <span className="font-mono text-3xl font-bold text-indigo-400 mt-1 block">{foundationCount}</span>
+        {/* Stats */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          {STATS.map((s) => (
+            <div key={s.label} className="rounded-[24px] bg-white p-1.5 border border-slate-200/70">
+              <div className={`rounded-[18px] ${s.tint} px-5 py-4`}>
+                <span className={`text-xs font-semibold uppercase tracking-[0.12em] ${s.ink}`}>{s.label}</span>
+                <span className="block font-heading font-extrabold text-4xl tracking-[-0.03em] mt-1">{s.value}</span>
               </div>
             </div>
-          );
-        })()}
-
-        {/* Search & Status Filter Controls */}
-        <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-4 flex flex-col lg:flex-row items-center justify-between gap-4">
-          
-          {/* Search Box */}
-          <div className="relative w-full lg:w-96">
-            <Search className="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search student name, phone, email, program or notes..."
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-indigo-400"
-            />
-          </div>
-
-          {/* Status Filter Tabs */}
-          <div className="flex items-center gap-1.5 overflow-x-auto w-full lg:w-auto pb-1 lg:pb-0">
-            <button
-              onClick={() => setStatusFilter('all')}
-              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer ${
-                statusFilter === 'all'
-                  ? 'bg-indigo-400 text-black shadow-md'
-                  : 'bg-black text-zinc-400 hover:text-white border border-zinc-800'
-              }`}
-            >
-              All ({applications.length})
-            </button>
-
-            {STATUS_OPTIONS.map((st) => {
-              const count = applications.filter((a) => (a.status || 'New Lead') === st.value).length;
-              return (
-                <button
-                  key={st.value}
-                  onClick={() => setStatusFilter(st.value)}
-                  className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all shrink-0 cursor-pointer ${
-                    statusFilter === st.value
-                      ? 'bg-zinc-800 text-white border border-zinc-700 font-bold'
-                      : 'bg-black text-zinc-400 hover:text-white border border-zinc-900'
-                  }`}
-                >
-                  {st.label} ({count})
-                </button>
-              );
-            })}
-          </div>
-
-          <span className="text-xs font-bold text-zinc-400 shrink-0">
-            Showing <strong className="text-white">{filteredApps.length}</strong> of {applications.length} Submissions
-          </span>
+          ))}
         </div>
 
-        {/* Applications Data Table */}
-        <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl overflow-hidden shadow-2xl">
+        {/* Leads by course */}
+        <div className="flex gap-2 overflow-x-auto no-scrollbar">
+          {PROGRAM_OPTIONS.map((p) => {
+            const n = countBy((a) => a.selectedProgram === p);
+            return (
+              <button
+                key={p}
+                onClick={() => setSearchQuery(searchQuery === p ? '' : p)}
+                className={`shrink-0 h-9 px-4 rounded-full text-xs font-semibold border transition-colors cursor-pointer ${
+                  searchQuery === p ? 'bg-slate-950 border-slate-950 text-white' : 'bg-white border-slate-200 text-slate-700 hover:border-slate-400'
+                }`}
+              >
+                {p} <span className={searchQuery === p ? 'text-white/60' : 'text-slate-400'}>{n}</span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Table card */}
+        <div className="rounded-[28px] bg-white border border-slate-200/70 overflow-hidden">
+          {/* Search + status filter */}
+          <div className="p-4 sm:p-5 flex flex-col lg:flex-row lg:items-center gap-3 border-b border-slate-100">
+            <div className="relative w-full lg:w-96">
+              <Search className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search name, phone, course or notes"
+                aria-label="Search leads"
+                className={`${field} pl-11`}
+              />
+            </div>
+            <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar lg:ml-auto">
+              {[{ value: 'all', label: 'All' }, ...STATUS_OPTIONS].map((st) => {
+                const count = st.value === 'all' ? applications.length : countBy((a) => (a.status || 'New Lead') === st.value);
+                const active = statusFilter === st.value;
+                return (
+                  <button
+                    key={st.value}
+                    onClick={() => setStatusFilter(st.value)}
+                    className={`shrink-0 h-9 px-3.5 rounded-full text-xs font-semibold transition-colors cursor-pointer ${
+                      active ? 'bg-slate-950 text-white' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                    }`}
+                  >
+                    {st.label} <span className={active ? 'text-white/60' : 'text-slate-400'}>{count}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
           {loading ? (
-            <div className="p-12 text-center text-zinc-400 text-sm font-bold flex flex-col items-center justify-center gap-3">
-              <RefreshCw className="w-6 h-6 text-indigo-400 animate-spin" />
-              <span>Syncing live student applications from cloud database...</span>
+            <div className="p-14 text-center text-slate-500 text-sm flex flex-col items-center gap-3">
+              <RefreshCw className="w-6 h-6 text-indigo-500 animate-spin" />
+              Loading leads…
             </div>
           ) : filteredApps.length === 0 ? (
-            <div className="p-12 text-center text-zinc-400 text-sm font-medium">
-              No application records match your filter criteria.
+            <div className="p-14 text-center">
+              <span className="w-14 h-14 rounded-2xl bg-[#f3f1ff] text-indigo-600 flex items-center justify-center mx-auto">
+                <Search className="w-6 h-6" />
+              </span>
+              <p className="font-heading font-bold text-xl tracking-[-0.02em] mt-4">No leads here yet</p>
+              <p className="text-sm text-slate-500 mt-1">Try another filter, or add a walk-in with “Add lead”.</p>
             </div>
           ) : (
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs">
-                <thead className="bg-black border-b border-zinc-800 text-zinc-400 uppercase tracking-wider font-bold text-xs">
+              <table className="w-full text-left text-sm">
+                <thead className="bg-slate-50 text-slate-500 text-xs font-semibold uppercase tracking-[0.08em]">
                   <tr>
-                    <th className="p-4">App ID & Date</th>
-                    <th className="p-4">Student Name</th>
-                    <th className="p-4">Mobile Number</th>
-                    <th className="p-4">Email Address</th>
-                    <th className="p-4">Target Program</th>
-                    <th className="p-4 text-center">Score / Lock Pass</th>
-                    <th className="p-4 text-center">Status</th>
-                    <th className="p-4 text-right">Actions</th>
+                    <th className="px-5 py-3">Student</th>
+                    <th className="px-5 py-3">Contact</th>
+                    <th className="px-5 py-3">Course</th>
+                    <th className="px-5 py-3">Received</th>
+                    <th className="px-5 py-3">Status</th>
+                    <th className="px-5 py-3 text-right">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-zinc-800/80">
+                <tbody className="divide-y divide-slate-100">
                   {filteredApps.map((app, idx) => {
                     const waText = encodeURIComponent(
-                      `Hi ${app.studentName}, thank you for registering for ${app.selectedProgram} at BM CLASSES Gurgaon! We would like to schedule your 1-on-1 Ex-HOD diagnostic session.`
+                      `Hi ${app.studentName}, thank you for your interest in ${app.selectedProgram} at BM Classes, Gurugram. When is a good time for a quick call?`
                     );
                     const waUrl = `https://wa.me/91${app.phoneNumber}?text=${waText}`;
-
                     const currentStatusObj = STATUS_OPTIONS.find((s) => s.value === (app.status || 'New Lead')) || STATUS_OPTIONS[0];
 
                     return (
-                      <tr key={idx} className="hover:bg-zinc-900/60 transition-colors">
-                        
-                        {/* App ID & Date */}
-                        <td className="p-4 font-mono">
-                          <span className="text-indigo-400 font-bold block">{app.id}</span>
-                          <span className="text-xs text-zinc-500 font-medium block mt-0.5">{app.submittedAt}</span>
-                        </td>
-
-                        {/* Student Name */}
-                        <td className="p-4">
-                          <span className="font-heading font-extrabold text-white text-sm block">{app.studentName}</span>
-                          <div className="flex items-center gap-1.5 mt-1 flex-wrap">
-                            <span className="text-xs font-bold text-zinc-400 bg-zinc-900 border border-zinc-800 px-2 py-0.5 rounded">
-                              {app.source || 'Website Submission'}
+                      <tr key={app.id || idx} className="hover:bg-[#fafbff] transition-colors align-top">
+                        <td className="px-5 py-4">
+                          <div className="flex items-start gap-3">
+                            <span className="w-10 h-10 rounded-full bg-[#f3f1ff] text-indigo-700 font-heading font-bold flex items-center justify-center shrink-0">
+                              {(app.studentName || '?').trim().charAt(0).toUpperCase()}
                             </span>
-                            {app.notes && (
-                              <button
-                                onClick={() => openNotesModal(app)}
-                                className="text-xs font-bold text-amber-400 bg-amber-950/60 border border-amber-800/50 px-2 py-0.5 rounded flex items-center gap-1 cursor-pointer hover:bg-amber-900/60"
-                                title="View Notes"
-                              >
-                                <StickyNote className="w-3 h-3 text-amber-400" />
-                                <span>Note</span>
-                              </button>
-                            )}
+                            <div className="min-w-0">
+                              <span className="font-semibold text-slate-950 block whitespace-nowrap">{app.studentName}</span>
+                              <div className="flex items-center gap-1.5 mt-1 flex-wrap">
+                                <span className="text-[11px] font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full whitespace-nowrap">
+                                  {app.source || 'Website'}
+                                </span>
+                                {app.marksPercentage && (
+                                  <span className="text-[11px] font-semibold text-indigo-700 bg-[#eef4ff] px-2 py-0.5 rounded-full">{app.marksPercentage}%</span>
+                                )}
+                                {app.notes && (
+                                  <button
+                                    onClick={() => openNotesModal(app)}
+                                    className="text-[11px] font-semibold text-amber-700 bg-[#fdf4e6] px-2 py-0.5 rounded-full inline-flex items-center gap-1 cursor-pointer hover:bg-amber-100"
+                                  >
+                                    <StickyNote className="w-3 h-3" /> Note
+                                  </button>
+                                )}
+                              </div>
+                            </div>
                           </div>
                         </td>
 
-                        {/* Mobile Number */}
-                        <td className="p-4 font-mono">
-                          <a href={`tel:+91${app.phoneNumber}`} className="text-white font-semibold hover:text-indigo-300 flex items-center gap-1.5">
-                            <Phone className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
-                            <span>+91 {app.phoneNumber}</span>
+                        <td className="px-5 py-4 whitespace-nowrap">
+                          <a href={`tel:+91${app.phoneNumber}`} className="font-semibold text-slate-900 hover:text-indigo-600 flex items-center gap-1.5">
+                            <Phone className="w-3.5 h-3.5 text-slate-400" /> +91 {app.phoneNumber}
                           </a>
-                        </td>
-
-                        {/* Email Address */}
-                        <td className="p-4">
-                          <a href={`mailto:${app.email}`} className="text-zinc-300 font-bold hover:text-indigo-300 flex items-center gap-1.5">
-                            <Mail className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
-                            <span>{app.email || 'N/A'}</span>
-                          </a>
-                        </td>
-
-                        {/* Target Program */}
-                        <td className="p-4">
-                          <span className="font-semibold text-indigo-300 block max-w-xs">{app.selectedProgram}</span>
-                        </td>
-
-                        {/* Marks / Lock Pass */}
-                        <td className="p-4 text-center">
-                          {app.marksPercentage ? (
-                            <span className="inline-block bg-indigo-950 text-indigo-300 border border-indigo-800 px-2.5 py-1 rounded-lg text-xs font-bold">
-                              {app.marksPercentage}% Marks
-                            </span>
-                          ) : (
-                            <span className="text-zinc-500 font-mono text-xs">Standard</span>
-                          )}
-                          {app.lockPassId && (
-                            <span className="block font-mono text-xs text-emerald-400 mt-1 font-bold">
-                              #{app.lockPassId}
-                            </span>
+                          {app.email && (
+                            <a href={`mailto:${app.email}`} className="text-xs text-slate-500 hover:text-indigo-600 flex items-center gap-1.5 mt-1">
+                              <Mail className="w-3.5 h-3.5 text-slate-400" /> {app.email}
+                            </a>
                           )}
                         </td>
 
-                        {/* Status Select Badge */}
-                        <td className="p-4 text-center">
+                        <td className="px-5 py-4">
+                          <span className="text-slate-700 block min-w-[150px] max-w-[220px]">{app.selectedProgram}</span>
+                        </td>
+
+                        <td className="px-5 py-4 whitespace-nowrap text-xs text-slate-500">
+                          {app.submittedAt}
+                          <span className="block font-mono text-slate-400 mt-0.5">{app.id}</span>
+                        </td>
+
+                        <td className="px-5 py-4">
                           <div className="relative inline-block">
                             <select
                               value={app.status || 'New Lead'}
                               onChange={(e) => handleStatusChange(app.id, e.target.value)}
-                              className={`appearance-none font-semibold text-xs px-3 py-1.5 rounded-xl border transition-all cursor-pointer focus:outline-none ${currentStatusObj.color}`}
+                              aria-label={`Status for ${app.studentName}`}
+                              className={`appearance-none h-8 pl-3 pr-8 rounded-full border text-xs font-semibold cursor-pointer focus:outline-none focus:ring-4 focus:ring-slate-900/5 ${currentStatusObj.color}`}
                             >
                               {STATUS_OPTIONS.map((st) => (
-                                <option key={st.value} value={st.value} className="bg-zinc-950 text-white font-bold">
-                                  {st.label}
-                                </option>
+                                <option key={st.value} value={st.value}>{st.label}</option>
                               ))}
                             </select>
+                            <ChevronDown className="w-3.5 h-3.5 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none opacity-60" />
                           </div>
                         </td>
 
-                        {/* Actions */}
-                        <td className="p-4 text-right">
-                          <div className="flex items-center justify-end gap-2">
-                            <button
-                              onClick={() => openNotesModal(app)}
-                              className="bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 p-2 rounded-xl text-xs font-bold transition-all cursor-pointer"
-                              title="Edit Internal Notes"
-                            >
-                              <StickyNote className="w-3.5 h-3.5 text-amber-400" />
-                            </button>
-
+                        <td className="px-5 py-4">
+                          <div className="flex items-center justify-end gap-1.5">
                             <a
                               href={waUrl}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/40 p-2 rounded-xl text-xs font-bold flex items-center gap-1 transition-all cursor-pointer"
+                              className="h-9 px-3.5 rounded-full bg-[#25D366] hover:bg-[#1ebe5a] text-white text-xs font-semibold inline-flex items-center gap-1.5 transition-colors"
                               title="Chat on WhatsApp"
                             >
-                              <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
-                              <span className="hidden sm:inline">WhatsApp</span>
+                              <MessageSquare className="w-3.5 h-3.5" /> WhatsApp
                             </a>
-
+                            <button
+                              onClick={() => openNotesModal(app)}
+                              className="w-9 h-9 rounded-full bg-white border border-slate-200 hover:border-slate-400 text-slate-700 flex items-center justify-center cursor-pointer"
+                              title="Notes"
+                              aria-label={`Notes for ${app.studentName}`}
+                            >
+                              <Edit3 className="w-3.5 h-3.5" />
+                            </button>
                             <button
                               onClick={() => handleDelete(app.id)}
-                              className="bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 p-2 rounded-xl transition-all cursor-pointer"
-                              title="Delete Record"
+                              className="w-9 h-9 rounded-full bg-white border border-slate-200 hover:border-red-300 hover:bg-red-50 text-red-600 flex items-center justify-center cursor-pointer"
+                              title="Delete"
+                              aria-label={`Delete ${app.studentName}`}
                             >
-                              <Trash2 className="w-3.5 h-3.5 text-red-400" />
+                              <Trash2 className="w-3.5 h-3.5" />
                             </button>
                           </div>
                         </td>
-
                       </tr>
                     );
                   })}
                 </tbody>
               </table>
+              <p className="px-5 py-3 text-xs text-slate-500 border-t border-slate-100">
+                Showing {filteredApps.length} of {applications.length} leads
+              </p>
             </div>
           )}
         </div>
-
       </div>
 
-      {/* ADD APPLICATION MODAL */}
+      {/* ADD LEAD MODAL */}
       {isAddModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl my-auto">
-            <button
-              onClick={() => setIsAddModalOpen(false)}
-              className="absolute top-5 right-5 text-zinc-400 hover:text-white p-2 rounded-full bg-zinc-900 border border-zinc-800 cursor-pointer"
-            >
-              <X className="w-4 h-4" />
-            </button>
-
-            <div className="flex items-center gap-2 mb-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-950 border border-indigo-800 text-indigo-400 text-xs font-bold uppercase tracking-wider">
-                <UserPlus className="w-3.5 h-3.5 text-indigo-400" />
-                <span>MANUAL ENTRY</span>
-              </span>
+        <div className={overlay} onClick={() => setIsAddModalOpen(false)} role="dialog" aria-modal="true" aria-labelledby="add-lead-title">
+          <div className={`${sheet} sm:max-w-xl`} onClick={(e) => e.stopPropagation()}>
+            <div className="relative rounded-[22px] bg-[#eef7ea] p-6 sm:p-7">
+              <button onClick={() => setIsAddModalOpen(false)} aria-label="Close" className={closeBtn}>
+                <X className="w-4 h-4" />
+              </button>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-700">Manual entry</p>
+              <h2 id="add-lead-title" className="font-heading font-extrabold text-3xl tracking-[-0.03em] leading-[1.05] mt-2 pr-10">
+                Add a lead.
+                <span className="block text-slate-400">Calls, walk-ins, referrals.</span>
+              </h2>
             </div>
 
-            <h2 className="font-heading text-xl sm:text-2xl font-extrabold text-white">Add Student Application</h2>
-            <p className="text-zinc-400 text-xs mt-1 mb-6">Record phone calls, walk-ins, or manual course registrations directly into the admin desk.</p>
+            <form onSubmit={handleAddSubmit} className="px-4 sm:px-6 pt-6 pb-4 space-y-4">
+              {addError && <p className="text-sm font-semibold text-red-600" role="alert">{addError}</p>}
 
-            {addError && (
-              <div className="mb-4 p-3 bg-red-950/80 border border-red-800 rounded-2xl text-red-300 text-xs font-bold">
-                {addError}
-              </div>
-            )}
-
-            <form onSubmit={handleAddSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-bold text-zinc-300 uppercase tracking-wider mb-1">Student Name *</label>
-                <input
-                  type="text"
-                  required
-                  value={addForm.studentName}
-                  onChange={(e) => setAddForm({ ...addForm, studentName: e.target.value })}
-                  placeholder="Full name of student..."
-                  className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-indigo-400"
-                />
+                <label className={fieldLabel}>Student name *</label>
+                <input type="text" required value={addForm.studentName} onChange={(e) => setAddForm({ ...addForm, studentName: e.target.value })} placeholder="Full name" className={field} />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-zinc-300 uppercase tracking-wider mb-1">Mobile Number *</label>
+                  <label className={fieldLabel}>Mobile number *</label>
                   <input
                     type="tel"
                     required
                     maxLength={10}
+                    inputMode="numeric"
                     value={addForm.phoneNumber}
                     onChange={(e) => setAddForm({ ...addForm, phoneNumber: e.target.value.replace(/\D/g, '') })}
-                    placeholder="10-digit number..."
-                    className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-mono text-xs focus:outline-none focus:border-indigo-400"
+                    placeholder="10-digit number"
+                    className={field}
                   />
                 </div>
-
                 <div>
-                  <label className="block text-xs font-bold text-zinc-300 uppercase tracking-wider mb-1">Email Address *</label>
-                  <input
-                    type="email"
-                    required
-                    value={addForm.email}
-                    onChange={(e) => setAddForm({ ...addForm, email: e.target.value })}
-                    placeholder="name@email.com..."
-                    className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-indigo-400"
-                  />
+                  <label className={fieldLabel}>Email</label>
+                  <input type="email" value={addForm.email} onChange={(e) => setAddForm({ ...addForm, email: e.target.value })} placeholder="Optional" className={field} />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-zinc-300 uppercase tracking-wider mb-1">Target Program / Course *</label>
-                <select
-                  value={addForm.selectedProgram}
-                  onChange={(e) => setAddForm({ ...addForm, selectedProgram: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-indigo-400"
-                >
-                  {PROGRAM_OPTIONS.map((prog, idx) => (
-                    <option key={idx} value={prog}>{prog}</option>
+                <label className={fieldLabel}>Course *</label>
+                <select value={addForm.selectedProgram} onChange={(e) => setAddForm({ ...addForm, selectedProgram: e.target.value })} className={field}>
+                  {PROGRAM_OPTIONS.map((prog) => (
+                    <option key={prog} value={prog}>{prog}</option>
                   ))}
                 </select>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-zinc-300 uppercase tracking-wider mb-1">Class Score / Marks %</label>
-                  <input
-                    type="number"
-                    min={0}
-                    max={100}
-                    value={addForm.marksPercentage}
-                    onChange={(e) => setAddForm({ ...addForm, marksPercentage: e.target.value })}
-                    placeholder="e.g. 92"
-                    className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-mono text-xs focus:outline-none focus:border-indigo-400"
-                  />
+                  <label className={fieldLabel}>Last score %</label>
+                  <input type="number" min={0} max={100} value={addForm.marksPercentage} onChange={(e) => setAddForm({ ...addForm, marksPercentage: e.target.value })} placeholder="e.g. 92" className={field} />
                 </div>
-
                 <div>
-                  <label className="block text-xs font-bold text-zinc-300 uppercase tracking-wider mb-1">Initial Status</label>
-                  <select
-                    value={addForm.status}
-                    onChange={(e) => setAddForm({ ...addForm, status: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-indigo-400"
-                  >
+                  <label className={fieldLabel}>Status</label>
+                  <select value={addForm.status} onChange={(e) => setAddForm({ ...addForm, status: e.target.value })} className={field}>
                     {STATUS_OPTIONS.map((st) => (
                       <option key={st.value} value={st.value}>{st.label}</option>
                     ))}
                   </select>
                 </div>
+                <div>
+                  <label className={fieldLabel}>Source</label>
+                  <input type="text" value={addForm.source} onChange={(e) => setAddForm({ ...addForm, source: e.target.value })} placeholder="Walk-in, call…" className={field} />
+                </div>
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-zinc-300 uppercase tracking-wider mb-1">Lead Source</label>
-                <input
-                  type="text"
-                  value={addForm.source}
-                  onChange={(e) => setAddForm({ ...addForm, source: e.target.value })}
-                  placeholder="e.g. Phone Call, Walk-In, Referral..."
-                  className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-indigo-400"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-zinc-300 uppercase tracking-wider mb-1">Internal Notes</label>
+                <label className={fieldLabel}>Notes</label>
                 <textarea
                   rows={2}
                   value={addForm.notes}
                   onChange={(e) => setAddForm({ ...addForm, notes: e.target.value })}
-                  placeholder="Counseling preferences, parent notes, follow-up date..."
-                  className="w-full px-4 py-2.5 rounded-xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-indigo-400"
+                  placeholder="Parent notes, preferred timing, follow-up date…"
+                  className={`${field} h-auto py-3`}
                 />
               </div>
 
-              <div className="pt-2 flex items-center justify-end gap-3">
-                <button
-                  type="button"
-                  onClick={() => setIsAddModalOpen(false)}
-                  className="px-4 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white font-bold text-xs cursor-pointer"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  disabled={isSaving}
-                  className="px-6 py-2.5 rounded-xl bg-indigo-400 hover:bg-indigo-300 text-black font-bold text-xs shadow-lg cursor-pointer flex items-center gap-2"
-                >
-                  {isSaving ? 'Saving Application...' : 'Save Student Application'}
+              <div className="flex items-center justify-end gap-2 pt-1">
+                <button type="button" onClick={() => setIsAddModalOpen(false)} className={ghostBtn}>Cancel</button>
+                <button type="submit" disabled={isSaving} className={pillBtn}>
+                  {isSaving ? 'Saving…' : 'Save lead'}
                 </button>
               </div>
             </form>
@@ -1051,53 +897,33 @@ export default function AdminPage() {
         </div>
       )}
 
-      {/* EDIT INTERNAL NOTES MODAL */}
+      {/* NOTES MODAL */}
       {activeNotesApp && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl max-w-md w-full p-6 relative shadow-2xl my-auto">
-            <button
-              onClick={() => setActiveNotesApp(null)}
-              className="absolute top-5 right-5 text-zinc-400 hover:text-white p-2 rounded-full bg-zinc-900 border border-zinc-800 cursor-pointer"
-            >
-              <X className="w-4 h-4" />
-            </button>
-
-            <div className="flex items-center gap-2 mb-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-950 border border-amber-800 text-amber-400 text-xs font-bold uppercase tracking-wider">
-                <StickyNote className="w-3.5 h-3.5 text-amber-400" />
-                <span>INTERNAL COUNSELING NOTES</span>
-              </span>
+        <div className={overlay} onClick={() => setActiveNotesApp(null)} role="dialog" aria-modal="true" aria-labelledby="notes-title">
+          <div className={`${sheet} sm:max-w-md`} onClick={(e) => e.stopPropagation()}>
+            <div className="relative rounded-[22px] bg-[#fdf4e6] p-6">
+              <button onClick={() => setActiveNotesApp(null)} aria-label="Close" className={closeBtn}>
+                <X className="w-4 h-4" />
+              </button>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-amber-700">Counselling notes</p>
+              <h2 id="notes-title" className="font-heading font-extrabold text-2xl tracking-[-0.03em] mt-2 pr-10">{activeNotesApp.studentName}</h2>
+              <p className="text-sm text-slate-600 mt-1">{activeNotesApp.selectedProgram} · {activeNotesApp.phoneNumber}</p>
             </div>
 
-            <h2 className="font-heading text-lg font-extrabold text-white">{activeNotesApp.studentName}</h2>
-            <p className="text-zinc-400 text-xs mt-0.5 mb-4">{activeNotesApp.selectedProgram} • {activeNotesApp.phoneNumber}</p>
-
-            <form onSubmit={handleSaveNotes} className="space-y-4">
-              <div>
-                <label className="block text-xs font-bold text-zinc-300 uppercase tracking-wider mb-1.5">Notes & Remarks</label>
-                <textarea
-                  rows={4}
-                  value={notesText}
-                  onChange={(e) => setNotesText(e.target.value)}
-                  placeholder="Enter counseling feedback, preferred timing, diagnostic test marks, parent requirements..."
-                  className="w-full px-4 py-3 rounded-2xl bg-black border border-zinc-800 text-white font-medium text-xs focus:outline-none focus:border-indigo-400"
-                />
-              </div>
-
-              <div className="flex items-center justify-end gap-3 pt-2">
-                <button
-                  type="button"
-                  onClick={() => setActiveNotesApp(null)}
-                  className="px-4 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white font-bold text-xs cursor-pointer"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  disabled={isSavingNotes}
-                  className="px-5 py-2.5 rounded-xl bg-indigo-400 hover:bg-indigo-300 text-black font-bold text-xs cursor-pointer"
-                >
-                  {isSavingNotes ? 'Saving Notes...' : 'Save Notes'}
+            <form onSubmit={handleSaveNotes} className="px-4 sm:px-5 pt-5 pb-4 space-y-4">
+              <textarea
+                rows={5}
+                autoFocus
+                value={notesText}
+                onChange={(e) => setNotesText(e.target.value)}
+                aria-label="Notes"
+                placeholder="Call feedback, preferred timing, parent requirements…"
+                className={`${field} h-auto py-3`}
+              />
+              <div className="flex items-center justify-end gap-2">
+                <button type="button" onClick={() => setActiveNotesApp(null)} className={ghostBtn}>Cancel</button>
+                <button type="submit" disabled={isSavingNotes} className={pillBtn}>
+                  {isSavingNotes ? 'Saving…' : 'Save notes'}
                 </button>
               </div>
             </form>
@@ -1105,72 +931,50 @@ export default function AdminPage() {
         </div>
       )}
 
-      {/* JSON BACKUP & TRANSFER MODAL */}
+      {/* BACKUP / IMPORT MODAL */}
       {isBackupModalOpen && (
-        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 overflow-y-auto">
-          <div className="bg-zinc-950 border-2 border-zinc-800 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl my-auto">
-            <button
-              onClick={() => setIsBackupModalOpen(false)}
-              className="absolute top-5 right-5 text-zinc-400 hover:text-white p-2 rounded-full bg-zinc-900 border border-zinc-800 cursor-pointer"
-            >
-              <X className="w-4 h-4" />
-            </button>
-
-            <div className="flex items-center gap-2 mb-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-950 border border-indigo-800 text-indigo-400 text-xs font-bold uppercase tracking-wider">
-                <Database className="w-3.5 h-3.5 text-indigo-400" />
-                <span>CROSS-DEVICE DATA SYNC & BACKUP</span>
-              </span>
+        <div className={overlay} onClick={() => setIsBackupModalOpen(false)} role="dialog" aria-modal="true" aria-labelledby="backup-title">
+          <div className={`${sheet} sm:max-w-lg`} onClick={(e) => e.stopPropagation()}>
+            <div className="relative rounded-[22px] bg-[#eef4ff] p-6">
+              <button onClick={() => setIsBackupModalOpen(false)} aria-label="Close" className={closeBtn}>
+                <X className="w-4 h-4" />
+              </button>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-700">Backup & import</p>
+              <h2 id="backup-title" className="font-heading font-extrabold text-2xl tracking-[-0.03em] leading-tight mt-2 pr-10">
+                Move leads as JSON.
+                <span className="block text-slate-400">Copy out, or paste in.</span>
+              </h2>
             </div>
 
-            <h2 className="font-heading text-xl font-extrabold text-white">Import / Backup JSON Leads</h2>
-            <p className="text-zinc-400 text-xs mt-1 mb-4">Copy your JSON data to transfer leads to another phone or paste JSON to import leads.</p>
-
-            <div className="space-y-4">
-              <div>
-                <div className="flex items-center justify-between mb-1.5">
-                  <label className="text-xs font-bold text-zinc-300 uppercase tracking-wider">Paste JSON Array to Import</label>
-                  <button
-                    onClick={() => {
-                      navigator.clipboard.writeText(JSON.stringify(applications, null, 2));
-                      showToast('Copied all JSON applications to clipboard!');
-                    }}
-                    className="text-xs font-bold text-indigo-400 hover:underline cursor-pointer"
-                  >
-                    Copy Current JSON ({applications.length})
-                  </button>
-                </div>
-                <textarea
-                  rows={6}
-                  value={importJsonText}
-                  onChange={(e) => setImportJsonText(e.target.value)}
-                  placeholder='Paste JSON array here e.g. [{"studentName":"Rahul", "phoneNumber":"9899818241", ...}]'
-                  className="w-full px-4 py-3 rounded-2xl bg-black border border-zinc-800 text-white font-mono text-xs focus:outline-none focus:border-indigo-400"
-                />
-              </div>
-
-              <div className="flex items-center justify-end gap-3 pt-2">
-                <button
-                  type="button"
-                  onClick={() => setIsBackupModalOpen(false)}
-                  className="px-4 py-2.5 rounded-xl bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white font-bold text-xs cursor-pointer"
-                >
-                  Close
-                </button>
-                <button
-                  type="button"
-                  onClick={handleImportJson}
-                  className="px-5 py-2.5 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-black font-bold text-xs cursor-pointer flex items-center gap-1.5"
-                >
-                  <Upload className="w-3.5 h-3.5 text-black" />
-                  <span>Import Records</span>
+            <div className="px-4 sm:px-5 pt-5 pb-4 space-y-4">
+              <button
+                type="button"
+                onClick={() => {
+                  navigator.clipboard.writeText(JSON.stringify(applications, null, 2));
+                  showToast('Copied all leads as JSON');
+                }}
+                className={`${ghostBtn} w-full justify-center`}
+              >
+                <Download className="w-4 h-4" /> Copy current leads ({applications.length})
+              </button>
+              <textarea
+                rows={6}
+                value={importJsonText}
+                onChange={(e) => setImportJsonText(e.target.value)}
+                aria-label="JSON to import"
+                placeholder='Paste a JSON array, e.g. [{"studentName":"Rahul","phoneNumber":"98…"}]'
+                className={`${field} h-auto py-3 font-mono text-xs`}
+              />
+              <div className="flex items-center justify-end gap-2">
+                <button type="button" onClick={() => setIsBackupModalOpen(false)} className={ghostBtn}>Close</button>
+                <button type="button" onClick={handleImportJson} className={pillBtn}>
+                  <Upload className="w-4 h-4" /> Import
                 </button>
               </div>
             </div>
           </div>
         </div>
       )}
-
     </div>
   );
 }
