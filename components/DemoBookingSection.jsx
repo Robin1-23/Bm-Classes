@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CalendarCheck, CheckCircle2, User, Phone, ArrowRight, Clock } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
@@ -65,7 +65,9 @@ function Step({ n, title, children }) {
 }
 
 export default function DemoBookingSection() {
-  const days = useMemo(nextDays, []);
+  // Dates are worked out in the visitor's browser only, so a pre-built page never shows stale days
+  const [days, setDays] = useState([]);
+  useEffect(() => setDays(nextDays()), []);
   const [form, setForm] = useState({ name: '', phone: '', cls: 'Class 12', subject: 'Chemistry', day: '', slot: '' });
   const [error, setError] = useState('');
   const [sending, setSending] = useState(false);
@@ -188,6 +190,8 @@ export default function DemoBookingSection() {
 
                 <Step n="3" title="Pick a day">
                   <div role="radiogroup" aria-label="Day" className="grid grid-cols-4 sm:grid-cols-7 gap-2">
+                    {days.length === 0 &&
+                      Array.from({ length: 7 }, (_, i) => <span key={i} className="h-[76px] rounded-2xl bg-white border border-slate-200" />)}
                     {days.map((d) => {
                       const active = d.key === form.day;
                       return (
