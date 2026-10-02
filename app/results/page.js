@@ -12,11 +12,16 @@ export default function ResultsPage() {
 
   return (
     <>
-      <PageHeader 
-        badgeText="AIR 18, 22, 52, 102 TOP RANKS"
-        title="Our toppers did the talking."
-        subtitle="15+ years of JEE Advanced and NEET top ranks, plus real video reviews from Gurgaon parents and alumni."
-        breadcrumb="Top AIR Ranks"
+      <PageHeader
+        breadcrumb="Results"
+        badgeText="JEE & NEET results"
+        title="Our toppers"
+        soft="did the talking."
+        subtitle="Real results and real video reviews from BM Classes students and parents."
+        tint="bg-[#fbf0ee]"
+        ctaHref="/#book-demo"
+        facts={[{"label":"JEE Advanced","value":"AIR 18"},{"label":"on Google","value":"4.9 ★"}]}
+        wide={{"label":"JEE Main","value":"99.48 percentile, Aaryan Jain"}}
       />
       <ResultsBoard />
       <ResultsSection 

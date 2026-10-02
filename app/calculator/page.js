@@ -12,11 +12,16 @@ export default function CalculatorPage() {
 
   return (
     <>
-      <PageHeader 
-        badgeText="100% FEE TRANSPARENCY"
-        title="Your fee. Your scholarship. No surprises."
-        subtitle="See your exact course fee and unlock up to 40% merit scholarship based on your Class X/XI marks."
-        breadcrumb="Fee Calculator"
+      <PageHeader
+        breadcrumb="Fee calculator"
+        badgeText="No hidden fees"
+        title="Your fee. Your scholarship."
+        soft="No surprises."
+        subtitle="See your yearly fee in seconds, and how much a merit scholarship of up to 40% could save you."
+        tint="bg-[#f3f1ff]"
+        ctaHref="/#book-demo"
+        facts={[{"label":"fees from","value":"₹85,000"},{"label":"scholarship","value":"Up to 40%"}]}
+        wide={{"label":"Included in the fee","value":"Study material, tests and doubt sessions"}}
       />
       <BespokeFeeBreakdown />
       <CalculatorSection 
