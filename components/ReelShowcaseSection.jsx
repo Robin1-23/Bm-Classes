@@ -178,7 +178,6 @@ export default function ReelShowcaseSection() {
 
             <ScrollReveal delay={150} direction="up">
               <h2 className="font-heading font-extrabold tracking-[-0.03em] leading-tight">
-                <span className="sr-only">See Our Faculty Teaching Live</span>
                 <FoldText
                   text="Sit in on a class. Right now."
                   splitBy="word"

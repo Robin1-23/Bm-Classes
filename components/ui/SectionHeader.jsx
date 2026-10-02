@@ -26,7 +26,6 @@ export default function SectionHeader({
 
       {title && (
         <h2 className="font-heading font-extrabold tracking-[-0.03em] leading-[1.08]">
-          <span className="sr-only">{title}</span>
           <FoldText
             text={title}
             splitBy="word"

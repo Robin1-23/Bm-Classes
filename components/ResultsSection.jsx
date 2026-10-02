@@ -204,7 +204,6 @@ export default function ResultsSection() {
           </div>
           
           <h2 className="font-heading font-extrabold tracking-[-0.03em] leading-[1.15] mt-1 mb-2">
-            <span className="sr-only">Ranks speak. Parents agree.</span>
             <FoldText
               text="Ranks speak. Parents agree."
               splitBy="word"

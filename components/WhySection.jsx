@@ -70,7 +70,6 @@ export default function WhySection() {
           </div>
           
           <h2 className="font-heading font-extrabold tracking-[-0.03em] leading-[1.15] mt-1 mb-2">
-            <span className="sr-only">Understand it once. Solve it forever.</span>
             <FoldText
               text="Understand it once. Solve it forever."
               splitBy="word"
