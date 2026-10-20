@@ -26,9 +26,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        heading: ['var(--font-outfit)', 'Outfit', 'Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        body: ['Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        sans: ['Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        heading: ['var(--font-outfit)', 'Outfit', 'var(--font-geist)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        body: ['var(--font-geist)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-geist)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         serif: ['"Instrument Serif"', 'Georgia', 'serif'],
       },
       boxShadow: {

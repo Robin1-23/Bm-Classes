@@ -1,7 +1,10 @@
 import './globals.css';
 import { Outfit } from 'next/font/google';
+import localFont from 'next/font/local';
 
 const outfit = Outfit({ subsets: ['latin'], weight: ['600', '700', '800', '900'], variable: '--font-outfit', display: 'swap' });
+// Geist is self-hosted (Next 14 can't fetch it from Google Fonts): no render-blocking stylesheet, preloaded, no layout shift
+const geist = localFont({ src: './fonts/Geist-latin.woff2', weight: '400 700', variable: '--font-geist', display: 'swap' });
 import ClientLayoutWrapper from '@/components/ClientLayoutWrapper';
 import { SITE_URL, BUSINESS, organizationJsonLd, websiteJsonLd, JsonLd } from '@/data/seo';
 
@@ -46,11 +49,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en-IN" className={`scroll-smooth ${outfit.variable}`}>
+    <html lang="en-IN" className={`scroll-smooth ${outfit.variable} ${geist.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <JsonLd data={organizationJsonLd()} />
         <JsonLd data={websiteJsonLd()} />
       </head>
