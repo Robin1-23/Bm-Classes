@@ -29,9 +29,9 @@ function Shell({ children }) {
         prefilledPhone={prefilledPhone}
         onClose={closeModals}
       />
-      <FloatingWhatsAppButton />
+      {!isAdmin && <FloatingWhatsAppButton />}
       <ScrollToTopButton />
-      <MobileStickyActionBar />
+      {!isAdmin && <MobileStickyActionBar />}
     </div>
   );
 }
