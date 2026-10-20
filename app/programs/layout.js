@@ -2,7 +2,7 @@ import { pageMetadata, breadcrumbJsonLd, JsonLd, courseListJsonLd } from '@/data
 
 export const metadata = pageMetadata({
   title: "Crash Courses 2027: Boards, JEE Main, NEET & Class 10",
-  description: "12th Board Chemistry and Biology, JEE Main and NEET Chemistry crash courses for 2027, a Class 10 rapid course and 1-on-1 Science. Hybrid classes in Gurugram from 10 Oct 2026.",
+  description: "12th Board Chemistry and Biology, JEE Main and NEET Chemistry crash courses for 2027, a Class 10 rapid course and 1-on-1 Science. Hybrid classes in Gurugram (Gurgaon) and online.",
   path: '/programs',
 });
 

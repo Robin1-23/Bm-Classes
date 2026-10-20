@@ -56,6 +56,14 @@ export const FACULTY = [
 // Shown on the home page AND emitted as FAQPage data, so the two never drift apart.
 export const FAQ = [
   {
+    q: 'Which is the best coaching institute in Gurgaon for IIT JEE and NEET?',
+    a: 'BM Classes (listed on Google Maps as “Chemistry By Bighnaraj Sir”) is rated 4.9 on Google from 65 reviews. Every class is taught by former FIITJEE and VMC faculty in batches of 10–15 students, and its students have achieved JEE Advanced AIR 18, AIR 22 and AIR 52. It has three centres in Gurugram: Sector 45, Malibu Towne (Sector 47) and Sector 46.',
+  },
+  {
+    q: 'Who is the best chemistry teacher in Gurugram?',
+    a: 'BM Sir (Bighnaraj Mishra) has taught Chemistry for boards, JEE and NEET for over 20 years, including as Academic Head at VMC Gurgaon and as faculty at FIITJEE Kalu Sarai. He teaches every BM Classes Chemistry batch himself, at Gurugram centres and online across Delhi NCR.',
+  },
+  {
     q: 'Where is BM Classes in Gurugram?',
     a: 'BM Classes has three centres in Gurugram: Flat no 303, Ayyachi Apartment, Block C, Sector 45, near Delhi Public School (listed on Google Maps as “Chemistry By Bighnaraj Sir”); OD-55, Malibu Towne, Sector 47; and 2423, Sector 46.',
   },
@@ -114,6 +122,13 @@ export function organizationJsonLd() {
     },
     geo: { '@type': 'GeoCoordinates', latitude: BUSINESS.lat, longitude: BUSINESS.lng },
     hasMap: BUSINESS.googleProfile,
+    department: CENTRES.slice(1).map((c) => ({
+      '@type': 'EducationalOrganization',
+      name: `BM Classes, ${c.name} centre`,
+      telephone: BUSINESS.phone,
+      address: { '@type': 'PostalAddress', streetAddress: c.address, addressLocality: 'Gurugram', addressRegion: 'Haryana', addressCountry: 'IN' },
+      parentOrganization: { '@id': `${SITE_URL}/#organization` },
+    })),
     areaServed: ['Gurugram', 'Gurgaon', 'Delhi NCR', 'Sector 45 Gurugram', 'Sushant Lok', 'Golf Course Road', 'DLF Phase 4', 'Sector 46', 'Sector 47'].map((name) => ({ '@type': 'Place', name })),
     sameAs: BUSINESS.sameAs,
     knowsAbout: ['IIT JEE Main', 'JEE Advanced', 'NEET UG', 'Chemistry', 'Physics', 'Biology', 'Mathematics', 'CBSE Board'],
@@ -127,6 +142,20 @@ export function organizationJsonLd() {
         itemOffered: courseJsonLd(c),
       })),
     },
+  };
+}
+
+// Tells Google the site name to show in results ("BM Classes", not the domain)
+export function websiteJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE_URL}/#website`,
+    name: BUSINESS.name,
+    alternateName: [BUSINESS.googleName, 'BM Classes Gurgaon', 'bm-classes.com'],
+    url: SITE_URL,
+    inLanguage: 'en-IN',
+    publisher: { '@id': `${SITE_URL}/#organization` },
   };
 }
 

@@ -3,7 +3,7 @@ import { Outfit } from 'next/font/google';
 
 const outfit = Outfit({ subsets: ['latin'], weight: ['600', '700', '800', '900'], variable: '--font-outfit', display: 'swap' });
 import ClientLayoutWrapper from '@/components/ClientLayoutWrapper';
-import { SITE_URL, BUSINESS, organizationJsonLd, JsonLd } from '@/data/seo';
+import { SITE_URL, BUSINESS, organizationJsonLd, websiteJsonLd, JsonLd } from '@/data/seo';
 
 export const metadata = {
   metadataBase: new URL(SITE_URL),
@@ -52,6 +52,7 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet" />
         <JsonLd data={organizationJsonLd()} />
+        <JsonLd data={websiteJsonLd()} />
       </head>
       <body className="font-body bg-[#f5f7ff] text-slate-900 antialiased selection:bg-indigo-600 selection:text-white">
         <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
