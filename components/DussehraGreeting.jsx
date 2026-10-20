@@ -6,23 +6,48 @@ import { X, Volume2 } from 'lucide-react';
 // Shown on 20–21 Oct 2026 only; hides itself at midnight IST on 22 Oct.
 const ENDS_AT = Date.parse('2026-10-22T00:00:00+05:30');
 const SEEN_KEY = 'bm_dussehra_2026_seen';
+const GESTURES = ['pointerup', 'keydown'];
 
 export default function DussehraGreeting() {
+  const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
   const [muted, setMuted] = useState(false);
   const videoRef = useRef(null);
 
-  // Try to play with sound; browsers block that until the visitor interacts, so fall back to muted
   useEffect(() => {
-    const v = videoRef.current;
-    if (!open || !v) return;
-    v.muted = false;
-    v.play().catch(() => {
-      v.muted = true;
-      setMuted(true);
-      v.play().catch(() => {});
-    });
-  }, [open]);
+    if (Date.now() >= ENDS_AT) return;
+    try {
+      if (sessionStorage.getItem(SEEN_KEY)) return;
+    } catch (err) {}
+    setActive(true);
+  }, []);
+
+  // Browsers only allow sound after the visitor interacts, so open on their first tap/click/key
+  // and start playback inside that gesture.
+  useEffect(() => {
+    if (!active || open) return;
+    const start = () => {
+      GESTURES.forEach((g) => window.removeEventListener(g, start, true));
+      const v = videoRef.current;
+      setOpen(true);
+      if (!v) return;
+      v.muted = false;
+      v.play().catch(() => {
+        v.muted = true;
+        setMuted(true);
+        v.play().catch(() => {});
+      });
+    };
+    GESTURES.forEach((g) => window.addEventListener(g, start, true));
+    return () => GESTURES.forEach((g) => window.removeEventListener(g, start, true));
+  }, [active, open]);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => e.key === 'Escape' && close();
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const unmute = () => {
     const v = videoRef.current;
@@ -32,34 +57,20 @@ export default function DussehraGreeting() {
     setMuted(false);
   };
 
-  useEffect(() => {
-    if (Date.now() >= ENDS_AT) return;
-    try {
-      if (sessionStorage.getItem(SEEN_KEY)) return;
-    } catch (err) {}
-    const t = setTimeout(() => setOpen(true), 800);
-    return () => clearTimeout(t);
-  }, []);
-
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e) => e.key === 'Escape' && close();
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
-
   const close = () => {
+    videoRef.current?.pause();
     setOpen(false);
+    setActive(false);
     try {
       sessionStorage.setItem(SEEN_KEY, '1');
     } catch (err) {}
   };
 
-  if (!open) return null;
+  if (!active) return null;
 
   return (
     <div
-      className="fixed inset-0 z-[80] bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4"
+      className={`fixed inset-0 z-[80] bg-slate-950/70 backdrop-blur-sm items-center justify-center p-4 ${open ? 'flex' : 'hidden'}`}
       onClick={close}
       role="dialog"
       aria-modal="true"
@@ -76,6 +87,7 @@ export default function DussehraGreeting() {
         <video
           ref={videoRef}
           src="/videos/dussehra_greet.mp4"
+          preload="auto"
           onVolumeChange={(e) => setMuted(e.currentTarget.muted)}
           playsInline
           loop
@@ -85,7 +97,7 @@ export default function DussehraGreeting() {
         {muted && (
           <button
             onClick={unmute}
-            className="absolute left-1/2 -translate-x-1/2 top-6 h-10 px-4 rounded-full bg-white/95 text-slate-900 text-sm font-semibold shadow-lg inline-flex items-center gap-2 cursor-pointer animate-pulse"
+            className="absolute left-1/2 -translate-x-1/2 top-6 h-10 px-4 rounded-full bg-white/95 text-slate-900 text-sm font-semibold shadow-lg inline-flex items-center gap-2 cursor-pointer"
           >
             <Volume2 className="w-4 h-4" /> Tap for sound
           </button>
