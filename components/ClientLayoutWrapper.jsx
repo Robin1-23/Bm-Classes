@@ -17,7 +17,7 @@ function Shell({ children }) {
 
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden max-w-full w-full">
-      <Header />
+      {!isAdmin && <Header />}
       <main className="flex-1 w-full max-w-full overflow-x-hidden">
         {children}
       </main>

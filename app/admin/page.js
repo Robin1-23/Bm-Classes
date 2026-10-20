@@ -485,7 +485,7 @@ export default function AdminPage() {
 
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center px-4 pt-28 sm:pt-36 pb-16" style={mist}>
+      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center px-4 py-16" style={mist}>
         <div className="w-full max-w-md rounded-[28px] bg-white/[0.03] p-2 border border-white/10 shadow-[0_40px_120px_-40px_rgba(99,102,241,0.35)]">
           <div className="rounded-[22px] bg-indigo-500/10 p-6 sm:p-7">
             <span className="w-12 h-12 rounded-2xl bg-indigo-500/15 text-indigo-300 flex items-center justify-center">
@@ -555,7 +555,7 @@ export default function AdminPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white pt-24 sm:pt-32 pb-20 px-4 sm:px-8" style={mist}>
+    <div className="min-h-screen bg-[#0a0a0a] text-white py-8 sm:py-12 px-4 sm:px-8" style={mist}>
       {/* Toast */}
       {toastMessage && (
         <div role="status" className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[70] bg-white text-black pl-3 pr-5 h-12 rounded-full shadow-2xl flex items-center gap-2.5 text-sm font-semibold">
