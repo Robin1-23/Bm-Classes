@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { X } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { X, Volume2 } from 'lucide-react';
 
 // Shown on 20–21 Oct 2026 only; hides itself at midnight IST on 22 Oct.
 const ENDS_AT = Date.parse('2026-10-22T00:00:00+05:30');
@@ -9,6 +9,28 @@ const SEEN_KEY = 'bm_dussehra_2026_seen';
 
 export default function DussehraGreeting() {
   const [open, setOpen] = useState(false);
+  const [muted, setMuted] = useState(false);
+  const videoRef = useRef(null);
+
+  // Try to play with sound; browsers block that until the visitor interacts, so fall back to muted
+  useEffect(() => {
+    const v = videoRef.current;
+    if (!open || !v) return;
+    v.muted = false;
+    v.play().catch(() => {
+      v.muted = true;
+      setMuted(true);
+      v.play().catch(() => {});
+    });
+  }, [open]);
+
+  const unmute = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = false;
+    v.play().catch(() => {});
+    setMuted(false);
+  };
 
   useEffect(() => {
     if (Date.now() >= ENDS_AT) return;
@@ -43,7 +65,7 @@ export default function DussehraGreeting() {
       aria-modal="true"
       aria-label="Happy Dussehra from BM Classes"
     >
-      <div className="relative w-full max-w-sm rounded-[28px] bg-white p-2 shadow-2xl" onClick={(e) => e.stopPropagation()}>
+      <div className="relative w-full max-w-sm rounded-[28px] bg-white p-2 shadow-2xl" onClick={(e) => { e.stopPropagation(); if (muted) unmute(); }}>
         <button
           onClick={close}
           aria-label="Close"
@@ -52,14 +74,22 @@ export default function DussehraGreeting() {
           <X className="w-4 h-4" />
         </button>
         <video
+          ref={videoRef}
           src="/videos/dussehra_greet.mp4"
-          autoPlay
-          muted
+          onVolumeChange={(e) => setMuted(e.currentTarget.muted)}
           playsInline
           loop
           controls
           className="w-full max-h-[70vh] rounded-[22px] bg-black object-contain"
         />
+        {muted && (
+          <button
+            onClick={unmute}
+            className="absolute left-1/2 -translate-x-1/2 top-6 h-10 px-4 rounded-full bg-white/95 text-slate-900 text-sm font-semibold shadow-lg inline-flex items-center gap-2 cursor-pointer animate-pulse"
+          >
+            <Volume2 className="w-4 h-4" /> Tap for sound
+          </button>
+        )}
         <p className="font-heading font-extrabold text-xl tracking-[-0.02em] text-slate-950 text-center pt-3 pb-1.5">
           Happy Dussehra <span className="text-slate-400">from BM Classes</span>
         </p>
