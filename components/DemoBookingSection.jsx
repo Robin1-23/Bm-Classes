@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { CalendarCheck, CheckCircle2, User, Phone, ArrowRight, Clock } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import { track } from '@vercel/analytics';
 import { CENTER_INFO } from '@/data/contentData';
 
 const CLASSES = ['Class 9', 'Class 10', 'Class 11', 'Class 12'];
@@ -97,6 +98,7 @@ export default function DemoBookingSection() {
     const popup = window.open(waUrl, '_blank');
 
     setSending(true);
+    track('Lead', { form: 'Demo booking', subject: form.subject });
     try {
       await fetch('/api/applications', {
         method: 'POST',

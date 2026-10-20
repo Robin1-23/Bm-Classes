@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, CheckCircle2, ArrowRight, User, Phone, Mail } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import { track } from '@vercel/analytics';
 import { CENTER_INFO } from '@/data/contentData';
 import { COURSES, courseName } from '@/data/siteContent';
 
@@ -70,6 +71,7 @@ export default function Modals({ registerOpen, preselectedProgram, prefilledPhon
     const popup = window.open(waUrl, '_blank');
 
     setSubmitting(true);
+    track('Lead', { form: 'Registration', course });
     const payload = { studentName: studentName.trim(), phoneNumber: phone, email: cleanEmail, selectedProgram: course, source: 'Registration Modal' };
     try {
       await fetch('/api/applications', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });

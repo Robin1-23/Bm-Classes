@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import { isAuthorized } from '@/lib/adminAuth';
+import { notifyLead } from '@/lib/notifyLead';
 
 const unauthorized = () =>
   NextResponse.json({ success: false, message: 'Unauthorized.' }, { status: 401 });
@@ -181,6 +182,9 @@ export async function POST(req) {
     const duplicate = registrations.find(
       (r) => r.phoneNumber === cleanPhone && r.studentName === newApplication.studentName
     );
+
+    // Alert the team first: it also keeps a copy of the lead outside the store
+    if (!isAdmin) await notifyLead(newApplication, { repeat: Boolean(duplicate) });
 
     if (duplicate) {
       // Update existing record rather than creating duplicate; keep admin-managed fields
