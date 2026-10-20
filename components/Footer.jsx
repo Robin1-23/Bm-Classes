@@ -16,6 +16,9 @@ const COLUMNS = [
       ['JEE Main 2027', '/programs'],
       ['NEET 2027', '/programs'],
       ['Class 10 rapid course', '/programs'],
+      ['IIT JEE coaching Gurgaon', '/jee-coaching-gurgaon'],
+      ['NEET coaching Gurgaon', '/neet-coaching-gurgaon'],
+      ['Chemistry classes Gurgaon', '/chemistry-classes-gurgaon'],
     ],
   },
   {

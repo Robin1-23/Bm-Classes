@@ -8,15 +8,15 @@ import { SITE_URL, BUSINESS, organizationJsonLd, JsonLd } from '@/data/seo';
 export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'BM Classes | IIT JEE & NEET Coaching in Gurugram (Sector 45)',
+    default: 'BM Classes | Best IIT JEE & NEET Coaching in Gurgaon (Gurugram)',
     template: '%s | BM Classes Gurugram',
   },
   description:
-    'BM Classes (Chemistry By Bighnaraj Sir on Google Maps): IIT JEE, NEET and board coaching in Gurugram by former FIITJEE and VMC HODs. Rated 4.9 on Google. 3 centres. Book a free demo.',
+    'BM Classes (Chemistry By Bighnaraj Sir): IIT JEE, NEET and Chemistry coaching in Gurgaon / Gurugram by former FIITJEE and VMC HODs. Batches of 10–15, rated 4.9 on Google, 3 centres. Free demo.',
   applicationName: 'BM Classes',
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'BM Classes | IIT JEE & NEET Coaching in Gurugram',
+    title: 'BM Classes | IIT JEE & NEET Coaching in Gurgaon (Gurugram)',
     description: BUSINESS.description,
     url: SITE_URL,
     siteName: 'BM Classes',
@@ -25,7 +25,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BM Classes | IIT JEE & NEET Coaching in Gurugram',
+    title: 'BM Classes | IIT JEE & NEET Coaching in Gurgaon (Gurugram)',
     description: BUSINESS.description,
   },
   robots: {

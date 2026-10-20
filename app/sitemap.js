@@ -39,5 +39,11 @@ export default function sitemap() {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
+    ...['/jee-coaching-gurgaon', '/neet-coaching-gurgaon', '/chemistry-classes-gurgaon'].map((path) => ({
+      url: `${baseUrl}${path}`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    })),
   ];
 }

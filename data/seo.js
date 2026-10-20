@@ -8,7 +8,7 @@ export const BUSINESS = {
   name: 'BM Classes',
   googleName: 'Chemistry By Bighnaraj Sir',
   description:
-    'IIT JEE and NEET coaching in Sector 45, Gurugram, taught by former HODs of FIITJEE and VMC in batches of 10–15 students.',
+    'IIT JEE, NEET and Chemistry coaching in Sector 45, Gurugram (Gurgaon), taught by former HODs of FIITJEE and VMC in batches of 10–15 students.',
   phone: '+919899818241',
   street: 'Flat no 303, Ayyachi Apartment, Block C, Uday Nagar, Sector 45, near Delhi Public School',
   city: 'Gurugram',
@@ -97,7 +97,7 @@ export function organizationJsonLd() {
     '@type': ['EducationalOrganization', 'LocalBusiness'],
     '@id': `${SITE_URL}/#organization`,
     name: BUSINESS.name,
-    alternateName: [BUSINESS.googleName, 'BmClasses', 'BM Classes Gurugram'],
+    alternateName: [BUSINESS.googleName, 'BmClasses', 'BM Classes Gurugram', 'BM Classes Gurgaon'],
     description: BUSINESS.description,
     url: SITE_URL,
     logo: abs('/icon.png'),
@@ -114,7 +114,7 @@ export function organizationJsonLd() {
     },
     geo: { '@type': 'GeoCoordinates', latitude: BUSINESS.lat, longitude: BUSINESS.lng },
     hasMap: BUSINESS.googleProfile,
-    areaServed: ['Gurugram', 'Sector 45 Gurugram', 'Sushant Lok', 'Golf Course Road', 'DLF Phase 4', 'Sector 46', 'Sector 47'].map((name) => ({ '@type': 'Place', name })),
+    areaServed: ['Gurugram', 'Gurgaon', 'Delhi NCR', 'Sector 45 Gurugram', 'Sushant Lok', 'Golf Course Road', 'DLF Phase 4', 'Sector 46', 'Sector 47'].map((name) => ({ '@type': 'Place', name })),
     sameAs: BUSINESS.sameAs,
     knowsAbout: ['IIT JEE Main', 'JEE Advanced', 'NEET UG', 'Chemistry', 'Physics', 'Biology', 'Mathematics', 'CBSE Board'],
     founder: { '@id': `${SITE_URL}/faculty#bighnaraj-mishra` },
@@ -124,12 +124,7 @@ export function organizationJsonLd() {
       name: 'Coaching programmes',
       itemListElement: COURSES.map((c) => ({
         '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Course',
-          name: c.name,
-          description: c.description,
-          provider: { '@id': `${SITE_URL}/#organization` },
-        },
+        itemOffered: courseJsonLd(c),
       })),
     },
   };
