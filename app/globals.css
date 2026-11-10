@@ -163,34 +163,49 @@
 }
 
 /* Diwali welcome (components/DiwaliCelebration.jsx) */
-.diwali-greet { animation: diwali-greet 5.4s ease-out forwards; }
+.diwali-dusk {
+  background:
+    radial-gradient(120% 70% at 50% 100%, rgba(120, 45, 10, 0.35), transparent 60%),
+    linear-gradient(to bottom, rgba(8, 6, 26, 0.94), rgba(18, 9, 32, 0.88) 55%, rgba(28, 11, 18, 0.84));
+  animation: diwali-dusk 7.2s ease-in-out forwards;
+}
+@keyframes diwali-dusk { 0% { opacity: 0; } 10%, 80% { opacity: 1; } 100% { opacity: 0; } }
+
+.diwali-hindi {
+  font-family: 'Tiro Devanagari Hindi', 'Nirmala UI', 'Kohinoor Devanagari', 'Noto Serif Devanagari', 'Mangal', serif;
+  font-weight: 600;
+  text-shadow: 0 0 18px rgba(255, 170, 70, 0.45), 0 0 2px rgba(255, 220, 160, 0.6);
+}
+.diwali-greet { animation: diwali-greet 6.4s ease-out forwards; }
 @keyframes diwali-greet {
-  0% { opacity: 0; transform: translateY(14px) scale(0.92); }
-  12%, 78% { opacity: 1; transform: none; }
-  100% { opacity: 0; transform: translateY(-10px) scale(0.98); }
+  0%, 10% { opacity: 0; filter: blur(6px); transform: translateY(calc(-50% + 8px)); }
+  26%, 74% { opacity: 1; filter: blur(0); transform: translateY(-50%); }
+  100% { opacity: 0; filter: blur(2px); transform: translateY(-50%); }
 }
-.diwali-night {
-  background: radial-gradient(ellipse at 50% 35%, rgba(23, 12, 48, 0.68), rgba(5, 5, 15, 0.88));
-  animation: diwali-night 5.6s ease-in-out forwards;
-}
-@keyframes diwali-night { 0% { opacity: 0; } 10%, 72% { opacity: 1; } 100% { opacity: 0; } }
-.diwali-diyas { animation: diwali-fade 5.6s ease-in forwards; }
-@keyframes diwali-fade { 0%, 80% { opacity: 1; } 100% { opacity: 0; } }
-.diwali-diya {
-  position: relative; width: 34px; height: 14px; margin-bottom: 10px;
-  background: linear-gradient(#e07a2b, #9a3d12);
-  border-radius: 0 0 22px 22px / 0 0 14px 14px;
-  box-shadow: 0 -6px 26px 6px rgba(255, 170, 60, 0.45);
-  animation: diwali-rise 0.7s ease-out backwards;
+
+.diwali-diya { animation: diwali-diya-in 0.9s ease-out backwards, diwali-out 7.2s ease-in forwards; }
+@keyframes diwali-diya-in { from { opacity: 0; transform: translateY(12px); } }
+@keyframes diwali-out { 0%, 82% { opacity: 1; } 100% { opacity: 0; } }
+.diwali-glow {
+  position: absolute; left: 88%; bottom: 62%; width: 260%; aspect-ratio: 1; transform: translate(-50%, 50%);
+  background: radial-gradient(circle, rgba(255, 176, 72, 0.42), rgba(255, 140, 40, 0.12) 40%, transparent 68%);
+  animation: diwali-glow calc(2.3s * var(--seed)) ease-in-out infinite alternate;
 }
 .diwali-flame {
-  position: absolute; left: 50%; bottom: 11px; width: 9px; height: 16px; margin-left: -4.5px;
-  background: radial-gradient(circle at 50% 70%, #fff7d1 0 25%, #ffd166 45%, #ff8c1a 75%, transparent 76%);
-  border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
-  transform-origin: 50% 100%;
-  animation: diwali-flicker 0.18s ease-in-out infinite alternate;
-  filter: drop-shadow(0 0 6px #ffb347);
+  position: absolute; left: 88%; bottom: 62%; width: 22%; aspect-ratio: 9 / 20; translate: -50% 0;
+  background: radial-gradient(ellipse 45% 38% at 50% 76%, #fffbe8 0 35%, #ffe08a 55%, #ff9a2e 80%, rgba(255, 110, 20, 0) 100%);
+  border-radius: 50% 50% 46% 46% / 72% 72% 28% 28%;
+  transform-origin: 50% 92%;
+  filter: blur(0.3px) drop-shadow(0 0 5px rgba(255, 170, 60, 0.9));
+  animation:
+    diwali-sway calc(1.7s * var(--seed)) ease-in-out infinite alternate,
+    diwali-flicker calc(0.31s * var(--seed)) steps(2, jump-none) infinite;
 }
-@keyframes diwali-rise { from { opacity: 0; transform: translateY(30px); } }
-@keyframes diwali-flicker { from { transform: scale(1, 1) rotate(-3deg); } to { transform: scale(0.9, 1.08) rotate(3deg); } }
-@media (max-width: 640px) { .diwali-diya:nth-child(even) { display: none; } }
+@keyframes diwali-sway {
+  0% { transform: rotate(-4deg) scaleY(1); }
+  35% { transform: rotate(2deg) scaleY(1.07); }
+  70% { transform: rotate(-1deg) scaleY(0.95); }
+  100% { transform: rotate(4deg) scaleY(1.03); }
+}
+@keyframes diwali-flicker { 0% { opacity: 1; } 50% { opacity: 0.86; } 100% { opacity: 0.97; } }
+@keyframes diwali-glow { from { opacity: 0.75; } to { opacity: 1; } }
