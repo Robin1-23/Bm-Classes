@@ -12,7 +12,6 @@ import AdmissionJourneySection from '@/components/AdmissionJourneySection';
 import DemoBookingSection from '@/components/DemoBookingSection';
 import CenterLocationSection from '@/components/CenterLocationSection';
 import FaqSection from '@/components/FaqSection';
-import DussehraGreeting from '@/components/DussehraGreeting';
 import { useModal } from '@/context/ModalContext';
 
 // Order: promise → proof → people → programs → reasons → price → process → visit
@@ -32,7 +31,6 @@ export default function Home() {
       <DemoBookingSection />
       <CenterLocationSection onOpenRegister={openRegister} />
       <FaqSection />
-      <DussehraGreeting />
     </>
   );
 }

@@ -161,3 +161,36 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Diwali welcome (components/DiwaliCelebration.jsx) */
+.diwali-greet { animation: diwali-greet 5.4s ease-out forwards; }
+@keyframes diwali-greet {
+  0% { opacity: 0; transform: translateY(14px) scale(0.92); }
+  12%, 78% { opacity: 1; transform: none; }
+  100% { opacity: 0; transform: translateY(-10px) scale(0.98); }
+}
+.diwali-night {
+  background: radial-gradient(ellipse at 50% 35%, rgba(23, 12, 48, 0.68), rgba(5, 5, 15, 0.88));
+  animation: diwali-night 5.6s ease-in-out forwards;
+}
+@keyframes diwali-night { 0% { opacity: 0; } 10%, 72% { opacity: 1; } 100% { opacity: 0; } }
+.diwali-diyas { animation: diwali-fade 5.6s ease-in forwards; }
+@keyframes diwali-fade { 0%, 80% { opacity: 1; } 100% { opacity: 0; } }
+.diwali-diya {
+  position: relative; width: 34px; height: 14px; margin-bottom: 10px;
+  background: linear-gradient(#e07a2b, #9a3d12);
+  border-radius: 0 0 22px 22px / 0 0 14px 14px;
+  box-shadow: 0 -6px 26px 6px rgba(255, 170, 60, 0.45);
+  animation: diwali-rise 0.7s ease-out backwards;
+}
+.diwali-flame {
+  position: absolute; left: 50%; bottom: 11px; width: 9px; height: 16px; margin-left: -4.5px;
+  background: radial-gradient(circle at 50% 70%, #fff7d1 0 25%, #ffd166 45%, #ff8c1a 75%, transparent 76%);
+  border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+  transform-origin: 50% 100%;
+  animation: diwali-flicker 0.18s ease-in-out infinite alternate;
+  filter: drop-shadow(0 0 6px #ffb347);
+}
+@keyframes diwali-rise { from { opacity: 0; transform: translateY(30px); } }
+@keyframes diwali-flicker { from { transform: scale(1, 1) rotate(-3deg); } to { transform: scale(0.9, 1.08) rotate(3deg); } }
+@media (max-width: 640px) { .diwali-diya:nth-child(even) { display: none; } }

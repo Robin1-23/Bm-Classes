@@ -11,6 +11,7 @@ import Modals from '@/components/Modals';
 import FloatingWhatsAppButton from '@/components/FloatingWhatsAppButton';
 import MobileStickyActionBar from '@/components/MobileStickyActionBar';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
+import DiwaliCelebration from '@/components/DiwaliCelebration';
 
 function Shell({ children }) {
   const pathname = usePathname();
@@ -45,6 +46,7 @@ function Shell({ children }) {
       {!isAdmin && <FloatingWhatsAppButton />}
       <ScrollToTopButton />
       {!isAdmin && <MobileStickyActionBar />}
+      {!isAdmin && <DiwaliCelebration />}
       {/* Page views; admin pages are never tracked */}
       <Analytics beforeSend={(event) => (event.url.includes('/admin') ? null : event)} />
     </div>
