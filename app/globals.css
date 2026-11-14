@@ -210,70 +210,75 @@
 @keyframes diwali-flicker { 0% { opacity: 1; } 50% { opacity: 0.86; } 100% { opacity: 0.97; } }
 @keyframes diwali-glow { from { opacity: 0.75; } to { opacity: 1; } }
 
-/* ---------- Charcoal theme (toggle in the header; components/ThemeToggle.jsx) ----------
+/* ---------- Dark theme (toggle in the header; components/ThemeToggle.jsx) ----------
+   Same look as the footer: #0a0a0a with a fine dot texture, glass cards, white type.
    Remaps the light palette used across the site. Scoped to .site so the admin desk is untouched. */
 html.theme-charcoal { color-scheme: dark; }
-html.theme-charcoal body { background: #111110; color: #ecebe8; }
-
-/* Film grain over the whole page */
-html.theme-charcoal body::after {
-  content: ''; position: fixed; inset: -50%; z-index: 9998; pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity: 0.09; mix-blend-mode: overlay;
-  animation: charcoal-grain 1.2s steps(6) infinite;
+html.theme-charcoal body {
+  background-color: #0a0a0a;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1.2px);
+  background-size: 6px 6px;
+  background-attachment: fixed;
+  color: #fff;
 }
-@keyframes charcoal-grain {
-  0% { transform: translate(0, 0); } 20% { transform: translate(-3%, 2%); } 40% { transform: translate(2%, -3%); }
-  60% { transform: translate(-2%, -1%); } 80% { transform: translate(3%, 3%); } 100% { transform: translate(0, 0); }
-}
-@media (prefers-reduced-motion: reduce) { html.theme-charcoal body::after { animation: none; } }
 
-/* Page and card surfaces */
-.theme-charcoal .site .bg-\[\#f5f7ff\], .theme-charcoal .site .bg-\[\#fafbfe\] { background-color: #111110; }
-.theme-charcoal .site .bg-white { background-color: #1a1a19; }
-.theme-charcoal .site .bg-white\/95, .theme-charcoal .site .bg-white\/90, .theme-charcoal .site .bg-white\/80 { background-color: rgba(26, 26, 25, 0.88); }
-.theme-charcoal .site .bg-slate-100, .theme-charcoal .site .bg-slate-100\/80, .theme-charcoal .site .bg-slate-50 { background-color: #232322; }
+/* Full-width sections let the dotted page show through */
+.theme-charcoal .site section.bg-white, .theme-charcoal .site section[class*="bg-[#f"],
+.theme-charcoal .site .bg-\[\#f5f7ff\], .theme-charcoal .site .bg-\[\#fafbfe\] { background-color: transparent; }
+
+/* Cards and controls: glass on black, like the footer's social tiles but dark */
+.theme-charcoal .site .bg-white { background-color: rgba(255, 255, 255, 0.04); }
+.theme-charcoal .site .bg-white\/95, .theme-charcoal .site .bg-white\/90, .theme-charcoal .site .bg-white\/80 { background-color: rgba(10, 10, 10, 0.82); }
+.theme-charcoal .site .bg-slate-100, .theme-charcoal .site .bg-slate-100\/80, .theme-charcoal .site .bg-slate-50 { background-color: rgba(255, 255, 255, 0.06); }
 .theme-charcoal .site .hover\:bg-white:hover, .theme-charcoal .site .hover\:bg-slate-50:hover,
-.theme-charcoal .site .hover\:bg-slate-200:hover, .theme-charcoal .site .hover\:bg-white\/80:hover { background-color: #2a2a29; }
-.theme-charcoal .site .bg-slate-950, .theme-charcoal .site .bg-slate-900 { background-color: #2e2e2c; }
-.theme-charcoal .site .bg-white.text-black { background-color: #f1efe9; }
+.theme-charcoal .site .hover\:bg-slate-200:hover, .theme-charcoal .site .hover\:bg-white\/80:hover { background-color: rgba(255, 255, 255, 0.1); }
+.theme-charcoal .site .bg-white.text-black { background-color: #fff; }
+/* Solid panels and menus need an opaque base so text behind them never shows through */
+.theme-charcoal .site .fixed.bg-white, .theme-charcoal .site [role="dialog"] .bg-white { background-color: #141414; }
 
-/* Pastel panels become deep tinted charcoal */
-.theme-charcoal .site .bg-\[\#f3f1ff\], .theme-charcoal .site .bg-\[\#eef1ff\] { background-color: #1f1d29; }
-.theme-charcoal .site .bg-\[\#eef7ea\] { background-color: #1a221b; }
-.theme-charcoal .site .bg-\[\#fdf4e6\], .theme-charcoal .site .bg-\[\#fff1e8\], .theme-charcoal .site .bg-\[\#fefbe8\] { background-color: #241f17; }
-.theme-charcoal .site .bg-\[\#eef4ff\] { background-color: #18202a; }
-.theme-charcoal .site .bg-\[\#fbf0ee\] { background-color: #261c1b; }
+/* Dark panels: lifted slightly off the page with a hairline border */
+.theme-charcoal .site .bg-slate-950, .theme-charcoal .site .bg-slate-900,
+.theme-charcoal .site .bg-\[\#0a0a0a\], .theme-charcoal .site .bg-\[\#0b1020\] { background-color: #151515; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08); }
+/* Primary pill buttons turn white, exactly like the footer's call-back box */
+.theme-charcoal .site .rounded-full.bg-slate-950:not(:hover) { background-color: #fff; color: #0a0a0a; box-shadow: none; }
+/* Selected chips (course, class, day, time) */
+.theme-charcoal .site .bg-slate-950.border-slate-950, .theme-charcoal .site .bg-slate-950.border-slate-900 { background-color: #4f46e5; border-color: #6366f1; color: #fff; box-shadow: none; }
 
-/* Text */
+/* Pastel panels become softly tinted glass */
+.theme-charcoal .site .bg-\[\#f3f1ff\], .theme-charcoal .site .bg-\[\#eef1ff\], .theme-charcoal .site .bg-\[\#f6ecff\] { background-color: rgba(129, 140, 248, 0.1); }
+.theme-charcoal .site .bg-\[\#eef7ea\], .theme-charcoal .site .bg-\[\#e4efdc\] { background-color: rgba(74, 222, 128, 0.08); }
+.theme-charcoal .site .bg-\[\#fdf4e6\], .theme-charcoal .site .bg-\[\#fff1e8\], .theme-charcoal .site .bg-\[\#fefbe8\], .theme-charcoal .site .bg-\[\#fcecd6\] { background-color: rgba(251, 191, 36, 0.08); }
+.theme-charcoal .site .bg-\[\#eef4ff\], .theme-charcoal .site .bg-\[\#e3ecfb\] { background-color: rgba(56, 189, 248, 0.08); }
+.theme-charcoal .site .bg-\[\#fbf0ee\], .theme-charcoal .site .bg-\[\#f8e3df\] { background-color: rgba(251, 113, 133, 0.08); }
+
+/* Text: white, white/60, white/40 — the footer's three levels */
 .theme-charcoal .site .text-slate-950, .theme-charcoal .site .text-slate-900, .theme-charcoal .site .text-slate-800,
-.theme-charcoal .site .hover\:text-slate-950:hover, .theme-charcoal .site .hover\:text-slate-900:hover { color: #f1efe9; }
-.theme-charcoal .site .text-slate-700, .theme-charcoal .site .text-slate-600 { color: #b9b6ae; }
-.theme-charcoal .site .text-slate-500, .theme-charcoal .site .text-slate-400 { color: #8a8780; }
+.theme-charcoal .site .hover\:text-slate-950:hover, .theme-charcoal .site .hover\:text-slate-900:hover { color: #fff; }
+.theme-charcoal .site .text-slate-700, .theme-charcoal .site .text-slate-600 { color: rgba(255, 255, 255, 0.62); }
+.theme-charcoal .site .text-slate-500, .theme-charcoal .site .text-slate-400 { color: rgba(255, 255, 255, 0.42); }
 .theme-charcoal .site .text-indigo-700, .theme-charcoal .site .text-indigo-600 { color: #a5b4fc; }
 .theme-charcoal .site .text-emerald-700, .theme-charcoal .site .text-emerald-600 { color: #86efac; }
 .theme-charcoal .site .text-amber-700, .theme-charcoal .site .text-amber-600 { color: #fcd34d; }
 .theme-charcoal .site .text-rose-600, .theme-charcoal .site .text-sky-700 { color: #fda4af; }
-.theme-charcoal .site .placeholder-slate-400::placeholder { color: #6f6c66; }
-
-/* Borders and dividers */
-.theme-charcoal .site [class*="border-slate-2"], .theme-charcoal .site .border-slate-100,
-.theme-charcoal .site .border-\[\#e3e8f5\], .theme-charcoal .site [class*="divide-slate-2"] > * + * { border-color: rgba(255, 255, 255, 0.08); }
-.theme-charcoal .site .hover\:border-slate-400:hover, .theme-charcoal .site .border-slate-900 { border-color: rgba(255, 255, 255, 0.28); }
-.theme-charcoal .site .ring-white { --tw-ring-color: #1a1a19; }
-
-/* Lined-paper backgrounds and soft card shadows */
-.theme-charcoal .site [style*="#eef1f8"] { background-image: repeating-linear-gradient(to bottom, transparent 0 39px, rgba(255, 255, 255, 0.035) 39px 40px) !important; }
-.theme-charcoal .site [class*="shadow-[0_"] { --tw-shadow-color: rgba(0, 0, 0, 0.6); }
-.theme-charcoal .site input, .theme-charcoal .site textarea, .theme-charcoal .site select { color: #f1efe9; }
-.theme-charcoal .site .bg-\[\#e3ecfb\] { background-color: #1c2532; }
-.theme-charcoal .site .bg-\[\#e4efdc\] { background-color: #1f2a1f; }
-.theme-charcoal .site .bg-\[\#f6ecff\] { background-color: #241d2c; }
-.theme-charcoal .site .bg-\[\#f8e3df\] { background-color: #2c1f1d; }
-.theme-charcoal .site .bg-\[\#fcecd6\] { background-color: #2b2318; }
-/* Display headings set their colour inline (FoldText) */
-.theme-charcoal .site [style*="--fold-text-color:#0b1020"], .theme-charcoal .site [style*="--fold-text-color:#020617"] { --fold-text-color: #f1efe9 !important; }
+.theme-charcoal .site .placeholder-slate-400::placeholder { color: rgba(255, 255, 255, 0.35); }
+.theme-charcoal .site [style*="--fold-text-color:#0b1020"], .theme-charcoal .site [style*="--fold-text-color:#020617"] { --fold-text-color: #fff !important; }
 .theme-charcoal .site [style*="--fold-text-color:#4338ca"] { --fold-text-color: #a5b4fc !important; }
-.theme-charcoal .site .bg-white\/80 .text-sm, .theme-charcoal .site a.bg-white\/80 { color: #f1efe9; }
-/* Selected chips (course, class, day, time) stand out in indigo */
-.theme-charcoal .site .bg-slate-950.border-slate-950, .theme-charcoal .site .bg-slate-950.border-slate-900 { background-color: #4f46e5; border-color: #6366f1; }
+.theme-charcoal .site a.bg-white\/80 { color: #fff; }
+
+/* Borders: the footer's white/10 hairlines */
+.theme-charcoal .site [class*="border-slate-2"], .theme-charcoal .site .border-slate-100,
+.theme-charcoal .site .border-\[\#e3e8f5\], .theme-charcoal .site [class*="divide-slate-2"] > * + * { border-color: rgba(255, 255, 255, 0.1); }
+.theme-charcoal .site .hover\:border-slate-400:hover, .theme-charcoal .site .border-slate-900 { border-color: rgba(255, 255, 255, 0.3); }
+.theme-charcoal .site .ring-white { --tw-ring-color: #0a0a0a; }
+
+/* Lined paper, shadows and form fields */
+.theme-charcoal .site [style*="#eef1f8"] { background-color: transparent !important; background-image: none !important; }
+.theme-charcoal .site [class*="shadow-[0_"] { --tw-shadow-color: rgba(0, 0, 0, 0.7); }
+.theme-charcoal .site input, .theme-charcoal .site textarea, .theme-charcoal .site select { color: #fff; }
+.theme-charcoal .site select option { background: #141414; }
+.theme-charcoal .site .bg-\[\#c9d8e8\] { background-color: rgba(56, 189, 248, 0.1); }
+.theme-charcoal .site .bg-\[\#d6e7c2\] { background-color: rgba(74, 222, 128, 0.1); }
+.theme-charcoal .site .bg-\[\#dccff7\] { background-color: rgba(129, 140, 248, 0.12); }
+.theme-charcoal .site .bg-indigo-50 { background-color: rgba(129, 140, 248, 0.12); border-color: rgba(129, 140, 248, 0.3); }
+.theme-charcoal .site .ring-\[\#dccff7\] { --tw-ring-color: #0a0a0a; }
+.theme-charcoal .site .text-\[\#14304f\], .theme-charcoal .site .text-\[\#22401a\], .theme-charcoal .site .text-\[\#3b2370\] { color: #fff; }
