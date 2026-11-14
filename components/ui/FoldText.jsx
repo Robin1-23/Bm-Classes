@@ -18,8 +18,12 @@ const FoldText = ({
     ...style,
   };
 
+  // Tag the ink so the dark theme can recolour it without parsing inline styles
+  const ink = String(color).toLowerCase();
+  const tone = ink === '#0b1020' || ink === '#020617' ? 'fold-ink' : ink === '#4338ca' ? 'fold-accent' : '';
+
   return (
-    <span className={`fold-text ${className}`.trim()} style={rootStyle}>
+    <span className={`fold-text ${tone} ${className}`.replace(/\s+/g, ' ').trim()} style={rootStyle}>
       {/* One copy of the text: a hidden sr-only duplicate made crawlers and AI extractors read every heading twice.
           The trailing space keeps words apart when the block lines are read as plain text. */}
       {text.split('\n').map((line, i) => (

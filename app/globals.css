@@ -261,8 +261,6 @@ html.theme-charcoal body {
 .theme-charcoal .site .text-amber-700, .theme-charcoal .site .text-amber-600 { color: #fcd34d; }
 .theme-charcoal .site .text-rose-600, .theme-charcoal .site .text-sky-700 { color: #fda4af; }
 .theme-charcoal .site .placeholder-slate-400::placeholder { color: rgba(255, 255, 255, 0.35); }
-.theme-charcoal .site [style*="--fold-text-color:#0b1020"], .theme-charcoal .site [style*="--fold-text-color:#020617"] { --fold-text-color: #fff !important; }
-.theme-charcoal .site [style*="--fold-text-color:#4338ca"] { --fold-text-color: #a5b4fc !important; }
 .theme-charcoal .site a.bg-white\/80 { color: #fff; }
 
 /* Borders: the footer's white/10 hairlines */
@@ -282,6 +280,43 @@ html.theme-charcoal body {
 .theme-charcoal .site .bg-indigo-50 { background-color: rgba(129, 140, 248, 0.12); border-color: rgba(129, 140, 248, 0.3); }
 .theme-charcoal .site .ring-\[\#dccff7\] { --tw-ring-color: #0a0a0a; }
 .theme-charcoal .site .text-\[\#14304f\], .theme-charcoal .site .text-\[\#22401a\], .theme-charcoal .site .text-\[\#3b2370\] { color: #fff; }
-/* Client-side navigation writes the inline style with a space ("--fold-text-color: #0b1020") */
-.theme-charcoal .site [style*="--fold-text-color: #0b1020"], .theme-charcoal .site [style*="--fold-text-color: #020617"] { --fold-text-color: #fff !important; }
-.theme-charcoal .site [style*="--fold-text-color: #4338ca"] { --fold-text-color: #a5b4fc !important; }
+
+
+/* ---- Dark theme: headings and richer colour ---- */
+.theme-charcoal .site .fold-ink { color: #fff; }
+.theme-charcoal .site .fold-accent { color: #a5b4fc; }
+
+/* Tinted panels glow with their colour instead of turning muddy */
+.theme-charcoal .site .bg-\[\#f3f1ff\], .theme-charcoal .site .bg-\[\#eef1ff\], .theme-charcoal .site .bg-\[\#f6ecff\], .theme-charcoal .site .bg-\[\#dccff7\] {
+  background-color: #13122a; background-image: radial-gradient(120% 100% at 0% 0%, rgba(129, 140, 248, 0.28), rgba(129, 140, 248, 0.06) 55%, transparent);
+  box-shadow: inset 0 0 0 1px rgba(165, 180, 252, 0.16);
+}
+.theme-charcoal .site .bg-\[\#eef7ea\], .theme-charcoal .site .bg-\[\#e4efdc\], .theme-charcoal .site .bg-\[\#d6e7c2\] {
+  background-color: #0c1a14; background-image: radial-gradient(120% 100% at 0% 0%, rgba(52, 211, 153, 0.24), rgba(52, 211, 153, 0.05) 55%, transparent);
+  box-shadow: inset 0 0 0 1px rgba(110, 231, 183, 0.15);
+}
+.theme-charcoal .site .bg-\[\#fdf4e6\], .theme-charcoal .site .bg-\[\#fff1e8\], .theme-charcoal .site .bg-\[\#fefbe8\], .theme-charcoal .site .bg-\[\#fcecd6\] {
+  background-color: #1d140b; background-image: radial-gradient(120% 100% at 0% 0%, rgba(251, 146, 60, 0.26), rgba(251, 146, 60, 0.05) 55%, transparent);
+  box-shadow: inset 0 0 0 1px rgba(253, 186, 116, 0.15);
+}
+.theme-charcoal .site .bg-\[\#eef4ff\], .theme-charcoal .site .bg-\[\#e3ecfb\], .theme-charcoal .site .bg-\[\#c9d8e8\] {
+  background-color: #0b1724; background-image: radial-gradient(120% 100% at 0% 0%, rgba(56, 189, 248, 0.24), rgba(56, 189, 248, 0.05) 55%, transparent);
+  box-shadow: inset 0 0 0 1px rgba(125, 211, 252, 0.15);
+}
+.theme-charcoal .site .bg-\[\#fbf0ee\], .theme-charcoal .site .bg-\[\#f8e3df\] {
+  background-color: #1d0f13; background-image: radial-gradient(120% 100% at 0% 0%, rgba(244, 114, 182, 0.24), rgba(244, 114, 182, 0.05) 55%, transparent);
+  box-shadow: inset 0 0 0 1px rgba(249, 168, 212, 0.15);
+}
+
+/* Second lines of two-tone headings: soft but clearly readable, matching each panel's colour */
+.theme-charcoal .site h1 .text-slate-400, .theme-charcoal .site h2 .text-slate-400, .theme-charcoal .site h3 .text-slate-400,
+.theme-charcoal .site p.font-heading .text-slate-400, .theme-charcoal .site .font-heading.text-slate-400 { color: rgba(255, 255, 255, 0.5); }
+.theme-charcoal .site [class*="bg-[#f3f1ff]"] .font-heading .text-slate-400, .theme-charcoal .site [class*="bg-[#f3f1ff]"] h1 .text-slate-400 { color: #a5b4fc; }
+.theme-charcoal .site [class*="bg-[#eef7ea]"] .font-heading .text-slate-400, .theme-charcoal .site [class*="bg-[#eef7ea]"] h1 .text-slate-400 { color: #6ee7b7; }
+.theme-charcoal .site [class*="bg-[#fdf4e6]"] .font-heading .text-slate-400, .theme-charcoal .site [class*="bg-[#fdf4e6]"] h1 .text-slate-400 { color: #fdba74; }
+.theme-charcoal .site [class*="bg-[#eef4ff]"] .font-heading .text-slate-400, .theme-charcoal .site [class*="bg-[#eef4ff]"] h1 .text-slate-400 { color: #7dd3fc; }
+.theme-charcoal .site [class*="bg-[#fbf0ee]"] .font-heading .text-slate-400, .theme-charcoal .site [class*="bg-[#fbf0ee]"] h1 .text-slate-400 { color: #f9a8d4; }
+
+/* Body copy a touch brighter for comfort */
+.theme-charcoal .site .text-slate-700, .theme-charcoal .site .text-slate-600 { color: rgba(255, 255, 255, 0.7); }
+.theme-charcoal .site .text-slate-500 { color: rgba(255, 255, 255, 0.52); }
