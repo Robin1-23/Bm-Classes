@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
+import Image from 'next/image';
 import { Sparkles, Trophy, Star, Play, X, Volume2, VolumeX, ArrowRight, ChevronLeft, ChevronRight, UserCheck, Award } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 import VideoCard from '@/components/ui/VideoCard';
@@ -266,7 +267,7 @@ export default function ResultsSection() {
           <div className="rounded-[28px] bg-[#dccff7] p-7 sm:p-9 flex flex-col min-h-[230px] text-[#3b2370]" style={DOTS}>
             <div className="flex -space-x-2">
               {['/bm_sir.jpg', '/konika_mam.jpg', '/chumki_mam.jpeg'].map((src) => (
-                <img key={src} src={src} alt="" loading="lazy" decoding="async" className="w-11 h-11 rounded-full object-cover object-top ring-2 ring-[#dccff7]" />
+                <Image key={src} src={src} alt="" width={88} height={88} className="w-11 h-11 rounded-full object-cover object-top ring-2 ring-[#dccff7]" />
               ))}
             </div>
             <p className="font-heading text-3xl tracking-[-0.025em] leading-[1.1] mt-auto pt-8">

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
+import Image from 'next/image';
 import { Sparkles, ArrowRight, Play, X, Volume2, VolumeX } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 import SectionHeader from '@/components/ui/SectionHeader';
@@ -61,11 +62,12 @@ export default function FacultySection({ onOpenRegister }) {
                       <p className="text-sm text-slate-600 mt-3">{mentor.exp} teaching</p>
                     </div>
 
-                    <img
+                    <Image
                       src={mentor.image}
                       alt={mentor.name}
-                      loading="lazy"
-                      decoding="async"
+                      width={480}
+                      height={600}
+                      sizes="(min-width: 1024px) 220px, 50vw"
                       className="absolute right-0 bottom-0 w-[52%] h-[78%] object-cover object-top rounded-tl-[40px] transition-transform duration-500 group-hover:scale-[1.04] origin-bottom-right"
                     />
 

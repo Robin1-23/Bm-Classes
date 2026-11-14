@@ -107,6 +107,9 @@ export default function HeroSection({ onOpenRegister }) {
               } rounded-full shadow-xs hover:border-slate-300 transition-colors`}>
                 <input
                   type="text"
+                  name="contact"
+                  aria-label="Phone number or email"
+                  autoComplete="tel"
                   placeholder="Enter 10-digit phone or email"
                   value={mobileNum}
                   onChange={(e) => {

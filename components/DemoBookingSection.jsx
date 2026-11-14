@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { CalendarCheck, CheckCircle2, User, Phone, ArrowRight, Clock } from 'lucide-react';
 import SectionHeader from '@/components/ui/SectionHeader';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
@@ -139,7 +140,7 @@ export default function DemoBookingSection() {
           <div className="flex items-center gap-3 mt-8">
             <div className="flex -space-x-2">
               {['/bm_sir.jpg', '/konika_mam.jpg', '/chumki_mam.jpeg'].map((src) => (
-                <img key={src} src={src} alt="" loading="lazy" decoding="async" className="w-10 h-10 rounded-full object-cover object-top ring-2 ring-white" />
+                <Image key={src} src={src} alt="" width={88} height={88} className="w-10 h-10 rounded-full object-cover object-top ring-2 ring-white" />
               ))}
             </div>
             <p className="text-sm text-slate-600">Taught by the HODs themselves</p>

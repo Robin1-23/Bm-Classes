@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, ArrowRight, Sparkles } from 'lucide-react';
@@ -60,7 +61,7 @@ export default function Header({ onOpenRegister }) {
           {/* Left Side: Brand Logo & Title */}
           <Link href="/" className="flex items-center gap-2.5 group shrink-0">
             <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-950 p-0.5 overflow-hidden shadow-xs border border-slate-200 group-hover:scale-105 transition-transform shrink-0">
-              <img loading="lazy" decoding="async" 
+              <Image priority width={80} height={80}
                 src="/logo.jpg" 
                 alt="BM Classes Gurgaon" 
                 className="w-full h-full object-cover rounded-full" 

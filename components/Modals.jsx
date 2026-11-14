@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { X, CheckCircle2, ArrowRight, User, Phone, Mail } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { track } from '@vercel/analytics';
@@ -125,7 +126,7 @@ export default function Modals({ registerOpen, preselectedProgram, prefilledPhon
           <div className="flex items-center gap-3 mt-5">
             <div className="flex -space-x-2">
               {['/bm_sir.jpg', '/konika_mam.jpg', '/chumki_mam.jpeg'].map((src) => (
-                <img key={src} src={src} alt="" className="w-9 h-9 rounded-full object-cover object-top ring-2 ring-[#f3f1ff]" />
+                <Image key={src} src={src} alt="" width={72} height={72} className="w-9 h-9 rounded-full object-cover object-top ring-2 ring-[#f3f1ff]" />
               ))}
             </div>
             <p className="text-sm text-slate-600">Talk to the HOD who’ll teach you</p>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Check, MapPin, ChevronDown } from 'lucide-react';
 import PageHeader from '@/components/ui/PageHeader';
@@ -109,7 +110,7 @@ export default function LocalLanding({ slug }) {
             {faculty.map((f, i) => (
               <article key={f.name} className="rounded-[28px] bg-white p-2 border border-slate-200/70">
                 <div className={`h-full rounded-[22px] ${TINTS[i % 3]} p-6 flex gap-4`}>
-                  <img src={f.image} alt={`${f.alternateName}, ${f.jobTitle} at BM Classes Gurugram`} className="w-16 h-16 rounded-2xl object-cover object-top shrink-0" loading="lazy" />
+                  <Image src={f.image} alt={`${f.alternateName}, ${f.jobTitle} at BM Classes Gurugram`} className="w-16 h-16 rounded-2xl object-cover object-top shrink-0" width={128} height={128} />
                   <div>
                     <h3 className="font-heading font-bold text-xl tracking-[-0.02em] text-slate-950">{f.alternateName}</h3>
                     <p className="text-xs font-semibold text-slate-500 mt-0.5">{f.jobTitle}</p>

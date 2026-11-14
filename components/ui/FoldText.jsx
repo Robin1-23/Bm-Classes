@@ -20,12 +20,11 @@ const FoldText = ({
 
   return (
     <span className={`fold-text ${className}`.trim()} style={rootStyle}>
-      <span className="fold-text-sr-only">{text}</span>
-      <span aria-hidden="true">
-        {text.split('\n').map((line, i) => (
-          <span className="fold-text-line" key={i}>{line}</span>
-        ))}
-      </span>
+      {/* One copy of the text: a hidden sr-only duplicate made crawlers and AI extractors read every heading twice.
+          The trailing space keeps words apart when the block lines are read as plain text. */}
+      {text.split('\n').map((line, i) => (
+        <span className="fold-text-line" key={i}>{line} </span>
+      ))}
     </span>
   );
 };

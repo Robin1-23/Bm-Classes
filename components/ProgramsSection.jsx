@@ -56,7 +56,7 @@ function CourseCard({ course, onApply, onPoster }) {
 
       <div className="flex items-center gap-3 px-3 sm:px-4 py-3.5">
         {course.faces && (
-          <img src={course.faces[0]} alt="" loading="lazy" decoding="async" className="w-10 h-10 rounded-full object-cover object-top ring-2 ring-white shrink-0" />
+          <Image src={course.faces[0]} alt="" width={80} height={80} className="w-10 h-10 rounded-full object-cover object-top ring-2 ring-white shrink-0" />
         )}
         <div className="min-w-0">
           <p className="text-sm font-semibold text-slate-900 leading-tight">{course.teacher ? `By ${course.teacher}` : 'BM Classes'}</p>

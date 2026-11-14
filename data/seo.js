@@ -99,6 +99,8 @@ export const FAQ = [
 
 const abs = (path) => (path.startsWith('http') ? path : `${SITE_URL}${path}`);
 
+const OG_IMAGE = { url: '/opengraph-image', width: 1200, height: 630, alt: 'BM Classes: IIT JEE & NEET coaching in Sector 45, Gurugram' };
+
 export function organizationJsonLd() {
   return {
     '@context': 'https://schema.org',
@@ -122,10 +124,15 @@ export function organizationJsonLd() {
     },
     geo: { '@type': 'GeoCoordinates', latitude: BUSINESS.lat, longitude: BUSINESS.lng },
     hasMap: BUSINESS.googleProfile,
+    openingHours: 'Mo-Su 08:00-20:00',
     department: CENTRES.slice(1).map((c) => ({
-      '@type': 'EducationalOrganization',
+      '@type': ['EducationalOrganization', 'LocalBusiness'],
+      '@id': `${SITE_URL}/#centre-${c.id}`,
       name: `BM Classes, ${c.name} centre`,
+      url: `${SITE_URL}/contact`,
       telephone: BUSINESS.phone,
+      openingHours: 'Mo-Su 08:00-20:00',
+      hasMap: c.maps,
       address: { '@type': 'PostalAddress', streetAddress: c.address, addressLocality: 'Gurugram', addressRegion: 'Haryana', addressCountry: 'IN' },
       parentOrganization: { '@id': `${SITE_URL}/#organization` },
     })),
@@ -187,7 +194,11 @@ export function courseJsonLd(c) {
       '@type': 'CourseInstance',
       courseMode: c.mode.startsWith('Online') && !c.mode.includes('offline') ? 'online' : 'blended',
       ...(c.startISO ? { startDate: c.startISO } : {}),
-      location: CENTRES.map((centre) => ({ '@type': 'Place', name: `BM Classes, ${centre.name}`, address: centre.address })),
+      location: CENTRES.map((centre) => ({
+        '@type': 'Place',
+        name: `BM Classes, ${centre.name}`,
+        address: { '@type': 'PostalAddress', streetAddress: centre.address, addressLocality: 'Gurugram', addressRegion: 'Haryana', addressCountry: 'IN' },
+      })),
     },
     ...(c.poster ? { image: abs(c.poster) } : {}),
   };
@@ -235,7 +246,8 @@ export function pageMetadata({ title, description, path }) {
     title,
     description,
     alternates: { canonical: path },
-    openGraph: { title, description, url: abs(path), siteName: 'BM Classes', locale: 'en_IN', type: 'website' },
-    twitter: { card: 'summary_large_image', title, description },
+    // Setting openGraph here replaces the root one, so the shared card image must be repeated.
+    openGraph: { title, description, url: abs(path), siteName: 'BM Classes', locale: 'en_IN', type: 'website', images: [OG_IMAGE] },
+    twitter: { card: 'summary_large_image', title, description, images: [OG_IMAGE.url] },
   };
 }

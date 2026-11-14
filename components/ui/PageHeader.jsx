@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ChevronRight, ArrowRight, Phone } from 'lucide-react';
 import { CENTER_INFO } from '@/data/contentData';
@@ -32,7 +33,7 @@ export default function PageHeader({
           {badgeText && <p className="mt-6 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-700">{badgeText}</p>}
           <h1 className="font-heading font-extrabold text-[2.6rem] sm:text-6xl lg:text-[4.2rem] tracking-[-0.035em] leading-[1.02] text-slate-950 mt-3">
             {title}
-            {soft && <span className="block text-slate-400">{soft}</span>}
+            {soft && <> <span className="block text-slate-400">{soft}</span></>}
           </h1>
           {subtitle && <p className="text-base sm:text-lg text-slate-600 leading-relaxed mt-5 max-w-xl">{subtitle}</p>}
           <div className="flex flex-wrap gap-3 mt-8">
@@ -67,7 +68,7 @@ export default function PageHeader({
                 {wide.faces && (
                   <div className="flex -space-x-2.5 shrink-0">
                     {FACES.map((src) => (
-                      <img key={src} src={src} alt="" className="w-11 h-11 rounded-full object-cover object-top ring-2 ring-white" />
+                      <Image key={src} src={src} alt="" width={88} height={88} className="w-11 h-11 rounded-full object-cover object-top ring-2 ring-white" />
                     ))}
                   </div>
                 )}
