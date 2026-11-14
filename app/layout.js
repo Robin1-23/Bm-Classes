@@ -51,8 +51,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en-IN" className={`scroll-smooth ${outfit.variable} ${geist.variable}`} suppressHydrationWarning>
       <head>
-        {/* Apply the saved theme before first paint, so there is no light flash */}
-        <script dangerouslySetInnerHTML={{ __html: "try{if(localStorage.getItem('bm-theme')==='charcoal')document.documentElement.classList.add('theme-charcoal')}catch(e){}" }} />
+        {/* Theme before first paint (no flash): the visitor's saved choice, else their phone/computer setting */}
+        <script dangerouslySetInnerHTML={{ __html: "try{var t=localStorage.getItem('bm-theme');if(t==='charcoal'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('theme-charcoal')}catch(e){}" }} />
         <JsonLd data={organizationJsonLd()} />
         <JsonLd data={websiteJsonLd()} />
       </head>
