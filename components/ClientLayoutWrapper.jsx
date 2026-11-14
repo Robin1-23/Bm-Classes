@@ -30,7 +30,7 @@ function Shell({ children }) {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col overflow-x-hidden max-w-full w-full">
+    <div className={`min-h-screen flex flex-col overflow-x-hidden max-w-full w-full ${isAdmin ? '' : 'site'}`}>
       {!isAdmin && <Header />}
       <main className="flex-1 w-full max-w-full overflow-x-hidden">
         {children}

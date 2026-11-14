@@ -7,6 +7,7 @@ import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, ArrowRight, Sparkles } from 'lucide-react';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { useModal } from '@/context/ModalContext';
+import ThemeToggle from '@/components/ThemeToggle';
 
 export default function Header({ onOpenRegister }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -95,6 +96,7 @@ export default function Header({ onOpenRegister }) {
 
           {/* Right Side: Desktop Action Button & Mobile Menu Icon */}
           <div className="flex items-center gap-2 shrink-0">
+            <ThemeToggle />
             <button 
               onClick={() => handleRegister()}
               className="hidden lg:flex bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs px-5 py-2.5 rounded-full items-center gap-1.5 shadow-sm transition-all cursor-pointer"

@@ -49,8 +49,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en-IN" className={`scroll-smooth ${outfit.variable} ${geist.variable}`}>
+    <html lang="en-IN" className={`scroll-smooth ${outfit.variable} ${geist.variable}`} suppressHydrationWarning>
       <head>
+        {/* Apply the saved theme before first paint, so there is no light flash */}
+        <script dangerouslySetInnerHTML={{ __html: "try{if(localStorage.getItem('bm-theme')==='charcoal')document.documentElement.classList.add('theme-charcoal')}catch(e){}" }} />
         <JsonLd data={organizationJsonLd()} />
         <JsonLd data={websiteJsonLd()} />
       </head>
